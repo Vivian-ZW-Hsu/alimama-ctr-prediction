@@ -1,0 +1,39 @@
+# macOS and editors
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.ipynb_checkpoints/
+*.egg-info/
+.pytest_cache/
+
+# Environments
+.venv/
+venv/
+env/
+
+# Raw and generated data
+data/
+
+# Large model and prediction artifacts
+artifacts/models/
+artifacts/predictions/
+artifacts/encoders/mappings/
+checkpoints/
+*.joblib
+*.pkl
+*.pt
+*.pth
+*.ckpt
+*.npy
+
+# Temporary experiment outputs
+results/logistic_regression_smoke/
+
+# Local legacy backups
+*_old_pre*
