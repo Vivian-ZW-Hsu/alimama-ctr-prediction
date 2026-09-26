@@ -1,0 +1,16 @@
+{
+  "split": "val",
+  "computed_after_configuration_selection": true,
+  "tokens_per_condition": 13852168,
+  "impression_weighted_category_total_variation": 0.04927582454963007,
+  "mean_event_age_days": {
+    "matched": 2.5315244869204,
+    "mismatched": 2.6890455704248284
+  },
+  "activity_bucket_mismatch_rows": 0,
+  "nonempty_exposure_weighted_past_activity_mean": {
+    "matched": 194.65339168510016,
+    "mismatched": 146.1203702611125
+  },
+  "limitation": "Exact length and activity bucket are controlled; impression-weighted category popularity, age and within-bucket activity need not be identical. This is not a complete causal adjustment."
+}

@@ -25,6 +25,12 @@ violation count, per the user's stronger constraint. The initial search holds
 L=20 fixed and compares only the two predeclared learning rates; additional length
 experiments are optional, not necessary to complete this authorized stage.
 
+**Stage B/C completion:** F4 construction/audits and validation-only selection
+are now complete. The common frozen configuration is L=20, LR=5e-4; 12 checkpoints
+cover mean/attention x matched/mismatched x seeds 42/2026/3407. Read
+[DIN_F4_VALIDATION.md](DIN_F4_VALIDATION.md) and its linked freeze/audit manifests
+before further work. The first formal sequence test remains explicitly gated.
+
 ## 1. Charter, scope, and evidence
 
 The long-term charter is [CTR_CODEX_PROJECT_HANDOFF.md](CTR_CODEX_PROJECT_HANDOFF.md).

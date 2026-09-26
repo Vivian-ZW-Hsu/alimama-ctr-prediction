@@ -1,0 +1,86 @@
+{
+  "preregistration_sha256": "4174237091e973379a5b90ca07e46e01cbe6d51bce1cad9e168d4a32f223cd8d",
+  "criterion": "paired validation LogLoss",
+  "selected_learning_rate": 0.0005,
+  "max_length": 20,
+  "candidates": [
+    {
+      "learning_rate": 0.0005,
+      "paired_validation_logloss": 0.18977165372963622
+    },
+    {
+      "learning_rate": 0.0002,
+      "paired_validation_logloss": 0.18978872313366876
+    }
+  ],
+  "runs": [
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s42_v1",
+      "pooling": "mean",
+      "source": "matched",
+      "learning_rate": 0.0005,
+      "seed": 42,
+      "best_epoch": 1,
+      "split": "val",
+      "rows": 3234051,
+      "clicks": 159437,
+      "positive_rate": 0.049299469921779214,
+      "mean_prediction": 0.050997599959373474,
+      "auc": 0.6506463944122196,
+      "log_loss": 0.1897715111226525,
+      "pr_auc": 0.08783463386284696,
+      "brier_score": 0.046193405985832214
+    },
+    {
+      "run_name": "seq_attention_matched_l20_lr500_s42_v1",
+      "pooling": "attention",
+      "source": "matched",
+      "learning_rate": 0.0005,
+      "seed": 42,
+      "best_epoch": 1,
+      "split": "val",
+      "rows": 3234051,
+      "clicks": 159437,
+      "positive_rate": 0.049299469921779214,
+      "mean_prediction": 0.05101289227604866,
+      "auc": 0.650650219538363,
+      "log_loss": 0.18977179633661997,
+      "pr_auc": 0.08782832243970852,
+      "brier_score": 0.046193525195121765
+    },
+    {
+      "run_name": "seq_mean_matched_l20_lr200_s42_v1",
+      "pooling": "mean",
+      "source": "matched",
+      "learning_rate": 0.0002,
+      "seed": 42,
+      "best_epoch": 1,
+      "split": "val",
+      "rows": 3234051,
+      "clicks": 159437,
+      "positive_rate": 0.049299469921779214,
+      "mean_prediction": 0.05082933232188225,
+      "auc": 0.650426354464033,
+      "log_loss": 0.18978820376005437,
+      "pr_auc": 0.08767711142027867,
+      "brier_score": 0.0461953729391098
+    },
+    {
+      "run_name": "seq_attention_matched_l20_lr200_s42_v1",
+      "pooling": "attention",
+      "source": "matched",
+      "learning_rate": 0.0002,
+      "seed": 42,
+      "best_epoch": 1,
+      "split": "val",
+      "rows": 3234051,
+      "clicks": 159437,
+      "positive_rate": 0.049299469921779214,
+      "mean_prediction": 0.05082090571522713,
+      "auc": 0.6504179588841054,
+      "log_loss": 0.18978924250728316,
+      "pr_auc": 0.08766780584788866,
+      "brier_score": 0.046195536851882935
+    }
+  ]
+}

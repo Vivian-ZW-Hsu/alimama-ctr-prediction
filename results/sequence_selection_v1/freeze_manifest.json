@@ -1,0 +1,223 @@
+{
+  "complete": true,
+  "test_authorized": false,
+  "test_inference_performed": false,
+  "preregistration_sha256": "4174237091e973379a5b90ca07e46e01cbe6d51bce1cad9e168d4a32f223cd8d",
+  "selection_sha256": "31fcdb77bceb4f9dc265a1535861e58fd59c758b08093a3a6e25103c33ae69df",
+  "cache_manifest_sha256": "883cb216a0c3126b64b962244e96769fed6d8d0633b9631496516eb0482a16bf",
+  "f4_manifest_sha256": "ff0734f90afc6ed7ce18cf56bbf55c15410708fb6095296f2ef18040105cc2d8",
+  "base_model_sha256": "eae08d630ea8c9823b271e85554472ecb42ca7183ea9f5b3f4a1f2b47b220f39",
+  "base_scaler_sha256": "516435973cd9d40af646252a5162d142c386f498d19c15fa28e09869585ed5d1",
+  "selected_learning_rate": 0.0005,
+  "max_length": 20,
+  "seed_list": [
+    42,
+    2026,
+    3407
+  ],
+  "configuration": {
+    "phase": "validation_only_before_first_sequence_test",
+    "cache_run": "sequence_context_v1",
+    "pilot_run": "sequence_attention_pilot_v1",
+    "pilot_full_epoch_seconds": 17.087532416917384,
+    "pilot_peak_rss_bytes": 1733443584,
+    "pilot_validation_scored": false,
+    "max_length": 20,
+    "length_search": "None; retain initial L=20 for this bounded first study",
+    "learning_rates": [
+      0.0005,
+      0.0002
+    ],
+    "poolings": [
+      "mean",
+      "attention"
+    ],
+    "sources": [
+      "matched",
+      "mismatched"
+    ],
+    "selection_seed": 42,
+    "final_seeds": [
+      42,
+      2026,
+      3407
+    ],
+    "batch_size": 4096,
+    "max_epochs": 4,
+    "patience": 2,
+    "dropout": 0.3,
+    "weight_decay": 1e-05,
+    "optimizer": "AdamW",
+    "residual_hidden_dims": [
+      64,
+      32
+    ],
+    "attention_hidden_dim": 32,
+    "selection_rule": "Common learning rate minimizes mean of the two matched poolings' best validation LogLoss at seed 42; exact ties prefer 0.0005",
+    "epoch_rule": "Each run uses its minimum validation LogLoss epoch; exact ties prefer earlier epoch",
+    "mismatch_rule": "Inherit common selected configuration, no independent search",
+    "mismatch_seed": 20260926,
+    "mismatch_activity_bins": [
+      "1..99",
+      ">=100"
+    ],
+    "context": "Frozen original seed-42 DeepFM F123 model and scaler; not retrained",
+    "time_assumption": "Exposure timestamp proxies positive record time; feedback available next Beijing date, source date strictly before target date; no independent click timestamp",
+    "budget_seconds": 21600,
+    "max_search_runs": 4,
+    "max_total_unique_training_runs_excluding_pilot": 14,
+    "estimated_training_upper_seconds": 960,
+    "estimated_total_minutes": 30,
+    "test_authorized": false,
+    "test_gate": "Stop after committing frozen configuration, all selected checkpoints and validation evidence; no sequence test inference",
+    "planned_comparisons": [
+      "matched mean minus frozen baseline",
+      "matched attention minus frozen baseline",
+      "matched attention minus matched mean",
+      "matched minus mismatched within each pooling"
+    ],
+    "calibration_plan": "After separate test authorization, retain historical validation impression-hash 80/20 method selection between Platt and isotonic and full-validation refit; never use test to choose method",
+    "inference_plan": "Evaluate the already selected checkpoints for all three seeds once; do not retrain on train+validation or revise configuration after test",
+    "history_length_bins_raw": [
+      "0",
+      "1",
+      "2-5",
+      "6-10",
+      "11-20",
+      ">20"
+    ],
+    "statistical_claims": "Three residual seeds conditional on one frozen DeepFM checkpoint; validation selection is not an unbiased held-out estimate; paired user bootstrap deferred"
+  },
+  "checkpoints": [
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s42_v1",
+      "seed": 42,
+      "pooling": "mean",
+      "source": "matched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "3fc15006abc2fd823b0bad2def0350e30e56b8552a9e9a93764d4d220c4296f3",
+      "validation_prediction_sha256": "d0fe398bce3fec4779ef2a6c594447e06866f0c534ed961be06e8c89ff5d2412",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_mean_mismatched_l20_lr500_s42_v1",
+      "seed": 42,
+      "pooling": "mean",
+      "source": "mismatched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "2560e10442ffdb7defd73131ce1bbd17f98dc5798abad895b9aa3f4637339dcd",
+      "validation_prediction_sha256": "00a78051fde53dae60c472f4bd3de7ad48c27d886941499861d133448200a8e0",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_attention_matched_l20_lr500_s42_v1",
+      "seed": 42,
+      "pooling": "attention",
+      "source": "matched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "e99288c2e295eaf901552611eb040d91fa00b2f8504d522242455e8c93ec7b00",
+      "validation_prediction_sha256": "671f059d27125c399ae2bae258ec60e3baf8a6459e4044fb5053719ccac74dc2",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_attention_mismatched_l20_lr500_s42_v1",
+      "seed": 42,
+      "pooling": "attention",
+      "source": "mismatched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "913b28866dbe11ef253df295ef57fe6456c7788701909ec8b0220459c4389317",
+      "validation_prediction_sha256": "629c2a1a08e9c6d04416a042eb3026188c39d35d96c69bea9ca24177331a6b3b",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s2026_v1",
+      "seed": 2026,
+      "pooling": "mean",
+      "source": "matched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "0cdc64428b1cc0505c7236fecbea9b950cb544304d0c4f5644769f1e86b97de2",
+      "validation_prediction_sha256": "9b8259b6bb23e0ef9a03f97ccdb46c03bd42f51ea2f8e2d3a532a03d877abde7",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_mean_mismatched_l20_lr500_s2026_v1",
+      "seed": 2026,
+      "pooling": "mean",
+      "source": "mismatched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "6d18db950ba1559b8036cf6f26d48012f8bf3b0a8cd1ff774e354d674e515c00",
+      "validation_prediction_sha256": "cc277267e0adbb4a1ab610929c2f00c43a0341aae1890ec2ac7d014ace97b076",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_attention_matched_l20_lr500_s2026_v1",
+      "seed": 2026,
+      "pooling": "attention",
+      "source": "matched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "98f9b11d6d0de968d29b57fbd890d3849ac38abd10736287ca8fbca6c585162b",
+      "validation_prediction_sha256": "b918e8a30a88990cba43b67bd551896493b5b7c11cfdbeda2cd116a0f16ed4bf",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_attention_mismatched_l20_lr500_s2026_v1",
+      "seed": 2026,
+      "pooling": "attention",
+      "source": "mismatched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "86855d677e3f501a1782f50143daf3f8c8e32727c1f036c78c76908c0e0a5779",
+      "validation_prediction_sha256": "dfa9c09d6eb1e5d39c1629ae79b88fda86b6d3a8bb6d60f7c9b69806b03907b5",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s3407_v1",
+      "seed": 3407,
+      "pooling": "mean",
+      "source": "matched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "676ea66c3ade6981457803a70348c53f4cc972b746d9e0f6d76ae7bba813b6b4",
+      "validation_prediction_sha256": "d48c04edf70506a22c1f5b824017c4a6af043f5659d008d18fb12e742b70fcea",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_mean_mismatched_l20_lr500_s3407_v1",
+      "seed": 3407,
+      "pooling": "mean",
+      "source": "mismatched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "faf2c803ba6540847aac775034f2a17f5c267f1d27fc94feb1f99d2336eb6331",
+      "validation_prediction_sha256": "b76e8fdd5d076e6e1bdc1b5c7367d6a017ce84aa06fd9ea9dd428f9648d7d914",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_attention_matched_l20_lr500_s3407_v1",
+      "seed": 3407,
+      "pooling": "attention",
+      "source": "matched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "17d149b3656235a8ee8300fdecb127643e07b81fd8b5c63ccdd7095e9fd6ab9a",
+      "validation_prediction_sha256": "093e438aa7c50d2b79221afdfcadb77e1ee51f5169b39bc529f048e60215ba50",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "seq_attention_mismatched_l20_lr500_s3407_v1",
+      "seed": 3407,
+      "pooling": "attention",
+      "source": "mismatched",
+      "best_epoch": 1,
+      "checkpoint_sha256": "23b66be68ae2b2b7529d0397394a174fe01102d68e44fa791df2942482623893",
+      "validation_prediction_sha256": "c71a838c4143dc3a39b21e2f2f8942ca036dd56530394302ab416872bed881a6",
+      "reload_prediction_max_error": 0.0
+    }
+  ],
+  "unique_training_runs": 14,
+  "code_sha256": {
+    "sequence_ctr.py": "6c6c969244be67bb01c78f907a7f758368f5e482cf9fa16750872c9c1a92b3a2",
+    "ctr_nn_common.py": "dc9e1a5ff72cc90b79b56fe26bba049d81ac7a27277cbe9e3301f3b95641927b",
+    "22_train_sequence_ctr.py": "905969c278086cd1048a1de4e5c7e50205c66d0cb1406c5594e8a8ebb724639e",
+    "23_select_sequence_configuration.py": "1f36b70729e5cc46f414818e5a2729d9e456b8152d121da258943d8679992097",
+    "10_evaluate_predictions.py": "1618ce857b31926c51668ff2521e4e04a34a7f1154affcaf57d8f30c5a8d12a4"
+  },
+  "execution_seconds_this_invocation": 859.4569259160198,
+  "next_gate": "User approval required before the first formal sequence test. No further tuning."
+}

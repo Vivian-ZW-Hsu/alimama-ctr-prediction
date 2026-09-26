@@ -1,0 +1,12 @@
+{
+  "model": "seq_attention_matched_l20_lr500_s2026_v1",
+  "split": "val",
+  "rows": 3234051,
+  "clicks": 159437,
+  "positive_rate": 0.049299469921779214,
+  "mean_prediction": 0.050901997834444046,
+  "auc": 0.6506132928871293,
+  "log_loss": 0.18977145659110067,
+  "pr_auc": 0.08778198574414986,
+  "brier_score": 0.04619332402944565
+}

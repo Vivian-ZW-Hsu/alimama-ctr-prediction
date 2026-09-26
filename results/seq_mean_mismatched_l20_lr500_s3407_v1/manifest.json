@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "run_name": "seq_mean_mismatched_l20_lr500_s3407_v1",
+  "smoke": false,
+  "pilot": false,
+  "prediction_splits": [
+    "val"
+  ],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 3234051,
+  "best_epoch": 1,
+  "best_validation_logloss": 0.18979489805436917,
+  "parameter_count": 57297,
+  "elapsed_seconds": 49.8125430829823,
+  "peak_rss_bytes_macos": 2798583808,
+  "mps_driver_allocated_bytes": 69943296,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "58726767b1947f1f7aed2b2d7c3f3d443cd7958af3634472827838a3b5391c22",
+  "output_sha256": {
+    "artifacts/models/seq_mean_mismatched_l20_lr500_s3407_v1/best_model.pt": "faf2c803ba6540847aac775034f2a17f5c267f1d27fc94feb1f99d2336eb6331",
+    "artifacts/predictions/seq_mean_mismatched_l20_lr500_s3407_v1/val_predictions.parquet": "b76e8fdd5d076e6e1bdc1b5c7367d6a017ce84aa06fd9ea9dd428f9648d7d914"
+  }
+}

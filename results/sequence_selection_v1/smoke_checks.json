@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "smoke_only": true,
+  "mean_replay_bit_identical": true,
+  "runs": [
+    {
+      "run_name": "sequence_mean_v1_smoke",
+      "manifest_sha256": "17fae5acaac45bcdf40e9c3bba3f27efba23f3a62e7523a3b70570ad5f05325d",
+      "validation_predictions_sha256": "4e60dd18e3ff7a82971e29513640ee14bb3e51e7818ad3ce57bdc3da40c0cb28",
+      "neutral_reserved_rows": true,
+      "empty_residual_exact_zero": true
+    },
+    {
+      "run_name": "sequence_mean_repeat_v1_smoke",
+      "manifest_sha256": "c5a9c40b34cc65ea70e247cff240989c7e280096b45daf4a3f2e879f34a32110",
+      "validation_predictions_sha256": "4e60dd18e3ff7a82971e29513640ee14bb3e51e7818ad3ce57bdc3da40c0cb28",
+      "neutral_reserved_rows": true,
+      "empty_residual_exact_zero": true
+    },
+    {
+      "run_name": "sequence_attention_v1_smoke",
+      "manifest_sha256": "ea40a0111ce37f4fdcdafdc3f5cd8678e77844b2a7f05eb125fcec9ec6c93e8e",
+      "validation_predictions_sha256": "cce63010cccaf14fd2b001a699ca8dac19b681f4efdbb0e9b5df3b2b836b3015",
+      "neutral_reserved_rows": true,
+      "empty_residual_exact_zero": true
+    }
+  ],
+  "unit_tests_passed": 9,
+  "unit_command": "python -B -m unittest discover -s tests -v",
+  "unit_coverage": [
+    "strict time boundary",
+    "deterministic donors and fallback failure",
+    "neutral PAD/UNKNOWN gradients",
+    "exact-zero empty residual after nonzero head",
+    "padding invariance",
+    "attention candidate dependence",
+    "identical shared head initialization",
+    "validation-only evaluator without test files",
+    "paired common-LR selection and tie break"
+  ]
+}

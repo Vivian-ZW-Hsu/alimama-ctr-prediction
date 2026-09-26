@@ -1,0 +1,18 @@
+{
+  "python": "3.11.16",
+  "executable": "/opt/anaconda3/envs/ctr_project/bin/python",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "hardware": "Apple M4 Max",
+  "memory_bytes": 51539607552,
+  "packages": {
+    "torch": "2.13.0",
+    "polars": "1.44.2",
+    "pyarrow": "25.0.0",
+    "numpy": "2.4.6",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.17.1",
+    "joblib": "1.6.0",
+    "lightgbm": "4.7.0"
+  },
+  "requirements_deviation": "Historical requirements.txt excludes installed pyarrow25 and omits torch/lightgbm; this records the actual tested environment without reinstalling or altering it."
+}

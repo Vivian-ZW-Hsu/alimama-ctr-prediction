@@ -27,7 +27,8 @@ Point-in-time rules:
 
 ## Current Pipeline
 
-Run from the repository root:
+Historical pipeline entry points (run from the repository root). Existing
+formal artifacts are immutable; do not rerun completed models as a setup step.
 
 ```bash
 python src/01_validate_raw.py
@@ -54,6 +55,13 @@ python src/09_diagnose_lr_calibration.py
 | 07 | build train-only encodings and model inputs |
 | 08 | train the out-of-core Logistic Regression baseline |
 | 09 | diagnose ranking and probability calibration |
+| 10 | shared evaluator; `--splits val` supports selection before the test gate |
+| 11–12 | build completed-day click feedback F3 and common F123 inputs |
+| 14 | validation-selected probability calibration |
+| 15–16 | completed LightGBM, Wide & Deep and DeepFM baselines |
+| 19–20 | audited daily positive-click category histories and mismatch controls |
+| 21–22 | frozen DeepFM context cache and validation-only sequence residual training |
+| 23–24 | preregistered paired selection, checkpoint freeze and validation audit |
 
 ## Repository Layout
 
@@ -73,17 +81,22 @@ Large datasets, mapping tables, trained models, and predictions are not committe
 - **F1 — Static/context:** user, ad, category, campaign, advertiser, brand, placement, user profile, price, hour, and validated calendar features.
 - **F2 — Historical behavior:** leakage-free page-view, favorite, cart, purchase, and recency features over 1/3/7/14-day windows.
 - **F3 — Past-only click feedback:** smoothed historical click statistics using only dates before the prediction date.
-- **F4 — Behavior sequence:** timestamp-valid category, brand, action, and time-gap histories.
+- **F4 — Positive-click category sequence:** ordered last 20 categories from positive exposures on completed Beijing dates strictly before the target date. Exposure timestamp proxies the positive-record time; feedback is assumed available next day. No independent click timestamp is available. Train-only category vocabulary, neutral PAD/UNKNOWN, and exact-zero empty-history residuals.
 
-## Planned Models
+## Models
 
 - Logistic Regression
 - LightGBM
 - Wide & Deep
 - DeepFM
-- DIN
+- DIN-style target attention and mean pooling on frozen DeepFM context
 
-LR and LightGBM measure F1/F2/F3 information gain. LR, LightGBM, Wide & Deep, DeepFM, and a sequence-free DIN backbone are compared under a common observable-information budget. DIN sequence variants are evaluated separately because they receive additional sequential information.
+LR has F1/F2/F3 ablations. The four completed tabular families share F123 for
+their model-family comparison; LightGBM F1/F12 ablations remain outstanding.
+The sequence study adds F4 through a trainable residual on the existing frozen
+DeepFM checkpoint, comparing mean/attention and matched/mismatched histories.
+It tests incremental sequence information, not a reproduction of original DIN
+or a new fair-input tabular architecture ranking.
 
 ## Evaluation
 
@@ -91,10 +104,23 @@ Core evaluation includes LogLoss, AUC, GAUC, PR-AUC, COPC, reliability curves, c
 
 Post-training Platt scaling and isotonic regression are fitted on validation predictions and evaluated on the frozen test date. Calibration improvement is reported separately from ranking improvement.
 
-See [`docs/EXPERIMENTAL_PROTOCOL.md`](docs/EXPERIMENTAL_PROTOCOL.md) for the fixed experimental plan.
+The long-term charter is [`CTR_CODEX_PROJECT_HANDOFF.md`](docs/CTR_CODEX_PROJECT_HANDOFF.md).
+The historical [`EXPERIMENTAL_PROTOCOL.md`](docs/EXPERIMENTAL_PROTOCOL.md) contains
+deviations documented in the [F4 design audit](docs/DIN_F4_DESIGN.md).
 
 ## Current Status
 
-The point-in-time preprocessing and common tabular model-input pipeline are complete. The LR baseline has been stabilized: the discrete weekday feature was removed because the validation weekday was absent from training. The next phase builds the shared evaluator, followed by past-only CTR features.
+F123 preprocessing, four tabular families, shared evaluation, calibration and
+cold-start diagnostics are complete for the existing formal runs. The completed
+models are not being retuned. The F4 full build passed exact ID/label, time,
+identity, deterministic mismatch and original-source audits on 26,557,961 rows.
+Sequence training and selection use train/validation only; **the first formal
+sequence test requires separate approval**. See the [execution record](docs/DIN_F4_EXECUTION.md)
+and [preregistered selection rules](results/sequence_selection_v1/preregistration.json).
+Validation-only selection is complete: L=20, LR=5e-4, 12 frozen checkpoints across
+four conditions and three seeds. [Results and the first-test gate](docs/DIN_F4_VALIDATION.md)
+document the small matched-history gain and the lack of clear attention advantage.
+Large new caches, checkpoints and predictions remain local and Git-ignored;
+committed manifests bind them by SHA256.
 
 Previous outputs are preserved on the `archive/v1-original` branch and are not used as evidence for this rebuilt pipeline.

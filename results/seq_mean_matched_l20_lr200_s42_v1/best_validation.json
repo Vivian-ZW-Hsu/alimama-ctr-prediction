@@ -1,0 +1,12 @@
+{
+  "model": "seq_mean_matched_l20_lr200_s42_v1",
+  "split": "val",
+  "rows": 3234051,
+  "clicks": 159437,
+  "positive_rate": 0.049299469921779214,
+  "mean_prediction": 0.05082933232188225,
+  "auc": 0.650426354464033,
+  "log_loss": 0.18978820376005437,
+  "pr_auc": 0.08767711142027867,
+  "brier_score": 0.0461953729391098
+}

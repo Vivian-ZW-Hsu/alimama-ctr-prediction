@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "run_name": "seq_attention_matched_l20_lr500_s3407_v1",
+  "smoke": false,
+  "pilot": false,
+  "prediction_splits": [
+    "val"
+  ],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 3234051,
+  "best_epoch": 1,
+  "best_validation_logloss": 0.18977594639868917,
+  "parameter_count": 58386,
+  "elapsed_seconds": 59.66826616600156,
+  "peak_rss_bytes_macos": 3014197248,
+  "mps_driver_allocated_bytes": 1147879424,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "6329ae530b636f505f9f8d3045d7c3368ef870ce8658fd750426f957719d874c",
+  "output_sha256": {
+    "artifacts/models/seq_attention_matched_l20_lr500_s3407_v1/best_model.pt": "17d149b3656235a8ee8300fdecb127643e07b81fd8b5c63ccdd7095e9fd6ab9a",
+    "artifacts/predictions/seq_attention_matched_l20_lr500_s3407_v1/val_predictions.parquet": "093e438aa7c50d2b79221afdfcadb77e1ee51f5169b39bc529f048e60215ba50"
+  }
+}

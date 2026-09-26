@@ -40,6 +40,27 @@ class SequenceTests(unittest.TestCase):
         got=gather_tokens(categories,np.array([1,0,3]),np.array([2,0,2]),4)
         np.testing.assert_array_equal(got,[[2,7,0,0],[0,0,0,0],[1,4,0,0]])
 
+    def test_attention_is_candidate_conditioned_and_shared_head_initialization(self):
+        embedding=torch.tensor([[0.,0.],[0.,0.],[1.,0.],[0.,1.]])
+        torch.manual_seed(42)
+        mean=SequenceResidual(embedding,'mean',0.)
+        torch.manual_seed(42)
+        attention=SequenceResidual(embedding,'attention',0.)
+        for left,right in zip(mean.head.parameters(),attention.head.parameters()):
+            torch.testing.assert_close(left,right,rtol=0,atol=0)
+        # Make score explicitly use query[0] * history[0], then verify pooling
+        # changes with the candidate even though the history stays identical.
+        with torch.no_grad():
+            for parameter in attention.attention.parameters():parameter.zero_()
+            attention.attention[0].weight[0,6]=1.
+            attention.attention[2].weight[0,0]=1.
+        history=torch.tensor([[2,3,0],[2,3,0]])
+        candidates=torch.tensor([2,3])
+        _,pooled,_=attention.representation(candidates,history)
+        self.assertGreater(pooled[0,0].item(),pooled[1,0].item())
+        _,mean_pooled,_=mean.representation(candidates,history)
+        torch.testing.assert_close(mean_pooled[0],mean_pooled[1],rtol=0,atol=0)
+
 
 if __name__=='__main__':
     unittest.main()

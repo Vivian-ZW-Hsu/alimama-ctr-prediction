@@ -67,7 +67,7 @@ python -B src/19_build_f4_click_sequences.py --run-name f4_click_daily_v1 --smok
 python -B src/20_audit_f4_sequences.py --run-name f4_click_daily_v1
 ```
 
-## Stage C — in progress
+## Stage C — passed; stopped before first formal test
 
 Reuse the tabular implementation via a read-only adapter, without editing its
 training script. Cache frozen DeepFM logits for train/validation only, asserting
@@ -101,3 +101,24 @@ poolings, then run inherited matched/mismatched conditions for seeds 42/2026/340
 At most 14 unique runs x 4 epochs, estimated under 30 minutes including shared
 evaluation, with the existing hard 6 machine-hour cap. All final checkpoints
 are chosen using validation and remain behind the formal test gate.
+
+Completed outcome: 14 unique validation-only runs, shared evaluator reports for
+all candidates, and 12 frozen checkpoints (four conditions x three seeds). All
+best epochs are 1. Selected common LR is 5e-4; mean/attention matched paired
+selection LogLoss is 0.1897716537 versus 0.1897887231 at 2e-4. Three-seed matched
+validation AUC is approximately 0.65062 and LogLoss 0.189774; attention is not
+clearly superior to mean. See [full analysis and recipe](DIN_F4_VALIDATION.md).
+
+Nine unit tests and repeated bit-identical mean smoke predictions pass. Every
+selected checkpoint reproduces its saved validation predictions exactly. The
+[independent freeze audit](../results/sequence_selection_v1/freeze_audit.json)
+confirms unchanged original input fingerprints/model/scaler, exact baseline
+predictions on all 1,030,633 empty-history validation rows for all 12 models,
+and absence of new test predictions. Validation-only history-length and control-
+balance diagnostics are saved after configuration selection.
+
+Full search/evaluation/reload took 859.46 seconds (14.32 min), peak training RSS
+2.81 GiB. [Freeze manifest](../results/sequence_selection_v1/freeze_manifest.json)
+binds the checkpoints, recipe and code. No calibration was fitted, no sequence
+test inference was run, and no test metric selected any setting. The next action
+requires the user's explicit first-test authorization; do not continue tuning.

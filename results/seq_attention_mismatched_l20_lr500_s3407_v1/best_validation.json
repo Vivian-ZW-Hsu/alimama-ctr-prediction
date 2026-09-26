@@ -1,0 +1,12 @@
+{
+  "model": "seq_attention_mismatched_l20_lr500_s3407_v1",
+  "split": "val",
+  "rows": 3234051,
+  "clicks": 159437,
+  "positive_rate": 0.049299469921779214,
+  "mean_prediction": 0.05085313320159912,
+  "auc": 0.6503054367743454,
+  "log_loss": 0.18979412284748476,
+  "pr_auc": 0.0876138664204959,
+  "brier_score": 0.04619620740413666
+}

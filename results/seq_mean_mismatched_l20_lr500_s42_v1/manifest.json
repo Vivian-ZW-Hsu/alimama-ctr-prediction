@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "run_name": "seq_mean_mismatched_l20_lr500_s42_v1",
+  "smoke": false,
+  "pilot": false,
+  "prediction_splits": [
+    "val"
+  ],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 3234051,
+  "best_epoch": 1,
+  "best_validation_logloss": 0.18979520425210591,
+  "parameter_count": 57297,
+  "elapsed_seconds": 49.76635575015098,
+  "peak_rss_bytes_macos": 2842656768,
+  "mps_driver_allocated_bytes": 69943296,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "e1f2e1a3cc8fde87e30a8355a9e15faef7a08c3dd3e5717a6560ccf621227328",
+  "output_sha256": {
+    "artifacts/models/seq_mean_mismatched_l20_lr500_s42_v1/best_model.pt": "2560e10442ffdb7defd73131ce1bbd17f98dc5798abad895b9aa3f4637339dcd",
+    "artifacts/predictions/seq_mean_mismatched_l20_lr500_s42_v1/val_predictions.parquet": "00a78051fde53dae60c472f4bd3de7ad48c27d886941499861d133448200a8e0"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "complete": true,
+  "run_name": "seq_attention_mismatched_l20_lr500_s3407_v1",
+  "smoke": false,
+  "pilot": false,
+  "prediction_splits": [
+    "val"
+  ],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 3234051,
+  "best_epoch": 1,
+  "best_validation_logloss": 0.18979412284748476,
+  "parameter_count": 58386,
+  "elapsed_seconds": 61.57998779183254,
+  "peak_rss_bytes_macos": 2925576192,
+  "mps_driver_allocated_bytes": 1147879424,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "29e9c322f854593fa9f3e2919a71d317cbdf74aedc8c4ad97fefa432731d4995",
+  "output_sha256": {
+    "artifacts/models/seq_attention_mismatched_l20_lr500_s3407_v1/best_model.pt": "23b66be68ae2b2b7529d0397394a174fe01102d68e44fa791df2942482623893",
+    "artifacts/predictions/seq_attention_mismatched_l20_lr500_s3407_v1/val_predictions.parquet": "c71a838c4143dc3a39b21e2f2f8942ca036dd56530394302ab416872bed881a6"
+  }
+}

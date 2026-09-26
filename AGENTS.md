@@ -12,6 +12,12 @@ smoke/audits, model pilot and validation-only tuning. Do not ask again for those
 actions. Stop after configuration selection and commit/push the freeze evidence
 BEFORE the first formal sequence test. No DIN test is currently authorized.
 
+Stages B/C are now validated and frozen. Read `docs/DIN_F4_VALIDATION.md` and
+`results/sequence_selection_v1/freeze_manifest.json` for the selected L=20,
+LR=5e-4 recipe and all 12 checkpoint hashes. No further sequence tuning is
+authorized after this freeze. Wait for explicit user authorization for the first
+formal test; retain the existing frozen checkpoints and completed artifacts.
+
 - Do not retune the four completed tabular model families.
 - Do not select features, cutoffs, hyperparameters, or fallbacks using test results.
 - Do not overwrite unarchived formal outputs or delete important data.

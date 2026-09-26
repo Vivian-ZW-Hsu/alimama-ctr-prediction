@@ -1,0 +1,12 @@
+{
+  "model": "seq_mean_mismatched_l20_lr500_s2026_v1",
+  "split": "val",
+  "rows": 3234051,
+  "clicks": 159437,
+  "positive_rate": 0.049299469921779214,
+  "mean_prediction": 0.050828397274017334,
+  "auc": 0.6502740105131963,
+  "log_loss": 0.18979694268671704,
+  "pr_auc": 0.08759484110616222,
+  "brier_score": 0.04619646444916725
+}
