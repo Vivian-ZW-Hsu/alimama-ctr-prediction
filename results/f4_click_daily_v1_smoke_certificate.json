@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "reproducible": true,
+  "runs": [
+    "f4_click_daily_v1_a_smoke",
+    "f4_click_daily_v1_b_smoke"
+  ],
+  "config": {
+    "version": 1,
+    "max_length": 20,
+    "seed": 20260926,
+    "smoke": true,
+    "activity_threshold": 100,
+    "inputs": {
+      "data/processed/base/train.parquet": {
+        "bytes": 583351529,
+        "mtime_ns": 1790128596430177361,
+        "sha256": "063428bda3081037c538cb21d0947c4094782880b799977484d4bd21db2c18f6"
+      },
+      "data/processed/base/val.parquet": {
+        "bytes": 100267312,
+        "mtime_ns": 1790128597148970718,
+        "sha256": "4a45c959b3e11a4fdfc84ba7ff61f60df2627170cb4631d0fbdb24660e92e842"
+      },
+      "data/processed/base/test.parquet": {
+        "bytes": 101940398,
+        "mtime_ns": 1790128597842100040,
+        "sha256": "b5b1d5425c3666ee6ab1323613199ddacc593dddb701e6864788f032ddf85442"
+      },
+      "data/processed/model_input_f3/train.parquet": {
+        "bytes": 1407545347,
+        "mtime_ns": 1790353202443789683,
+        "sha256": "2cfeda759cba5021592fc59739fd8be5257036cdd4d1fccfb34cd7f1343a9172"
+      },
+      "data/processed/model_input_f3/val.parquet": {
+        "bytes": 226583917,
+        "mtime_ns": 1790353202707430656,
+        "sha256": "231055cbd8edad4ba72b7f15cd354abafe5e532015be0c3b1a0aa2c87d787e5b"
+      },
+      "data/processed/model_input_f3/test.parquet": {
+        "bytes": 232327655,
+        "mtime_ns": 1790353202956106482,
+        "sha256": "94d374f5ad5801887000d8b3fefff186182a709d53619901bc37dcc82ee9f874"
+      },
+      "data/raw/raw_sample.csv": {
+        "bytes": 1088060964,
+        "mtime_ns": 1496887756000000000,
+        "sha256": "aad792d63b81b5b7788f91e35364975b83ce3fdb923009fdfb6f798545d2b93d"
+      },
+      "data/raw/ad_feature.csv": {
+        "bytes": 31286431,
+        "mtime_ns": 1496889385000000000,
+        "sha256": "358a298178a6286196b82fe151024c63f4b081cf7685f1ebf8ff4da776e3c745"
+      },
+      "artifacts/encoders/mappings/cate_id_raw_mapping.parquet": {
+        "bytes": 26749,
+        "mtime_ns": 1790303623230162369,
+        "sha256": "7ac174811639472e8998567608c9bcd3abb63c41da4250ffcf89af5b8e177b46"
+      }
+    },
+    "implementation_sha256": "752ef4390a8ed5d082206a10d0a4a020b73658b348ea189e132fa889be05e58b",
+    "library_sha256": "308b6d2528844c6e7eded1bca694875df8bdd73908038b4e2a004301b8535a4c"
+  },
+  "artifact_sha256": {
+    "events.parquet": "be801175238e2e5e72333e983e93632bbd1b2091486c5ec9986fe619c430b071",
+    "train_2017-05-06.parquet": "13abd477b25ce27f7b70fa7aae678a433b7fe677b32b1ce2bdb59f8c283c5fef",
+    "history_2017-05-06.parquet": "1d00c39e66f18ccc0d3f7b3485bbd035cca2c24b32e136c07bfd62f15939e7e7",
+    "train_2017-05-07.parquet": "0760f6a96fe5d962bd5fe6284f75e2f7b1dda25ed3a60227d8ad2aaa500fbed8",
+    "history_2017-05-07.parquet": "2a96555f99922ce94f1a5db692586515eeef1816582dabd009b2740230f4dce6",
+    "train_2017-05-08.parquet": "b2556260cb1422c1b30476aacdb2ab01ffa19f34faa1538ab11e7812b5815e17",
+    "history_2017-05-08.parquet": "78d59ff52369e7472b065dcd662508f861eb9d381d3274a80749556d0b0f11c5",
+    "train_2017-05-09.parquet": "e07ad21eceeac1e6f89aae1ac92da7b5bb4937e353255662f75a4131271f4c0d",
+    "history_2017-05-09.parquet": "9af2330a409d75ef8a55c3e79dc6909b1678a234484e0153a8907d1b903f7fd5",
+    "train_2017-05-10.parquet": "f726b44d3b4b12cb74d88c18fd02dcc0c4d7e860aa7f4d5ca1ea171f1a9d4d6a",
+    "history_2017-05-10.parquet": "17d56ce48cba8587d7e59799e45f1a8edcf9d468138471281faba7e2414d3f91",
+    "train_2017-05-11.parquet": "02a33cccddd28676edc266df82f89067e7bb02e1f38d69a6b8c092eb40763ec1",
+    "history_2017-05-11.parquet": "412df06a90d6e1cd31d066fd2313fba744b560bc28307d57050c2bd3e2b718cd",
+    "val_2017-05-12.parquet": "72fbe40b113880a25de780b3097c3e93df36561acdc8e95a7639721cd4161646",
+    "history_2017-05-12.parquet": "d110edffbbc92742f3de176e1e4991e29754d575d10691fe3db048ebfa3ac211",
+    "test_2017-05-13.parquet": "eaf3da8401dcb7b654bbc4ee1081c18d9ff8aaad5603d3cd4e61a6d530677c96",
+    "history_2017-05-13.parquet": "0b6f945ba390b1c2268d10c5f0bc2cfd47acb309842ba586b6319a49fdd84902"
+  },
+  "checked_dates": 8,
+  "raw_identity_samples_per_run": 256
+}

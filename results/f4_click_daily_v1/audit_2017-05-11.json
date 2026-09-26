@@ -1,0 +1,66 @@
+{
+  "date": "2017-05-11",
+  "rows": 3378604,
+  "self_match_count": 0,
+  "fallback_count": 0,
+  "length_mismatch_count": 0,
+  "future_event_count": 0,
+  "identity_mismatch_count": 0,
+  "order_violation_count": 0,
+  "token_stats": {
+    "matched": {
+      "tokens": 12830822,
+      "unknown_tokens": 0,
+      "padding_slots": 54741258
+    },
+    "mismatched": {
+      "tokens": 12830822,
+      "unknown_tokens": 0,
+      "padding_slots": 54741258
+    }
+  },
+  "empty_rows": 1179585,
+  "truncated_rows": 146319,
+  "length_histogram": [
+    1179585,
+    521263,
+    347252,
+    247458,
+    177576,
+    134865,
+    102269,
+    83071,
+    69338,
+    58623,
+    50221,
+    44494,
+    35699,
+    33632,
+    30950,
+    24559,
+    21622,
+    22013,
+    17798,
+    15160,
+    161156
+  ],
+  "split": "train",
+  "f123_id_label_parity": true,
+  "donor_pool_users": 365254,
+  "donor_pool_fallback_count": 0,
+  "reference_schema": {
+    "impression_id": "UInt32",
+    "clk": "UInt8",
+    "user_raw": "Int64",
+    "event_date_bj": "Date",
+    "start": "UInt32",
+    "donor_start": "UInt32",
+    "length": "UInt8",
+    "donor_length": "UInt8",
+    "raw_length": "UInt32",
+    "donor_user_raw": "Int64",
+    "fallback": "UInt8"
+  },
+  "refs_sha256": "43a44e948d20d7561a383fdef30bb29c6ae633a2ba481dccaff9055bcc1568d4",
+  "history_sha256": "412df06a90d6e1cd31d066fd2313fba744b560bc28307d57050c2bd3e2b718cd"
+}

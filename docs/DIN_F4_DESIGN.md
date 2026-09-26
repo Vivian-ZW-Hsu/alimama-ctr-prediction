@@ -2,10 +2,28 @@
 
 Date: 2026-09-26. Audited baseline: `f0ba2a1f314e7b6d6dfc9a64c5e22b21ba4319ca`.
 
-**Status: Stage-A read-only source audit complete; design is proposed, not yet
-approved for construction or training.** Handoff §15 requires direction
-confirmation before Stage B. This document does not authorize changes to the
-existing four tabular models or their formal outputs.
+**Current authorization (2026-09-26): user confirmed the direction and authorized
+Stages B/C: full F4 construction, audits/smoke, implementation, pilot and validation-
+only tuning, with validated commits/pushes. STOP before the first formal DIN test
+and present committed freeze/selection evidence.** Existing F123 inputs, four
+tabular configurations and results remain immutable. Later sections retain the
+Stage-A proposal as history; this authorization and subsequent execution notes
+take precedence over its earlier approval gate.
+
+Execution clarification: full F4 construction covers all three splits, including
+test ID/label integrity checks, as requested by the user. This is data construction,
+not permission for test inference, metrics or test-based model selection. Training
+entry points will accept train/validation only.
+
+Before construction, a covariate-only donor feasibility scan found one singleton
+at validation cutoff in the proposed `(length=8, prior exposures=1..9)` stratum.
+The activity bins are therefore fixed to **1..99 and >=100 past exposures** for
+all dates before any new model score is observed. All nonempty L=20 strata then
+have >=2 users. Explicit same-length activity-coarsening fallback is implemented
+and counted; formal builds reject any nonzero fallback/self-match/length/temporal
+violation count, per the user's stronger constraint. The initial search holds
+L=20 fixed and compares only the two predeclared learning rates; additional length
+experiments are optional, not necessary to complete this authorized stage.
 
 ## 1. Charter, scope, and evidence
 

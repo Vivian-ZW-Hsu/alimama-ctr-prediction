@@ -7,8 +7,10 @@ precedence over factual claims in documents. Record conflicts explicitly.
 
 Read `docs/DIN_F4_DESIGN.md` for the Stage-A audit, proposed F4 design, and current
 approval gate. At its initial publication, the design is a recommendation;
-Stage B must wait for the user's direction confirmation required by handoff §15.
-Record any subsequent confirmation before advancing; do not ask again once given.
+The user confirmed Stage B/C on 2026-09-26, including full F4 construction,
+smoke/audits, model pilot and validation-only tuning. Do not ask again for those
+actions. Stop after configuration selection and commit/push the freeze evidence
+BEFORE the first formal sequence test. No DIN test is currently authorized.
 
 - Do not retune the four completed tabular model families.
 - Do not select features, cutoffs, hyperparameters, or fallbacks using test results.

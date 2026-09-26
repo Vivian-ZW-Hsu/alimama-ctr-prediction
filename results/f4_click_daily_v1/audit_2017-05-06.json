@@ -1,0 +1,66 @@
+{
+  "date": "2017-05-06",
+  "rows": 3270348,
+  "self_match_count": 0,
+  "fallback_count": 0,
+  "length_mismatch_count": 0,
+  "future_event_count": 0,
+  "identity_mismatch_count": 0,
+  "order_violation_count": 0,
+  "token_stats": {
+    "matched": {
+      "tokens": 0,
+      "unknown_tokens": 0,
+      "padding_slots": 65406960
+    },
+    "mismatched": {
+      "tokens": 0,
+      "unknown_tokens": 0,
+      "padding_slots": 65406960
+    }
+  },
+  "empty_rows": 3270348,
+  "truncated_rows": 0,
+  "length_histogram": [
+    3270348,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "split": "train",
+  "f123_id_label_parity": true,
+  "donor_pool_users": 0,
+  "donor_pool_fallback_count": 0,
+  "reference_schema": {
+    "impression_id": "UInt32",
+    "clk": "UInt8",
+    "user_raw": "Int64",
+    "event_date_bj": "Date",
+    "start": "UInt32",
+    "donor_start": "UInt32",
+    "length": "UInt8",
+    "donor_length": "UInt8",
+    "raw_length": "UInt32",
+    "donor_user_raw": "Int64",
+    "fallback": "UInt8"
+  },
+  "refs_sha256": "4ddfa93823219d0c34746bad133b85bb8383caaa85b19a82064f9fc9f37fe34f",
+  "history_sha256": "1d00c39e66f18ccc0d3f7b3485bbd035cca2c24b32e136c07bfd62f15939e7e7"
+}
