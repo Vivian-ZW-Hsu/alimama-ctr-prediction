@@ -12,7 +12,7 @@ Read `docs/DIN_F4_TEST_RESULTS.md` and `results/sequence_test_v2/manifest.json`.
 Do not run test inference again. Existing predictions are the sole input to
 further reporting. No post-test model/configuration changes are authorized.
 
-The current phase authorizes user-cluster paired bootstrap, fixed group
+The completed phase authorized user-cluster paired bootstrap, fixed group
 diagnostics, and validation-only probability calibration of saved predictions.
 Read `docs/DIN_F4_POSTHOC_PROTOCOL.md` and the immutable protocol in
 `results/sequence_posthoc_v1/protocol.json`. No new CTR training or test inference.
@@ -20,6 +20,14 @@ Calibrator fitting is allowed only on validation, with the existing selection
 recipe; retain every selected calibrator regardless of its test result. Zero is
 one distinct predictor and gets one calibrator, not three independent seeds.
 Keep sampling uncertainty separate from conditional residual-training seed std.
+
+As of the next user authorization, `badecf4` and `DIN_F4_TEST_RESULTS.md` are
+immutable evidence. No further bootstrap, calibration fitting, CTR training or
+test inference. Follow `docs/DEEP_DIVE_RESEARCH_PLAN.md` through D2–D5: saved-
+prediction diagnostics, validation-only frozen component reliance, descriptive
+temporal/repeat analysis, then final reporting. Commit/push each verified stage.
+Do not turn diagnostic interventions into model selection. The current user
+instruction supersedes the completed calibration authorization above.
 
 The previous completed phase authorized the hard-zero same-pipeline control at
 seeds 42/2026/3407, then exactly one formal test pass for five conditions after
