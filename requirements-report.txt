@@ -1,0 +1,5 @@
+# Publication only; isolated from the CTR environment. Tested with Python 3.13.5.
+reportlab==5.0.1
+PyMuPDF==1.28.2
+pillow==12.3.0
+charset-normalizer==3.5.1

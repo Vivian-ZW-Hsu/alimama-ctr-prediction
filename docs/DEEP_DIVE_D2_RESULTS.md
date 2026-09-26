@@ -21,13 +21,13 @@ The following new diagnostic uses the rebuilt cohort with ID-validated predictio
 Five models are LR, LightGBM, Wide & Deep, DeepFM and the preselected Mean matched;
 Attention matched substitutes as fifth only for sensitivity.
 
-| Policy | Common missed fraction of all clicks, mean across residual seeds |
+| Per-model exposure policy / budget | Common missed fraction of all clicks, mean across residual seeds |
 |---|---:|
 | Probability >=0.5 | 99.9676% |
 | Exact top 1% per model | 94.6095% |
 | Exact top 5% per model | 82.4252% |
-| Exact top 10% per model | 71.3787% |
-| Legacy tie-inclusive top-10% quantile | 71.3787% |
+| Exact top-10% exposure budget per model | 71.3787% |
+| Legacy tie-inclusive top-10% exposure quantile | 71.3787% |
 
 The Attention alternative gives 71.3783% at top 10%. The Mean five-model union
 captures 28.62% of clicks while selecting **14.61% of exposures**, not 10%; this
@@ -111,7 +111,7 @@ weights. Contributions add to frozen ΔGAUC; ordinary within-group AUCs do not.
 | Known user, separate partition | 1,541,782 | approximately +0.000473 |
 | New user, separate partition | 140,465 | approximately +0.000005 |
 
-About 98.88% of the +0.000478364 total comes from known users. F2 activity 100–999
+About 98.89% of the +0.000478364 total comes from known users. F2 activity 100–999
 contributes about 77%, >=1000 about 22%. These are effect × traffic-weight
 contributions, not proof activity causes the benefit. Length 1 is slightly
 negative despite positive global-ranking gains. Eligibility remains 104,884 users,

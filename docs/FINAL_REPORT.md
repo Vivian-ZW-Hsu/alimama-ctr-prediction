@@ -33,6 +33,16 @@ neutral PAD/UNKNOWN and zero empty-history representations. The mismatch control
 preserves cutoff, retained length and coarse activity while exchanging user
 history; it does not exactly balance all popularity/age/activity effects.
 
+## Metric definitions and directions
+
+AUC, PR-AUC and GAUC: higher is better. LogLoss, Brier score and ECE: lower is
+better. COPC = observed clicks / predicted clicks = CTR / mean prediction;
+1 is ideal, <1 indicates overprediction and >1 underprediction. A difference
+in COPC is not inherently a gain. Shared reporting uses 10 equal-count ECE bins;
+legacy calibration selection records a separate 20 equal-width diagnostic.
+Seed std uses ddof=1; bootstrap CIs describe user sampling conditional on fixed
+models. Undefined single-class AUC remains missing, never replaced with zero.
+
 ## Information gain versus architecture gain
 
 The existing LR test AUC increases from 0.595495 (F1) to 0.601790 (F12), then
@@ -153,7 +163,7 @@ p>=0.5. Its original arrays are absent, so the exact number is unverifiable.
 The script also skips missing models and lacks ID-based array alignment. It must
 not be merged numerically with this rebuilt 3.31M-exposure test cohort.
 
-Here five-model common misses are 71.38% at exact top-10% budgets and 99.97% at
+Here five-model common misses are 71.38% at an exact **top-10% exposure budget per model** and 99.97% at
 p>=0.5. The top-10% union reaches 28.62% recall at **14.61% exposure coverage**,
 so it is not an equal-budget ensemble gain. Known/known traffic supplies most
 absolute common misses; new-user/known-ad traffic actually has a lower within-
@@ -168,13 +178,13 @@ It is an optimistic bound, not a demonstrated or deployable ensemble gain.
 
 ![Common errors and probability correlation](../figures/deep_dive_v1/03_common_errors.png)
 
-## Validation-only frozen component reliance
+## Validation-only sensitivity diagnostic: frozen component deletion
 
 D3 uses May 12 only, without training diagnostic models. Neutralizing F3 damages
 both LR and DeepFM more than F2. LR AUC is 0.655163 full, 0.644353 without F2 and
 0.584946 without F3; DeepFM is 0.650315, 0.637786 and 0.626190 respectively.
 Neutralization means numerical train-mean / zero binary indicators, potentially
-off-distribution; these are not retrained information ablations.
+off-distribution; this is a **sensitivity diagnostic**, not a retrained ablation.
 
 Removing FM from the fitted DeepFM barely changes AUC (0.650315→0.650292) while
 LogLoss worsens (0.189813→0.190702). Removing wide/deep harms both; the branches'
@@ -184,11 +194,11 @@ user, explaining why removing F2 changes global AUC but leaves GAUC essentially
 unchanged. Existing DeepFM epoch curves also document worsening validation despite
 falling train loss after epoch 1, without identifying a universal complexity effect.
 
-![Validation-only diagnostics](../figures/deep_dive_v1/06_validation_reliance.png)
+![Validation-only sensitivity diagnostic, not a retrained ablation](../figures/deep_dive_v1/06_validation_reliance.png)
 
-## Temporal and repeated-exposure limits
+## Temporal and repeated-exposure descriptive associations
 
-CTR changes nonmonotonically across May 11/12/13 (5.2633%, 4.9299%, 5.0319%).
+These are descriptive associations, not causal estimates. CTR changes nonmonotonically across May 11/12/13 (5.2633%, 4.9299%, 5.0319%).
 Validation→test train-vocabulary new-user share increases 9.94%→11.70%, new-ad
 share 6.71%→8.77%, while past ad evidence coverage grows 93.29%→97.22%.
 History growth partly follows the expanding observed window, not purely changing
@@ -245,3 +255,7 @@ uneven across history and user groups, does not overturn the strong global LR
 baseline, and coexists with substantial cold-group probability bias and changing
 traffic. Drift, sparse evidence and exposure repetition limit interpretation;
 their causal contributions are not isolated by these diagnostics.**
+
+Release delivery: [中文 PDF](FINAL_REPORT_ZH.pdf), [中文文本](FINAL_REPORT_ZH.md),
+[final experiment inventory, audit and reproduction commands](RELEASE_AUDIT.md).
+The complete synthetic-fixture test suite is run at release; no experimental stage is rerun.

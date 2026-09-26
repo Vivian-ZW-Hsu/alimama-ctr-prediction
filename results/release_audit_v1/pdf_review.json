@@ -1,0 +1,119 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "extracted_characters": 650,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "中文字体、数据分区表、COPC 方向、GAUC 覆盖与引用完整",
+      "render_png_sha256": "fe3b89b424e79501a933c14a6785adb86566bd3e168cd7f9bbf4b48497f94202"
+    },
+    {
+      "page": 2,
+      "extracted_characters": 846,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "实验清单、时间语义、种子与零参照定义完整",
+      "render_png_sha256": "ffe21185d4bb857eceb69192b246ca05ce3686c08db1d78e980d3af258d65f21"
+    },
+    {
+      "page": 3,
+      "extracted_characters": 644,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "模型表数值、图 1 双轴范围、图例、误差线与来源清楚",
+      "render_png_sha256": "5c8d2be32a729d8e8aa6ea38ab89a1baaad2c7c23050b5188624dbdde8626390"
+    },
+    {
+      "page": 4,
+      "extracted_characters": 750,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "五组比较次序与指标方向正确；图 2 区间和缩放可辨",
+      "render_png_sha256": "c3a3d00a8fb1b198616b3e5e65e272c3ef0ce6c98f5031e99c23bd8ae7cbbd6e"
+    },
+    {
+      "page": 5,
+      "extracted_characters": 672,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "效应大小、98.89% GAUC 贡献、图 3 分组与单位完整",
+      "render_png_sha256": "9705f733b35f1afa560fd89e32d122e722de8feb5d0209fd89ca9c903f7d06a3"
+    },
+    {
+      "page": 6,
+      "extracted_characters": 536,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "图 4 标签损失贡献与四位证据码完整；58.64% 文案正确",
+      "render_png_sha256": "6e885aa7a5314ba25ff7f28a1f4dc37dbf6deea547bafa6bc8cd573a5deb7d03"
+    },
+    {
+      "page": 7,
+      "extracted_characters": 644,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "图 5 COPC 方向与冷启动图例完整；校准边界明确",
+      "render_png_sha256": "e36fe6c0166a8343d27d511e4e746cd07c9778d7d777b4cf2cce32c43f569920"
+    },
+    {
+      "page": 8,
+      "extracted_characters": 599,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "图 6 71.38% 紧邻 top-10% 曝光预算；旧 60% 不可复现说明完整",
+      "render_png_sha256": "aed83e9febc544f04326e937cfa1dbdbd817a5ac70a9a1289b2895a54262654a"
+    },
+    {
+      "page": 9,
+      "extracted_characters": 661,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "图 7 明确 sensitivity diagnostic，而非 retrained ablation",
+      "render_png_sha256": "17bd3fbb0235e5a23fa1271be3d11ac303d49c4d79ebe165d652a142d182a562"
+    },
+    {
+      "page": 10,
+      "extracted_characters": 549,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "图 8 日期、重复曝光桶、图例清楚；明确描述性关联",
+      "render_png_sha256": "174bb6cdd32693207d57cec3ba1c0068a4fc552cc5d1ae525ce97afec5d2b82c"
+    },
+    {
+      "page": 11,
+      "extracted_characters": 807,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "限制表与协议偏离没有截断，正文与页脚分离",
+      "render_png_sha256": "11513ad3892e30138eb7c8608e4e85980b06177e8973bba2b713aea4396d5157"
+    },
+    {
+      "page": 12,
+      "extracted_characters": 1269,
+      "embedded_truetype": true,
+      "text_within_page": true,
+      "visual_review": "PASS",
+      "review_note": "复现命令、R1–R8 引用表、数据未备份说明完整",
+      "render_png_sha256": "83de17220ef21ea9329a3a75e8b0cddc07b8bcce2bf8969a4668b0bd1497d38d"
+    }
+  ],
+  "page_count": 12,
+  "font_name": "Arial Unicode.ttf",
+  "font_sha256": "876af2cd4854644e7f3e7feb2f688997fdb3343c6df6693611209c9dfb47ccec",
+  "pdf_sha256": "d01f89f777e963da3fecd95281213c6e16396d81139684b1165519b35a4eeb0c",
+  "source_sha256": "1034518d26763ef2a4973ed5213138463177be25d002be073e7b5dd1e3947209",
+  "visual_review": "All 12 final rendered pages individually inspected: Chinese glyphs, table boundaries, legends, page breaks, footer, references; no clipping or missing glyphs observed.",
+  "renderer_sha256": "bccbde3e5bc18af4eb74f2d64e4fd2a656556dded374fc5f7eae50aa9dd63d49"
+}

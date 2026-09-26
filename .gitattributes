@@ -1,0 +1,2 @@
+# PDFs are binary artifacts, including ReportLab's ASCII85-encoded streams.
+*.pdf binary

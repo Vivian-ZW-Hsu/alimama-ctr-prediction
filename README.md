@@ -9,8 +9,10 @@ attention has no robust practical advantage over mean pooling.
 
 **Completed:** four tabular families, controlled F4 study, frozen statistical/
 calibration evidence, and D2–D5 diagnostics. No further training, bootstrap,
-calibration fitting or test inference is authorized.
+calibration fitting, test inference or new post-hoc analysis is authorized.
 
+- [最终中文 PDF](docs/FINAL_REPORT_ZH.pdf) · [中文文本](docs/FINAL_REPORT_ZH.md)
+- [Release audit、实验清单与复现入口](docs/RELEASE_AUDIT.md)
 - [Final report and evidence limits](docs/FINAL_REPORT.md)
 - [Frozen DIN test/statistical/calibration report — badecf4](docs/DIN_F4_TEST_RESULTS.md)
 - [Frozen deep-dive plan](docs/DEEP_DIVE_RESEARCH_PLAN.md)
@@ -37,6 +39,16 @@ residual seeds on **one shared frozen backbone**; zero is not three independent
 DeepFM fits. GAUC includes 104,884 eligible users / 50.84% of test impressions.
 F123 versus F123+F4 is an information change, not a pure architecture comparison.
 
+Metric directions: AUC, PR-AUC and GAUC higher is better; LogLoss, Brier and ECE
+lower is better. **COPC = observed clicks / predicted clicks = CTR / mean prediction**;
+1 is ideal, below 1 means overprediction, above 1 underprediction. ECE uses the
+shared evaluator's 10 equal-count bins; historical calibration selection also
+records a separate 20 equal-width-bin diagnostic.
+
+Seeds: tabular/backbone 42; sequence residuals 42, 2026, 3407; F4 deterministic
+mismatch 20260926; completed user bootstrap 20260927 (1,000 saved draws).
+The hard-zero predictor is a repeated reference to the seed-42 backbone.
+
 The frozen user-cluster bootstrap supports small Mean matched gains over zero
 and mismatched history. Mean matched − zero AUC is +0.000330, 95% CI
 [+0.000216, +0.000440]. Five ordered comparisons and Holm corrections remain
@@ -44,9 +56,9 @@ unchanged. No significance claim is added for sequence versus LR/LightGBM.
 
 Deep-dive findings:
 
-- The old “60% of clicks missed” source used **top-10% thresholds**, not p>=0.5.
+- The old “60% of clicks missed” source used **top-10% exposure-budget thresholds**, not p>=0.5.
   Its exact number cannot be reproduced without old arrays. In the rebuilt
-  cohort, five-model top-10% common misses are 71.38%; p>=0.5 yields 99.97%.
+  cohort, five-model common misses are 71.38% at a **top-10% exposure budget per model**; p>=0.5 yields 99.97%.
 - Length-20 matched history improves AUC over mismatched but worsens LogLoss:
   added loss on nonclicks slightly exceeds improvement on clicks.
 - About 98.89% of the Mean matched versus zero GAUC increment comes from known
@@ -56,9 +68,9 @@ Deep-dive findings:
   wholly absent evidence. Calibration also lowers ranking metrics.
 - Frozen validation diagnostics show greater reliance on F3 than F2. Removing
   DeepFM's FM term barely changes AUC but changes probability level; this is a
-  post-fit reliance test, not a retrained FM/DNN ablation.
+  **sensitivity diagnostic** (frozen component deletion), not a retrained ablation.
 - New-ID shares, history availability and repeats change across dates. Repeat
-  count is associated with lower CTR, without identifying a fatigue effect.
+  count is associated with lower CTR. Both are **descriptive associations**, without identifying a fatigue effect.
 
 ## Fixed data and information protocol
 
@@ -105,9 +117,14 @@ Read-only checks, with local ignored artifacts available:
 
 ```bash
 python src/37_verify_frozen_delivery.py
-python -m unittest discover -s tests -p 'test_deep_dive.py' -v
-python -m unittest discover -s tests -p 'test_validation_temporal_diagnostics.py' -v
+python src/38_release_audit.py
+python -m unittest discover -s tests -v
+git diff --check
 ```
+
+All tests use small synthetic fixtures, not the formal train/validation/test data.
+The release audit reads saved summaries and hashes only. Local data layout and
+publication-only PDF commands are documented in [RELEASE_AUDIT.md](docs/RELEASE_AUDIT.md).
 
 Core dependencies are in `requirements.txt`; exact analyzed versions are in
 `requirements-tested.txt` and manifests. Figures used a separate existing

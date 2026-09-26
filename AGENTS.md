@@ -5,6 +5,14 @@ phase. It is the long-term execution charter. Current user instructions take
 precedence; repository code, manifests, Git history, and saved results take
 precedence over factual claims in documents. Record conflicts explicitly.
 
+## Release closure (supersedes all historical phase authorizations)
+
+Experiments and deep dives are complete. Only final release consistency checks,
+Chinese PDF delivery, synthetic-fixture tests, documentation, commit and push
+are authorized. No new models, retraining, test inference, bootstrap, calibration
+fitting or new post-hoc analysis. After delivery stop project expansion.
+Read `docs/RELEASE_AUDIT.md` for final files and read-only verification commands.
+
 ## Current authorization (supersedes the historical gate below)
 
 The authorized formal test is now COMPLETE: 15 checkpoints, one pass each.

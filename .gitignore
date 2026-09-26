@@ -58,3 +58,6 @@ results/deepfm_f123_*/
 
 # Local calibrated per-user evaluation artifacts
 results/*/calibration/evaluation/eligible_user_auc.parquet
+
+# Isolated publication-only environment
+.venv-report/

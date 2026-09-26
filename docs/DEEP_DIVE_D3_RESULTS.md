@@ -1,5 +1,8 @@
 # D3: Validation-only information and component reliance
 
+Release terminology: all frozen component deletion / neutralization below is a
+**sensitivity diagnostic**, not a retrained ablation.
+
 This stage uses frozen LR/DeepFM parameters and **May 12 only**. No CTR model was
 trained; no calibration was fitted; no test prediction was produced. All 13 fixed
 variants are retained, with no winning variant selected. The plan in e494030

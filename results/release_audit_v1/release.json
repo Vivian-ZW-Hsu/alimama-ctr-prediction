@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "passed": 20,
+    "failed": 0,
+    "log": "results/release_audit_v1/tests.txt"
+  },
+  "compile": "PASS: src/38_release_audit.py, src/39_render_final_report.py",
+  "diff_check": "PASS: git diff --check and git diff --cached --check",
+  "no_new_experiments": true,
+  "no_formal_prediction_reads": true,
+  "frozen_evidence": "badecf4",
+  "publication_pdf": "docs/FINAL_REPORT_ZH.pdf",
+  "all_pdf_pages_visually_reviewed": 12,
+  "project_expansion": "STOPPED",
+  "files_sha256": {
+    "results/release_audit_v1/consistency.json": "da602bec721cbaf2f957a3ce25a12876f7d932fcc40fa43d3b80e6d5ffeedb57",
+    "results/release_audit_v1/dependencies.json": "d07110ef6c7f15fd7c25b8131382243721567b450ff37cc6e2f5a8cbd3970c4e",
+    "results/release_audit_v1/frozen_integrity.json": "ffc8205c53707352b3a414ac836b56248a4a145812dcfc50659ce771196447ab",
+    "results/release_audit_v1/pdf_review.json": "2c0939ccf2badd794bed6c924727f46c980058238357f6484a9ce2ae3a9075d9",
+    "results/release_audit_v1/tests.txt": "8960a392300c9c98c4c126f9e7188fdf06c3167dbcbd93293ca6d119ef4de208"
+  },
+  "pdf_git_attributes": "*.pdf binary; preserves PDF bytes and prevents text whitespace checks on encoded PDF streams"
+}
