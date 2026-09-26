@@ -29,6 +29,12 @@ temporal/repeat analysis, then final reporting. Commit/push each verified stage.
 Do not turn diagnostic interventions into model selection. The current user
 instruction supersedes the completed calibration authorization above.
 
+D2–D5 are now completed. Read `docs/FINAL_REPORT.md` and the D2/D3/D4 reports.
+The frozen research plan and `badecf4` DIN evidence remain unchanged. Further
+work must not automatically rerun completed diagnostic stages or reinterpret
+validation component deletions as newly trained formal models. Read-only delivery
+checks use `src/37_verify_frozen_delivery.py`; plots use saved summaries only.
+
 The previous completed phase authorized the hard-zero same-pipeline control at
 seeds 42/2026/3407, then exactly one formal test pass for five conditions after
 validation, smoke/reload checks and a pre-test commit/push pass. Do not ask again

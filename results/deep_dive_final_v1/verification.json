@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "frozen_commit": "badecf4",
+  "frozen_report_sha256": "d508e9be7747ef1c0dc87ac4787aa7cae97e7c1f7311bdbebf3ea4b9ac29c6b3",
+  "previous_source_results_artifacts_unchanged": true,
+  "frozen_checkpoints_unchanged": 15,
+  "inference_marker_unchanged": true,
+  "input_hashes_verified": 115,
+  "stage_checks": {
+    "deep_dive_d2_v1": [
+      "complete_group_partitions",
+      "common_error_click_denominators",
+      "additive_gauc_matches_frozen_bootstrap_point",
+      "double_cold_expected_clicks_reconcile",
+      "long_history_label_loss_contributions_reconcile"
+    ],
+    "deep_dive_d3_v1": [
+      "validation_only_rows",
+      "checkpoint_and_prediction_parity",
+      "frozen_checkpoints_unchanged"
+    ],
+    "deep_dive_d4_v1": [
+      "eight_day_row_reconciliation",
+      "repeat_group_partitions",
+      "prior_day_only_sample_audit"
+    ]
+  },
+  "stage_execution_seconds": {
+    "deep_dive_d2_v1": 419.5296848330181,
+    "deep_dive_d3_v1": 29.90306541696191,
+    "deep_dive_d4_v1": 47.05557879200205
+  },
+  "plotting_seconds": 1.8363230000250041,
+  "total_recorded_execution_seconds": 498.3246520420071,
+  "figures_verified": 16,
+  "plot_png_visual_review": "Eight plots inspected at D5 publication; not an automatic image test",
+  "unit_test_record": "4 targeted tests passed at D5 delivery; this verifier does not execute tests",
+  "documentation_links_valid": true,
+  "document_sha256": {
+    "README.md": "843fd7e2091a88f93c148533fdd83f9e5b07d62bb86af67a4f9d9ee90ea19163",
+    "docs/FINAL_REPORT.md": "06db91f8b68098f4351c6c715fc6e6545ccce4df5612b8db859557d625ca503a",
+    "docs/DEEP_DIVE_D2_RESULTS.md": "6de2355aa0eab000a4e37c97149afbb8757a1f2301ec7af7deb6e2d09acfe7e2",
+    "docs/DEEP_DIVE_D3_RESULTS.md": "1e6a40241ea38ad623b2205f31d5e27f5cf28b1f3d20dcee5d5d6ad8960bc9b9",
+    "docs/DEEP_DIVE_D4_RESULTS.md": "b5938dbecf79280989f7203a354aa213e767e7ad1c0317e370ce56115554e8c7"
+  },
+  "verifier_sha256": "f9369df5ab8b9dfcd7997a25c9fcc9db6efb044341cf6f0ad4308e8a53d6fae3"
+}

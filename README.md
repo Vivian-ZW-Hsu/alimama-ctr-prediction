@@ -1,135 +1,128 @@
 # Point-in-Time CTR Prediction on E-Commerce Advertising Data
 
-A leakage-free CTR prediction and evaluation system built on the Alibaba Taobao Display Advertising Dataset.
+An audited CTR study on 26.56 million Taobao advertising impressions, separating
+historical information, model complexity, sequence identity, calibration and
+robustness. **The current result is not “DIN wins.”** Under the recorded protocol
+and tuning budget, past click-feedback information provides the largest observed
+gain. Matched history adds a small increment to a frozen DeepFM, while target
+attention has no robust practical advantage over mean pooling.
 
-The project separates information gain, model-family gain, sequence gain, calibration, cold-start robustness, temporal robustness, and engineering cost.
+**Completed:** four tabular families, controlled F4 study, frozen statistical/
+calibration evidence, and D2–D5 diagnostics. No further training, bootstrap,
+calibration fitting or test inference is authorized.
 
-## Data Protocol
+- [Final report and evidence limits](docs/FINAL_REPORT.md)
+- [Frozen DIN test/statistical/calibration report — badecf4](docs/DIN_F4_TEST_RESULTS.md)
+- [Frozen deep-dive plan](docs/DEEP_DIVE_RESEARCH_PLAN.md)
+- [D2: errors, sequence heterogeneity and cold evidence](docs/DEEP_DIVE_D2_RESULTS.md)
+- [D3: validation-only information/component reliance](docs/DEEP_DIVE_D3_RESULTS.md)
+- [D4: descriptive temporal drift and repeats](docs/DEEP_DIVE_D4_RESULTS.md)
 
-All date boundaries use Beijing time (`Asia/Shanghai`).
+![Information layers and frozen model comparison](figures/deep_dive_v1/01_information_and_models.png)
 
-| Split | Beijing dates | Purpose |
-|---|---|---|
-| Train | 2017-05-06 to 2017-05-11 | model fitting |
-| Validation | 2017-05-12 | model selection and diagnosis |
-| Test | 2017-05-13 | frozen final reporting |
+## Main evidence
 
-Main experiments use all 26,557,961 impressions without negative downsampling.
+| Model / input | Test AUC | Test LogLoss | Test GAUC |
+|---|---:|---:|---:|
+| LR F1 | 0.595495 | 0.196781 | 0.561913 |
+| LR F1+F2 | 0.601790 | 0.196376 | 0.561534 |
+| LR F1+F2+F3 | 0.652489 | 0.192429 | 0.569939 |
+| LightGBM F123 | 0.651318 | 0.192502 | 0.569889 |
+| Wide & Deep F123 | 0.646219 | 0.193161 | 0.569680 |
+| DeepFM F123 / deterministic zero reference | 0.645933 | 0.193176 | 0.569902 |
+| Mean matched F123+F4 | 0.646263 ± 0.000044 | 0.193120 ± 0.000004 | 0.570380 ± 0.000108 |
 
-Point-in-time rules:
+Tabular results are one frozen seed each. Sequence mean ± sample std covers three
+residual seeds on **one shared frozen backbone**; zero is not three independent
+DeepFM fits. GAUC includes 104,884 eligible users / 50.84% of test impressions.
+F123 versus F123+F4 is an information change, not a pure architecture comparison.
 
-- joins use raw IDs;
-- encoding occurs only after joins;
-- encoders and scalers are fitted on training data only;
-- behavior features use completed dates before the impression date;
-- current and future labels are never used as features;
-- identity checks verify that histories belong to the correct raw user.
+The frozen user-cluster bootstrap supports small Mean matched gains over zero
+and mismatched history. Mean matched − zero AUC is +0.000330, 95% CI
+[+0.000216, +0.000440]. Five ordered comparisons and Holm corrections remain
+unchanged. No significance claim is added for sequence versus LR/LightGBM.
 
-## Current Pipeline
+Deep-dive findings:
 
-Historical pipeline entry points (run from the repository root). Existing
-formal artifacts are immutable; do not rerun completed models as a setup step.
+- The old “60% of clicks missed” source used **top-10% thresholds**, not p>=0.5.
+  Its exact number cannot be reproduced without old arrays. In the rebuilt
+  cohort, five-model top-10% common misses are 71.38%; p>=0.5 yields 99.97%.
+- Length-20 matched history improves AUC over mismatched but worsens LogLoss:
+  added loss on nonclicks slightly exceeds improvement on clicks.
+- About 98.89% of the Mean matched versus zero GAUC increment comes from known
+  users. Sparse-history benefits are not uniform; length 1 contributes negatively.
+- Saved isotonic calibration improves overall LogLoss/ECE but leaves double-cold
+  COPC around 0.581. Most excess comes from partially observed histories, not
+  wholly absent evidence. Calibration also lowers ranking metrics.
+- Frozen validation diagnostics show greater reliance on F3 than F2. Removing
+  DeepFM's FM term barely changes AUC but changes probability level; this is a
+  post-fit reliance test, not a retrained FM/DNN ablation.
+- New-ID shares, history availability and repeats change across dates. Repeat
+  count is associated with lower CTR, without identifying a fatigue effect.
+
+## Fixed data and information protocol
+
+| Split | Beijing dates | Impressions |
+|---|---|---:|
+| Train | 2017-05-06–11 | 20,015,245 |
+| Validation | 2017-05-12 | 3,234,051 |
+| Test | 2017-05-13 | 3,308,665 |
+
+Raw IDs are joined before train-only encoding/scaling; no negative downsampling.
+F1 contains static/context fields, excluding weekday in formal models. F2 contains
+completed-day 1/3/7/14-day behavior summaries. F3 contains completed-day smoothed
+user/ad/category/campaign/customer/brand feedback. F4 is the ordered last 20
+categories from positive exposures on Beijing dates **strictly before D**.
+Exposure timestamps proxy positive-feedback record time; feedback is assumed
+available next day. There is no independent click timestamp. Validation excludes
+May 12 feedback; test may use completed May 12 feedback. PAD/UNKNOWN and empty
+sequence representations are neutral zeros.
+
+Test had been inspected in earlier baseline development; it is a frozen final
+reporting set, not a never-seen holdout. New deep-dive buckets were fixed before
+their new grouped results, after aggregate test findings were known.
+
+## Repository and reproducibility
+
+| Location | Contents |
+|---|---|
+| `src/01`–`src/12` | audited base, feature, encoding and shared evaluation pipeline |
+| `src/13`–`src/18` | completed tabular selection/training/calibration code |
+| `src/19`–`src/27` | F4 audit, frozen residual study and once-only test |
+| `src/28`–`src/32` | completed frozen bootstrap/calibration/reporting |
+| `src/33`–`src/35` | D2 saved-score, D3 validation reliance, D4 descriptive diagnostics |
+| `src/36_plot_deep_dive.py` | eight PNG/PDF figures from small saved summaries |
+| `src/37_verify_frozen_delivery.py` | read-only delivery/hash verification |
+| `results/` | versioned metrics, manifests and audits |
+| `figures/deep_dive_v1/` | standalone PNG and vector PDF figures |
+| `data/`, large model/prediction artifacts | local, Git-ignored; not backed up by Git |
+
+Run commands from the repository root. **Completed analysis entry points refuse
+overwriting. Do not rerun old training, bootstrap, calibration or test scripts as
+setup instructions.** The once-only formal inference marker remains intact.
+
+Read-only checks, with local ignored artifacts available:
 
 ```bash
-python src/01_validate_raw.py
-python src/02_profile_raw.py
-python src/03_build_base_tables.py
-python src/04_build_daily_behavior.py
-python src/05_build_behavior_features.py
-python src/05b_check_behavior_identity.py
-python src/06_profile_model_features.py
-python src/07_build_model_inputs.py
-python src/08_train_logistic_regression.py
-python src/09_diagnose_lr_calibration.py
+python src/37_verify_frozen_delivery.py
+python -m unittest discover -s tests -p 'test_deep_dive.py' -v
+python -m unittest discover -s tests -p 'test_validation_temporal_diagnostics.py' -v
 ```
 
-| Step | Purpose |
-|---|---|
-| 01 | validate raw schemas, labels, keys, and timestamps |
-| 02 | profile missing values, prices, and behavior dates |
-| 03 | join static tables and create Beijing-time splits |
-| 04 | aggregate behavior by raw user and Beijing date |
-| 05 | construct leakage-free 1/3/7/14-day behavior features |
-| 05b | verify user identity in behavior features |
-| 06 | define and profile the model feature schema |
-| 07 | build train-only encodings and model inputs |
-| 08 | train the out-of-core Logistic Regression baseline |
-| 09 | diagnose ranking and probability calibration |
-| 10 | shared evaluator; `--splits val` supports selection before the test gate |
-| 11–12 | build completed-day click feedback F3 and common F123 inputs |
-| 14 | validation-selected probability calibration |
-| 15–16 | completed LightGBM, Wide & Deep and DeepFM baselines |
-| 19–20 | audited daily positive-click category histories and mismatch controls |
-| 21–22 | frozen DeepFM context cache and validation-only sequence residual training |
-| 23–24 | preregistered paired selection, checkpoint freeze and validation audit |
+Core dependencies are in `requirements.txt`; exact analyzed versions are in
+`requirements-tested.txt` and manifests. Figures used a separate existing
+environment with `requirements-plot.txt`, without changing the model environment.
+Historical LR checkpoints were serialized with sklearn 1.8.0; the diagnostic
+loader records its compatibility alias and validates saved-score parity.
+Dependency pins alone do not guarantee cross-version checkpoint portability.
 
-## Repository Layout
+The [charter](docs/CTR_CODEX_PROJECT_HANDOFF.md) and historical
+[proposal](docs/EXPERIMENTAL_PROTOCOL.md) preserve original intent and deviations.
+Current instructions in [AGENTS.md](AGENTS.md) take precedence over stale gates.
+Old-project source is preserved on `archive/v1-original`; its numerical claims
+are audited separately and are not mixed into rebuilt-pipeline results.
 
-```text
-data/                 local data; ignored by Git
-src/                  pipeline and training entry points
-artifacts/            encoders, models, and predictions
-results/              small metric and validation reports
-docs/                 experimental protocol
-requirements.txt      implemented dependencies
-```
-
-Large datasets, mapping tables, trained models, and predictions are not committed. Small manifests, metrics, and diagnostic tables are committed.
-
-## Information Layers
-
-- **F1 — Static/context:** user, ad, category, campaign, advertiser, brand, placement, user profile, price, hour, and validated calendar features.
-- **F2 — Historical behavior:** leakage-free page-view, favorite, cart, purchase, and recency features over 1/3/7/14-day windows.
-- **F3 — Past-only click feedback:** smoothed historical click statistics using only dates before the prediction date.
-- **F4 — Positive-click category sequence:** ordered last 20 categories from positive exposures on completed Beijing dates strictly before the target date. Exposure timestamp proxies the positive-record time; feedback is assumed available next day. No independent click timestamp is available. Train-only category vocabulary, neutral PAD/UNKNOWN, and exact-zero empty-history residuals.
-
-## Models
-
-- Logistic Regression
-- LightGBM
-- Wide & Deep
-- DeepFM
-- DIN-style target attention and mean pooling on frozen DeepFM context
-
-LR has F1/F2/F3 ablations. The four completed tabular families share F123 for
-their model-family comparison; LightGBM F1/F12 ablations remain outstanding.
-The sequence study adds F4 through a trainable residual on the existing frozen
-DeepFM checkpoint, comparing mean/attention and matched/mismatched histories.
-It tests incremental sequence information, not a reproduction of original DIN
-or a new fair-input tabular architecture ranking.
-
-## Evaluation
-
-Core evaluation includes LogLoss, AUC, GAUC, PR-AUC, COPC, reliability curves, cold-start segments, model size, and inference throughput.
-
-Post-training Platt scaling and isotonic regression are fitted on validation predictions and evaluated on the frozen test date. Calibration improvement is reported separately from ranking improvement.
-
-The long-term charter is [`CTR_CODEX_PROJECT_HANDOFF.md`](docs/CTR_CODEX_PROJECT_HANDOFF.md).
-The historical [`EXPERIMENTAL_PROTOCOL.md`](docs/EXPERIMENTAL_PROTOCOL.md) contains
-deviations documented in the [F4 design audit](docs/DIN_F4_DESIGN.md).
-
-## Current Status
-
-F123 preprocessing, four tabular families, shared evaluation, calibration and
-cold-start diagnostics are complete for the existing formal runs. The completed
-models are not being retuned. The F4 full build passed exact ID/label, time,
-identity, deterministic mismatch and original-source audits on 26,557,961 rows.
-Sequence training and selection use train/validation only. The latest instruction
-authorizes one formal test pass after the zero-control checks and pre-test
-commit/push. See the [execution record](docs/DIN_F4_EXECUTION.md)
-and [preregistered selection rules](results/sequence_selection_v1/preregistration.json).
-Validation-only selection is complete: L=20, LR=5e-4, 12 frozen checkpoints across
-four conditions and three seeds. [Results and the first-test gate](docs/DIN_F4_VALIDATION.md)
-document the small matched-history gain and the lack of clear attention advantage.
-The [v2 freeze](results/sequence_selection_v2/freeze_manifest.json) adds three
-hard-zero same-pipeline controls and fixes mean matched as the primary model.
-All 15 checkpoints share one frozen DeepFM backbone; the zero control is
-deterministic and is not three independently fitted DeepFMs.
-The once-only [formal test is complete](docs/DIN_F4_TEST_RESULTS.md). Mean matched
-remains the predeclared primary model: AUC 0.64626339 ± 0.00004400, LogLoss
-0.193120334 ± 0.000003806 across three residual seeds. The report preserves all
-five predeclared comparisons; attention is not promoted based on test results.
-Large new caches, checkpoints and predictions remain local and Git-ignored;
-committed manifests bind them by SHA256.
-
-Previous outputs are preserved on the `archive/v1-original` branch and are not used as evidence for this rebuilt pipeline.
+Uncompleted historical proposals remain explicit: LightGBM F1/F12 retraining,
+independently retrained DNN/FM components, three independently fitted tabular
+backbones, an external-protocol retraining anchor and comparable standalone
+throughput benchmarks. The current deep dive does not claim to fill those gaps.
