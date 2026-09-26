@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "run_name": "sequence_attention_pilot_v1",
+  "smoke": false,
+  "pilot": true,
+  "prediction_splits": [],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 0,
+  "best_epoch": null,
+  "best_validation_logloss": null,
+  "parameter_count": 58386,
+  "elapsed_seconds": 17.090779499849305,
+  "peak_rss_bytes_macos": 1734656000,
+  "mps_driver_allocated_bytes": 1147879424,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "e67650df8e6f21c347e9c8b257bd8760ea0f0cb8178a8280f0ab43c00c37887a",
+  "output_sha256": {}
+}

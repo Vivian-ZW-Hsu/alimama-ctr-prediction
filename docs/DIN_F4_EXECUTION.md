@@ -78,3 +78,26 @@ all-UNKNOWN sequences must contribute exactly zero even after training.
 Initial max length is fixed at 20. Predeclare the mean/attention paired search
 and its budget after resource pilot, before the first searched validation score.
 No test branch is exposed by the sequence cache/training entry points.
+
+Implementation checks: seven unit tests pass, including padding/UNKNOWN/empty
+gradients and an evaluator integration test with no test files present. Mean
+matched and attention mismatched smoke runs pass on MPS. Full train/validation
+context caching covers 20,015,245 / 3,234,051 rows; frozen validation probabilities
+match the original DeepFM predictions exactly. Cache construction took 21.03 s,
+peak RSS 3.05 GiB. The adapter never updates the original model/scaler.
+
+The shared evaluator now accepts explicit `--splits val`; its default remains
+val+test for historical callers. It rejects overwriting existing evaluations.
+New sequence training runs have no test option, save validation predictions only,
+use global seeded train-row permutations and expand at most one minibatch of
+length-20 history at a time. A train-only attention pilot precedes grid selection.
+
+Pilot passed: one complete attention train epoch took 17.09 seconds, peak RSS
+1.61 GiB, no validation score or test inference. The bounded first study retains
+L=20 (no L=50 experiment) and preregisters the paired LR grid `{5e-4,2e-4}` in
+`results/sequence_selection_v1/preregistration.json` before full validation scores.
+Select one common LR by mean best validation LogLoss across the two matched
+poolings, then run inherited matched/mismatched conditions for seeds 42/2026/3407.
+At most 14 unique runs x 4 epochs, estimated under 30 minutes including shared
+evaluation, with the existing hard 6 machine-hour cap. All final checkpoints
+are chosen using validation and remain behind the formal test gate.

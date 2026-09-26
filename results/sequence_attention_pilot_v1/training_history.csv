@@ -1,0 +1,2 @@
+epoch,train_rows,train_logloss,train_seconds,peak_rss_bytes_macos,epoch_seconds
+1,20015245,0.18663509989510496,17.087532416917384,1733443584,17.089361582882702

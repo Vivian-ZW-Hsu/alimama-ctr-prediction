@@ -1,0 +1,39 @@
+{
+  "cache_run": "sequence_context_v1",
+  "run_name": "sequence_attention_pilot_v1",
+  "pooling": "attention",
+  "sequence_source": "matched",
+  "learning_rate": 0.0005,
+  "batch_size": 4096,
+  "epochs": 4,
+  "seed": 42,
+  "device": "auto",
+  "smoke_test": false,
+  "pilot": true,
+  "max_length": 20,
+  "embedding_dim": 8,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "attention_hidden_dim": 32,
+  "dropout": 0.3,
+  "weight_decay": 1e-05,
+  "optimizer": "AdamW",
+  "patience": 2,
+  "context": "frozen_DeepFM_F123",
+  "cache_manifest_sha256": "883cb216a0c3126b64b962244e96769fed6d8d0633b9631496516eb0482a16bf",
+  "device_resolved": "mps",
+  "code_sha256": {
+    "22_train_sequence_ctr.py": "905969c278086cd1048a1de4e5c7e50205c66d0cb1406c5594e8a8ebb724639e",
+    "sequence_ctr.py": "6c6c969244be67bb01c78f907a7f758368f5e482cf9fa16750872c9c1a92b3a2",
+    "ctr_nn_common.py": "dc9e1a5ff72cc90b79b56fe26bba049d81ac7a27277cbe9e3301f3b95641927b"
+  },
+  "git_head": "d74c63947e043eb883b9cfc4858ef9904d6f7308",
+  "versions": {
+    "python": "3.11.16",
+    "torch": "2.13.0",
+    "numpy": "2.4.6",
+    "polars": "1.44.2"
+  }
+}

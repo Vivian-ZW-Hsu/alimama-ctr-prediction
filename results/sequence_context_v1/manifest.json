@@ -1,0 +1,36 @@
+{
+  "complete": true,
+  "run_name": "sequence_context_v1",
+  "smoke": false,
+  "splits": [
+    "train",
+    "val"
+  ],
+  "test_read": false,
+  "f4_manifest": "results/f4_click_daily_v1/manifest.json",
+  "f4_manifest_sha256": "ff0734f90afc6ed7ce18cf56bbf55c15410708fb6095296f2ef18040105cc2d8",
+  "base_model_sha256": "eae08d630ea8c9823b271e85554472ecb42ca7183ea9f5b3f4a1f2b47b220f39",
+  "scaler_sha256": "516435973cd9d40af646252a5162d142c386f498d19c15fa28e09869585ed5d1",
+  "source_code_sha256": "7c16ccc77c39d304c7ded7d495a08f0281fc16731592b1a19428f9d33b356443",
+  "category_embedding_sha256": "97d7cedbc6a34bfd776ddddaa40cc03003ae68de19d400fc39c93bfa15d66b3f",
+  "device": "mps",
+  "records": [
+    {
+      "split": "train",
+      "rows": 20015245,
+      "baseline_max_probability_error": 0.0,
+      "id_label_parity": true,
+      "sha256": "e2081720343de42d052628d3594a17d617dfe1181fabe8144961d488361801c7"
+    },
+    {
+      "split": "val",
+      "rows": 3234051,
+      "baseline_max_probability_error": 0.0,
+      "id_label_parity": true,
+      "sha256": "cd9397d157fa6f3bbea7844272499d588e8724735cbbaee9d6a8acfeddbd2d58"
+    }
+  ],
+  "directory": "data/processed/sequence_context_v1",
+  "elapsed_seconds": 21.026219957973808,
+  "peak_rss_bytes_macos": 3278045184
+}

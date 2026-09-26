@@ -53,6 +53,10 @@ def parse_args() -> argparse.Namespace:
             "frozen-test predictions produced by src/14_calibrate_predictions.py."
         ),
     )
+    parser.add_argument(
+        "--splits", nargs="+", choices=SPLITS,
+        help="Explicit raw evaluation splits; use --splits val before the test gate.",
+    )
     return parser.parse_args()
 
 
@@ -61,6 +65,10 @@ def validate_args(args: argparse.Namespace) -> None:
         raise ValueError("--run-name contains unsupported characters")
     if args.bins < 2:
         raise ValueError("--bins must be at least 2")
+    if args.prediction_stage == "calibrated" and args.splits not in (None, ["test"]):
+        raise ValueError("Calibrated predictions are only available for frozen test")
+    if args.splits and len(args.splits) != len(set(args.splits)):
+        raise ValueError("Duplicate evaluation splits")
 
 
 def safe_auc(y: np.ndarray, p: np.ndarray) -> float:
@@ -330,9 +338,11 @@ def main() -> None:
         prediction_source = PREDICTION_ROOT / args.run_name / "calibration"
     else:
         output_dir = RESULT_ROOT / args.run_name / "evaluation"
-        splits = SPLITS
+        splits = tuple(args.splits) if args.splits else SPLITS
         prediction_source = PREDICTION_ROOT / args.run_name
-    output_dir.mkdir(parents=True, exist_ok=True)
+    if output_dir.exists():
+        raise FileExistsError(f"Refusing to overwrite evaluation: {output_dir}")
+    output_dir.mkdir(parents=True)
 
     print("=" * 78)
     print("SHARED CTR EVALUATION")
