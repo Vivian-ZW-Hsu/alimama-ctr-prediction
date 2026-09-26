@@ -1,0 +1,22 @@
+{
+  "complete": true,
+  "raw_test_metrics_match_original": true,
+  "zero_distinct_predictors": 1,
+  "zero_sample_std": "undefined/null, not three independent seeds",
+  "seed_summary": "arithmetic mean of metrics, sample std ddof=1; not metrics of probability ensembles",
+  "input_sha256": {
+    "overall_before_after.csv": "35d98ab2ca6c595de89a723c0aaffdeca1e812236672b8f995fbaaec5fd75e59",
+    "group_metrics.csv": "51b2de2f1d5270b15293149c273a4ca44bf7d90d6470a8983ecfeef15fb416f3"
+  },
+  "output_sha256": {
+    "overall_summary.csv": "7543348fb1a33714a6c71e69c6c485beb296b904999d17441f0ad458bce9ba2f",
+    "group_summary.csv": "bf14277928bab986343595ba40aa0e8d770a5de26207192a03bd2300d81d74a0",
+    "group_paired_differences.csv": "21e898cba55e086f91af9367f13eb6a88601cdefa9b19680a9c27739350cc682",
+    "calibration_overall_differences.csv": "a0569ad9d3d47ecafef2beedcb5888bc56bde9e36add1daa9ee4095e8597685e",
+    "calibration_group_differences.csv": "f307bac8f45b3810dcbc5a6a2b4eb38403c477087d9281e82934286f187c1a1c",
+    "group_difference_summary.csv": "3f0932369fa744da4ef8fbb1109c1dee7a723b379ed6c69d129c99ed47e2036f",
+    "calibration_overall_difference_summary.csv": "6d7d132458d1022a209c6f6316763d72708d827f6b8b68d7f9d2f4186a30fa34",
+    "calibration_group_difference_summary.csv": "38a8f98e9779bcc8f2f823b9a0336964d7db225ce25aaf11ef67b193f382f83c"
+  },
+  "code_sha256": "55c069d5ac2c29a949690d1ad978e43275987a1da55d50dbd6fc65320cd8069f"
+}

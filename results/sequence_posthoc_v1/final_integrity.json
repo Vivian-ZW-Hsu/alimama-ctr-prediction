@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "frozen_code_files_unchanged": 9,
+  "frozen_checkpoints_unchanged": 15,
+  "empty_history_rows": 999659,
+  "empty_history_raw_predictions_exactly_equal_across_13_predictors": true,
+  "unit_tests_passed": 16,
+  "python_compilation_passed": true,
+  "documentation_links_valid": true,
+  "test_inference_marker_sha256": "798f8de6c9c0d10d21e9ba3e72a0555ff49b505315f826624e33631aa9ebace8",
+  "verification_sha256": "8dccf6eb2e99445de4ca466d91c2a32e9580c7418bd3576e8f0639fdca29f209",
+  "report_sha256": "d508e9be7747ef1c0dc87ac4787aa7cae97e7c1f7311bdbebf3ea4b9ac29c6b3"
+}

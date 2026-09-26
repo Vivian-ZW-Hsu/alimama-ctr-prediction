@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "replicates": 8,
+  "seconds": 0.5151606251019984,
+  "projected_seconds": 64.3950781377498,
+  "point_estimates_match_shared_evaluator": true
+}

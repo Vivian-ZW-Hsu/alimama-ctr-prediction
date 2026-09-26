@@ -12,7 +12,16 @@ Read `docs/DIN_F4_TEST_RESULTS.md` and `results/sequence_test_v2/manifest.json`.
 Do not run test inference again. Existing predictions are the sole input to
 further reporting. No post-test model/configuration changes are authorized.
 
-The latest user instruction authorizes the hard-zero same-pipeline control at
+The current phase authorizes user-cluster paired bootstrap, fixed group
+diagnostics, and validation-only probability calibration of saved predictions.
+Read `docs/DIN_F4_POSTHOC_PROTOCOL.md` and the immutable protocol in
+`results/sequence_posthoc_v1/protocol.json`. No new CTR training or test inference.
+Calibrator fitting is allowed only on validation, with the existing selection
+recipe; retain every selected calibrator regardless of its test result. Zero is
+one distinct predictor and gets one calibrator, not three independent seeds.
+Keep sampling uncertainty separate from conditional residual-training seed std.
+
+The previous completed phase authorized the hard-zero same-pipeline control at
 seeds 42/2026/3407, then exactly one formal test pass for five conditions after
 validation, smoke/reload checks and a pre-test commit/push pass. Do not ask again
 once these prerequisites pass. The current freeze is
