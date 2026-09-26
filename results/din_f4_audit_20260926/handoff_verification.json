@@ -1,0 +1,59 @@
+{
+  "git_head": "f0ba2a1f314e7b6d6dfc9a64c5e22b21ba4319ca",
+  "handoff_sha256": "816e0226511be69fa1094c55bef1639e22b8d7dd51a7ccfc07aa68f2689e7a7c",
+  "checks_passed": [
+    "lr_f1_f2_f3: handoff five metrics and GAUC coverage agree",
+    "lightgbm_f1_f2_f3: handoff five metrics and GAUC coverage agree",
+    "wide_deep_f1_f2_f3: handoff five metrics and GAUC coverage agree",
+    "deepfm_f1_f2_f3: handoff five metrics and GAUC coverage agree",
+    "lr_f1: handoff information-ablation metrics agree",
+    "lr_f1_f2: handoff information-ablation metrics agree",
+    "lr_f1_f2_f3: calibrated metrics agree",
+    "lightgbm_f1_f2_f3: calibrated metrics agree",
+    "wide_deep_f1_f2_f3: calibrated metrics agree",
+    "deepfm_f1_f2_f3: calibrated metrics agree",
+    "wide_deep_f1_f2_f3: calibrated cold-start rows and biases agree",
+    "deepfm_f1_f2_f3: calibrated cold-start rows and biases agree"
+  ],
+  "recorded_run_versions": {
+    "lr_f1_f2_f3": {
+      "python": "3.11.15",
+      "numpy": "2.4.4",
+      "scipy": "1.17.1",
+      "scikit_learn": "1.8.0",
+      "pyarrow": "24.0.0"
+    },
+    "lightgbm_f1_f2_f3": {
+      "python": "3.11.15",
+      "numpy": "2.4.4",
+      "polars": "1.40.1",
+      "lightgbm": "4.6.0",
+      "scikit_learn": "1.8.0"
+    },
+    "wide_deep_f1_f2_f3": {
+      "python": "3.11.16",
+      "torch": "2.13.0",
+      "numpy": "2.4.6",
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "scikit_learn": "1.9.1",
+      "joblib": "1.6.0"
+    },
+    "deepfm_f1_f2_f3": {
+      "python": "3.11.16",
+      "torch": "2.13.0",
+      "numpy": "2.4.6",
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "scikit_learn": "1.9.1",
+      "joblib": "1.6.0"
+    }
+  },
+  "hardware": {
+    "machine": "Apple M4 Max",
+    "logical_cpus": 16,
+    "physical_memory_bytes": 51539607552
+  },
+  "conflicts_recorded_in": "docs/DIN_F4_DESIGN.md section 2",
+  "test_usage": "Read existing reported CSV metrics only; no model execution or new test diagnostics."
+}
