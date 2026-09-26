@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "freeze_sha256": "32d63b6cbc1498bd840ffac270c94781db78ac91f75845a960264e8dd78c6da7",
+  "original_v1_freeze_unchanged": true,
+  "all_frozen_code_unchanged": true,
+  "all_15_checkpoints_and_validation_predictions_unchanged": true,
+  "test_rows_per_checkpoint": 3308665,
+  "inference_passes_per_checkpoint": 1,
+  "prediction_hashes_verified": 15,
+  "post_test_training_or_config_changes": false
+}

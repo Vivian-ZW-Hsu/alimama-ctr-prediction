@@ -2,6 +2,11 @@
 
 ## User-authorized v2 extension before first test
 
+The conditional authorization has now been executed exactly once after pre-test
+commit/push **0656c23**. See [frozen formal test results](DIN_F4_TEST_RESULTS.md).
+The v2 freeze below remains unchanged after test; no model/configuration was
+reselected. The remaining text documents the pre-test validation decision.
+
 The latest instruction adds **zero_sequence_same_pipeline** and conditionally
 authorizes one formal test pass after validation, smoke/reload and pre-test
 commit/push. The current [v2 freeze](../results/sequence_selection_v2/freeze_manifest.json)

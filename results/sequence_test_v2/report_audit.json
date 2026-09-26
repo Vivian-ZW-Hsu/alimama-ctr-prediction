@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "independent_numpy_aggregation_check": true,
+  "ordered_pretest_comparisons_preserved": true,
+  "six_metrics_verified": [
+    "auc",
+    "logloss",
+    "pr_auc",
+    "gauc",
+    "copc",
+    "ece"
+  ],
+  "five_conditions_three_seeds": true,
+  "rows_per_run": 3308665,
+  "gauc_eligible_users": 104884,
+  "gauc_eligible_rows": 1682247,
+  "frozen_code_unchanged": true,
+  "report_manifest_sha256": "1804072ad0f490912398f8adbae2cdbff94f0f3c60bd9f0f78f3cd100b23b0aa",
+  "zero_gauc_std_roundoff": 7.850462293418876e-17
+}

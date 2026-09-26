@@ -2,6 +2,14 @@
 
 ## Current extension — zero control and conditional test authorization
 
+**Completed:** pre-test freeze/checks were committed and pushed as `0656c23`,
+then 15 frozen checkpoints each inferred all 3,308,665 test rows once. Shared
+evaluation and all five predeclared comparisons are saved in
+`results/sequence_test_v2/`. Mean matched remains primary: test AUC
+0.64626339 ± 0.00004400 and LogLoss 0.193120334 ± 0.000003806. No post-test tuning
+or inference replay occurred. [Full report](DIN_F4_TEST_RESULTS.md) includes all
+six metrics, paired differences, GAUC coverage and interpretation limits.
+
 The latest user instruction supersedes the original pause gate: validate the
 zero-sequence same-pipeline control, freeze five ordered comparisons, commit/push,
 then perform exactly one formal test pass for five conditions x three seeds.

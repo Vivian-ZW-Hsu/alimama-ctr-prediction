@@ -7,6 +7,11 @@ precedence over factual claims in documents. Record conflicts explicitly.
 
 ## Current authorization (supersedes the historical gate below)
 
+The authorized formal test is now COMPLETE: 15 checkpoints, one pass each.
+Read `docs/DIN_F4_TEST_RESULTS.md` and `results/sequence_test_v2/manifest.json`.
+Do not run test inference again. Existing predictions are the sole input to
+further reporting. No post-test model/configuration changes are authorized.
+
 The latest user instruction authorizes the hard-zero same-pipeline control at
 seeds 42/2026/3407, then exactly one formal test pass for five conditions after
 validation, smoke/reload checks and a pre-test commit/push pass. Do not ask again

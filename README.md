@@ -125,6 +125,10 @@ The [v2 freeze](results/sequence_selection_v2/freeze_manifest.json) adds three
 hard-zero same-pipeline controls and fixes mean matched as the primary model.
 All 15 checkpoints share one frozen DeepFM backbone; the zero control is
 deterministic and is not three independently fitted DeepFMs.
+The once-only [formal test is complete](docs/DIN_F4_TEST_RESULTS.md). Mean matched
+remains the predeclared primary model: AUC 0.64626339 ± 0.00004400, LogLoss
+0.193120334 ± 0.000003806 across three residual seeds. The report preserves all
+five predeclared comparisons; attention is not promoted based on test results.
 Large new caches, checkpoints and predictions remain local and Git-ignored;
 committed manifests bind them by SHA256.
 
