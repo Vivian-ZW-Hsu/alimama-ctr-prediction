@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "stage": "d2",
+  "checks": [
+    "complete_group_partitions",
+    "common_error_click_denominators",
+    "additive_gauc_matches_frozen_bootstrap_point",
+    "double_cold_expected_clicks_reconcile",
+    "long_history_label_loss_contributions_reconcile"
+  ],
+  "immutable_inputs_unchanged": true,
+  "output_sha256": {
+    "long_history_loss.csv": "791f3848b2e7718c522c94e157a3c023c274093b119b89821f498c1207f4bde2",
+    "common_miss_profiles.csv": "8be409dfba680cecb204dd171f5198749bd50587383c57b04f2c0da6867dc813",
+    "pairwise_overlap.csv": "6f74d32ce3afd303e1284c957876bd89c98c0272448f7eb27d080f9a23efdd99",
+    "correlations.csv": "095bb380094d019133b1632e08bdbb650ce8d84b22e0f6c524e70d192e1a7399",
+    "heterogeneity_differences.csv": "dd822f5ab87d79c4a4bc5147df34b3b2ad0ba8b4c2f104f604df581a697b9cc9",
+    "group_metrics.csv": "163efd83239abffcf3ab7e8ea4750ea5cebfbc46525cef2e82c6d26ce0647c26",
+    "oracle.csv": "fb0fee3fd3a991339dfd1254097d593b4b8aa18a6b61f7cde80d88e3223c4817",
+    "gauc_contributions.csv": "f68a95d6d285ce725d54d8eb11e5a52b7d25e06cebb562f5f18bc83ddf7e1314",
+    "legacy_audit.json": "db71de4357277732843be15e7b31f3047d6d364f9af55503d715759a9bb70a21",
+    "manifest.json": "72c2722b26f727c21ba3fca9818ef45a3d358d1afb9ce7848e0762e8f61952c9",
+    "common_errors.csv": "f3cc85e4b228983a29b1c1c417efa60c320f04aafeea12d6fbd2c3878af348d7",
+    "double_cold_composition.csv": "06191fc2405ef6d7b0dd2892ed4301b5c74e5375d543efab0994863b4db77428",
+    "group_summary.csv": "d1acd88b1fd3041ea09803a76d0f17fb41a62b4095bd309a57030f14d15cdc68"
+  },
+  "verifier_sha256": "bd0136b0b983a34c353b36f2e69fd19409797271584674c31fbed04f54b6c924"
+}
