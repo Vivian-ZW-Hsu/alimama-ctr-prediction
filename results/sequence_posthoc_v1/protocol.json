@@ -1,0 +1,42 @@
+{
+  "scope": "Saved frozen validation/test predictions only; no CTR training or inference",
+  "timing": "User-specified after aggregate test reporting; fixed before new grouped test results, bootstrap intervals and calibration results. Not retrospective first-test preregistration.",
+  "bootstrap": {
+    "replicates": 1000,
+    "seed": 20260927,
+    "unit": "raw user ID; draw U users with replacement from U observed test users; every exposure of each user receives that user's integer multiplicity",
+    "pairing": "Identical user multiplicities across all 13 distinct saved predictors and all five comparisons per replicate",
+    "estimand": "Arithmetic mean of per-training-seed metric differences, not metric of averaged predictions. Three trained residual seeds fixed, never resampled; zero predictor included once and referenced for each seed.",
+    "metrics": ["auc", "logloss", "pr_auc", "gauc"],
+    "ci": "Two-sided percentile 95%, numpy linear quantiles 0.025/0.975",
+    "p_value": "Two-sided centered bootstrap: (1 + count(abs(delta_boot - delta_observed) >= abs(delta_observed))) / (B + 1); approximate sampling test, not exact randomization",
+    "holm": "Across the two primary comparisons separately for each metric; additionally across all four primary AUC/LogLoss hypotheses as a stricter joint primary family",
+    "secondary": "Mechanistic/exploratory, unadjusted p-values explicitly labeled",
+    "invalid": "Require 1000 finite valid replicates; stop rather than silently discard insufficient replicates",
+    "algorithm": "Exact weighted rank/tie metrics with one global sort per predictor, not histogram approximation; GAUC uses user AUC times resampled impression count among eligible users",
+    "rng": "mt19937_64 initialized with base seed + replicate index; exactly U uniform integer draws per replicate; deterministic across thread count",
+    "pilot_replicates": 8,
+    "threads": 8
+  },
+  "groups": {
+    "history_length": ["0", "1", "2-5", "6-10", "11-19", "20"],
+    "history_length_definition": "Retained length min(raw_length,20); 20 includes raw length exactly 20 or greater",
+    "category_overlap": "Current raw candidate category occurs in the target user's matched retained last-20 history; same groups for every model; compare raw categories to avoid UNKNOWN-index collisions; empty history => false",
+    "cold_start": "Existing train-only raw user/ad encoder vocabularies, four quadrants",
+    "raw_conditions": ["mean_matched", "mean_mismatched", "zero_sequence_same_pipeline"],
+    "attention_raw_scope": "attention_matched history-length groups only",
+    "metrics": ["rows", "ctr", "auc_if_defined", "logloss", "mean_prediction", "copc"],
+    "differences": ["mean_matched-zero_sequence_same_pipeline", "mean_matched-mean_mismatched", "mean_mismatched-zero_sequence_same_pipeline", "attention_matched-mean_matched (length only)"],
+    "selection": "Diagnostic only; no group-specific tuning or fallback changes"
+  },
+  "calibration": {
+    "implementation": "Reuse src/14_calibrate_predictions.py helpers unchanged",
+    "selection": "Validation impression-ID uint64 multiplicative hash modulo 5; 80% fit, 20% method selection by LogLoss; choose between Platt/isotonic regardless of raw baseline; refit selected method on all validation",
+    "conditions": "Four sequence conditions x three seeds, zero once = 13 calibrators",
+    "application": "Transform saved test probabilities only; keep every selected calibrator regardless of test outcome",
+    "reporting": "Raw/calibrated overall and identical cold-start/history-length groups; full-validation calibrated metrics explicitly in-sample",
+    "ece": "Shared evaluator 10 equal-count bins for comparable reports; legacy calibrator selection helper retains its 20 equal-width ECE diagnostics; LogLoss chooses method"
+  },
+  "uncertainty": "Bootstrap is user-sampling uncertainty conditional on fixed models/test day. Seed mean/std is separate training-randomness variation conditional on the one frozen DeepFM. Zero has no independent training seeds.",
+  "strong_baseline_context": "Read historical LR/LightGBM test reports descriptively; no new pairwise significance claim outside five frozen comparisons"
+}
