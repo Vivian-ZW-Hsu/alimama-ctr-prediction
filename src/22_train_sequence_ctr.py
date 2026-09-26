@@ -15,6 +15,7 @@ from torch import nn
 from ctr_nn_common import ROOT, tabular
 from f4_sequences import sha256, write_json
 from sequence_ctr import SequenceResidual, gather_tokens
+from zero_sequence_ctr import ZeroSequenceResidual
 
 
 def load_columns(path):
@@ -61,6 +62,7 @@ def main():
     parser.add_argument('--device', choices=['auto', 'cpu', 'mps'], default='auto')
     parser.add_argument('--smoke-test', action='store_true')
     parser.add_argument('--pilot', action='store_true', help='One full train epoch; no validation scoring')
+    parser.add_argument('--zero-sequence', action='store_true', help='Hard-zero whole residual, same training loop')
     args = parser.parse_args()
     if not args.run_name.replace('_', '').isalnum():
         parser.error('Invalid run name')
@@ -89,7 +91,8 @@ def main():
     val = None if args.pilot else load_columns(directory/'val.parquet')
     random.seed(args.seed); np.random.seed(args.seed); torch.manual_seed(args.seed)
     device = tabular.choose_device(args.device)
-    model = SequenceResidual(torch.from_numpy(np.load(directory/'category_embedding.npy')),
+    model_class = ZeroSequenceResidual if args.zero_sequence else SequenceResidual
+    model = model_class(torch.from_numpy(np.load(directory/'category_embedding.npy')),
                              args.pooling).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=1e-5)
     loss_function = nn.BCEWithLogitsLoss()
@@ -99,7 +102,10 @@ def main():
               'optimizer': 'AdamW', 'patience': 2, 'context': 'frozen_DeepFM_F123',
               'cache_manifest_sha256': sha256(cache_path), 'device_resolved': str(device),
               'code_sha256': {p:sha256(ROOT/'src'/p) for p in
-                  ('22_train_sequence_ctr.py','sequence_ctr.py','ctr_nn_common.py')},
+                  ('22_train_sequence_ctr.py','sequence_ctr.py','ctr_nn_common.py','zero_sequence_ctr.py')},
+              'control_purpose': ('Isolate residual seed, batch, interface dimensions and training pipeline; '
+                 'frozen backbone shared by all conditions, not three independently fitted DeepFMs'
+                 if args.zero_sequence else None),
               'git_head': subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
               'versions': {'python': platform.python_version(), 'torch': torch.__version__,
                            'numpy': np.__version__, 'polars': pl.__version__}}
@@ -119,6 +125,8 @@ def main():
             optimizer.zero_grad(set_to_none=True)
             loss = loss_function(base+model(q,tokens),labels)
             loss.backward()
+            if args.zero_sequence:
+                assert all(p.grad is None or torch.count_nonzero(p.grad).item()==0 for p in model.parameters())
             optimizer.step()
             loss_sum += loss.detach()*len(index)
             if offset and offset//args.batch_size % 1000 == 0:
@@ -162,6 +170,7 @@ def main():
         'peak_rss_bytes_macos':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         'mps_driver_allocated_bytes':torch.mps.driver_allocated_memory() if device.type=='mps' else None,
         'neutral_reserved_rows':True,'empty_residual_exact_zero':True,
+        'zero_sequence_same_pipeline':args.zero_sequence,
         'shuffle':'global train row permutation per epoch, seed+epoch',
         'config_sha256':sha256(result/'config.json'),'output_sha256':outputs})
 

@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "freeze_sha256": "32d63b6cbc1498bd840ffac270c94781db78ac91f75845a960264e8dd78c6da7",
+  "manifest_sha256": "ff58cd09729aaebfb5d285c68a40cf45a49bfba55638e5bf107650edbaea9cdd",
+  "split": "val",
+  "rows_per_condition": 3230,
+  "conditions": 15,
+  "max_error": 5.21540641784668e-08
+}

@@ -114,12 +114,17 @@ F123 preprocessing, four tabular families, shared evaluation, calibration and
 cold-start diagnostics are complete for the existing formal runs. The completed
 models are not being retuned. The F4 full build passed exact ID/label, time,
 identity, deterministic mismatch and original-source audits on 26,557,961 rows.
-Sequence training and selection use train/validation only; **the first formal
-sequence test requires separate approval**. See the [execution record](docs/DIN_F4_EXECUTION.md)
+Sequence training and selection use train/validation only. The latest instruction
+authorizes one formal test pass after the zero-control checks and pre-test
+commit/push. See the [execution record](docs/DIN_F4_EXECUTION.md)
 and [preregistered selection rules](results/sequence_selection_v1/preregistration.json).
 Validation-only selection is complete: L=20, LR=5e-4, 12 frozen checkpoints across
 four conditions and three seeds. [Results and the first-test gate](docs/DIN_F4_VALIDATION.md)
 document the small matched-history gain and the lack of clear attention advantage.
+The [v2 freeze](results/sequence_selection_v2/freeze_manifest.json) adds three
+hard-zero same-pipeline controls and fixes mean matched as the primary model.
+All 15 checkpoints share one frozen DeepFM backbone; the zero control is
+deterministic and is not three independently fitted DeepFMs.
 Large new caches, checkpoints and predictions remain local and Git-ignored;
 committed manifests bind them by SHA256.
 

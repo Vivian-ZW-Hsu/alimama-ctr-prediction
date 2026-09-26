@@ -1,0 +1,12 @@
+{
+  "model": "seq_zero_same_pipeline_l20_s42_v2",
+  "split": "val",
+  "rows": 3234051,
+  "clicks": 159437,
+  "positive_rate": 0.049299469921779214,
+  "mean_prediction": 0.05151660367846489,
+  "auc": 0.6503151436925348,
+  "log_loss": 0.1898125374688147,
+  "pr_auc": 0.08768011741174411,
+  "brier_score": 0.04620001092553139
+}

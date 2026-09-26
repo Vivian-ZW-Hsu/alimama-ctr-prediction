@@ -1,0 +1,152 @@
+{
+  "passed": true,
+  "smoke_reload": {
+    "run_name": "seq_zero_v2_smoke",
+    "checkpoint_sha256": "7e030ec104e14b4ccb32fa13aae83d1634676ab7e51da25694a04f02a96dc5a1",
+    "validation_prediction_sha256": "a43c7d7ab4254cc171107d31dfae794184325686dcd10cffd6a289d72d9261a1",
+    "reload_max_error": 0.0,
+    "zero_baseline_max_error": 0.0,
+    "epoch": 1
+  },
+  "zero_conditions": [
+    {
+      "run_name": "seq_zero_same_pipeline_l20_s42_v2",
+      "checkpoint_sha256": "92d28f4ab3afdf99be5e02a2d8973d485f5b9350b22127a75fc8fe3e65f262e3",
+      "validation_prediction_sha256": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": 0.0,
+      "epoch": 1,
+      "seed": 42,
+      "pooling": "mean",
+      "source": "matched",
+      "condition": "zero_sequence_same_pipeline",
+      "zero_sequence": true
+    },
+    {
+      "run_name": "seq_zero_same_pipeline_l20_s2026_v2",
+      "checkpoint_sha256": "aaf2e5d9097aeb3bafe14bad47c5b02d62ece955fb1ebc0a59a29df3830d56b7",
+      "validation_prediction_sha256": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": 0.0,
+      "epoch": 1,
+      "seed": 2026,
+      "pooling": "mean",
+      "source": "matched",
+      "condition": "zero_sequence_same_pipeline",
+      "zero_sequence": true
+    },
+    {
+      "run_name": "seq_zero_same_pipeline_l20_s3407_v2",
+      "checkpoint_sha256": "bca086f8837545f6c69b89fcd1b5b9f76b18e109f1c954971672bcf82cc0047c",
+      "validation_prediction_sha256": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": 0.0,
+      "epoch": 1,
+      "seed": 3407,
+      "pooling": "mean",
+      "source": "matched",
+      "condition": "zero_sequence_same_pipeline",
+      "zero_sequence": true
+    }
+  ],
+  "original_checkpoint_regression": [
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s42_v1",
+      "checkpoint_sha256": "3fc15006abc2fd823b0bad2def0350e30e56b8552a9e9a93764d4d220c4296f3",
+      "validation_prediction_sha256": "d0fe398bce3fec4779ef2a6c594447e06866f0c534ed961be06e8c89ff5d2412",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_mean_mismatched_l20_lr500_s42_v1",
+      "checkpoint_sha256": "2560e10442ffdb7defd73131ce1bbd17f98dc5798abad895b9aa3f4637339dcd",
+      "validation_prediction_sha256": "00a78051fde53dae60c472f4bd3de7ad48c27d886941499861d133448200a8e0",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_attention_matched_l20_lr500_s42_v1",
+      "checkpoint_sha256": "e99288c2e295eaf901552611eb040d91fa00b2f8504d522242455e8c93ec7b00",
+      "validation_prediction_sha256": "671f059d27125c399ae2bae258ec60e3baf8a6459e4044fb5053719ccac74dc2",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_attention_mismatched_l20_lr500_s42_v1",
+      "checkpoint_sha256": "913b28866dbe11ef253df295ef57fe6456c7788701909ec8b0220459c4389317",
+      "validation_prediction_sha256": "629c2a1a08e9c6d04416a042eb3026188c39d35d96c69bea9ca24177331a6b3b",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s2026_v1",
+      "checkpoint_sha256": "0cdc64428b1cc0505c7236fecbea9b950cb544304d0c4f5644769f1e86b97de2",
+      "validation_prediction_sha256": "9b8259b6bb23e0ef9a03f97ccdb46c03bd42f51ea2f8e2d3a532a03d877abde7",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_mean_mismatched_l20_lr500_s2026_v1",
+      "checkpoint_sha256": "6d18db950ba1559b8036cf6f26d48012f8bf3b0a8cd1ff774e354d674e515c00",
+      "validation_prediction_sha256": "cc277267e0adbb4a1ab610929c2f00c43a0341aae1890ec2ac7d014ace97b076",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_attention_matched_l20_lr500_s2026_v1",
+      "checkpoint_sha256": "98f9b11d6d0de968d29b57fbd890d3849ac38abd10736287ca8fbca6c585162b",
+      "validation_prediction_sha256": "b918e8a30a88990cba43b67bd551896493b5b7c11cfdbeda2cd116a0f16ed4bf",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_attention_mismatched_l20_lr500_s2026_v1",
+      "checkpoint_sha256": "86855d677e3f501a1782f50143daf3f8c8e32727c1f036c78c76908c0e0a5779",
+      "validation_prediction_sha256": "dfa9c09d6eb1e5d39c1629ae79b88fda86b6d3a8bb6d60f7c9b69806b03907b5",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s3407_v1",
+      "checkpoint_sha256": "676ea66c3ade6981457803a70348c53f4cc972b746d9e0f6d76ae7bba813b6b4",
+      "validation_prediction_sha256": "d48c04edf70506a22c1f5b824017c4a6af043f5659d008d18fb12e742b70fcea",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_mean_mismatched_l20_lr500_s3407_v1",
+      "checkpoint_sha256": "faf2c803ba6540847aac775034f2a17f5c267f1d27fc94feb1f99d2336eb6331",
+      "validation_prediction_sha256": "b76e8fdd5d076e6e1bdc1b5c7367d6a017ce84aa06fd9ea9dd428f9648d7d914",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_attention_matched_l20_lr500_s3407_v1",
+      "checkpoint_sha256": "17d149b3656235a8ee8300fdecb127643e07b81fd8b5c63ccdd7095e9fd6ab9a",
+      "validation_prediction_sha256": "093e438aa7c50d2b79221afdfcadb77e1ee51f5169b39bc529f048e60215ba50",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    },
+    {
+      "run_name": "seq_attention_mismatched_l20_lr500_s3407_v1",
+      "checkpoint_sha256": "23b66be68ae2b2b7529d0397394a174fe01102d68e44fa791df2942482623893",
+      "validation_prediction_sha256": "c71a838c4143dc3a39b21e2f2f8942ca036dd56530394302ab416872bed881a6",
+      "reload_max_error": 0.0,
+      "zero_baseline_max_error": null,
+      "epoch": 1
+    }
+  ],
+  "all_zero_seed_predictions_identical": true,
+  "purpose": "Pipeline null control; batch/seed/interface parity with strictly zero whole residual, conditional on one frozen backbone"
+}

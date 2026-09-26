@@ -5,6 +5,22 @@ phase. It is the long-term execution charter. Current user instructions take
 precedence; repository code, manifests, Git history, and saved results take
 precedence over factual claims in documents. Record conflicts explicitly.
 
+## Current authorization (supersedes the historical gate below)
+
+The latest user instruction authorizes the hard-zero same-pipeline control at
+seeds 42/2026/3407, then exactly one formal test pass for five conditions after
+validation, smoke/reload checks and a pre-test commit/push pass. Do not ask again
+once these prerequisites pass. The current freeze is
+`results/sequence_selection_v2/freeze_manifest.json`; v1 remains immutable history.
+Mean matched is the primary model; attention remains a mechanism experiment.
+Follow the five ordered comparisons in `results/sequence_selection_v2/comparison_plan.json`.
+No model, hyperparameter, epoch, sequence length, priority or seed changes after
+test. Existing inference start markers forbid automatic re-inference: reports
+must reuse saved predictions. All conditions share one frozen DeepFM backbone;
+the hard-zero control is deterministic, not three independently fitted DeepFMs.
+
+## Historical Stage B/C authorization
+
 Read `docs/DIN_F4_DESIGN.md` for the Stage-A audit, proposed F4 design, and current
 approval gate. At its initial publication, the design is a recommendation;
 The user confirmed Stage B/C on 2026-09-26, including full F4 construction,

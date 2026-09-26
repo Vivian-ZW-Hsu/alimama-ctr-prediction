@@ -1,5 +1,61 @@
 # F4 sequence validation and first-test gate
 
+## User-authorized v2 extension before first test
+
+The latest instruction adds **zero_sequence_same_pipeline** and conditionally
+authorizes one formal test pass after validation, smoke/reload and pre-test
+commit/push. The current [v2 freeze](../results/sequence_selection_v2/freeze_manifest.json)
+supersedes the test gate below; the original v1 manifest is retained unchanged.
+The [comparison plan](../results/sequence_selection_v2/comparison_plan.json) fixes:
+
+| Priority | Ordered comparison (left minus right) |
+|---|---|
+| Primary 1 | Mean matched vs zero sequence |
+| Primary 2 | Mean matched vs mean mismatched |
+| Secondary 3 | Attention matched vs zero sequence |
+| Secondary 4 | Attention matched vs attention mismatched |
+| Secondary 5 | Attention matched vs mean matched |
+
+**Mean matched is the primary model** because validation differences are
+negligible and mean is simpler. Test cannot change this choice. Primary metrics
+are raw AUC and LogLoss, with PR-AUC, GAUC, COPC and ECE also reported; each
+condition uses sample mean ± std over seeds 42/2026/3407. Calibration fitting is
+not part of this raw-probability comparison batch; no calibration method is
+chosen from test results. This scope supersedes the earlier prospective v1
+calibration plan for the current batch.
+
+The zero control uses the same `22_train_sequence_ctr.py`, frozen DeepFM/F123
+cache, LR=5e-4, batch=4096, L=20, seed schedule, head dimensions, optimizer and
+stopping rule. Its entire residual interface is hard-zero, including query and
+sequence representation. The same 32-dimensional head executes, but its output
+is unconditionally masked to zero; biases and gradients cannot create signal.
+The original sequence module and all 12 existing checkpoints are unchanged.
+
+All three zero-control runs selected epoch 1 (tie rule), completed three epochs,
+and produced bit-identical validation predictions, exactly matching the frozen
+DeepFM: **AUC 0.650315143693 ± 0; LogLoss 0.189812537469 ± 0**.
+The [zero validation audit](../results/sequence_selection_v2/zero_validation_audit.json)
+includes smoke checkpoint reload, full zero-control reloads and unchanged
+predictions from reloading all 12 original checkpoints under the updated entry
+point. Unit tests deliberately inject nonzero head weights/biases and verify
+zero representations, zero outputs and zero gradients through optimizer updates.
+
+**Interpretation correction:** the original backbone is frozen for all sequence
+conditions; the residual seeds and batch size never retrain that backbone.
+This is a pipeline null control for batch/seed/interface effects, not three
+independent DeepFM fits or a trainable-capacity-matched no-history model. Its zero
+standard deviation is structural and must not be presented as independent
+replication. The original seed-42 DeepFM is listed separately as historical
+reference and never inserted into the three-seed comparison mean.
+
+The formal inference entry streams one batch at a time through the frozen
+backbone and each of the 15 frozen checkpoints, writes immutable predictions,
+and creates an exclusive start marker. Its smoke mode uses validation only.
+Formal execution requires the passing smoke certificate and a clean commit
+matching `origin/main`. Reports only read these predictions; no second inference
+or post-test selection is allowed. Existing results are preserved under v1;
+new test results use distinct `*_test_v2` names.
+
 ## Scope and evidence
 
 This is the user-authorized Stage B/C study, conditional on the existing frozen

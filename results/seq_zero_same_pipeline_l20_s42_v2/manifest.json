@@ -1,0 +1,27 @@
+{
+  "complete": true,
+  "run_name": "seq_zero_same_pipeline_l20_s42_v2",
+  "smoke": false,
+  "pilot": false,
+  "prediction_splits": [
+    "val"
+  ],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 3234051,
+  "best_epoch": 1,
+  "best_validation_logloss": 0.1898125374688147,
+  "parameter_count": 57297,
+  "elapsed_seconds": 51.68344537494704,
+  "peak_rss_bytes_macos": 2782986240,
+  "mps_driver_allocated_bytes": 61554688,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "zero_sequence_same_pipeline": true,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "27f5f0985765095b63a68e5a0601ccba0c46e9dbd908c47c49bac0b9a4c9773e",
+  "output_sha256": {
+    "artifacts/models/seq_zero_same_pipeline_l20_s42_v2/best_model.pt": "92d28f4ab3afdf99be5e02a2d8973d485f5b9350b22127a75fc8fe3e65f262e3",
+    "artifacts/predictions/seq_zero_same_pipeline_l20_s42_v2/val_predictions.parquet": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48"
+  }
+}

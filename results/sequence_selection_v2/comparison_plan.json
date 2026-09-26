@@ -1,0 +1,31 @@
+{
+  "authorization": "User explicitly approved zero-sequence validation, pre-test commit/push, then exactly one formal test pass for five conditions and three seeds",
+  "primary_model": "mean_matched",
+  "primary_model_reason": "Validation mean/attention differences are negligible; mean is simpler; attention retained as mechanism experiment regardless of test",
+  "conditions": ["zero_sequence_same_pipeline", "mean_matched", "mean_mismatched", "attention_matched", "attention_mismatched"],
+  "seeds": [42, 2026, 3407],
+  "learning_rate": 0.0005,
+  "batch_size": 4096,
+  "inference_batch_size": 8192,
+  "max_length": 20,
+  "max_epochs": 4,
+  "patience": 2,
+  "epoch_selection": "Validation LogLoss only; ties select earliest epoch",
+  "comparisons": [
+    {"id": 1, "priority": "Primary", "left": "mean_matched", "right": "zero_sequence_same_pipeline"},
+    {"id": 2, "priority": "Primary", "left": "mean_matched", "right": "mean_mismatched"},
+    {"id": 3, "priority": "Secondary", "left": "attention_matched", "right": "zero_sequence_same_pipeline"},
+    {"id": 4, "priority": "Secondary", "left": "attention_matched", "right": "attention_mismatched"},
+    {"id": 5, "priority": "Secondary", "left": "attention_matched", "right": "mean_matched"}
+  ],
+  "primary_metrics": ["auc", "logloss"],
+  "other_metrics": ["pr_auc", "gauc", "copc", "ece"],
+  "aggregation": "Per-condition arithmetic mean and sample std (ddof=1) over the three fixed seeds; paired seed differences for the five comparisons",
+  "historical_reference": "Original DeepFM seed 42 is reported separately, never inserted as a fourth seed or averaged into the control",
+  "zero_control_interpretation": "Same frozen backbone, training loop, LR, batch, seed schedule and interface dimensions; hard-zero whole residual means predictions are mathematically seed-invariant. This is a pipeline null control, not three independent backbone fits or a control for effective trainable capacity.",
+  "context": "All 15 conditions reuse the original immutable seed-42 DeepFM F123 checkpoint/scaler; backbone is never optimized",
+  "calibration": "Primary and secondary comparisons use raw probabilities. No calibration refit or method search in this authorized test batch; historical calibration work remains separate.",
+  "time_semantics": "Positive exposure timestamp proxies click-record time, feedback next Beijing day; source date strictly before target date. Test may include completed May 12 positives; no independent click timestamp.",
+  "test_policy": "Only after zero validation, smoke/reload and pre-test freeze commit/push pass. One streaming inference pass per frozen checkpoint, no re-inference for reports. Persist an exclusive start marker; interruption requires investigation, never silent retry.",
+  "post_test_policy": "No model, hyperparameter, epoch, length, priority or seed changes; no new configurations based on test. No significance claim from seed std alone."
+}

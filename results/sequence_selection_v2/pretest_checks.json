@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "unit_tests_passed": 11,
+  "compilation_passed": true,
+  "smoke_evaluator_and_comparisons_passed": true,
+  "smoke_report_sha256": "c3bf784984885a4ed0db5eb47f1ba96fc329bc12d452ff9c3878fecee562b337",
+  "freeze_sha256": "32d63b6cbc1498bd840ffac270c94781db78ac91f75845a960264e8dd78c6da7",
+  "original_trainer_code_recoverable_from_git": "5e3f957:src/22_train_sequence_ctr.py",
+  "formal_test_started": false,
+  "validation_evidence_sha256": {
+    "validation_seed_summary.csv": "1bad82cb1940e2c389b505c26132e861b9335bc9a459ceab6c1f1e215c33ae8c",
+    "validation_comparisons.csv": "3cf286aac2beb0b3e255865168f18cfaceaf1c707498b229610c4431af2ac955",
+    "validation_metrics.csv": "ed4ef5ad58a39da9091ee3866de974207cef5f6bc337560401c569682ccd1076",
+    "validation_paired_differences.csv": "36289920f607ac3e55cf8d3dcc8b42ac7740591b8a4c495604e87a58ff3aced3"
+  }
+}

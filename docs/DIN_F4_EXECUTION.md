@@ -1,5 +1,24 @@
 # DIN / F4 execution record
 
+## Current extension — zero control and conditional test authorization
+
+The latest user instruction supersedes the original pause gate: validate the
+zero-sequence same-pipeline control, freeze five ordered comparisons, commit/push,
+then perform exactly one formal test pass for five conditions x three seeds.
+No additional confirmation is required after the checks pass.
+
+All three zero runs passed full train/validation, chose epoch 1 by the earliest
+tie rule, and exactly reproduced the baseline probabilities. The backbone stays
+frozen for all conditions; zero std is a structural property, not three independent
+DeepFM fits. Eleven unit tests, zero smoke/reloads, and regression reload of all
+12 previous checkpoints pass. Streaming-inference smoke used validation only
+(3,230 rows x 15 checkpoints), max error 5.22e-8 versus saved validation predictions.
+The immutable [v2 freeze](../results/sequence_selection_v2/freeze_manifest.json)
+and [comparison plan](../results/sequence_selection_v2/comparison_plan.json) select
+mean matched as primary before test. The v1 manifests/results are retained.
+New test runs use separate names, and an exclusive inference start marker blocks
+any automatic replay. Raw metrics and seed-paired contrasts are the current scope.
+
 ## Authorization and test gate
 
 On 2026-09-26 the user approved Stages B/C, including full F4 construction,

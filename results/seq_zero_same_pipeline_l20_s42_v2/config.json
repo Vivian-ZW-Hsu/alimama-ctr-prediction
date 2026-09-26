@@ -1,0 +1,42 @@
+{
+  "cache_run": "sequence_context_v1",
+  "run_name": "seq_zero_same_pipeline_l20_s42_v2",
+  "pooling": "mean",
+  "sequence_source": "matched",
+  "learning_rate": 0.0005,
+  "batch_size": 4096,
+  "epochs": 4,
+  "seed": 42,
+  "device": "auto",
+  "smoke_test": false,
+  "pilot": false,
+  "zero_sequence": true,
+  "max_length": 20,
+  "embedding_dim": 8,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "attention_hidden_dim": 32,
+  "dropout": 0.3,
+  "weight_decay": 1e-05,
+  "optimizer": "AdamW",
+  "patience": 2,
+  "context": "frozen_DeepFM_F123",
+  "cache_manifest_sha256": "883cb216a0c3126b64b962244e96769fed6d8d0633b9631496516eb0482a16bf",
+  "device_resolved": "mps",
+  "code_sha256": {
+    "22_train_sequence_ctr.py": "09d97497b9871a0d471ccb0773118977cd6fbaaa71d3b2ae343703a5516cdb01",
+    "sequence_ctr.py": "6c6c969244be67bb01c78f907a7f758368f5e482cf9fa16750872c9c1a92b3a2",
+    "ctr_nn_common.py": "dc9e1a5ff72cc90b79b56fe26bba049d81ac7a27277cbe9e3301f3b95641927b",
+    "zero_sequence_ctr.py": "84dad1b51491afb98b3aa5ec47085deb92efd1b4c31c95855eb654b3b2605cf2"
+  },
+  "control_purpose": "Isolate residual seed, batch, interface dimensions and training pipeline; frozen backbone shared by all conditions, not three independently fitted DeepFMs",
+  "git_head": "5e3f957ba210246ae349a61599cc7cac1acdf32f",
+  "versions": {
+    "python": "3.11.16",
+    "torch": "2.13.0",
+    "numpy": "2.4.6",
+    "polars": "1.44.2"
+  }
+}
