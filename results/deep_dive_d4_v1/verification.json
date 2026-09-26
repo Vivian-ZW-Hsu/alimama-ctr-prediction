@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "stage": "d4",
+  "checks": [
+    "eight_day_row_reconciliation",
+    "repeat_group_partitions",
+    "prior_day_only_sample_audit"
+  ],
+  "immutable_inputs_unchanged": true,
+  "output_sha256": {
+    "rolling_three_day.csv": "8f32787c636057f9b75586a0096e801f54f4ef0ded51b5e2a7be6a5dcf17a560",
+    "daily_summary.csv": "4331c0e664bf6372f090574d6c8166e244d6093c748b7763afdcc049aaaca4a4",
+    "repeat_counts.csv": "a936b64636c420a65abe1546d9f3153287857efd147cd1c5cc5c26eaabfb0fcd",
+    "daily_distributions.csv": "4e9d29185faec1c4282d7bc1a649ee7ae009c5d30802f8e865252ee618210fd2",
+    "distribution_drift.csv": "e3ae161172696cd6c0449c04c8c08c4d9e1e238782b28592f028b51e63b82c68",
+    "manifest.json": "567e7cf4260225a1accd26066fce21806166f4b081fa3616386ab23d34fa669b",
+    "repeat_metrics.csv": "6735c0f5b97f700eae8f6116521f941259472b9736fd4667e7c7703b9815beef",
+    "heldout_hour_metrics.csv": "b5cd210759d508f4a8937836857d7bab5e782cc64862a3581ae32324665c649a",
+    "heldout_daily_metrics.csv": "9ee49037160a006d69e73a12840c32e67403bea12d11968f59238986e2d6bd02"
+  },
+  "verifier_sha256": "bd0136b0b983a34c353b36f2e69fd19409797271584674c31fbed04f54b6c924"
+}
