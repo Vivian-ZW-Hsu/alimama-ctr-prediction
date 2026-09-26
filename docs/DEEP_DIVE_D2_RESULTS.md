@@ -57,7 +57,7 @@ an accounting explanation, not causal identification of truncation or training.
 AUC measures pair ordering; LogLoss also responds to probability magnitudes.
 Matched still improves LogLoss over **zero** in this group; the reversal is
 relative to **mismatched**. Exactly-20, 21–49 and >=50 raw-history subgroups all
-have positive net loss differences. The >=50 subgroup contributes roughly 61%
+have positive net loss differences. The >=50 subgroup contributes 58.64%
 of net deterioration despite about 15% of capped exposures.
 
 `long_history_loss.csv` preserves per-seed, label-separated decompositions by
