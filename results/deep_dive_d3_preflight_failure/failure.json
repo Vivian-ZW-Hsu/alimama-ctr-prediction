@@ -1,0 +1,12 @@
+{
+  "phase": "D3 validation prefix smoke only",
+  "reason": "Float32 sparse sum reordering violated an incorrectly float64-level logit tolerance",
+  "rows": 8192,
+  "max_logit_error": 1.9073486e-06,
+  "original_tolerance": 1e-10,
+  "old_script_sha256": "953aa35832c8c23dcfbe62159402ea4366bdd2056187a993e363efaca607692f",
+  "formal_diagnostic_outputs_written": false,
+  "model_parameters_changed": false,
+  "test_touched": false,
+  "resolution": "Accumulate diagnostic LR contributions in float64; compare to original float32 sparse reduction with numerical tolerance, retain independent saved-probability parity check"
+}

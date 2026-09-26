@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "rows": 8192,
+  "seconds": 0.3934253752231598,
+  "conservative_projection_seconds": 155.31710548899355,
+  "full_decomposition_matches_checkpoint": true,
+  "saved_validation_parity": true
+}

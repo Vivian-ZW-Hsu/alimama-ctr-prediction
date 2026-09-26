@@ -1,0 +1,49 @@
+{
+  "complete": true,
+  "elapsed_seconds": 29.90306541696191,
+  "cap_seconds": 1800,
+  "frozen_evidence_commit": "badecf4",
+  "inputs_sha256": {
+    "docs/DEEP_DIVE_RESEARCH_PLAN.md": "a2cabba241e434eaf2358c60c9d6ab9975c3767ab18271c3754a36ecee8a5c2d",
+    "docs/DIN_F4_TEST_RESULTS.md": "d508e9be7747ef1c0dc87ac4787aa7cae97e7c1f7311bdbebf3ea4b9ac29c6b3",
+    "data/processed/model_input_f3/val.parquet": "231055cbd8edad4ba72b7f15cd354abafe5e532015be0c3b1a0aa2c87d787e5b",
+    "artifacts/models/deepfm_f1_f2_f3/best_model.pt": "eae08d630ea8c9823b271e85554472ecb42ca7183ea9f5b3f4a1f2b47b220f39",
+    "results/deepfm_f1_f2_f3/numeric_scaler.json": "516435973cd9d40af646252a5162d142c386f498d19c15fa28e09869585ed5d1",
+    "src/34_validation_component_diagnostics.py": "1ac3ad7545b74d3d7cda2aa25fd9f49ca25c15bac3d0d10dd84e05cdce80d0ed",
+    "src/deep_dive_common.py": "4f49e25e3b9612e2cc2ae72f4b57d83eb3cd02cdb800af5cb836d80c3a7aee26",
+    "artifacts/models/lr_f1_f2_f3/best_model.joblib": "fab6a366eb0651030f479f3952b506b28b161e345383eeb3f5b8573ce7d72a75",
+    "artifacts/predictions/lr_f1_f2_f3/val_predictions.parquet": "eabdca61c33d9921ad43c71e882017d7fcd087631cf3d8911cfcd712b754a361",
+    "artifacts/predictions/deepfm_f1_f2_f3/val_predictions.parquet": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48",
+    "results/lr_f1/evaluation/overall_metrics.csv": "75bf71a09674e20a9dcef38d4bc312017a6a104cf69e629b91bcd5d8f1a06e81",
+    "results/lr_f1/run_manifest.json": "09ae88903fe6cab9041541667a659bc52575713cd53b6290d27c62b0e8edad4f",
+    "results/lr_f1/metrics.json": "07a4d848a574c604a641e4c5c2dbb6c830e95f79f67b8c24b0ee73399470007c",
+    "results/lr_f1_f2/evaluation/overall_metrics.csv": "396f8dbf86a04f003bfe9eb50d1cf823e66570383275f3f4e5ab8bf3a7a8aa90",
+    "results/lr_f1_f2/run_manifest.json": "5b2100544e790b69355ebe20905d9cd4f543db767e90f49c3b609989c4672b41",
+    "results/lr_f1_f2/metrics.json": "c1c72c79ca294cb2727a6a2583955cc78c4c8f3f2f06108f5f393454a1afebd8",
+    "results/lr_f1_f2_f3/evaluation/overall_metrics.csv": "edf1730653afdeaa38c4844d9938861d455a0a7a497833a4f70dd5f50bacae8e",
+    "results/lr_f1_f2_f3/run_manifest.json": "cb24e9992877510a5643bbfe05c7c32d01786a7e665e28931e0b2904c5cdb953",
+    "results/lr_f1_f2_f3/metrics.json": "4390332125ebec34220f5e692fb412545070cbfa96a07e9ddae04f5f32051697"
+  },
+  "output_sha256": {
+    "existing_lr_information_validation.csv": "8688ada262f8b97397ca6e82cfa37c0ea134952fa6f99d710d07e9a09ae8e4a6",
+    "existing_lr_recipes.json": "13983c8d71becc732a757daa31996de36c81770066113fb441645b9b6533704c",
+    "component_correlations.csv": "1cce950d076d2d947fa0ddaa877f2232eb078bb76c2a0f115f915454b8f67031",
+    "smoke.json": "293381f684c81dd16d56128381e769799d164a839c84ca9b1ad59eff068422e7",
+    "validation_metrics.csv": "6077304cf51a5b3d1b2b3bf8f10d31464546f5598e19f297f24dadf820ed9db5",
+    "logit_components.csv": "93d2c7993b08dd9f5d3340d69707c293d145f90623aca52062f15f3c2b5a8924"
+  },
+  "ctr_training": false,
+  "test_inference": false,
+  "bootstrap_repeated": false,
+  "calibration_fitted": false,
+  "validation_rows": 3234051,
+  "device": "mps",
+  "new_models_fitted": 0,
+  "sklearn_checkpoint_compatibility": "1.8.0 checkpoint read with 1.9.1; _loss alias, arrays only; validation parity checked",
+  "saved_validation_max_probability_error": {
+    "LR": 2.531495043034404e-07,
+    "DeepFM": 0.0
+  },
+  "derived_validation_sha256": "37a6234504162cc45a184fe997efa658f55eccc69534a2d69db66290c241897a",
+  "interpretation": "Post-fit neutralization/deletion is off-distribution reliance, not retrained information/component ablation"
+}

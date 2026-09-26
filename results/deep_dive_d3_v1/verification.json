@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "stage": "d3",
+  "checks": [
+    "validation_only_rows",
+    "checkpoint_and_prediction_parity",
+    "frozen_checkpoints_unchanged"
+  ],
+  "immutable_inputs_unchanged": true,
+  "output_sha256": {
+    "existing_lr_information_validation.csv": "8688ada262f8b97397ca6e82cfa37c0ea134952fa6f99d710d07e9a09ae8e4a6",
+    "existing_lr_recipes.json": "13983c8d71becc732a757daa31996de36c81770066113fb441645b9b6533704c",
+    "manifest.json": "b6836f1041b676446b59a97bf5746ad69e5078fdd88d15db5b0c76a23d56afdc",
+    "component_correlations.csv": "1cce950d076d2d947fa0ddaa877f2232eb078bb76c2a0f115f915454b8f67031",
+    "smoke.json": "293381f684c81dd16d56128381e769799d164a839c84ca9b1ad59eff068422e7",
+    "validation_metrics.csv": "6077304cf51a5b3d1b2b3bf8f10d31464546f5598e19f297f24dadf820ed9db5",
+    "logit_components.csv": "93d2c7993b08dd9f5d3340d69707c293d145f90623aca52062f15f3c2b5a8924"
+  },
+  "verifier_sha256": "bd0136b0b983a34c353b36f2e69fd19409797271584674c31fbed04f54b6c924"
+}
