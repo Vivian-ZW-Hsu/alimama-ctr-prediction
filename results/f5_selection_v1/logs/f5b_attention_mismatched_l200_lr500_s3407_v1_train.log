@@ -1,0 +1,21 @@
+epoch=1 train_rows=4,096,000
+epoch=1 train_rows=8,192,000
+epoch=1 train_rows=12,288,000
+epoch=1 train_rows=16,384,000
+{"epoch": 1, "train_rows": 20015245, "train_logloss": 0.1866604555677435, "train_seconds": 94.67266837484203, "peak_rss_bytes_macos": 6408011776, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05141887441277504, "val_auc": 0.6504512889859946, "val_log_loss": 0.18979816017120418, "val_pr_auc": 0.08774671306115495, "val_brier_score": 0.04619807377457619, "epoch_seconds": 103.8172712919768}
+epoch=2 train_rows=4,096,000
+epoch=2 train_rows=8,192,000
+epoch=2 train_rows=12,288,000
+epoch=2 train_rows=16,384,000
+{"epoch": 2, "train_rows": 20015245, "train_logloss": 0.1866416948680868, "train_seconds": 94.59008720796555, "peak_rss_bytes_macos": 7206486016, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05116896331310272, "val_auc": 0.6504817402615284, "val_log_loss": 0.18978780571063486, "val_pr_auc": 0.08775958857226276, "val_brier_score": 0.04619598388671875, "epoch_seconds": 103.93078937497921}
+epoch=3 train_rows=4,096,000
+epoch=3 train_rows=8,192,000
+epoch=3 train_rows=12,288,000
+epoch=3 train_rows=16,384,000
+{"epoch": 3, "train_rows": 20015245, "train_logloss": 0.18660623439783025, "train_seconds": 94.6856282078661, "peak_rss_bytes_macos": 7243923456, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05225144699215889, "val_auc": 0.6503907507747168, "val_log_loss": 0.18985882397375764, "val_pr_auc": 0.08770650384748789, "val_brier_score": 0.04620891809463501, "epoch_seconds": 103.95265979203396}
+epoch=4 train_rows=4,096,000
+epoch=4 train_rows=8,192,000
+epoch=4 train_rows=12,288,000
+epoch=4 train_rows=16,384,000
+{"epoch": 4, "train_rows": 20015245, "train_logloss": 0.18655719677675692, "train_seconds": 94.5930329170078, "peak_rss_bytes_macos": 7340703744, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05121550336480141, "val_auc": 0.6501659866367439, "val_log_loss": 0.1898344652566081, "val_pr_auc": 0.08761166365058604, "val_brier_score": 0.046201761811971664, "epoch_seconds": 104.11213479214348}
+Complete: /Users/vivian_hsu/Desktop/2026_Spring/1003/project/final_project/results/f5b_attention_mismatched_l200_lr500_s3407_v1/manifest.json

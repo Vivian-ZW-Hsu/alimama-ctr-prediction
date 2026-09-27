@@ -1,0 +1,12 @@
+{
+  "model": "f5b_attention_mismatched_l200_lr500_s42_v1",
+  "split": "val",
+  "rows": 3234051,
+  "clicks": 159437,
+  "positive_rate": 0.049299469921779214,
+  "mean_prediction": 0.05146187171339989,
+  "auc": 0.6504873767981151,
+  "log_loss": 0.18980029630211945,
+  "pr_auc": 0.08777061832528517,
+  "brier_score": 0.04619845375418663
+}

@@ -1,0 +1,12 @@
+{
+  "model": "f5b_attention_matched_l200_lr500_s3407_v1",
+  "split": "val",
+  "rows": 3234051,
+  "clicks": 159437,
+  "positive_rate": 0.049299469921779214,
+  "mean_prediction": 0.051520612090826035,
+  "auc": 0.6517803050378781,
+  "log_loss": 0.18969223646161487,
+  "pr_auc": 0.08829714647339709,
+  "brier_score": 0.04618655890226364
+}

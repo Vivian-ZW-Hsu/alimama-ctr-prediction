@@ -1,0 +1,28 @@
+{
+  "complete": true,
+  "run_name": "f5b_mean_matched_l200_lr200_s42_v1",
+  "budget": "F5",
+  "smoke": false,
+  "pilot": false,
+  "prediction_splits": [
+    "val"
+  ],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 3234051,
+  "best_epoch": 3,
+  "best_validation_logloss": 0.18972106238120293,
+  "parameter_count": 57345,
+  "elapsed_seconds": 213.7,
+  "peak_rss_bytes_macos": 7234912256,
+  "mps_driver_allocated_bytes": 1141587968,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "zero_sequence_same_pipeline": false,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "675cc4a79a08bc35fc4245697d4f788d6a250496e9d33c500929ba96b6a726ef",
+  "output_sha256": {
+    "artifacts/models/f5b_mean_matched_l200_lr200_s42_v1/best_model.pt": "fd68e6286d43ff241d8772cd6ff540a278b6dd2bcbb804e534bd57fb56040bee",
+    "artifacts/predictions/f5b_mean_matched_l200_lr200_s42_v1/val_predictions.parquet": "d81f1a1cf8aa4239a77b39abf8126988625572449c18da89f0688340c5eab18f"
+  }
+}

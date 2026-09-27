@@ -1,0 +1,16 @@
+epoch=1 train_rows=4,096,000
+epoch=1 train_rows=8,192,000
+epoch=1 train_rows=12,288,000
+epoch=1 train_rows=16,384,000
+{"epoch": 1, "train_rows": 20015245, "train_logloss": 0.18666402784477532, "train_seconds": 50.45377412484959, "peak_rss_bytes_macos": 6385975296, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05151660367846489, "val_auc": 0.6503151436925348, "val_log_loss": 0.1898125374688147, "val_pr_auc": 0.08768011741174411, "val_brier_score": 0.04620001092553139, "epoch_seconds": 56.0368157918565}
+epoch=2 train_rows=4,096,000
+epoch=2 train_rows=8,192,000
+epoch=2 train_rows=12,288,000
+epoch=2 train_rows=16,384,000
+{"epoch": 2, "train_rows": 20015245, "train_logloss": 0.1866638279971092, "train_seconds": 49.07723350008018, "peak_rss_bytes_macos": 7141359616, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05151660367846489, "val_auc": 0.6503151436925348, "val_log_loss": 0.1898125374688147, "val_pr_auc": 0.08768011741174411, "val_brier_score": 0.04620001092553139, "epoch_seconds": 54.630391124868765}
+epoch=3 train_rows=4,096,000
+epoch=3 train_rows=8,192,000
+epoch=3 train_rows=12,288,000
+epoch=3 train_rows=16,384,000
+{"epoch": 3, "train_rows": 20015245, "train_logloss": 0.18666430263531622, "train_seconds": 48.890333000104874, "peak_rss_bytes_macos": 7190560768, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05151660367846489, "val_auc": 0.6503151436925348, "val_log_loss": 0.1898125374688147, "val_pr_auc": 0.08768011741174411, "val_brier_score": 0.04620001092553139, "epoch_seconds": 54.474771209061146}
+Complete: /Users/vivian_hsu/Desktop/2026_Spring/1003/project/final_project/results/f5b_zero_l200_s3407_v1/manifest.json

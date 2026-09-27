@@ -63,4 +63,4 @@ results/*/calibration/evaluation/eligible_user_auc.parquet
 .venv-report/
 
 # Local run logs
-logs/
+/logs/

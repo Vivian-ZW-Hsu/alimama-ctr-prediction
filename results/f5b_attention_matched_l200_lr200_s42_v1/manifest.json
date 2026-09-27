@@ -1,0 +1,28 @@
+{
+  "complete": true,
+  "run_name": "f5b_attention_matched_l200_lr200_s42_v1",
+  "budget": "F5",
+  "smoke": false,
+  "pilot": false,
+  "prediction_splits": [
+    "val"
+  ],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 3234051,
+  "best_epoch": 3,
+  "best_validation_logloss": 0.1897167318806224,
+  "parameter_count": 58434,
+  "elapsed_seconds": 431.66,
+  "peak_rss_bytes_macos": 7299039232,
+  "mps_driver_allocated_bytes": 2215329792,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "zero_sequence_same_pipeline": false,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "ab6adc7d453cb8b8e9fe069100d9394a7227b3cc9609456c1deeeb39f3179620",
+  "output_sha256": {
+    "artifacts/models/f5b_attention_matched_l200_lr200_s42_v1/best_model.pt": "de1fa77c8abcac15cd9d41b6a5531852df17e6aab4bc69de74e270653db2408d",
+    "artifacts/predictions/f5b_attention_matched_l200_lr200_s42_v1/val_predictions.parquet": "f5a3a744278f81a3abaad0983c9f27018481151f731cd4b8c40c4a8d1bf025cc"
+  }
+}

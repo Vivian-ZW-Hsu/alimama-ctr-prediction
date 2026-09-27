@@ -1,0 +1,21 @@
+epoch=1 train_rows=4,096,000
+epoch=1 train_rows=8,192,000
+epoch=1 train_rows=12,288,000
+epoch=1 train_rows=16,384,000
+{"epoch": 1, "train_rows": 20015245, "train_logloss": 0.18662398336867722, "train_seconds": 46.381862208014354, "peak_rss_bytes_macos": 6385270784, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05163053423166275, "val_auc": 0.6512910616379675, "val_log_loss": 0.18973023421503224, "val_pr_auc": 0.088079145699471, "val_brier_score": 0.0461912602186203, "epoch_seconds": 53.50377016700804}
+epoch=2 train_rows=4,096,000
+epoch=2 train_rows=8,192,000
+epoch=2 train_rows=12,288,000
+epoch=2 train_rows=16,384,000
+{"epoch": 2, "train_rows": 20015245, "train_logloss": 0.1865152912192681, "train_seconds": 46.268368958029896, "peak_rss_bytes_macos": 7118471168, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05153016746044159, "val_auc": 0.6517291718306395, "val_log_loss": 0.18969526114367122, "val_pr_auc": 0.0882789571478682, "val_brier_score": 0.04618687927722931, "epoch_seconds": 53.52289274986833}
+epoch=3 train_rows=4,096,000
+epoch=3 train_rows=8,192,000
+epoch=3 train_rows=12,288,000
+epoch=3 train_rows=16,384,000
+{"epoch": 3, "train_rows": 20015245, "train_logloss": 0.18642301155943883, "train_seconds": 46.586565583013, "peak_rss_bytes_macos": 7242383360, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.05256814882159233, "val_auc": 0.6518386828373337, "val_log_loss": 0.18974692453727263, "val_pr_auc": 0.08835366190376794, "val_brier_score": 0.046197447925806046, "epoch_seconds": 53.78028741595335}
+epoch=4 train_rows=4,096,000
+epoch=4 train_rows=8,192,000
+epoch=4 train_rows=12,288,000
+epoch=4 train_rows=16,384,000
+{"epoch": 4, "train_rows": 20015245, "train_logloss": 0.18634806868464512, "train_seconds": 44.01567733287811, "peak_rss_bytes_macos": 7242383360, "val_rows": 3234051, "val_clicks": 159437, "val_positive_rate": 0.049299469921779214, "val_mean_prediction": 0.051504846662282944, "val_auc": 0.6518393485007073, "val_log_loss": 0.18969265737005614, "val_pr_auc": 0.08838661656296058, "val_brier_score": 0.046185970306396484, "epoch_seconds": 51.228062957990915}
+Complete: /Users/vivian_hsu/Desktop/2026_Spring/1003/project/final_project/results/f5b_mean_matched_l200_lr500_s3407_v1/manifest.json

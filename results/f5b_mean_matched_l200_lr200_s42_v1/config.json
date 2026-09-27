@@ -1,0 +1,47 @@
+{
+  "cache_run": "f5_context_v1",
+  "run_name": "f5b_mean_matched_l200_lr200_s42_v1",
+  "pooling": "mean",
+  "sequence_source": "matched",
+  "learning_rate": 0.0002,
+  "batch_size": 4096,
+  "epochs": 4,
+  "seed": 42,
+  "device": "auto",
+  "smoke_test": false,
+  "pilot": false,
+  "zero_sequence": false,
+  "budget": "F5",
+  "max_length": 200,
+  "embedding_dim": 8,
+  "hidden_dims": [
+    64,
+    32
+  ],
+  "attention_hidden_dim": 32,
+  "dropout": 0.3,
+  "weight_decay": 1e-05,
+  "optimizer": "AdamW",
+  "patience": 2,
+  "context": "frozen_DeepFM_F123",
+  "type_vocabulary_size": 6,
+  "type_combination": "additive, zero-initialised type embedding",
+  "validity_mask": "category > 1, identical to F4; UNKNOWN categories carry no information",
+  "cache_manifest_sha256": "c4f0330eaad110cf59ecdf1e30d63bf49895d609d0d7966e047c608a002f8f2c",
+  "device_resolved": "mps",
+  "code_sha256": {
+    "47_train_f5_sequence_ctr.py": "6043b5aeda301465db2ed77c1b8f893138d5e78faa5d619095248ec5ff625d1c",
+    "f5_sequence_ctr.py": "04d82cf2deab44564d8ba8f20a4c2ee49fb5848656915e34930e26da2488a3cb",
+    "sequence_ctr.py": "6c6c969244be67bb01c78f907a7f758368f5e482cf9fa16750872c9c1a92b3a2",
+    "ctr_nn_common.py": "dc9e1a5ff72cc90b79b56fe26bba049d81ac7a27277cbe9e3301f3b95641927b",
+    "f5_sequences.py": "a147e7d3fa382da616819e6c0343412c9b9e5437bad9d03f35c2d5741c9cdfd4"
+  },
+  "control_purpose": null,
+  "git_head": "29d8f8961df3755651567061805e76731745a07d",
+  "versions": {
+    "python": "3.11.16",
+    "torch": "2.13.0",
+    "numpy": "2.4.6",
+    "polars": "1.44.2"
+  }
+}

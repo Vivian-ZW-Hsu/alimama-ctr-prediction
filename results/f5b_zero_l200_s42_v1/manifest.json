@@ -1,0 +1,28 @@
+{
+  "complete": true,
+  "run_name": "f5b_zero_l200_s42_v1",
+  "budget": "F5",
+  "smoke": false,
+  "pilot": false,
+  "prediction_splits": [
+    "val"
+  ],
+  "test_inference": false,
+  "train_rows": 20015245,
+  "val_rows": 3234051,
+  "best_epoch": 1,
+  "best_validation_logloss": 0.1898125374688147,
+  "parameter_count": 57345,
+  "elapsed_seconds": 164.02,
+  "peak_rss_bytes_macos": 7169720320,
+  "mps_driver_allocated_bytes": 1133199360,
+  "neutral_reserved_rows": true,
+  "empty_residual_exact_zero": true,
+  "zero_sequence_same_pipeline": true,
+  "shuffle": "global train row permutation per epoch, seed+epoch",
+  "config_sha256": "9e5c794684ebdd91ffbfa61d6962d25f4625ce82124132e7f286061843d5a560",
+  "output_sha256": {
+    "artifacts/models/f5b_zero_l200_s42_v1/best_model.pt": "eed8f66ec693290d5d9b6a3c3501322e2811b320c1524c9cb39d996776ffa664",
+    "artifacts/predictions/f5b_zero_l200_s42_v1/val_predictions.parquet": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48"
+  }
+}
