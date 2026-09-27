@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "calibrators": [
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s42_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 42,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_mean_matched_l200_lr500_s42_v1.joblib",
+      "calibrator_sha256": "29013ee44de0abc22b050822ccd56f8028c7428dfda7f543e1e3dc98eac97711"
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s42_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 42,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_mean_mismatched_l200_lr500_s42_v1.joblib",
+      "calibrator_sha256": "052f8d97020e770d3aef753ab8a152e9a71df2bac9563fe482e085150cf15bd6"
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s42_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 42,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_attention_matched_l200_lr500_s42_v1.joblib",
+      "calibrator_sha256": "83c218da44151f7ca2f6cfbbacbf3673c2cab61e074b752efa3f19d90250e918"
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s42_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 42,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_attention_mismatched_l200_lr500_s42_v1.joblib",
+      "calibrator_sha256": "c872ec79c1657cb3405bd4339652d058ecd7d9d2dd11781ba3f34914c64b4ceb"
+    },
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s2026_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 2026,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_mean_matched_l200_lr500_s2026_v1.joblib",
+      "calibrator_sha256": "5111f83d10b5c3cac257da87b4431193ea76ff8efaeb5ea1eb511a3a06c9bf90"
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s2026_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 2026,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_mean_mismatched_l200_lr500_s2026_v1.joblib",
+      "calibrator_sha256": "f755d0fb7f4e36cc73f3643deb0d9cd6eff75bb87cc377a9e632b8906b7a5445"
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s2026_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 2026,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_attention_matched_l200_lr500_s2026_v1.joblib",
+      "calibrator_sha256": "fd23bd1dd51de3a97b0f5131ef9583641bff7d3eb03f62a9827e25880b33b343"
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s2026_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 2026,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_attention_mismatched_l200_lr500_s2026_v1.joblib",
+      "calibrator_sha256": "b23e96aa97bdc6eb76588e1eda62de87eef99f77ba95e42fb7132fee256b728e"
+    },
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s3407_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 3407,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_mean_matched_l200_lr500_s3407_v1.joblib",
+      "calibrator_sha256": "1e94826fb9bca81abd6bdfef7d584819a61827c60f7e56b7993d8b7059eb1e0c"
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s3407_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 3407,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_mean_mismatched_l200_lr500_s3407_v1.joblib",
+      "calibrator_sha256": "d1759ac1120a2500391bbcf26ae1d756ca9a2972ef7a9e2f4d6249b06d36e65b"
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s3407_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 3407,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_attention_matched_l200_lr500_s3407_v1.joblib",
+      "calibrator_sha256": "5a565142d86a594a932ca4e6d6819e518a5b133f62209f0964b5d98f40300fcb"
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s3407_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 3407,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_attention_mismatched_l200_lr500_s3407_v1.joblib",
+      "calibrator_sha256": "04662410684d766d243f1d59f85139a0f160e151291fefdca7af61b8655c7833"
+    },
+    {
+      "run_name": "f5b_zero_l200_s42_v1",
+      "condition": "behavior_zero_same_pipeline",
+      "seed": 42,
+      "method": "isotonic",
+      "calibrator_path": "artifacts/calibrators/f5_sequence_test_v1/f5b_zero_l200_s42_v1.joblib",
+      "calibrator_sha256": "41fea28e8dba5e1f5d4a6731ef78ab9311b013f49f63c81ec117e998820ee01b"
+    }
+  ],
+  "count": 13,
+  "zero_count": 1,
+  "test_used_for_fitting_or_selection": false,
+  "recipe": "validation impression-hash 80/20, Platt vs isotonic by selection LogLoss, refit on full validation",
+  "elapsed_seconds": 24.34,
+  "numpy": "2.4.6",
+  "sklearn": "1.9.1",
+  "code_sha256": {
+    "14_calibrate_predictions.py": "a272062d991d8eaef267b8cc709ad0e8dd338a7dd360999b4a383a921d1cae0a",
+    "55_posthoc_f5_test.py": "959385b534999ec3af4e3b2372b60037b830cd7a8653bb75568b8c2507ccb82c"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "complete": true,
+  "valid_replicates": 1000,
+  "invalid_replicates": 0,
+  "seed": 20260927,
+  "threads": 8,
+  "rows": 3308665,
+  "users": 391741,
+  "eligible_users": 104884,
+  "distinct_predictors": 16,
+  "zero_predictors": 1,
+  "f4_reference_predictors": 3,
+  "elapsed_seconds": 13.52,
+  "pilot_reproduces_full_prefix": true,
+  "unweighted_replicate_reproduces_saved_point_metrics": true,
+  "intervals": "marginal percentile 95%, not simultaneous",
+  "p_resolution": 0.000999000999000999,
+  "holm_scope": "the two primary comparisons on AUC and LogLoss, four hypotheses",
+  "uncertainty": "User-sampling conditional on all fixed checkpoints and the single test day. Not training-seed uncertainty, which src/54 reports separately over three residual seeds on one shared backbone.",
+  "predictors": [
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s42_v1_test_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 42,
+      "budget": "F5",
+      "index": 0,
+      "saved_gauc": 0.570314836331695,
+      "prediction_sha256": "5d9742efc3cdaad07fd8ccd41eb834f1ebeb0966f9e564a6f7d074ae3db8c793"
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s42_v1_test_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 42,
+      "budget": "F5",
+      "index": 1,
+      "saved_gauc": 0.5698079754877761,
+      "prediction_sha256": "7d6c1594f0ae15efda9f26721fc0fba191ac434b9a3527e00e7d1891c27259cf"
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s42_v1_test_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 42,
+      "budget": "F5",
+      "index": 2,
+      "saved_gauc": 0.5704136903106038,
+      "prediction_sha256": "d7b1b7237db03fb3907372edce0c06612b055bf2740675b5d8059da94555f05c"
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s42_v1_test_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 42,
+      "budget": "F5",
+      "index": 3,
+      "saved_gauc": 0.5697693584284739,
+      "prediction_sha256": "932c573491303d71b631c578acc5ef5ede410b3b8a4c85278060dc445813473b"
+    },
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s2026_v1_test_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 2026,
+      "budget": "F5",
+      "index": 4,
+      "saved_gauc": 0.5704515195948008,
+      "prediction_sha256": "882171c6b909ade7801a3056de2c9676f276917620e287803c30db1d4dfa582e"
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 2026,
+      "budget": "F5",
+      "index": 5,
+      "saved_gauc": 0.5697993878027783,
+      "prediction_sha256": "0f8581aca6bd904823f8906deeae67958a52d443d59d05f512e6403692c5d874"
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s2026_v1_test_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 2026,
+      "budget": "F5",
+      "index": 6,
+      "saved_gauc": 0.5705049373944748,
+      "prediction_sha256": "af609e7c424b38ac5fddde98fd0c86ff917cbb470c361c5444e17f2785d83f86"
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 2026,
+      "budget": "F5",
+      "index": 7,
+      "saved_gauc": 0.5698204633790244,
+      "prediction_sha256": "e77723feda43e27b8be795aac77b2a43e57afaa447d7c39cbcbaffd3e2c21674"
+    },
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s3407_v1_test_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 3407,
+      "budget": "F5",
+      "index": 8,
+      "saved_gauc": 0.5699858739793896,
+      "prediction_sha256": "ea028a1f1c7376516289c56698c0cf4d65cc9e762555e18d2fe249f6c6c871fb"
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 3407,
+      "budget": "F5",
+      "index": 9,
+      "saved_gauc": 0.5699130935419779,
+      "prediction_sha256": "e57720e3b4d9385d3ba6002013cf7c5a06044a8d1a674638679cfd486e380d78"
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s3407_v1_test_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 3407,
+      "budget": "F5",
+      "index": 10,
+      "saved_gauc": 0.5705080859626744,
+      "prediction_sha256": "cacf72a9aa9d593492ab38d81056a621020f723cc52c5a59af4f723a17b7582f"
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 3407,
+      "budget": "F5",
+      "index": 11,
+      "saved_gauc": 0.5698859368759777,
+      "prediction_sha256": "a068e897be1ba84ce8dcedc6abdc8c105eb3f52bd788fde661bb645a91ba0529"
+    },
+    {
+      "run_name": "f5b_zero_l200_s42_v1_test_v1",
+      "condition": "behavior_zero_same_pipeline",
+      "seed": 42,
+      "budget": "F5",
+      "index": 12,
+      "saved_gauc": 0.5699017506418553,
+      "prediction_sha256": "fd054d9c91505a74329a40644ba0bbcc21c1f4a6092906e9884d522b99937161"
+    },
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s42_v1_test_v2",
+      "condition": "f4_click_mean_matched",
+      "seed": 42,
+      "budget": "F4",
+      "index": 13,
+      "saved_gauc": 0.5705042178292018,
+      "prediction_sha256": "b31147477b6ae2c93eef8e6a181fbde2e24f9176fd48240f43ecbed3d0b69167"
+    },
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s2026_v1_test_v2",
+      "condition": "f4_click_mean_matched",
+      "seed": 2026,
+      "budget": "F4",
+      "index": 14,
+      "saved_gauc": 0.5703267598897065,
+      "prediction_sha256": "2f6d20f835011bee5a76535bc30b7ca4cfac39cd24f54d5331f9961c80eb3bf9"
+    },
+    {
+      "run_name": "seq_mean_matched_l20_lr500_s3407_v1_test_v2",
+      "condition": "f4_click_mean_matched",
+      "seed": 3407,
+      "budget": "F4",
+      "index": 15,
+      "saved_gauc": 0.5703093671090649,
+      "prediction_sha256": "0606513f52918909006b19c0762cf809d94d2bc4a843afd38bc35269aeda8a3c"
+    }
+  ],
+  "binary_sha256": "22cad1490af9b8c6b38e1707f08210ce171531d7f5b275ce881004664e6d40ca",
+  "raw_results_sha256": "4902b733d405c396f5329bf81badeea1072035f3ac12cd92d09bb363cb836f9d",
+  "environment": {
+    "python": "3.11.16",
+    "executable": "/opt/anaconda3/envs/ctr_project/bin/python",
+    "prefix": "/opt/anaconda3/envs/ctr_project",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    },
+    "tested_pins": {
+      "numpy": "2.4.6",
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    }
+  },
+  "total_seconds": 26.08
+}

@@ -1,0 +1,8 @@
+{
+  "split": "test",
+  "smoke": false,
+  "freeze_sha256": "77645e5ecf30e2e199526209e0d577e6d52530dbfd28b5f74196b187077e7a4e",
+  "git_head": "37a3b6ce314a0aea3783920549d11cb8a687a43a",
+  "started_utc": "2026-09-27T05:50:32.006239+00:00",
+  "passes_authorized_per_checkpoint": 1
+}

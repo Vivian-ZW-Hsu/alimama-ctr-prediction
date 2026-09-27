@@ -1,0 +1,56 @@
+{
+  "complete": true,
+  "split": "test",
+  "budget": "F5",
+  "rows_per_condition": 3308665,
+  "f5_conditions": [
+    "behavior_attention_matched",
+    "behavior_attention_mismatched",
+    "behavior_mean_matched",
+    "behavior_mean_mismatched",
+    "behavior_zero_same_pipeline"
+  ],
+  "f4_reference_condition": "mean_matched",
+  "comparisons": 6,
+  "metrics": [
+    "auc",
+    "logloss",
+    "pr_auc",
+    "gauc",
+    "copc",
+    "ece"
+  ],
+  "test_freeze_sha256": "77645e5ecf30e2e199526209e0d577e6d52530dbfd28b5f74196b187077e7a4e",
+  "inference_manifest_sha256": "6b1ef36b013fac992ad055a8b13c9de62572c0cf2fd91d0bfea65d1f6085fd0c",
+  "f4_test_manifest_sha256": "c9d821baa3e6aeb0c5a48e1346ee538476a615069335fadc5799e5144ec22f11",
+  "uncertainty_note": "Seed standard deviations describe three residual seeds on one shared frozen backbone. The zero control is one deterministic predictor, so its standard deviation is structural. User-sampling uncertainty is a separate bootstrap and is never merged with these.",
+  "comparison_6_note": "F5 mean matched against F4 mean matched contrasts two information sources on one shared backbone. It is not an architecture comparison: retained length is 200 against 20, mean retained tokens about 185 against 4.69, and empty-history share about 0.44% against 30.21%.",
+  "environment": {
+    "python": "3.11.16",
+    "executable": "/opt/anaconda3/envs/ctr_project/bin/python",
+    "prefix": "/opt/anaconda3/envs/ctr_project",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    },
+    "tested_pins": {
+      "numpy": "2.4.6",
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    }
+  },
+  "no_reselection": "No model, length, learning rate, donor or primary model changed."
+}
