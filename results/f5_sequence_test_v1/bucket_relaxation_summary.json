@@ -1,0 +1,19 @@
+{
+  "rows": 3308665,
+  "levels": {
+    "0": 3307208,
+    "1": 1227,
+    "2": 230
+  },
+  "level_meanings": {
+    "0": "exact retained length, same activity bucket, same recency bucket",
+    "1": "exact retained length and activity bucket; recency bucket relaxed",
+    "2": "exact retained length only; activity and recency buckets relaxed",
+    "3": "donor retained length at least the target's; never used, zero rows"
+  },
+  "relaxed_rows": 1457,
+  "relaxed_share": 0.0004403588758608079,
+  "retained_rows": 3307208,
+  "all_relaxed_rows_have_nonempty_history": true,
+  "terminology": "bucket_relaxation is the stored `fallback` column; it denotes donor bucket relaxation only, never a length mismatch or an invalid donor"
+}
