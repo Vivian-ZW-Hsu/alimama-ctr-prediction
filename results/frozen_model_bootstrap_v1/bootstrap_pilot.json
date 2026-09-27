@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "replicates": 5,
+  "seconds": 0.273,
+  "projected_seconds": 54.7,
+  "unweighted_replicate_reproduces_documented_point_metrics": true
+}
