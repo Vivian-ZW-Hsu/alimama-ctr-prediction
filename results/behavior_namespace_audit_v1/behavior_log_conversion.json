@@ -1,0 +1,54 @@
+{
+  "stage": "E1.0 lossless behavior_log conversion",
+  "source": {
+    "path": "data/raw/behavior_log.csv",
+    "bytes": 23728773580,
+    "mtime_epoch": 1496602150,
+    "sha256": "a1b2c9cf719796f9ce51c3e87cdc11ab0045775e9cdaac71deb1f8935840f4e6"
+  },
+  "output": {
+    "path": "data/processed/behavior_raw_v1/behavior_log.parquet",
+    "bytes": 4924494245,
+    "compression": "zstd"
+  },
+  "declared_schema": {
+    "user": "Int64",
+    "time_stamp": "Int64",
+    "btag": "String",
+    "cate": "Int64",
+    "brand": "Int64"
+  },
+  "fingerprint": {
+    "rows": 723268134,
+    "user__nulls": 0,
+    "user__min": 1,
+    "user__max": 1141729,
+    "user__sum": 415982428269233,
+    "time_stamp__nulls": 0,
+    "time_stamp__min": -2142988435,
+    "time_stamp__max": 2099392509,
+    "time_stamp__sum": 1080394511150698602,
+    "cate__nulls": 0,
+    "cate__min": 1,
+    "cate__max": 12977,
+    "cate__sum": 4120603825262,
+    "brand__nulls": 0,
+    "brand__min": 2,
+    "brand__max": 461528,
+    "brand__sum": 153805063897981,
+    "btag__nulls": 0,
+    "btag__n_unique": 4,
+    "btag__counts": {
+      "buy": 9115919,
+      "cart": 15946033,
+      "fav": 9301837,
+      "pv": 688904345
+    }
+  },
+  "fingerprints_match": true,
+  "verification": "The same aggregate bundle (row count, per-column null/min/max, Int128 column sums, exact btag value counts) was computed independently from the CSV and from the Parquet copy and compared for exact equality.",
+  "implementation_sha256": "d35a96cbd535f7e43f36aa1db473e0d00578dd345f184b1d4bd878bd3209de11",
+  "elapsed_seconds": 99.1,
+  "peak_rss_bytes": 24259461120,
+  "polars_version": "1.40.1"
+}

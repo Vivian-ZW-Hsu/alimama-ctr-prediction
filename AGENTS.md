@@ -5,7 +5,34 @@ phase. It is the long-term execution charter. Current user instructions take
 precedence; repository code, manifests, Git history, and saved results take
 precedence over factual claims in documents. Record conflicts explicitly.
 
-## Release closure (supersedes all historical phase authorizations)
+## Current authorization: E1-E6 extension (supersedes the release closure below)
+
+The user authorized a post-release extension on branch `feature/f5-behavior-sequence`,
+from release baseline `cce6966`. Authorized work, in order:
+
+- **E1** full-population cross-source namespace audit, scripted and committed.
+- **E2** documentation revision: top summaries, narrowed F4/attention scope,
+  qualified DSIN background comparison, corrected isotonic/COPC/calibration text.
+- **E3** paired user-cluster bootstrap of the **saved** LR vs DeepFM F123 test
+  predictions. No retraining and no new test inference.
+- **E4/E5** a new **F5** information budget: `behavior_log` category + behavior-type
+  sequences, L=200, completed-day cutoff, five conditions on the frozen DeepFM
+  backbone, seeds 42/2026/3407. F5 **adds** a budget; it does not replace or
+  rewrite F4.
+- **E6** unified serving benchmark, experiment registry, final release update.
+
+All existing frozen evidence is immutable: the four tabular families and their
+predictions, the 15 F4 checkpoints, the F4 formal test predictions, `badecf4`
+bootstrap/calibration evidence, the once-only test markers, and every original
+CSV/JSON under existing formal result directories. New work writes only to new
+`*_v1` directories listed in the user instruction.
+
+Proceed autonomously through every non-test stage. The **single** mandatory pause
+is after F5 validation selection and full config/checkpoint freeze, before the
+first formal F5 test inference. Ordinary engineering choices are made
+conservatively, recorded, and not escalated.
+
+## Release closure (superseded by the authorization above; retained as history)
 
 Experiments and deep dives are complete. Only final release consistency checks,
 Chinese PDF delivery, synthetic-fixture tests, documentation, commit and push

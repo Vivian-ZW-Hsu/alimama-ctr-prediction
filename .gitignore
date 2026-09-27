@@ -61,3 +61,6 @@ results/*/calibration/evaluation/eligible_user_auc.parquet
 
 # Isolated publication-only environment
 .venv-report/
+
+# Local run logs
+logs/

@@ -1,0 +1,4 @@
+relation,left,right,left_distinct,right_distinct,shared_distinct,forward_coverage,reverse_coverage
+category,ad_feature.cate_id,behavior_log.cate,6769,12968,6762,0.9989658738366081,0.5214373843306601
+brand,ad_feature.brand,behavior_log.brand,99814,460561,99096,0.9928066203137836,0.21516368081535345
+user,raw_sample.user,behavior_log.user,1141729,1136340,1136340,0.9952799657361773,1.0

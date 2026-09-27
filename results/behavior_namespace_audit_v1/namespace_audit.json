@@ -1,0 +1,503 @@
+{
+  "stage": "E1 cross-source namespace and behavior-window audit",
+  "thresholds": {
+    "ad_category_forward_coverage_min": 0.95,
+    "impression_user_forward_coverage_min": 0.95,
+    "ad_brand_forward_coverage_min": 0.9,
+    "note": "Category and user coverage are hard preconditions for F5. Brand is a secondary token field: below its threshold F5 proceeds category-only."
+  },
+  "verdict": {
+    "category_precondition_met": true,
+    "user_precondition_met": true,
+    "brand_token_admissible": true,
+    "f5_admissible": true,
+    "brand_policy": "brand tokens admissible"
+  },
+  "sources": {
+    "behavior_log_csv": {
+      "path": "data/raw/behavior_log.csv",
+      "bytes": 23728773580,
+      "mtime_epoch": 1496602150,
+      "sha256": null
+    },
+    "behavior_log_parquet_conversion_manifest": "results/behavior_namespace_audit_v1/behavior_log_conversion.json",
+    "ad_feature_csv": {
+      "path": "data/raw/ad_feature.csv",
+      "bytes": 31286431,
+      "mtime_epoch": 1496889385,
+      "sha256": "358a298178a6286196b82fe151024c63f4b081cf7685f1ebf8ff4da776e3c745"
+    },
+    "raw_sample_csv": {
+      "path": "data/raw/raw_sample.csv",
+      "bytes": 1088060964,
+      "mtime_epoch": 1496887756,
+      "sha256": "aad792d63b81b5b7788f91e35364975b83ce3fdb923009fdfb6f798545d2b93d"
+    }
+  },
+  "namespaces": {
+    "category": {
+      "left": "ad_feature.cate_id",
+      "right": "behavior_log.cate",
+      "left_distinct": 6769,
+      "right_distinct": 12968,
+      "shared_distinct": 6762,
+      "forward_coverage": 0.9989658738366081,
+      "reverse_coverage": 0.5214373843306601,
+      "left_min": 1,
+      "left_max": 12960,
+      "right_min": 1,
+      "right_max": 12977,
+      "left_only_count": 7,
+      "right_only_count": 6206,
+      "left_only_sample": [
+        118,
+        120,
+        1689,
+        1921,
+        4247,
+        4248,
+        4795
+      ],
+      "right_only_sample": [
+        14,
+        20,
+        28,
+        29,
+        30,
+        36,
+        43,
+        48,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        66,
+        67,
+        68
+      ]
+    },
+    "brand": {
+      "left": "ad_feature.brand",
+      "right": "behavior_log.brand",
+      "left_distinct": 99814,
+      "right_distinct": 460561,
+      "shared_distinct": 99096,
+      "forward_coverage": 0.9928066203137836,
+      "reverse_coverage": 0.21516368081535345,
+      "left_min": 2,
+      "left_max": 461497,
+      "right_min": 2,
+      "right_max": 461528,
+      "left_only_count": 718,
+      "right_only_count": 361465,
+      "left_only_sample": [
+        2120,
+        2189,
+        2728,
+        3380,
+        4734,
+        4812,
+        5347,
+        5772,
+        6652,
+        7624,
+        8256,
+        10455,
+        10878,
+        11215,
+        12427,
+        12698,
+        13132,
+        13851,
+        14368,
+        16189,
+        17045,
+        17664,
+        18897,
+        19250,
+        19399
+      ],
+      "right_only_sample": [
+        4,
+        5,
+        6,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        19,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        34,
+        35,
+        36,
+        40,
+        42,
+        44,
+        45
+      ]
+    },
+    "user": {
+      "left": "raw_sample.user",
+      "right": "behavior_log.user",
+      "left_distinct": 1141729,
+      "right_distinct": 1136340,
+      "shared_distinct": 1136340,
+      "forward_coverage": 0.9952799657361773,
+      "reverse_coverage": 1.0,
+      "left_min": 1,
+      "left_max": 1141729,
+      "right_min": 1,
+      "right_max": 1141729,
+      "left_only_count": 5389,
+      "right_only_count": 0,
+      "left_only_sample": [
+        309,
+        931,
+        950,
+        1779,
+        2528,
+        3567,
+        3948,
+        3977,
+        4128,
+        4221,
+        4277,
+        5257,
+        5295,
+        5344,
+        5440,
+        5449,
+        5569,
+        5801,
+        6061,
+        6143,
+        6423,
+        6502,
+        6567,
+        6673,
+        6698
+      ],
+      "right_only_sample": []
+    }
+  },
+  "time_distribution": {
+    "rows": 723268134,
+    "min_epoch": -2142988435,
+    "max_epoch": 2099392509,
+    "distinct_dates": 1162,
+    "formal_window": {
+      "start": "2017-04-22",
+      "end_exclusive": "2017-05-14",
+      "dates": 22,
+      "events": 723113323
+    },
+    "before_formal_window": {
+      "dates": 653,
+      "events": 127136,
+      "max_events_on_a_single_date": 82245,
+      "note": "Full per-date counts for every date are in daily_events.csv; only the final 14 dates before the formal window are inlined here.",
+      "ramp_before_window": [
+        {
+          "date": "2017-04-08",
+          "events": 563
+        },
+        {
+          "date": "2017-04-09",
+          "events": 404
+        },
+        {
+          "date": "2017-04-10",
+          "events": 470
+        },
+        {
+          "date": "2017-04-11",
+          "events": 365
+        },
+        {
+          "date": "2017-04-12",
+          "events": 325
+        },
+        {
+          "date": "2017-04-13",
+          "events": 434
+        },
+        {
+          "date": "2017-04-14",
+          "events": 815
+        },
+        {
+          "date": "2017-04-15",
+          "events": 889
+        },
+        {
+          "date": "2017-04-16",
+          "events": 1508
+        },
+        {
+          "date": "2017-04-17",
+          "events": 1492
+        },
+        {
+          "date": "2017-04-18",
+          "events": 1835
+        },
+        {
+          "date": "2017-04-19",
+          "events": 3581
+        },
+        {
+          "date": "2017-04-20",
+          "events": 11932
+        },
+        {
+          "date": "2017-04-21",
+          "events": 82245
+        }
+      ]
+    },
+    "after_formal_window": {
+      "dates": 487,
+      "events": 27675,
+      "note": "Full per-date counts are in daily_events.csv.",
+      "first_dates_after_window": [
+        {
+          "date": "2017-05-14",
+          "events": 4228
+        },
+        {
+          "date": "2017-05-15",
+          "events": 182
+        },
+        {
+          "date": "2017-05-16",
+          "events": 213
+        },
+        {
+          "date": "2017-05-17",
+          "events": 127
+        },
+        {
+          "date": "2017-05-18",
+          "events": 114
+        },
+        {
+          "date": "2017-05-19",
+          "events": 80
+        },
+        {
+          "date": "2017-05-20",
+          "events": 148
+        },
+        {
+          "date": "2017-05-21",
+          "events": 132
+        },
+        {
+          "date": "2017-05-22",
+          "events": 258
+        },
+        {
+          "date": "2017-05-23",
+          "events": 135
+        },
+        {
+          "date": "2017-05-24",
+          "events": 285
+        },
+        {
+          "date": "2017-05-25",
+          "events": 149
+        },
+        {
+          "date": "2017-05-26",
+          "events": 139
+        },
+        {
+          "date": "2017-05-27",
+          "events": 187
+        }
+      ]
+    },
+    "decision": "Formal F5 uses only completed Beijing dates in [2017-04-22, 2017-05-14). Records outside this window are sporadic or out-of-range and are excluded."
+  },
+  "behavior_types": {
+    "per_user_events": {
+      "users": 1136328,
+      "mean": 636.3596804795799,
+      "median": 387.0,
+      "p90": 1468.0,
+      "p95": 2062.0,
+      "p99": 3751.0,
+      "max": 43559
+    }
+  },
+  "available_history": {
+    "primary_sequence_length": 200,
+    "cutoff_rule": "completed Beijing dates strictly before the target date",
+    "f4_reference": {
+      "source": "past clicked-ad categories, retained length 20",
+      "test_mean_retained_tokens": 4.687,
+      "test_empty_share": 0.3021,
+      "note": "Recomputed from results/f4_click_daily_v1/audit_2017-05-13.json"
+    },
+    "per_target_date": [
+      {
+        "target_date": "2017-05-06",
+        "split": "train",
+        "impressions": 3270348,
+        "empty_history_rows": 19590,
+        "empty_history_share": 0.005990188200154846,
+        "mean_available": 659.6755164893767,
+        "median_available": 432.0,
+        "p90_available": 1485.0,
+        "mean_retained_at_cap": 175.12282637811023,
+        "rows_at_cap": 2445939,
+        "share_at_cap": 0.7479139834659798
+      },
+      {
+        "target_date": "2017-05-07",
+        "split": "train",
+        "impressions": 3430002,
+        "empty_history_rows": 18974,
+        "empty_history_share": 0.0055317752001310784,
+        "mean_available": 696.343042074028,
+        "median_available": 460.0,
+        "p90_available": 1559.0,
+        "mean_retained_at_cap": 177.13259263405678,
+        "rows_at_cap": 2628870,
+        "share_at_cap": 0.7664339554320959
+      },
+      {
+        "target_date": "2017-05-08",
+        "split": "train",
+        "impressions": 3354523,
+        "empty_history_rows": 16195,
+        "empty_history_share": 0.004827810094013367,
+        "mean_available": 749.639194603823,
+        "median_available": 498.0,
+        "p90_available": 1687.0,
+        "mean_retained_at_cap": 179.25522853770863,
+        "rows_at_cap": 2634468,
+        "share_at_cap": 0.785348021164261
+      },
+      {
+        "target_date": "2017-05-09",
+        "split": "train",
+        "impressions": 3248016,
+        "empty_history_rows": 14310,
+        "empty_history_share": 0.004405766474056778,
+        "mean_available": 795.8622977842474,
+        "median_available": 532.0,
+        "p90_available": 1782.0,
+        "mean_retained_at_cap": 180.98391510386648,
+        "rows_at_cap": 2608822,
+        "share_at_cap": 0.8032047871685362
+      },
+      {
+        "target_date": "2017-05-10",
+        "split": "train",
+        "impressions": 3333752,
+        "empty_history_rows": 12802,
+        "empty_history_share": 0.0038401176812192387,
+        "mean_available": 840.7392667480964,
+        "median_available": 565.0,
+        "p90_available": 1869.0,
+        "mean_retained_at_cap": 182.47487425579348,
+        "rows_at_cap": 2720977,
+        "share_at_cap": 0.8161905864623403
+      },
+      {
+        "target_date": "2017-05-11",
+        "split": "train",
+        "impressions": 3378604,
+        "empty_history_rows": 12406,
+        "empty_history_share": 0.0036719307737752044,
+        "mean_available": 894.0189406630668,
+        "median_available": 601.0,
+        "p90_available": 1989.0,
+        "mean_retained_at_cap": 183.95768873771533,
+        "rows_at_cap": 2806656,
+        "share_at_cap": 0.8307146975496389
+      },
+      {
+        "target_date": "2017-05-12",
+        "split": "val",
+        "impressions": 3234051,
+        "empty_history_rows": 12744,
+        "empty_history_share": 0.003940568655225288,
+        "mean_available": 931.5080896992657,
+        "median_available": 627.0,
+        "p90_available": 2073.0,
+        "mean_retained_at_cap": 184.4837313944647,
+        "rows_at_cap": 2705538,
+        "share_at_cap": 0.8365786439360419
+      },
+      {
+        "target_date": "2017-05-13",
+        "split": "test",
+        "impressions": 3308665,
+        "empty_history_rows": 14397,
+        "empty_history_share": 0.004351301809037784,
+        "mean_available": 966.7385486291299,
+        "median_available": 647.0,
+        "p90_available": 2165.0,
+        "mean_retained_at_cap": 185.19211222653246,
+        "rows_at_cap": 2793679,
+        "share_at_cap": 0.844352329413827
+      }
+    ]
+  },
+  "integrity": {
+    "null_counts": {
+      "rows": 723268134,
+      "user_nulls": 0,
+      "time_stamp_nulls": 0,
+      "btag_nulls": 0,
+      "cate_nulls": 0,
+      "brand_nulls": 0
+    },
+    "value_legality": {
+      "negative_timestamps": 5521,
+      "non_positive_categories": 0,
+      "non_positive_brands": 0,
+      "unknown_btag": 0
+    },
+    "row_level_recheck": {
+      "performed": true,
+      "requested_rows": 500,
+      "sampled_rows": 500,
+      "index_stride": 1446536,
+      "selection": "deterministic evenly spaced row indices, not a prefix",
+      "exact_match": true
+    },
+    "missing_value_encoding": {
+      "ad_feature.brand": "literal 'NULL' token on 246,330 rows, not an empty field; an explicit null_values list is required or the column cannot be parsed as Int64",
+      "behavior_log": "no missing cells in any column",
+      "raw_sample": "no missing cells in any column"
+    },
+    "dtype_conflict": "behavior_log.brand and ad_feature.brand are both integer-valued. A historical derived Parquet inferred Float64 for ad_feature.brand because of its NULL token; this audit reads both with an explicit Int64 schema plus null_values so the comparison is on identical integer semantics."
+  },
+  "implementation_sha256": "4d7feca6f8060b2ecaf62f9d72f8d4c72afa1ff926f389ea4c211bf034aac21a",
+  "polars_version": "1.40.1",
+  "elapsed_seconds": 73.7,
+  "peak_rss_bytes": 28409954304
+}
