@@ -1,0 +1,48 @@
+{
+  "model": "deepfm_f123",
+  "family": "DeepFM",
+  "model_file": "artifacts/models/deepfm_f1_f2_f3/best_model.pt",
+  "model_file_bytes": 90027957,
+  "model_load_seconds": 0.2998,
+  "details": {
+    "trainable_parameters": 22503138,
+    "embedding_dim": 8,
+    "hidden_dims": [
+      128,
+      64
+    ]
+  },
+  "regimes": {
+    "batch_1_latency_ms": {
+      "pure": {
+        "p50": 0.1534795155748725,
+        "p95": 0.18028105841949577,
+        "p99": 0.2761476743035017,
+        "mean": 0.15608956152573228,
+        "repeats": 500,
+        "warmup": 100
+      },
+      "end_to_end": {
+        "p50": 0.2573329256847501,
+        "p95": 0.3439375315792858,
+        "p99": 0.41628930717706675,
+        "mean": 0.26698565296828747,
+        "repeats": 500,
+        "warmup": 100
+      }
+    },
+    "batch_1024_throughput_rows_per_second": {
+      "pure": 848906.0839544568,
+      "end_to_end": 718126.1551930626,
+      "batches": 10,
+      "warmup_batches": 3
+    },
+    "batch_8192_throughput_rows_per_second": {
+      "pure": 1530444.9799509216,
+      "end_to_end": 1239580.4756693912,
+      "batches": 10,
+      "warmup_batches": 3
+    }
+  },
+  "peak_rss_bytes": 853016576
+}

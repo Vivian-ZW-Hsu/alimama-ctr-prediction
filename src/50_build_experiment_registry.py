@@ -68,12 +68,25 @@ STAGES: list[tuple[str, str, str, str]] = [
     ("tuning", "lgbm_f123_", "F1+F2+F3", "local-only tuning run"),
     ("tuning", "wide_deep_f123_", "F1+F2+F3", "local-only tuning run"),
     ("tuning", "deepfm_f123_", "F1+F2+F3", "local-only tuning run"),
+    ("f4_design_audit", "din_f4_audit_", "F4", "Stage A read-only F4 source audit"),
+    ("f4_sequence_validation", "sequence_attention_pilot", "F1+F2+F3+F4", "F4 attention resource pilot"),
     ("legacy", "logistic_regression", "F1+F2", "superseded LR run name"),
     ("legacy", "f4_click_daily_v1_", "F4", "superseded F4 build attempt"),
 ]
 
 
+# (stage, suffix, feature_budget, notes). Checked BEFORE the prefix rules, because
+# a per-run formal test directory is named `seq_<condition>_test_v2` and the `seq_`
+# prefix rule would otherwise classify it as a validation run.
+SUFFIX_STAGES: list[tuple[str, str, str, str]] = [
+    ("f4_sequence_test", "_test_v2", "F1+F2+F3+F4", "F4 once-only formal test run"),
+]
+
+
 def classify(name: str) -> tuple[str, str, str]:
+    for stage, suffix, budget, note in SUFFIX_STAGES:
+        if name.endswith(suffix):
+            return stage, budget, note
     best = None
     for stage, prefix, budget, note in STAGES:
         if name == prefix or name.startswith(prefix):

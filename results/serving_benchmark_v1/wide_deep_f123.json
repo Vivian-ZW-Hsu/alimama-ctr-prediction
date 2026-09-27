@@ -1,0 +1,48 @@
+{
+  "model": "wide_deep_f123",
+  "family": "Wide & Deep",
+  "model_file": "artifacts/models/wide_deep_f1_f2_f3/best_model.pt",
+  "model_file_bytes": 90027957,
+  "model_load_seconds": 0.3053,
+  "details": {
+    "trainable_parameters": 22503138,
+    "embedding_dim": 8,
+    "hidden_dims": [
+      128,
+      64
+    ]
+  },
+  "regimes": {
+    "batch_1_latency_ms": {
+      "pure": {
+        "p50": 0.14141644351184368,
+        "p95": 0.16509779961779714,
+        "p99": 0.23635862627997992,
+        "mean": 0.14296085108071566,
+        "repeats": 500,
+        "warmup": 100
+      },
+      "end_to_end": {
+        "p50": 0.24441652931272984,
+        "p95": 0.3306371392682193,
+        "p99": 0.40381790837272996,
+        "mean": 0.25148266181349754,
+        "repeats": 500,
+        "warmup": 100
+      }
+    },
+    "batch_1024_throughput_rows_per_second": {
+      "pure": 1071050.3654291197,
+      "end_to_end": 814451.7454395953,
+      "batches": 10,
+      "warmup_batches": 3
+    },
+    "batch_8192_throughput_rows_per_second": {
+      "pure": 1872187.9412913527,
+      "end_to_end": 1497754.608836514,
+      "batches": 10,
+      "warmup_batches": 3
+    }
+  },
+  "peak_rss_bytes": 839892992
+}

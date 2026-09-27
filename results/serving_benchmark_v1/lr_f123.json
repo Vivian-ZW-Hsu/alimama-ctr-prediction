@@ -1,0 +1,47 @@
+{
+  "model": "lr_f123",
+  "family": "Logistic Regression",
+  "model_file": "artifacts/models/lr_f1_f2_f3/best_model.joblib",
+  "model_file_bytes": 27928970,
+  "model_load_seconds": 0.1816,
+  "details": {
+    "nonzero_coefficients": 2496993,
+    "coefficient_dimension": 2497016,
+    "feature_dimension": 2497016,
+    "checkpoint_compatibility": "scikit-learn 1.8.0 checkpoint read under 1.9.1 with a _loss module alias",
+    "saved_prediction_parity_max_error": 0.0
+  },
+  "regimes": {
+    "batch_1_latency_ms": {
+      "pure": {
+        "p50": 0.05962501745671034,
+        "p95": 0.06933510303497314,
+        "p99": 0.0734179187566042,
+        "mean": 0.06035688892006874,
+        "repeats": 500,
+        "warmup": 100
+      },
+      "end_to_end": {
+        "p50": 0.32731250394135714,
+        "p95": 0.37250828463584185,
+        "p99": 0.39414000464603305,
+        "mean": 0.33105871733278036,
+        "repeats": 500,
+        "warmup": 100
+      }
+    },
+    "batch_1024_throughput_rows_per_second": {
+      "pure": 7969131.468267048,
+      "end_to_end": 1031335.3827809568,
+      "batches": 10,
+      "warmup_batches": 3
+    },
+    "batch_8192_throughput_rows_per_second": {
+      "pure": 18083051.37823064,
+      "end_to_end": 1275055.850466232,
+      "batches": 10,
+      "warmup_batches": 3
+    }
+  },
+  "peak_rss_bytes": 739983360
+}

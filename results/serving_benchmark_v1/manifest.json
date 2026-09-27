@@ -1,0 +1,78 @@
+{
+  "complete": true,
+  "split_used": "val",
+  "labels_used_for_scoring": false,
+  "regimes": {
+    "pure": "inputs already prepared in memory; only the model call is timed",
+    "end_to_end": "Parquet batch read, encoding, scaling, sequence gather, model call"
+  },
+  "isolation": "one subprocess per model, so peak RSS is not contaminated",
+  "measurement_plan": {
+    "single_row_warmup": 100,
+    "single_row_repeats": 500,
+    "batch_warmup": 3,
+    "batch_repeats": 10,
+    "batch_sizes": [
+      1024,
+      8192
+    ]
+  },
+  "environment": {
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "processor": "arm",
+    "machine": "arm64",
+    "cpu_count": 16,
+    "declared_threads": 8,
+    "device": "cpu for all timings; the neural models were trained on MPS",
+    "python": "3.11.16",
+    "numpy": "2.4.6",
+    "polars": "1.44.2",
+    "torch": "2.13.0",
+    "sklearn": "1.9.1",
+    "lightgbm": "4.7.0"
+  },
+  "resolved_environment": {
+    "python": "3.11.16",
+    "executable": "/opt/anaconda3/envs/ctr_project/bin/python",
+    "prefix": "/opt/anaconda3/envs/ctr_project",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    },
+    "tested_pins": {
+      "numpy": "2.4.6",
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    }
+  },
+  "models": [
+    "deepfm_f123",
+    "f4_mean_matched",
+    "f5_mean_matched",
+    "lightgbm_f123",
+    "lr_f123",
+    "wide_deep_f123"
+  ],
+  "per_model_sha256": {
+    "deepfm_f123.json": "7dce38038bdd5f174151e7d228463b2ff497ad46cf3d861e4e500fd4355fbe2a",
+    "f4_mean_matched.json": "c784196807ae75a101fe08957b06717d38acbd355c10b85f5cd9ad8e71dd339a",
+    "f5_mean_matched.json": "db949956a819aa097c4e2c1b66b30f187ea11533bc9ceeead80309cfc9dcc2b7",
+    "lightgbm_f123.json": "5e3a4109e5dc82f94fbfd8c7866738ee30dee54dd07c85c64869f49a346e81a7",
+    "lr_f123.json": "7bd1995e81fe11a1400d8d0bc1f8e61d5ed8530de7534db1ff7ddb4034634fcd",
+    "wide_deep_f123.json": "721af4e60c9a9e4220ece2736775f99174e8b24ae2f9470e748a7c9827b8b765"
+  },
+  "caveat": "Sequence rows share one frozen DeepFM backbone with deepfm_f123, so their cost includes that backbone plus a residual, and their model file size is reported for the backbone with the residual size listed separately in details."
+}

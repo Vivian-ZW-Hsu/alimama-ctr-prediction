@@ -1,0 +1,53 @@
+{
+  "model": "f5_mean_matched",
+  "family": "F5 behavior mean matched",
+  "model_file": "artifacts/models/deepfm_f1_f2_f3/best_model.pt",
+  "model_file_bytes": 90027957,
+  "model_load_seconds": 0.7207,
+  "details": {
+    "trainable_parameters": 22503138,
+    "embedding_dim": 8,
+    "hidden_dims": [
+      128,
+      64
+    ],
+    "residual_run": "f5b_mean_matched_l200_lr500_s42_v1",
+    "residual_parameters": 57345,
+    "residual_model_bytes": 234935,
+    "backbone_shared_with": "deepfm_f123",
+    "max_length": 200
+  },
+  "regimes": {
+    "batch_1_latency_ms": {
+      "pure": {
+        "p50": 0.19979150965809822,
+        "p95": 0.24021107237786044,
+        "p99": 0.28622299898415804,
+        "mean": 0.20356715703383088,
+        "repeats": 500,
+        "warmup": 100
+      },
+      "end_to_end": {
+        "p50": 0.2962494036182761,
+        "p95": 0.33785165287554264,
+        "p99": 0.3590111294761299,
+        "mean": 0.2999975602142513,
+        "repeats": 500,
+        "warmup": 100
+      }
+    },
+    "batch_1024_throughput_rows_per_second": {
+      "pure": 318527.2301909518,
+      "end_to_end": 230642.74950268117,
+      "batches": 10,
+      "warmup_batches": 3
+    },
+    "batch_8192_throughput_rows_per_second": {
+      "pure": 658607.593470421,
+      "end_to_end": 379077.61792156677,
+      "batches": 10,
+      "warmup_batches": 3
+    }
+  },
+  "peak_rss_bytes": 6377979904
+}

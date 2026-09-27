@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "directories": 83,
+  "include_untracked": false,
+  "stages": {
+    "context_cache": 2,
+    "data": 7,
+    "deep_dive": 5,
+    "diagnostic": 3,
+    "f4_design_audit": 1,
+    "f4_posthoc": 1,
+    "f4_sequence_test": 16,
+    "f4_sequence_validation": 20,
+    "f5_sequence_validation": 18,
+    "frozen_model_bootstrap": 1,
+    "legacy": 2,
+    "release": 1,
+    "tabular_benchmark": 3,
+    "tabular_information_ablation": 3
+  },
+  "total_test_inferences": 23,
+  "registry_sha256": "ee27b7463f6c710c27cb5a1d261d91a43cd5641ac989ae46a4006a1a4bc698fe",
+  "index_sha256": "75798c908f14e0d4a4169a31a68bf17f9d04d0b4987bb9687117115cc82247f8",
+  "classification": "declared prefix rules in src/50_build_experiment_registry.py"
+}

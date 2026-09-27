@@ -1,0 +1,46 @@
+{
+  "model": "lightgbm_f123",
+  "family": "LightGBM",
+  "model_file": "artifacts/models/lightgbm_f1_f2_f3/best_model.txt",
+  "model_file_bytes": 380637532,
+  "model_load_seconds": 0.2755,
+  "details": {
+    "num_trees": 251,
+    "num_features": 59,
+    "node_count": null,
+    "node_count_note": "omitted; a full model dump of this 363 MiB booster is memory-expensive"
+  },
+  "regimes": {
+    "batch_1_latency_ms": {
+      "pure": {
+        "p50": 0.05712499842047691,
+        "p95": 0.06845807656645775,
+        "p99": 0.09261675877496597,
+        "mean": 0.05843828432261944,
+        "repeats": 500,
+        "warmup": 100
+      },
+      "end_to_end": {
+        "p50": 0.14779192861169577,
+        "p95": 0.17460236558690662,
+        "p99": 0.2228602999821305,
+        "mean": 0.15081924432888627,
+        "repeats": 500,
+        "warmup": 100
+      }
+    },
+    "batch_1024_throughput_rows_per_second": {
+      "pure": 231525.79566509541,
+      "end_to_end": 291079.6456175223,
+      "batches": 10,
+      "warmup_batches": 3
+    },
+    "batch_8192_throughput_rows_per_second": {
+      "pure": 347122.44327827287,
+      "end_to_end": 333268.750144912,
+      "batches": 10,
+      "warmup_batches": 3
+    }
+  },
+  "peak_rss_bytes": 2344402944
+}

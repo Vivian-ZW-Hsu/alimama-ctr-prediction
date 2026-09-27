@@ -60,10 +60,21 @@ class LogisticAdapter:
     path = ROOT / "artifacts/models/lr_f1_f2_f3/best_model.joblib"
 
     def load(self):
+        import sys
         import joblib
         from ctr_posthoc import module
 
         self.trainer = module("lr_serving", "08_train_logistic_regression.py")
+        # The trusted checkpoint was serialized under scikit-learn 1.8.0 and the
+        # installed 1.9.1 moved the private loss module. The existing D3 diagnostic
+        # uses the same alias; only stored arrays are relied on, and the parity
+        # check below confirms the loaded model reproduces its saved predictions.
+        import sklearn._loss._loss as sklearn_loss
+
+        sys.modules.setdefault("_loss", sklearn_loss)
+        self.compatibility = (
+            "scikit-learn 1.8.0 checkpoint read under 1.9.1 with a _loss module alias"
+        )
         checkpoint = joblib.load(self.path)
         self.model = checkpoint["model"]
         self.scaler = checkpoint["scaler"]
@@ -77,7 +88,34 @@ class LogisticAdapter:
             "nonzero_coefficients": int(np.count_nonzero(self.model.coef_)),
             "coefficient_dimension": int(self.model.coef_.size),
             "feature_dimension": int(self.layout["total_dimension"]),
+            "checkpoint_compatibility": self.compatibility,
+            "saved_prediction_parity_max_error": self.parity_check(),
         }
+
+    def parity_check(self) -> float:
+        """Confirm the loaded model reproduces its saved validation predictions."""
+        saved = pl.read_parquet(
+            ROOT / "artifacts/predictions/lr_f1_f2_f3/val_predictions.parquet"
+        ).head(8192)
+        wanted = set(saved["impression_id"].to_list())
+        reader = pq.ParquetFile(MODEL_INPUT)
+        errors = []
+        for batch in reader.iter_batches(batch_size=8192, columns=self.columns):
+            ids = batch.column("impression_id").to_numpy(zero_copy_only=False)
+            if not wanted.intersection(ids.tolist()):
+                continue
+            predicted = self.infer(self.prepare(batch))
+            lookup = dict(zip(saved["impression_id"].to_list(), saved["prediction"].to_list()))
+            for identifier, value in zip(ids.tolist(), predicted.tolist()):
+                if identifier in lookup:
+                    errors.append(abs(value - lookup[identifier]))
+            break
+        if not errors:
+            raise ValueError("no overlapping rows for the LR parity check")
+        worst = float(max(errors))
+        if worst > 1e-6:
+            raise ValueError(f"LR does not reproduce its saved predictions: {worst}")
+        return worst
 
     def prepare(self, batch):
         return self.trainer.build_sparse_matrix(
@@ -255,6 +293,7 @@ class F4SequenceAdapter(SequenceAdapter):
 class F5SequenceAdapter(SequenceAdapter):
     key = "f5_mean_matched"
     family = "F5 behavior mean matched"
+    residual_run = "f5b_mean_matched_l200_lr500_s42_v1"
     reference_directory = "data/processed/f5_behavior_v1"
     events_path = "data/processed/f5_behavior_v1/events.parquet"
     event_columns = ["cate_idx", "type_idx"]
@@ -294,7 +333,10 @@ def read_batches(columns: list[str], batch_size: int, count: int):
 
 def benchmark(key: str, residual_run: str | None) -> dict:
     adapter = ADAPTERS[key]()
-    if residual_run and isinstance(adapter, SequenceAdapter):
+    # Only the F5 adapter takes an overridable residual run. F4SequenceAdapter is
+    # also a SequenceAdapter, so an isinstance check here would load an F5
+    # checkpoint into the F4 residual, which has no type embedding.
+    if residual_run and isinstance(adapter, F5SequenceAdapter):
         adapter.residual_run = residual_run
     load_started = time.perf_counter()
     details = adapter.load()
@@ -391,7 +433,7 @@ def environment() -> dict:
 
 
 def main() -> None:
-    environment = require_tested_environment("E6 serving benchmark")
+    resolved_environment = require_tested_environment("E6 serving benchmark")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--worker", choices=sorted(ADAPTERS))
     parser.add_argument("--output", type=Path)
@@ -461,6 +503,7 @@ def main() -> None:
                 "batch_sizes": list(BATCH_SIZES),
             },
             "environment": environment(),
+            "resolved_environment": resolved_environment,
             "models": args.models,
             "per_model_sha256": {
                 f"{key}.json": sha256(STUDY / f"{key}.json") for key in args.models

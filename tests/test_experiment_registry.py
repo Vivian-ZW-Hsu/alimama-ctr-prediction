@@ -35,6 +35,13 @@ class ClassificationTests(unittest.TestCase):
         self.assertEqual(f5_budget, 'F1+F2+F3+F5')
         # The once-only F4 test stage is distinct from its validation stage.
         self.assertEqual(registry.classify('sequence_test_v2')[0], 'f4_sequence_test')
+        # A per-run formal test directory is named seq_<condition>_test_v2, so the
+        # suffix rule must win over the `seq_` prefix rule or 15 formal test runs
+        # would be reported as validation runs.
+        self.assertEqual(
+            registry.classify('seq_mean_matched_l20_lr500_s42_v1_test_v2')[0],
+            'f4_sequence_test',
+        )
 
     def test_tuning_and_data_stages_are_not_confused_with_formal_runs(self):
         self.assertEqual(registry.classify('lgbm_f123_leaves31')[0], 'tuning')
@@ -52,8 +59,15 @@ class ClassificationTests(unittest.TestCase):
         self.assertEqual(budget, '-')
         self.assertIn('no declared prefix rule', note)
 
+    def test_suffix_rules_are_checked_before_prefix_rules(self):
+        for stage, suffix, budget, _ in registry.SUFFIX_STAGES:
+            observed = registry.classify('anything' + suffix)
+            self.assertEqual((observed[0], observed[1]), (stage, budget), suffix)
+
     def test_every_declared_rule_classifies_its_own_prefix(self):
         for stage, prefix, budget, _ in registry.STAGES:
+            if any(prefix.endswith(sfx) for _, sfx, _, _ in registry.SUFFIX_STAGES):
+                continue
             observed_stage, observed_budget, _ = registry.classify(prefix)
             # A rule that cannot classify its own prefix is shadowed by a longer one.
             self.assertNotEqual(observed_stage, 'unclassified', prefix)
