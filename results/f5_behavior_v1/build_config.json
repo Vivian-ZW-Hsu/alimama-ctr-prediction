@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "max_length": 200,
+  "seed": 20260926,
+  "smoke": false,
+  "partitions": 16,
+  "activity_threshold": 100,
+  "recency_buckets": "whole Beijing days since the last retained event, clipped at 2",
+  "window_start": "2017-04-22",
+  "window_end_exclusive": "2017-05-14",
+  "inputs": {
+    "data/processed/behavior_raw_v1/behavior_log.parquet": {
+      "bytes": 4924494245,
+      "mtime_ns": 1790471558696274451,
+      "sha256": "9749cc649bba011dc6487908c24600558f2385c3162be102a2a8734dae671a5b"
+    },
+    "artifacts/encoders/mappings/cate_id_raw_mapping.parquet": {
+      "bytes": 26749,
+      "mtime_ns": 1790303623230162369,
+      "sha256": "7ac174811639472e8998567608c9bcd3abb63c41da4250ffcf89af5b8e177b46"
+    },
+    "data/processed/base/train.parquet": {
+      "bytes": 583351529,
+      "mtime_ns": 1790128596430177361,
+      "sha256": "063428bda3081037c538cb21d0947c4094782880b799977484d4bd21db2c18f6"
+    },
+    "data/processed/base/val.parquet": {
+      "bytes": 100267312,
+      "mtime_ns": 1790128597148970718,
+      "sha256": "4a45c959b3e11a4fdfc84ba7ff61f60df2627170cb4631d0fbdb24660e92e842"
+    },
+    "data/processed/base/test.parquet": {
+      "bytes": 101940398,
+      "mtime_ns": 1790128597842100040,
+      "sha256": "b5b1d5425c3666ee6ab1323613199ddacc593dddb701e6864788f032ddf85442"
+    },
+    "data/processed/model_input_f3/train.parquet": {
+      "bytes": 1407545347,
+      "mtime_ns": 1790353202443789683,
+      "sha256": "2cfeda759cba5021592fc59739fd8be5257036cdd4d1fccfb34cd7f1343a9172"
+    },
+    "data/processed/model_input_f3/val.parquet": {
+      "bytes": 226583917,
+      "mtime_ns": 1790353202707430656,
+      "sha256": "231055cbd8edad4ba72b7f15cd354abafe5e532015be0c3b1a0aa2c87d787e5b"
+    },
+    "data/processed/model_input_f3/test.parquet": {
+      "bytes": 232327655,
+      "mtime_ns": 1790353202956106482,
+      "sha256": "94d374f5ad5801887000d8b3fefff186182a709d53619901bc37dcc82ee9f874"
+    }
+  },
+  "implementation_sha256": "2fa7829eaaabf14df6466ef56ce7b19128cfde78d4afdb22ff165035c39682e9",
+  "library_sha256": "a147e7d3fa382da616819e6c0343412c9b9e5437bad9d03f35c2d5741c9cdfd4"
+}

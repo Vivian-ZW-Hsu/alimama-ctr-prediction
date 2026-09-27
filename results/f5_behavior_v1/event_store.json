@@ -1,0 +1,23 @@
+{
+  "path": "data/processed/f5_behavior_v1/events.parquet",
+  "partitions": 16,
+  "events": 723113323,
+  "users": 1136328,
+  "min_epoch": 1492790400,
+  "max_epoch": 1494691199,
+  "window_start_epoch": 1492790400,
+  "window_end_exclusive_epoch": 1494691200,
+  "unknown_category_tokens": 31115043,
+  "unknown_category_share": 0.04302927633930484,
+  "events_by_type": {
+    "2": 688749534,
+    "3": 15946033,
+    "4": 9301837,
+    "5": 9115919
+  },
+  "users_contiguous": true,
+  "time_ordered_within_user": true,
+  "tie_break": "original behavior_log row position, so events sharing a second keep their source order and the store is byte-reproducible",
+  "bytes": 3622774508,
+  "sha256": "3f720b47ba20b0bed86f5f070ec0f997588008d5d981b9eb8c0d3ee2a98b4f90"
+}
