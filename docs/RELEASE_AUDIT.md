@@ -4,6 +4,17 @@
 
 中文 PDF 为 **19 页**，当前 QA 见 `results/release_audit_v3/pdf_review_v3.json`。原 PDF 已归档为 `results/release_audit_v3/FINAL_REPORT_ZH_before_revision.pdf`；v1/v2 审计证据不改写。Arial Unicode TrueType 子集嵌入；逐页检查中文、表格、图例、分页、页脚与引用。独立 `.venv-report` 使用 `requirements-report.txt`。
 
+## 公开仓库隐私与路径闭环（2026-09-27）
+
+对 Git 已追踪文件逐行扫描，冻结修订前的历史命中为 **155 个文件、228 处**，全部位于 `results/` 下的 JSON（74 个）或日志（81 个）；它们包含机器本地的 macOS 用户目录绝对路径，会暴露本机用户名，也不能作为可直接复制的复现命令。为保持冻结证据哈希，**没有批量修改这些历史文件**，也没有重写历史。因此不能声称所有历史证据本身完全可移植。正式复现入口采用本文件和 [README](../README.md) 中的仓库相对路径，从仓库根目录运行只读检查。
+
+[脱敏路径基线](../results/public_artifact_privacy_audit_v1/baseline.json)按文件、行号、路径类型及原行 SHA256 记录历史命中，不存放原始用户名或完整本机路径；[公开产物审计](../src/59_audit_public_artifacts.py)只放行这些精确历史行，新增 macOS/Linux 个人目录路径或疑似凭据会使检查失败。独立扫描 private key、AWS/GitHub/OpenAI key、Bearer token、命名密钥赋值和密码赋值模式，**当前未检出符合这些模式的真实凭据**；F5 的 `sequence token`、`token_count` 等研究字段不作为访问凭据。该模式扫描不能代替人工审查所有二进制内容或识别一切未知密钥格式。
+
+磁盘现有 **59 个**同名 `test_predictions.parquet`：由冻结 registry 与 F4/F5 manifest 确认 **38 个正式 test 预测产物**；F4 posthoc manifest 中 **13 个**派生预测，加上四个校准 manifest 对应的 **4 个**校准预测，共 **17 个派生/校准/后处理产物**；另有 **4 个**位于 `_smoke` 目录的 smoke 产物。四类路径互不重叠并覆盖磁盘清单；59 个文件**不等于**59 次正式 test 推理。旧运行是否曾覆盖文件，仍不能仅靠现存文件数量证明。上述核算只读取目录、registry 与 manifest，没有加载预测、运行模型或重算指标。
+
+本次修订只涉及发布文档、独立审计代码、合成测试和脱敏基线；中文报告正文及 19 页 PDF 未改。
+在既有 65 项基础上新增 7 项路径与凭据审计夹具，当前全套为 72 项。
+
 ## 本轮审计范围与结论修订
 
 `37_verify_frozen_delivery.py` 核对历史 F4 冻结交付；原 `38_release_audit.py` 的数值断言主要覆盖 F4 与 D2–D4。其 `passed: true` 不能解释为 E1–E6 获得相同深度的审计。新增 `58_audit_e1_e6_release.py` 独立复算 E1 namespace、E3、F5 逐 seed 汇总与六组比较、保存的区间/p/Holm 算术、donor 汇总、serving 比值、registry 与 PDF/文档声明。范围为：
@@ -102,6 +113,7 @@
 python src/37_verify_frozen_delivery.py
 python src/38_release_audit.py
 python src/58_audit_e1_e6_release.py
+python src/59_audit_public_artifacts.py
 python -m unittest discover -s tests -v
 python -m py_compile src/38_release_audit.py src/39_render_final_report.py
 git diff --check

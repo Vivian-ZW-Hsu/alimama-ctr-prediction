@@ -374,6 +374,17 @@ Earlier text quoted "38 (F4 15 + F5 15)", which does not add up. The remaining 8
 the tabular families and the two superseded-name LR runs, each holding exactly one
 test prediction file.
 
+The local disk has **59** files named `test_predictions.parquet`: **38** formal
+run-root outputs, **17** derived/calibrated/post-processed outputs, and **4**
+smoke outputs. The latter 21 do not represent additional formal test inferences.
+The [experiment index](docs/EXPERIMENT_INDEX.md) and
+[release audit](docs/RELEASE_AUDIT.md) document the manifest/registry/filesystem
+reconciliation. Historical JSON and logs retain some machine-local home paths
+to preserve their hashes; use the repository-relative commands below for
+reproduction. The [sanitized path baseline](results/public_artifact_privacy_audit_v1/baseline.json)
+and [public-artifact auditor](src/59_audit_public_artifacts.py) reject new
+personal home paths and likely credentials in tracked files.
+
 ## Repository and reproducibility
 
 | Location | Contents |
@@ -404,6 +415,8 @@ Read-only checks, with local ignored artifacts available:
 ```bash
 python src/37_verify_frozen_delivery.py
 python src/38_release_audit.py
+python src/58_audit_e1_e6_release.py
+python src/59_audit_public_artifacts.py
 python -m unittest discover -s tests -v
 git diff --check
 ```

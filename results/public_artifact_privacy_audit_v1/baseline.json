@@ -1,0 +1,1830 @@
+{
+  "schema_version": 1,
+  "scope": "Git-tracked files at frozen main 3750117c8cbc7532e5e33953cb1129ff779ddd1c; exact original file, line, line SHA256 and path type; no raw path values",
+  "entries": [
+    {
+      "file": "results/deepfm_f1_f2_f3/calibration/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "ea6b2067edef302ef5419c8451c0596ffb5c46212adfe69ec66e0b9473ba7fef",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/deepfm_f1_f2_f3/calibration/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/deepfm_f1_f2_f3/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "db3b1145ae311cbab44ae1620ca21d4976c5fe7b657f1bbf4cdaa28cad460c0e",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/deepfm_f1_f2_f3/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_matched_l200_lr200_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "34e146a1ad30f6bddd4a791c8ff84aafe5f245466cea8982573568eac8b7489e",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_matched_l200_lr200_s42_v1_train.log",
+      "line": 21,
+      "line_sha256": "f3993663c7d657348570f3b12cbc5bba07a9af62d5b65a5f031aaeaf0aea8229",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_matched_l200_lr500_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "20d8e4d10e854176bc5c890d15440f06e3a975cc49652aaf268940bf1a67ed42",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_matched_l200_lr500_s2026_v1_train.log",
+      "line": 21,
+      "line_sha256": "682365cf64fce0d999c0ab04ccb27604f1fc6ac61f952bf3d85076c29da5c005",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_matched_l200_lr500_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "088d9b6a86c419c8aa3070233b96826f7710c3ed89385133ab7750554c1396af",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_matched_l200_lr500_s3407_v1_train.log",
+      "line": 21,
+      "line_sha256": "dc77cab20b4484ce6e49ff77b95d387eb9b64ef2ee7d95a28200465b632135ed",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_matched_l200_lr500_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "70f78e72a64bda4dda22e08ec0380d8617339a4a380db35aaa523e7534027a60",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_matched_l200_lr500_s42_v1_train.log",
+      "line": 21,
+      "line_sha256": "9c0d0da80a6f567647ee1eef6eb668ee340b5ce7186ae41094221bfdcbd820b5",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_mismatched_l200_lr500_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "1edecff2998ef0d12143759e82fcce4259bf328719cfa42132ad14cbfb1e3295",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_mismatched_l200_lr500_s2026_v1_train.log",
+      "line": 21,
+      "line_sha256": "69a9aa1a9662d78a7b815316b5481865d179de017a0b286434cddcacbccabeb6",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_mismatched_l200_lr500_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "0a6dcd8946a51d7320991cb55a32e28833d63f864f3d2f95c956ecc003ffdda0",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_mismatched_l200_lr500_s3407_v1_train.log",
+      "line": 21,
+      "line_sha256": "4c1f436e14b25fe36d8debe8c3850a491d6617cd20c5ab50a05ac75aa9b9bcf0",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_mismatched_l200_lr500_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "688f558a817fb488f24d5dd02a15f262cea5d9521b9241a9b5bd54db2aa3e9ce",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_attention_mismatched_l200_lr500_s42_v1_train.log",
+      "line": 21,
+      "line_sha256": "d7056aa6a7567de655e08f5d71cfd1ead50d7874589ff7dbce46480be196cf17",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_matched_l200_lr200_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "67949672fd8e96f0f8ba1bacff030712dae44864a61d801213a51cbc548103cb",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_matched_l200_lr200_s42_v1_train.log",
+      "line": 21,
+      "line_sha256": "968fedf5b953922b5fe79fbed22ad1939dea10411ade5f5499046509ccae0cbd",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_matched_l200_lr500_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "8559ff250447b4f83f5f031e86fb9917b5b19d6672f46842e9d071840dcb78a9",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_matched_l200_lr500_s2026_v1_train.log",
+      "line": 21,
+      "line_sha256": "44c6174a020fe7d70a32ca40e9ec65ba86eb298e80ed993c0c6220775644b274",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_matched_l200_lr500_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "b18ffa96eb5d5beeeb55010a9a1075cf368312dd8b7952c434b33002134facab",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_matched_l200_lr500_s3407_v1_train.log",
+      "line": 21,
+      "line_sha256": "98d7a1692881499039c48a8717253c0773ee03c62a2cd1f100a405560bdb7a9b",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_matched_l200_lr500_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "097606d308441d2cb5a31ebca73c969dd35a56fa2e5002a7d1bf61951455ec20",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_matched_l200_lr500_s42_v1_train.log",
+      "line": 21,
+      "line_sha256": "63eb7cdf01150bd30e1abd2e1981a6b39492e93be75969e900058e0b1f985701",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_mismatched_l200_lr500_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "8907e11bcfccc264e09951ef407bbd0f2b388b67d78b9defde3ecf7befb78abe",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_mismatched_l200_lr500_s2026_v1_train.log",
+      "line": 21,
+      "line_sha256": "e52a7eecf5363600eb0b1509c6595085b1429e0f286b7ea42c1a87d650bb9a17",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_mismatched_l200_lr500_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "30d38df12f826d95e08d9398581d9b92a54697834e5cad387cdf928adbd14fec",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_mismatched_l200_lr500_s3407_v1_train.log",
+      "line": 21,
+      "line_sha256": "fc2587042f1383cfd5fe76f501a00221dcb5e0edc99a17872efe9e14d6186864",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_mismatched_l200_lr500_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "def61a38b98274881458f00c61423433cc455bb54e836f83ffb73902bc5abd23",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_mean_mismatched_l200_lr500_s42_v1_train.log",
+      "line": 21,
+      "line_sha256": "ead4ab1477b3e4e660b8020368c39f2971cea502184f649e611910a313a45f10",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_zero_l200_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "d506f98601169f0e4ea01f17fcb8818fb2c91337df28b7577a62b3cc9d9c1780",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_zero_l200_s2026_v1_train.log",
+      "line": 16,
+      "line_sha256": "9addd147ac631bada71ae07f1aebc9a0a3ccdd1d91e5797f154eb7fc0de13fc4",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_zero_l200_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "10bdfc9ff87b51d021885eb2736b88b20d19430a2fc611d38b2e0b939f8f08fb",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_zero_l200_s3407_v1_train.log",
+      "line": 16,
+      "line_sha256": "dd57999abdc9df3948914282824bfb8726bd520b706191adff74cc44527e0fd4",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_zero_l200_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "23cdc0ab3ae246607f8ee5a030c3e26f7375a1d601c19da5222144919cac7f11",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_selection_v1/logs/f5b_zero_l200_s42_v1_train.log",
+      "line": 16,
+      "line_sha256": "ec7c2dc199eb88bb0413606f076741264e1a9a703679d5f4b1f1c9a716c3c517",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_attention_matched_l200_lr500_s2026_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "bd0b5c93959d1752390fcabaff2f0d112e87ae5efa1edf245fa52f5dc5a541e2",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_attention_matched_l200_lr500_s3407_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "f62071f04e1a418f43be0c8360fbb39f1408082711393522743a3dc7ce36476d",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_attention_matched_l200_lr500_s42_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "d225a172f1c3b517a494049d5c88c5eac29e56d552424955c8a0b486d6f5a230",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "461846aea7341047d0ed0fc46f2fbb22fb7ba08c502e47e128c5e55465bf4165",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "a1ffede48c69ec7e050bb53bd68505db1859881bb7b79966f12149d2e8669368",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "33fec7cdab4976d9338927e4f00ddb54012401731b01a84efe799cf61327e074",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_mean_matched_l200_lr500_s2026_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "17e7dcad399d23431f1bae5d107d73b84d5a7d9832c529aebba95bd9d7c9067f",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_mean_matched_l200_lr500_s3407_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "fd44fa224f9c4c1c6ec99fd9aa652721f1585816280d2a9aaf7dca39151bcd13",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_mean_matched_l200_lr500_s42_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "f8c6d8b960b5358972ea7a1abd62dfb769d5d6a5b44c507927496c66fe4c651d",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "c33718a7f02e655b9a3c5d6225dc27f3173a28a28690e7009c2a1f15d6963877",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "dae27ab31f560f54b8b7b2425014801a81af1ef8a0f8d7a8fe890c6ca325b8bd",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "4caf1f28c313795449c5f0abc47db2b0af81363161c852924ccc9ad0092a0b12",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_zero_l200_s2026_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "a985925c8cd05ac0844cead1c6646fa9d7d0e5d2a41275588778e08c3b3a5d7f",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_zero_l200_s3407_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "8874dc8d27d3d8214ce1e738b5ac708f636eb1aec5339b2e70c7cc50f2a8733a",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5_sequence_test_v1/logs/f5b_zero_l200_s42_v1_test_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "8e5c29682ca176cf2d6fe5eab753eb7c547d8d9d24b78ea1feaa1d72f0422ad1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "64b95894b53a2c0460b19df629ef91eb91068feae8016af3a65f8d59195cc5a4",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "fb0a42096cdf56201e095397a1ce087d031b2389e652ecc62d719f1b3b7e9ddb",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "4fd6a58194c18109f7fb0908e86b56b4d1ad45d71eb7d4c03eeb76d959730241",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "02e67faddcb9a61ed0f12c1d5044e636f157f5a4b6fae89fa124d6b43781418a",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "03175915f26cb9bb9032e6392e8d5ee620198d075f46b4782cb5365c658aa9d3",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "c2ad1b40018247e4e67a14ca7e027f1edf5e3b645da5b984eb560aa9acdd9151",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "6758d7686b45f719d07bd2010a62e5925444722d70423a7b3b5ed5834453ed21",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "1a7e335bd5114f6e4cd293c78fce510f99758172244beec3fb7a7217bd97a847",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "b9902ed1629c578b9d59d235ed254c7de1c0c99894866d53e013b63e16d875ae",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "6af57f0f5e0f9e72977eae8414a95a89571385b6c3c934aae0a9b07de1bee672",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "fd240d4dfeef816ac6ed3234bd12cf05e1da04a71235b0cc6057fa6e7e782822",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "7b62285b21bc16ff2258bab3a6bbe62dbd3f686b86960ea5bb9a74874f1c7e37",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "d6f6209ab4b633b62f191e8fec4116f04951149d6575081f679b23e2880ea2d1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "d69a19b49537403d0876ee5782c6646a9b5d29d3086767ff4882e2c7d4cf4bd8",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "d06bcba90f6c5cf1c81acfba755c95bb84d9a2489482a77500312391e1f0d45d",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "12e3304dc93d425e19adf71d8e64e6badfe25e25c617000adb74bbb050f7fbbd",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "4679f5b628341310c7bdd1c763e6b3b263350d8fe434dadf159fb0e4538917ff",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "2de0053f4d0dc163d7d4d795208366fe7000fa20f396be1007674503284d16ea",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "ce640f01ef8613ce966787a3bb6c3cf35d6b41e62055fb0fd06d0e5ec53f6a23",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "2851ab67538d3e24490ac8050b127cabaa6af5347016aa10174fd11a6b0ce7e0",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "a2d04120c1361a736a5442dbbcde0da3f9f79893c0ef5d71c387fcd3eefa5217",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "074d2b1385a7f0393b1700f0715a0d345c46f14d0cf854a99a9b42e45ff2d1c8",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "afac2e9349aacba2c5dae15f6428b0fc5cf3201369deeb6595021f5fbc6df6b8",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "9f0e40077dddc2468e42d219f7ac8e141c8adc47773a5aacda3192c8bc81539f",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "ae121d4f5cdc925e1b915435ce1429d479e397c89292094d7e1451eeeedc211a",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "8ed2a2ae48fce6369ac880470c112b29b90a8dacdb7c3736f4f7b5f07b4ec91a",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "ff3be8855913553aaddb1914377741947297afc83e1dc0bd709e820e3c3b007f",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "b62c9dc4bc8e55ea8e92492bb79cd963a8753650a7e12deb8405390265890fac",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "66eb667a578b608576c4a8a7bdb568003799ef939705fd4e1d5a871a71ce0868",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "2a1753ae6940b37dc066a6450da4faf6037daf1be524d8f16cc95d05f0a91a5a",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "168e84de47e0ecf457d746ea098af2807f4d6ac9a2e3b54b4f190620ff6e7666",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "a6b32ed7b8b1482df3420dc9adddcc202f92622fe4ebee050bb35b14d2e76af1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/lightgbm_f1_f2_f3/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "1f24f2ca8d001fc884082ac522012a21cf149b8013caf96ea553c304f32e56c8",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/lightgbm_f1_f2_f3/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/logistic_regression_no_weekday/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "1fbb35ad6a4d6925ca2e1ab4e01e48668308d61350b6b09cec478c7a02f08154",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/logistic_regression_no_weekday/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/lr_f1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "43e01d22c8c9958638d38f3fde930ba272f3cf39013b52079018a772475954f5",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/lr_f1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/lr_f1_f2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "de84ef2a03049ad4b726898cbcf1348353363ff38cb23d7a0d9b06f06e19693c",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/lr_f1_f2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/lr_f1_f2_f3/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "66b975576fe4db8c20e4c6a414b878c00c27d6c9e618218950b17308ac621732",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/lr_f1_f2_f3/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/past_ctr/manifest.json",
+      "line": 20,
+      "line_sha256": "c9122d64a165fd20b096a6b079278cbe8ecf869d057e7b9d222d6463aebdac23",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "25f970da08c1a50d879eabbff71faf165321b10b0f74da381b1d1e2ba932bc24",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "31b132d63d91821574adbd08579344c492ef773dccdc75a857149e269672b393",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "4656fed2b85c5b3b9ddce1696d5bbaced9ef1602139cfcbf99ce3d9d15966237",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "05dd724b6b1fe3a65a89c48d873865b719dc669a29a7934412527207009b4cf1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "48b04538f4bf2c38342af7855795e56da5c5f6f377a4c4d400b5a911ee3c2f0b",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "2ae1c4bcc240955ee946746053e9ce5921eabca4a4d7bdbffbf19b78d84971cb",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "d43594c439d40717a66922f1b169bc2c227293a6515393276ae954ab9c8ffe01",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_matched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "8320d8ece0480f61d08a1004f8d7d43c84a021958e08cf153b3f7b6be7f8c5e6",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "766acafe62a7cff11b9e0754d48ff5316c182a603c80649b7e5bcb037973bbbf",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "cbe8ed83e0817572df0ae7d49ade67c44f3c8a35299bdb676c661dd0a9e2c4e0",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "bad1492064c556691910e2a9784763d3dc7db4acc208ddeaf4e44e81ac4938ef",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "9b1a6d6d194e72ee5820c912639a3579bd83ac9896cf2932e64bb9b8446ea27c",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "58e6380c4f41d36a2276bf9c5784da595171bb07e61153233b7823f2bfdb7922",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_attention_mismatched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "3f75f816bbd44c3821e745fcab960097905e5033ed58c304ecc39e2eba709e48",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr200_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "df7713796e4f53a00711a93300682e1b2dc110b48c756afb537259680df27850",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "306c7e58ed9d879a58fde3a893076b3ff493ea9970b04cd7992aa23a1715b97c",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "886afc4bc2a4725f313cdb45f3d0f6007becc17dbbead9299e30770f0c152498",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "097b31074146afcae36592855d95ad7330e05b28ca450cd7ab13734181241c50",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "3a27030526062f5fcadc5e68011f49f33f5dfa64c9c7eb4e963654e8b0ee87b3",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "616d0571681a0ff1e0d2662d00e4b47ef7cab2141b23f2421615189051ca8350",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_matched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "600e511864acdb0bc707cbf478ba784b30184db37d5a1ea31fef4ffe28708c7e",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "a226ee3909eda72b0a6e1d19b3457f7dd4ded6f9f60f05d76da7bc6e0db57230",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "45780888b87dc1be9230e312106c5de41b652656f0b1bc0314c94d9ae535ea7d",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "5a1c498087db857a6e216021e53f8b7152a9660430da08a6f7dd4e6c2fd44ce3",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "ba836c9146cba59ecf379d6457e916e28e0a15f092fcbce1b3437a3b9793cef1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "b4575cc37d310b2d47c5e0250bd9d0625b6326c76fede8685e632ab36f6a2a89",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_mean_mismatched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s2026_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "9491f89b5b104845812feb23698b57e15f446d39895640cb51d1cc7bcaf6cf47",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s2026_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s2026_v2_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "ffc20fca5697a962871206a123264d2d485b11fd694a909e15a4a71006b9c71f",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s2026_v2_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s3407_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "fabe28fc3f8804f0fbe3470873ae18362d22320dbde6ac53950bccf823818277",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s3407_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s3407_v2_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "faec0ea3957bb99264a7e3c3ed2bc9eb8104d9f4cdfe56d449bd3a1a6a677758",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s3407_v2_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s42_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "a7f3f25cc3f9de84dc243eb6a04638f206baf3d600de6336aed5d34b000e295d",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s42_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s42_v2_test_v2/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "9ec141f2a469fe8839a4546ed46b06ecb98f99d92c427e47541bf570ec44bcc9",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/seq_zero_same_pipeline_l20_s42_v2_test_v2/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_attention_matched_l20_lr200_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "53d534136c983b3fd43b4553bf28b4a0c38981b46b45fab36abc763702532798",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_attention_matched_l20_lr500_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "d04ba9d1a0c78d1cec5997e5414012c08182488cc2d60ff10f26bf76c9a185f5",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_attention_matched_l20_lr500_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "783c6fb49050914327d6664cf7b5be3ebfe29a362d6e93437201c2c616e23c0f",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_attention_matched_l20_lr500_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "998118a4a9ce209bb8359634a66cd17f1c5beb25382263a30f6d62ee78e9f88d",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_attention_mismatched_l20_lr500_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "08c001771050d381121660b32668eea3b5bcbe0f656b545ef2511ad780a29527",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_attention_mismatched_l20_lr500_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "e8348454754573cdcab05a2206b80b09f295edaf75b1ae9b7f61f2f88bef1651",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_attention_mismatched_l20_lr500_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "fe9933dfcc1f4516b8a7c49c3f0972ef0be80fa18f62cdc5bb897defe85e8532",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_mean_matched_l20_lr200_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "3f4174a461128076a0a51910f510cda8e1103b2244daa1927e76aee2db3cd6d4",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_mean_matched_l20_lr500_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "d36b9c8fb4fe67200017292a7d5c9565fe7ae35b26205a585e7ce8a808775517",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_mean_matched_l20_lr500_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "88e1366b25b9636ecb64d239cfeacc62f24138cb9a88816b74b22254755d47f4",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_mean_matched_l20_lr500_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "f3aaef75875c475a870d94acc71a244b4dfe2907e3c51d0fa65f1edff790724b",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_mean_mismatched_l20_lr500_s2026_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "b8f20d2bfd789b1db927e1d3888c59a258775242adaa49bbf077e9173c2dc9d4",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_mean_mismatched_l20_lr500_s3407_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "0a6ec4e118afb41b31cab2524b65ae83f9cfd9e92768578e5608d29351aa7bb9",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v1/logs/seq_mean_mismatched_l20_lr500_s42_v1_evaluate.log",
+      "line": 51,
+      "line_sha256": "f260308c2ea73e86c1c9880890cefa66eefba2be193482c731b2c5fb50be7c59",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v2/logs/seq_zero_same_pipeline_l20_s2026_v2_eval.log",
+      "line": 51,
+      "line_sha256": "acaf1bd713cd2cc419a9e564c9537482bc2f3186ff47873e0e22faf96d456750",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v2/logs/seq_zero_same_pipeline_l20_s3407_v2_eval.log",
+      "line": 51,
+      "line_sha256": "7010ab7dd2db2037874d672f0a41788730108b5858f4b022c8000d64c77eaab1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_selection_v2/logs/seq_zero_same_pipeline_l20_s42_v2_eval.log",
+      "line": 51,
+      "line_sha256": "d4e455695cab9785338c465a61ca25a46d95909047680ffb3343282e69ed86a8",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_attention_matched_l20_lr500_s2026_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "79b2ce147edac5cee225d3c51cf56a8e5e710c8aa7e72e1b8f33f5d4bbebdcd8",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_attention_matched_l20_lr500_s3407_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "48ed1f3a3f0b736657d2ea96a85c83c21af9ac0baf05f4f87ff732c54ec737a1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_attention_matched_l20_lr500_s42_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "827f7b3a1c194dc28ae7b73dfef8d1198c6c0b3c65f10491830b982ebeffcde1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_attention_mismatched_l20_lr500_s2026_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "313438ef8836d4d5de2cc4dd0f6249a8072a616109320a717abcee3954f17a4b",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_attention_mismatched_l20_lr500_s3407_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "fba8063df7db941ba9be878f2308be0a69d6213983bf7b02adb89dea0e5acf98",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_attention_mismatched_l20_lr500_s42_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "e381b0eeb7a0cb48800cd5d49d4da235a5e11f3a194f6d46562b518a565f809c",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_mean_matched_l20_lr500_s2026_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "9aa113b60b6dec3ac778319a4aef2753f95daa8dbe3b4cc96d2a93a3a09cd6b1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_mean_matched_l20_lr500_s3407_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "512680a745de41c92191f96460f80e3e32a6541febe73b7f35fae8d44300346f",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_mean_matched_l20_lr500_s42_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "bcf1639a3f32bfe6c4d28bb4ad2564ef81a06dc1f71313fe3f7a8112451f12bf",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_mean_mismatched_l20_lr500_s2026_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "1a01e3651c38e0fd537d7934bacf705c485cbd8b13e98b2afe9165a25ef31db6",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_mean_mismatched_l20_lr500_s3407_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "e3f055ab6096958e11e06bd7f9ab17162c2f5f2aaca441e9dd207cd30d928a46",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_mean_mismatched_l20_lr500_s42_v1_test_v2.log",
+      "line": 51,
+      "line_sha256": "327f5f51b69f0628e821929ff54f7dc7a9b9517ddb4ed2da238cf779429340d1",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_zero_same_pipeline_l20_s2026_v2_test_v2.log",
+      "line": 51,
+      "line_sha256": "e9be32e8d861debcbfed69e13ff0f1057d78f562bd821c75b1ac023263f42e77",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_zero_same_pipeline_l20_s3407_v2_test_v2.log",
+      "line": 51,
+      "line_sha256": "e4de2a0c9b6d0857496b3e05568dcc8b7ed6b8146e7d149be1ba4ce32371bc59",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/sequence_test_v2/evaluation_logs/seq_zero_same_pipeline_l20_s42_v2_test_v2.log",
+      "line": 51,
+      "line_sha256": "04e00f4350b0bf935cc535eae6d6c82479d69de51f618e85f158f8a3bc91fcac",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/wide_deep_f1_f2_f3/calibration/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "bbd43cab25357454fbe1f2e51621530f77ac060078ff29696591d3458adc99d8",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/wide_deep_f1_f2_f3/calibration/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/wide_deep_f1_f2_f3/evaluation/evaluation_manifest.json",
+      "line": 10,
+      "line_sha256": "19875b7c6259d7797148cdb6eafff7bdac1eaaad0f3b1473373d815557636529",
+      "path_types": {
+        "macos_home": 1
+      }
+    },
+    {
+      "file": "results/wide_deep_f1_f2_f3/evaluation/evaluation_manifest.json",
+      "line": 11,
+      "line_sha256": "5cb7857704708bd1212ee78de2bec3da70023460f2783def7778268c4865a4be",
+      "path_types": {
+        "macos_home": 1
+      }
+    }
+  ]
+}

@@ -31,7 +31,17 @@ directories are Git-ignored and appear only when the script is run with
 | `tabular_benchmark` | 3 | 3 |
 | `tabular_information_ablation` | 3 | 3 |
 
-Total committed directories: **100**. Formal test inferences: **38**, each a single once-only pass.
+Total committed directories: **100**. Saved formal test outputs: **38**.
+F4/F5 once-only markers constrain their runs; the count alone cannot establish
+that older run files were never overwritten.
+
+The local disk also contains 17 derived, calibrated or post-processed files
+(13 F4 posthoc predictions recorded in its manifest, plus four benchmark
+calibration outputs) and four `_smoke` prediction files. Thus 59 files share
+the name `test_predictions.parquet`, but only the 38 run-root files represented
+by the frozen registry count as formal test outputs. This classification was
+cross-checked against the F4/F5 test manifests and the filesystem; see the
+[release audit](RELEASE_AUDIT.md).
 
 ## Committed experiments
 
@@ -137,4 +147,3 @@ Total committed directories: **100**. Formal test inferences: **38**, each a sin
 | `lr_f1` | tabular_information_ablation | F1 | - | - | - | yes | LR information layer |
 | `lr_f1_f2` | tabular_information_ablation | F1+F2 | - | - | - | yes | LR information layer |
 | `lr_f1_f2_f3` | tabular_information_ablation | F1+F2+F3 | - | - | - | yes | LR information layer |
-
