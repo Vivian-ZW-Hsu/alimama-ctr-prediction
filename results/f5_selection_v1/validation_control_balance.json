@@ -1,0 +1,23 @@
+{
+  "split": "val",
+  "computed_after_configuration_selection": true,
+  "tokens_per_condition": 596629796,
+  "impression_weighted_category_total_variation": 0.049817542132944356,
+  "mean_event_age_days": {
+    "matched": 3.7497753313359667,
+    "mismatched": 4.084802192194064
+  },
+  "activity_bucket_mismatch_rows": 196,
+  "recency_bucket_mismatch_rows": 2474,
+  "coarsened_rows_by_level": {
+    "0": 3231572,
+    "1": 2283,
+    "2": 196,
+    "3": 0
+  },
+  "nonempty_exposure_weighted_past_activity_mean": {
+    "matched": 138.23062719573142,
+    "mismatched": 87.72054045143788
+  },
+  "limitation": "Exact retained length is always preserved, and the activity and recency buckets match except on the counted coarsened rows. Impression-weighted category popularity, event age and within-bucket activity need not be identical. This is not a complete causal adjustment."
+}

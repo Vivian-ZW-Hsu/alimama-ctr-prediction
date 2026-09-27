@@ -1,0 +1,94 @@
+{
+  "preregistration_sha256": "71cf1d6983a645448d41166f8da9d84867d7d9a7eb67581f606e67f5c3645620",
+  "criterion": "paired validation LogLoss",
+  "selected_learning_rate": 0.0005,
+  "max_length": 200,
+  "candidates": [
+    {
+      "learning_rate": 0.0005,
+      "paired_validation_logloss": 0.18970570886098143
+    },
+    {
+      "learning_rate": 0.0002,
+      "paired_validation_logloss": 0.18971889713091267
+    }
+  ],
+  "runs": [
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s42_v1",
+      "condition": "behavior_mean_matched",
+      "pooling": "mean",
+      "source": "matched",
+      "zero_sequence": false,
+      "learning_rate": 0.0005,
+      "seed": 42,
+      "best_epoch": 2,
+      "split": "val",
+      "rows": 3234051,
+      "clicks": 159437,
+      "positive_rate": 0.049299469921779214,
+      "mean_prediction": 0.05159052088856697,
+      "auc": 0.6516256782198656,
+      "log_loss": 0.18970685758630423,
+      "pr_auc": 0.0882323262355158,
+      "brier_score": 0.04618876054883003
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s42_v1",
+      "condition": "behavior_attention_matched",
+      "pooling": "attention",
+      "source": "matched",
+      "zero_sequence": false,
+      "learning_rate": 0.0005,
+      "seed": 42,
+      "best_epoch": 3,
+      "split": "val",
+      "rows": 3234051,
+      "clicks": 159437,
+      "positive_rate": 0.049299469921779214,
+      "mean_prediction": 0.05162552744150162,
+      "auc": 0.6518172720159341,
+      "log_loss": 0.18970456013565865,
+      "pr_auc": 0.08826653629462823,
+      "brier_score": 0.04618949815630913
+    },
+    {
+      "run_name": "f5b_mean_matched_l200_lr200_s42_v1",
+      "condition": "behavior_mean_matched",
+      "pooling": "mean",
+      "source": "matched",
+      "zero_sequence": false,
+      "learning_rate": 0.0002,
+      "seed": 42,
+      "best_epoch": 3,
+      "split": "val",
+      "rows": 3234051,
+      "clicks": 159437,
+      "positive_rate": 0.049299469921779214,
+      "mean_prediction": 0.051734570413827896,
+      "auc": 0.6516183435840974,
+      "log_loss": 0.18972106238120293,
+      "pr_auc": 0.08822784184221846,
+      "brier_score": 0.046190984547138214
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr200_s42_v1",
+      "condition": "behavior_attention_matched",
+      "pooling": "attention",
+      "source": "matched",
+      "zero_sequence": false,
+      "learning_rate": 0.0002,
+      "seed": 42,
+      "best_epoch": 3,
+      "split": "val",
+      "rows": 3234051,
+      "clicks": 159437,
+      "positive_rate": 0.049299469921779214,
+      "mean_prediction": 0.05173693224787712,
+      "auc": 0.6516680438749005,
+      "log_loss": 0.1897167318806224,
+      "pr_auc": 0.08825577726009215,
+      "brier_score": 0.04619048535823822
+    }
+  ]
+}

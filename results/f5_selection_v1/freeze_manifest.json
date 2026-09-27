@@ -1,0 +1,394 @@
+{
+  "complete": true,
+  "budget": "F5",
+  "test_authorized": false,
+  "test_inference_performed": false,
+  "preregistration_sha256": "71cf1d6983a645448d41166f8da9d84867d7d9a7eb67581f606e67f5c3645620",
+  "selection_sha256": "c7b0e4c33efdd31d89f124b6a75a10ec4c8fe976ba1638e1c953d5b598760837",
+  "cache_manifest_sha256": "c4f0330eaad110cf59ecdf1e30d63bf49895d609d0d7966e047c608a002f8f2c",
+  "f5_manifest_sha256": "da8b303757e6f85aee8a5dd52ec344d6e950d45590a1643c95be42d8904feac3",
+  "base_model_sha256": "eae08d630ea8c9823b271e85554472ecb42ca7183ea9f5b3f4a1f2b47b220f39",
+  "base_scaler_sha256": "516435973cd9d40af646252a5162d142c386f498d19c15fa28e09869585ed5d1",
+  "selected_learning_rate": 0.0005,
+  "max_length": 200,
+  "seed_list": [
+    42,
+    2026,
+    3407
+  ],
+  "primary_model": "behavior_mean_matched",
+  "comparison_plan": [
+    {
+      "id": 1,
+      "priority": "primary",
+      "left": "behavior_mean_matched",
+      "right": "behavior_zero_same_pipeline",
+      "question": "Does a fine-grained behavior sequence add anything over the frozen context?"
+    },
+    {
+      "id": 2,
+      "priority": "primary",
+      "left": "behavior_mean_matched",
+      "right": "behavior_mean_mismatched",
+      "question": "Is any gain specific to this user's own history rather than to history length, activity and popularity?"
+    },
+    {
+      "id": 3,
+      "priority": "secondary",
+      "left": "behavior_attention_matched",
+      "right": "behavior_zero_same_pipeline",
+      "question": "Same as 1 under candidate-conditioned pooling."
+    },
+    {
+      "id": 4,
+      "priority": "secondary",
+      "left": "behavior_attention_matched",
+      "right": "behavior_attention_mismatched",
+      "question": "Same as 2 under candidate-conditioned pooling."
+    },
+    {
+      "id": 5,
+      "priority": "secondary",
+      "left": "behavior_attention_matched",
+      "right": "behavior_mean_matched",
+      "question": "Does target attention beat masked mean pooling on this source?"
+    },
+    {
+      "id": 6,
+      "priority": "secondary",
+      "left": "behavior_mean_matched",
+      "right": "f4_click_mean_matched",
+      "question": "Does the richer behavior source beat the sparse clicked-ad category source?",
+      "caveat": "This contrasts two different information sources on one shared backbone. It is NOT a pure architecture comparison, and the two budgets differ in retained length (200 versus 20), mean retained tokens (about 185 versus 4.69) and empty-history share (about 0.44% versus 30.21%)."
+    }
+  ],
+  "configuration": {
+    "study": "F5 behavior-log sequence residual, validation-only selection",
+    "budget": "F5",
+    "test_authorized": false,
+    "test_inference_performed": false,
+    "max_length": 200,
+    "max_length_source": "Fixed from the published Alimama protocol (users' most recent 200 behaviors) before any F5 metric existed. Not selected on this project's validation or test data.",
+    "cache_run": "f5_context_v1",
+    "f5_run": "f5_behavior_v1",
+    "learning_rates": [
+      0.0005,
+      0.0002
+    ],
+    "poolings": [
+      "mean",
+      "attention"
+    ],
+    "sources": [
+      "matched",
+      "mismatched"
+    ],
+    "selection_seed": 42,
+    "final_seeds": [
+      42,
+      2026,
+      3407
+    ],
+    "max_epochs": 4,
+    "patience": 2,
+    "batch_size": 4096,
+    "budget_seconds": 21600,
+    "pilot_measured_train_seconds_per_epoch": 45.43,
+    "selection_criterion": "Mean of the two matched poolings' best validation LogLoss at the selection seed, exactly the rule the F4 study used. Exact ties favour the larger learning rate. The controls inherit the selected rate without an independent search.",
+    "zero_control": {
+      "runs": 3,
+      "seeds": [
+        42,
+        2026,
+        3407
+      ],
+      "inherits_selected_learning_rate": true,
+      "purpose": "Pipeline null for batch, seed and residual-interface effects on one shared frozen DeepFM backbone. It is one deterministic predictor, not three independently fitted DeepFMs."
+    },
+    "primary_model": "behavior_mean_matched",
+    "primary_model_rule": "Declared before any F5 result. Mean pooling is the simpler operator and the F4 study found mean and attention indistinguishable at its scale, so mean matched is the primary model and attention remains a mechanism experiment. Test results cannot change this choice.",
+    "primary_metrics": [
+      "auc",
+      "logloss"
+    ],
+    "secondary_metrics": [
+      "pr_auc",
+      "gauc",
+      "copc",
+      "ece"
+    ],
+    "comparison_plan": [
+      {
+        "id": 1,
+        "priority": "primary",
+        "left": "behavior_mean_matched",
+        "right": "behavior_zero_same_pipeline",
+        "question": "Does a fine-grained behavior sequence add anything over the frozen context?"
+      },
+      {
+        "id": 2,
+        "priority": "primary",
+        "left": "behavior_mean_matched",
+        "right": "behavior_mean_mismatched",
+        "question": "Is any gain specific to this user's own history rather than to history length, activity and popularity?"
+      },
+      {
+        "id": 3,
+        "priority": "secondary",
+        "left": "behavior_attention_matched",
+        "right": "behavior_zero_same_pipeline",
+        "question": "Same as 1 under candidate-conditioned pooling."
+      },
+      {
+        "id": 4,
+        "priority": "secondary",
+        "left": "behavior_attention_matched",
+        "right": "behavior_attention_mismatched",
+        "question": "Same as 2 under candidate-conditioned pooling."
+      },
+      {
+        "id": 5,
+        "priority": "secondary",
+        "left": "behavior_attention_matched",
+        "right": "behavior_mean_matched",
+        "question": "Does target attention beat masked mean pooling on this source?"
+      },
+      {
+        "id": 6,
+        "priority": "secondary",
+        "left": "behavior_mean_matched",
+        "right": "f4_click_mean_matched",
+        "question": "Does the richer behavior source beat the sparse clicked-ad category source?",
+        "caveat": "This contrasts two different information sources on one shared backbone. It is NOT a pure architecture comparison, and the two budgets differ in retained length (200 versus 20), mean retained tokens (about 185 versus 4.69) and empty-history share (about 0.44% versus 30.21%)."
+      }
+    ],
+    "frozen_inputs_untouched": [
+      "the four F123 tabular families and their predictions",
+      "the 15 F4 checkpoints and the F4 formal test predictions",
+      "badecf4 bootstrap and calibration evidence",
+      "all once-only test markers"
+    ],
+    "order_shuffle_ablation": "Deliberately excluded. Both pooling operators are permutation invariant, which tests/test_f5_sequence_ctr.py asserts mechanically, so permuting the same history tokens cannot change any output and the ablation would measure nothing.",
+    "gate": "Stop after validation selection and full config/checkpoint freeze. The first formal F5 test inference requires separate explicit user authorization."
+  },
+  "checkpoints": [
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s42_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 42,
+      "pooling": "mean",
+      "source": "matched",
+      "zero_sequence": false,
+      "best_epoch": 2,
+      "checkpoint_sha256": "e0e651b1e99df19811c55b03ed99a8da2d3ba79601965af0dc11064cb16a4bbb",
+      "validation_prediction_sha256": "382a485a693bec0431cd27edae58f3a434ccd98e7010046bacf7c2e3bb756f0a",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s42_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 42,
+      "pooling": "mean",
+      "source": "mismatched",
+      "zero_sequence": false,
+      "best_epoch": 2,
+      "checkpoint_sha256": "3037e2c19055b086331cdee3623076cc1d993b95cdf34ff81967797914de5442",
+      "validation_prediction_sha256": "7c7acf15d657b22cdc2e09b22fe46ef9430850ad86764a39e8eed412a2a39af7",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s42_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 42,
+      "pooling": "attention",
+      "source": "matched",
+      "zero_sequence": false,
+      "best_epoch": 3,
+      "checkpoint_sha256": "5ff0346911c3e15ca5b29b4c0eb318ed791b4d6687c0352769fd276a672e6f35",
+      "validation_prediction_sha256": "785e42233ed2b47c27ada7b0a9cda78735858eaffad920ec5cea5bea09da1d44",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s42_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 42,
+      "pooling": "attention",
+      "source": "mismatched",
+      "zero_sequence": false,
+      "best_epoch": 2,
+      "checkpoint_sha256": "548f0e8152b8429dc12f5f2fdccd41cf701b99bc2a019df1cc3fffad6251562f",
+      "validation_prediction_sha256": "312279be92965da8c8b121ca74140a7d341f2afe4e365b6392caf5d5be7b976d",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s2026_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 2026,
+      "pooling": "mean",
+      "source": "matched",
+      "zero_sequence": false,
+      "best_epoch": 3,
+      "checkpoint_sha256": "8bf56f90dc12664b5fe6d5754b9bf2dcfc508ed0f053de02d0b638ff7d538c91",
+      "validation_prediction_sha256": "2ce85f8c64f7988993747d553fa856486a9bc3667b600f32cefc8497e55fda00",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s2026_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 2026,
+      "pooling": "mean",
+      "source": "mismatched",
+      "zero_sequence": false,
+      "best_epoch": 3,
+      "checkpoint_sha256": "754e6a07a4e7994f77da034f2b062300c780b4a14067270241ff3d312b13b0db",
+      "validation_prediction_sha256": "0e0eafdae0c1b47f1987515515ea2ace778da0b38945c3ad4e57b3036dc062c9",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s2026_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 2026,
+      "pooling": "attention",
+      "source": "matched",
+      "zero_sequence": false,
+      "best_epoch": 3,
+      "checkpoint_sha256": "11131edf2b7f92ffe011f75c39beecfe22d2aba48e5a2c3add2cb06698c41afc",
+      "validation_prediction_sha256": "9a16a17c17963b2ee1a5a2a1e050b6e827662044f8d3712ce9c2cea395b8a70a",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s2026_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 2026,
+      "pooling": "attention",
+      "source": "mismatched",
+      "zero_sequence": false,
+      "best_epoch": 2,
+      "checkpoint_sha256": "404198cbf25da885aeaa866b28b2076f19e70be13e0b66d1fab506cbcffb3b8f",
+      "validation_prediction_sha256": "08a757509fa158e768cdb2ce71a24d6c4166d8019a74fa6096df130fe95a9d67",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_mean_matched_l200_lr500_s3407_v1",
+      "condition": "behavior_mean_matched",
+      "seed": 3407,
+      "pooling": "mean",
+      "source": "matched",
+      "zero_sequence": false,
+      "best_epoch": 4,
+      "checkpoint_sha256": "525fbcb7dd6374757ce44898fb0cc2e1224b7539db60e043d18f7906557bc3db",
+      "validation_prediction_sha256": "19ec39f661115c159c6bc7a8baf637b97116a2b87b5b2b50e7f7e2a8607c177e",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_mean_mismatched_l200_lr500_s3407_v1",
+      "condition": "behavior_mean_mismatched",
+      "seed": 3407,
+      "pooling": "mean",
+      "source": "mismatched",
+      "zero_sequence": false,
+      "best_epoch": 2,
+      "checkpoint_sha256": "a9dc1f6e6a2e4b624c7a16502937cd196617b6d0466b65a919e5a72480bd07e8",
+      "validation_prediction_sha256": "a100a3c5613bf179a7a670b313089c7819e3c26ce8d25c0f336f13c43775b827",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_attention_matched_l200_lr500_s3407_v1",
+      "condition": "behavior_attention_matched",
+      "seed": 3407,
+      "pooling": "attention",
+      "source": "matched",
+      "zero_sequence": false,
+      "best_epoch": 2,
+      "checkpoint_sha256": "dddcd7454250be3c6df582978db685094163dcd3195eb1e2c4fc0c24824c11ff",
+      "validation_prediction_sha256": "bd8a0d61a2fa0cea223d15173a3a2153c640a49e23831eaed3a65a190f989af5",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_attention_mismatched_l200_lr500_s3407_v1",
+      "condition": "behavior_attention_mismatched",
+      "seed": 3407,
+      "pooling": "attention",
+      "source": "mismatched",
+      "zero_sequence": false,
+      "best_epoch": 2,
+      "checkpoint_sha256": "46ebcbcb569dab944ba59a4b7822446293845d8da96c4996d8991372f7b6c67b",
+      "validation_prediction_sha256": "6153a707617813715e2853d3ee49fc376ff980df92bd06e515d69f7a5810b833",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_zero_l200_s42_v1",
+      "condition": "behavior_zero_same_pipeline",
+      "seed": 42,
+      "pooling": "mean",
+      "source": "matched",
+      "zero_sequence": true,
+      "best_epoch": 1,
+      "checkpoint_sha256": "eed8f66ec693290d5d9b6a3c3501322e2811b320c1524c9cb39d996776ffa664",
+      "validation_prediction_sha256": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_zero_l200_s2026_v1",
+      "condition": "behavior_zero_same_pipeline",
+      "seed": 2026,
+      "pooling": "mean",
+      "source": "matched",
+      "zero_sequence": true,
+      "best_epoch": 1,
+      "checkpoint_sha256": "cb3d72b4e16f4a977e1478151f2b105ca2aebc87eb6167fc0bd303e9034118c6",
+      "validation_prediction_sha256": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48",
+      "reload_prediction_max_error": 0.0
+    },
+    {
+      "run_name": "f5b_zero_l200_s3407_v1",
+      "condition": "behavior_zero_same_pipeline",
+      "seed": 3407,
+      "pooling": "mean",
+      "source": "matched",
+      "zero_sequence": true,
+      "best_epoch": 1,
+      "checkpoint_sha256": "c6f79e125933dd684b5fa48b966b1ac5ed6cb4d13523718fd79b53c8ed6be18e",
+      "validation_prediction_sha256": "fc20946aa1355be935e1401c7d668403d0d8b27287e968a6148de7981998ff48",
+      "reload_prediction_max_error": 0.0
+    }
+  ],
+  "unique_training_runs": 17,
+  "code_sha256": {
+    "f5_sequence_ctr.py": "04d82cf2deab44564d8ba8f20a4c2ee49fb5848656915e34930e26da2488a3cb",
+    "f5_sequences.py": "a147e7d3fa382da616819e6c0343412c9b9e5437bad9d03f35c2d5741c9cdfd4",
+    "ctr_nn_common.py": "dc9e1a5ff72cc90b79b56fe26bba049d81ac7a27277cbe9e3301f3b95641927b",
+    "47_train_f5_sequence_ctr.py": "6043b5aeda301465db2ed77c1b8f893138d5e78faa5d619095248ec5ff625d1c",
+    "48_select_f5_configuration.py": "a76a39a6bd4ad1bf3c7e766e73d1a01d723b845f4dabb3cd16175c53fc5a60e0",
+    "10_evaluate_predictions.py": "1618ce857b31926c51668ff2521e4e04a34a7f1154affcaf57d8f30c5a8d12a4"
+  },
+  "environment": {
+    "python": "3.11.16",
+    "executable": "/opt/anaconda3/envs/ctr_project/bin/python",
+    "prefix": "/opt/anaconda3/envs/ctr_project",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    },
+    "tested_pins": {
+      "numpy": "2.4.6",
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    }
+  },
+  "execution_seconds_this_invocation": 5136.57,
+  "next_gate": "User approval required before the first formal F5 test inference. No further tuning."
+}
