@@ -1,0 +1,81 @@
+{
+  "stage": "E3 frozen tabular paired user-cluster bootstrap",
+  "split": "test",
+  "models": [
+    {
+      "key": "lr_f123",
+      "family": "Logistic Regression",
+      "run_name": "lr_f1_f2_f3"
+    },
+    {
+      "key": "lightgbm_f123",
+      "family": "LightGBM",
+      "run_name": "lightgbm_f1_f2_f3"
+    },
+    {
+      "key": "wide_deep_f123",
+      "family": "Wide & Deep",
+      "run_name": "wide_deep_f1_f2_f3"
+    },
+    {
+      "key": "deepfm_f123",
+      "family": "DeepFM",
+      "run_name": "deepfm_f1_f2_f3"
+    }
+  ],
+  "metrics": [
+    "auc",
+    "logloss",
+    "pr_auc",
+    "gauc"
+  ],
+  "comparisons": [
+    {
+      "id": 1,
+      "left": "lr_f123",
+      "right": "deepfm_f123",
+      "metrics": [
+        "auc",
+        "logloss"
+      ],
+      "interpretation": "confirmatory_primary"
+    },
+    {
+      "id": 2,
+      "left": "lr_f123",
+      "right": "lightgbm_f123",
+      "metrics": [
+        "auc",
+        "logloss",
+        "pr_auc",
+        "gauc"
+      ],
+      "interpretation": "exploratory_secondary"
+    },
+    {
+      "id": 3,
+      "left": "lr_f123",
+      "right": "wide_deep_f123",
+      "metrics": [
+        "auc",
+        "logloss",
+        "pr_auc",
+        "gauc"
+      ],
+      "interpretation": "exploratory_secondary"
+    }
+  ],
+  "bootstrap": {
+    "replicates": 1000,
+    "pilot_replicates": 5,
+    "seed": 20260926,
+    "threads": 8,
+    "resample_unit": "user_raw cluster, exact multinomial over all test users",
+    "interval": "marginal percentile 95%, not simultaneous",
+    "p_value": "centered two-sided, resolution 1/(B+1)",
+    "holm_scope": "the two primary metrics of comparison 1 only",
+    "conditionality": "Conditional on the four frozen fitted models and the single frozen test day. This estimates user-sampling uncertainty only. It is not an estimate of training-seed uncertainty: each tabular family has exactly one seed, so re-training variability is not represented at all."
+  },
+  "reuses": "saved frozen test predictions only; no retraining, no inference",
+  "declared_before_results": true
+}

@@ -1,0 +1,73 @@
+{
+  "complete": true,
+  "rows": 3308665,
+  "users": 391741,
+  "eligible_users": 104884,
+  "eligible_rows": 1682247,
+  "models": [
+    {
+      "key": "lr_f123",
+      "family": "Logistic Regression",
+      "run_name": "lr_f1_f2_f3",
+      "index": 0,
+      "prediction_path": "artifacts/predictions/lr_f1_f2_f3/test_predictions.parquet",
+      "prediction_sha256": "9f40869fbe9ced1e7125d5f5f1a62bbb3f20bd6cc7789c382e29009f5c92547a",
+      "saved_gauc": 0.5699389776238666,
+      "eligible_users": 104884,
+      "eligible_rows": 1682247
+    },
+    {
+      "key": "lightgbm_f123",
+      "family": "LightGBM",
+      "run_name": "lightgbm_f1_f2_f3",
+      "index": 1,
+      "prediction_path": "artifacts/predictions/lightgbm_f1_f2_f3/test_predictions.parquet",
+      "prediction_sha256": "5a0e8d29c77e1070fa43644ac89f62566a0548b359ac8b3029471b7127e24cb4",
+      "saved_gauc": 0.5698892733125466,
+      "eligible_users": 104884,
+      "eligible_rows": 1682247
+    },
+    {
+      "key": "wide_deep_f123",
+      "family": "Wide & Deep",
+      "run_name": "wide_deep_f1_f2_f3",
+      "index": 2,
+      "prediction_path": "artifacts/predictions/wide_deep_f1_f2_f3/test_predictions.parquet",
+      "prediction_sha256": "913e36bf7e2acbe0cc5db37d541412e9c54148f79d5925d9dd791684565d0127",
+      "saved_gauc": 0.5696800440591224,
+      "eligible_users": 104884,
+      "eligible_rows": 1682247
+    },
+    {
+      "key": "deepfm_f123",
+      "family": "DeepFM",
+      "run_name": "deepfm_f1_f2_f3",
+      "index": 3,
+      "prediction_path": "artifacts/predictions/deepfm_f1_f2_f3/test_predictions.parquet",
+      "prediction_sha256": "ba85b7ec488d7d3e35acee85047e1a4f8c4be3d00fd021b54755c258adfb8fba",
+      "saved_gauc": 0.5699017506418553,
+      "eligible_users": 104884,
+      "eligible_rows": 1682247
+    }
+  ],
+  "input_sha256": {
+    "data/processed/base/test.parquet": "b5b1d5425c3666ee6ab1323613199ddacc593dddb701e6864788f032ddf85442",
+    "artifacts/predictions/lr_f1_f2_f3/test_predictions.parquet": "9f40869fbe9ced1e7125d5f5f1a62bbb3f20bd6cc7789c382e29009f5c92547a",
+    "artifacts/predictions/lightgbm_f1_f2_f3/test_predictions.parquet": "5a0e8d29c77e1070fa43644ac89f62566a0548b359ac8b3029471b7127e24cb4",
+    "artifacts/predictions/wide_deep_f1_f2_f3/test_predictions.parquet": "913e36bf7e2acbe0cc5db37d541412e9c54148f79d5925d9dd791684565d0127",
+    "artifacts/predictions/deepfm_f1_f2_f3/test_predictions.parquet": "ba85b7ec488d7d3e35acee85047e1a4f8c4be3d00fd021b54755c258adfb8fba"
+  },
+  "derived_sha256": {
+    "data/processed/frozen_model_bootstrap_v1/common.bin": "0419cd984f4c20e5ecbd97accaaccd4c7c66a37e3d345fbdd2d84d11aa29c841",
+    "data/processed/frozen_model_bootstrap_v1/model_0.bin": "d32b47eae72e12c8d20f0c8c892c9d2062b9d300c27a88a4ed96b04b45553d4f",
+    "data/processed/frozen_model_bootstrap_v1/model_1.bin": "ba9db8b5f17c432dddbe694eade2d891e6751439caad98ac1d3fb9164e882f7e",
+    "data/processed/frozen_model_bootstrap_v1/model_2.bin": "0be12f3c471015ae38941b04ebfb25c282a77af18b253e646a6a1bbda65bf8fa",
+    "data/processed/frozen_model_bootstrap_v1/model_3.bin": "6cecac3ad2312e556fe650a18f1aad5e9aeb2d6f52d4e45bfd0b51ea56a21d8d",
+    "data/processed/frozen_model_bootstrap_v1/test_groups.parquet": "39a7ee6e9bb9a68f9e54296ef56d656e1abe8fc817523bd5ef73450d377f1738"
+  },
+  "code_sha256": {
+    "ctr_posthoc.py": "bfac8e7332fd4ff55fab1ba1132db1608eabce8a0911cbd75d326e6e4e2ebefd",
+    "42_prepare_frozen_model_bootstrap.py": "bbddeafcdf3c113f4879cf6a4f6d18b0ce61f2381e22edcc80718079e59f1cd4"
+  },
+  "elapsed_seconds": 2.81
+}
