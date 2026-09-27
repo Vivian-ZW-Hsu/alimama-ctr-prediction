@@ -1,0 +1,125 @@
+{
+  "plan": "F5 formal test analysis plan",
+  "declared_before_first_formal_f5_test": true,
+  "supersedes_nothing": "The frozen preregistration and freeze manifest are unchanged. This document adds analysis rules; it does not alter any configuration, checkpoint, donor assignment or comparison order.",
+  "frozen_comparison_plan_reference": "results/f5_selection_v1/freeze_manifest.json -> comparison_plan",
+
+  "terminology": {
+    "canonical_name": "bucket_relaxation",
+    "stored_column": "fallback",
+    "mapping": "The physical column named `fallback` in the frozen F5 reference Parquet files, and the `donor_fallback_levels` / `donor_pool_coarsened_users` keys in the frozen build audits, all denote DONOR BUCKET RELAXATION LEVEL and nothing else. The frozen files keep their original column name because they are hashed in the build manifest; every new artifact, table and document uses `bucket_relaxation`.",
+    "explicitly_not": [
+      "not a retained-length mismatch: matched and donor retained length are equal on every row, verified at build time",
+      "not an invalid or missing donor: every row has a different-user donor",
+      "not a self-match",
+      "not a future event or an ownership error"
+    ],
+    "levels": {
+      "0": "donor shares the target's exact retained length, activity bucket and recency bucket",
+      "1": "exact retained length and activity bucket; recency bucket relaxed",
+      "2": "exact retained length only; activity and recency buckets relaxed",
+      "3": "donor retained length at least the target's, contributing its own most recent n events; NEVER USED, zero rows on every date"
+    },
+    "observed_test_day": {
+      "rows_total": 3308665,
+      "level_0": 3307208,
+      "level_1": 1227,
+      "level_2": 230,
+      "level_3": 0,
+      "relaxed_rows": 1457,
+      "relaxed_share": 0.00044038,
+      "all_relaxed_rows_have_nonempty_history": true
+    }
+  },
+
+  "main_analysis": {
+    "sample": "all formal test impressions, 3,308,665 rows, no exclusion",
+    "rule": "The main analysis uses the complete formal sample. Bucket relaxation does not exclude any row from it."
+  },
+
+  "donor_sensitivity_analysis": {
+    "purpose": "Determine whether donor bucket relaxation affects the matched-minus-mismatched conclusion. Diagnostic only.",
+    "procedure": "Recompute the matched-minus-mismatched difference after excluding every target row whose bucket_relaxation level is greater than zero, for both mean and attention pooling, on AUC, LogLoss, PR-AUC and GAUC.",
+    "excluded_rows": 1457,
+    "retained_rows": 3307208,
+    "per_row_markers": "results/f5_sequence_test_v1/bucket_relaxation_markers.parquet, one row per test impression with impression_id and bucket_relaxation level, derived from the frozen reference file without modifying it",
+    "status": "This sensitivity analysis DOES NOT replace the main analysis and does not redefine any frozen comparison. If it disagrees with the main analysis, both are reported and the disagreement is stated.",
+    "no_reselection": "No model, donor, length, learning rate or primary-model choice may change because of this analysis."
+  },
+
+  "prefixed_group_partitions": {
+    "declared_before_test": true,
+    "cold_start_quadrant": {
+      "source": "src/10_evaluate_predictions.py add_cold_start_flags on the base test table",
+      "cells": ["known user + known ad", "known user + new ad", "new user + known ad", "new user + new ad"],
+      "definition": "known means present in the train-only raw ID vocabulary"
+    },
+    "f5_history_length": {
+      "source": "raw_length in the frozen F5 test references",
+      "bins": ["0", "1", "2-5", "6-10", "11-20", "21-50", "51-100", "101-199", "200", ">200"]
+    },
+    "behavior_type_composition": {
+      "source": "type tokens of the retained matched window in the F5 event store",
+      "metric": "count of non-pv events (cart, fav, buy) inside the retained window",
+      "bins": ["0", "1-5", "6-20", ">20"]
+    },
+    "recency": {
+      "source": "recency_bucket in the frozen F5 test history file",
+      "bins": ["0 (event on the previous day)", "1", "2 or more"],
+      "note": "empty-history rows have no recency bucket and are reported as a separate cell"
+    },
+    "user_activity": {
+      "source": "data/processed/behavior/window_features/user_behavior_2017-05-13.parquet, event_count_14d",
+      "bins": ["0", "1-9", "10-99", "100-999", ">=1000"],
+      "note": "same bin edges the existing D2 activity analysis used, so the two are comparable"
+    },
+    "unknown_category_rate": {
+      "source": "category tokens of the retained matched window",
+      "metric": "share of retained tokens whose category index is UNKNOWN",
+      "bins": ["0", "(0, 0.05]", "(0.05, 0.20]", "> 0.20"],
+      "note": "empty-history rows are reported as a separate cell"
+    },
+    "f4_by_f5_emptiness_cross": {
+      "source": "length in the frozen F4 and F5 test references",
+      "cells": [
+        "F4 empty + F5 empty", "F4 empty + F5 nonempty",
+        "F4 nonempty + F5 empty", "F4 nonempty + F5 nonempty"
+      ],
+      "expected_asymmetry": "F4 leaves 999,659 test rows empty and F5 leaves 14,397, so the F4-empty / F5-nonempty cell is expected to dominate. That is a property of the two sources, not a result."
+    },
+    "rule": "No group may be added, split or re-binned after any test metric is observed. Any post-hoc partition must be labelled post-hoc and reported separately from these."
+  },
+
+  "uncertainty_reporting": {
+    "user_sampling": "paired user-cluster bootstrap over test users, conditional on the frozen checkpoints and the single test day",
+    "training_randomness": "sample mean and standard deviation over the three residual seeds, reported separately and never merged with the bootstrap interval",
+    "zero_control": "one deterministic predictor on the shared frozen backbone. Its three references are the same predictor evaluated three times, not three independently fitted models, and its standard deviation of zero is structural.",
+    "shared_backbone": "all five conditions share one frozen DeepFM checkpoint, so no contrast among them is a full-model comparison"
+  },
+
+  "calibration": {
+    "method": "the calibration method already selected and frozen on validation is applied to test",
+    "rule": "no calibration method may be chosen or refitted using any test metric",
+    "reporting": "raw and calibrated metrics are both reported"
+  },
+
+  "test_execution_rules": {
+    "passes_per_checkpoint": 1,
+    "checkpoints": 15,
+    "forbidden_after_test": [
+      "retuning", "changing retained length", "changing learning rate",
+      "changing the donor assignment", "changing the primary model",
+      "retraining", "re-running inference", "adding a favourable group and presenting it as preregistered"
+    ]
+  },
+
+  "questions_the_final_report_must_answer": [
+    "Does F5 improve stably over the zero pipeline null?",
+    "Is F5 matched stably better than F5 mismatched?",
+    "Does F5 clearly exceed the sparse clicked-ad sequence F4?",
+    "Is attention stably better than mean pooling?",
+    "Does donor bucket relaxation affect the matched-minus-mismatched conclusion?",
+    "Does F5 narrow the global AUC gap between LR and the sequence models?",
+    "Is the F5 gain worth its model size, latency, throughput and memory cost?"
+  ]
+}
