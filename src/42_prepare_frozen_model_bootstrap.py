@@ -19,6 +19,8 @@ from pathlib import Path
 import numpy as np
 import polars as pl
 
+from project_environment import require_tested_environment
+
 from ctr_posthoc import (
     ROOT,
     evaluator,
@@ -88,6 +90,7 @@ BOOTSTRAP = {
 
 
 def main() -> None:
+    environment = require_tested_environment("E3 bootstrap preparation")
     if DATA.exists() or (STUDY / "input_manifest.json").exists():
         raise FileExistsError(
             "Stage E3 inputs are immutable; inspect the existing directory instead "
@@ -198,6 +201,7 @@ def main() -> None:
                 name: sha256(ROOT / "src" / name)
                 for name in ("ctr_posthoc.py", "42_prepare_frozen_model_bootstrap.py")
             },
+            "environment": environment,
             "elapsed_seconds": round(time.perf_counter() - started, 2),
         },
     )

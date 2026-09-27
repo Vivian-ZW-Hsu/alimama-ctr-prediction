@@ -21,6 +21,8 @@ from pathlib import Path
 
 import polars as pl
 
+from project_environment import require_tested_environment
+
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_CSV = ROOT / "data" / "raw" / "behavior_log.csv"
 OUTPUT_DIR = ROOT / "data" / "processed" / "behavior_raw_v1"
@@ -98,6 +100,7 @@ def scan_parquet() -> pl.LazyFrame:
 
 
 def main() -> None:
+    environment = require_tested_environment("E1.0 behavior_log conversion")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--skip-source-hash",
@@ -177,6 +180,7 @@ def main() -> None:
         "elapsed_seconds": round(time.perf_counter() - started, 2),
         "peak_rss_bytes": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         "polars_version": pl.__version__,
+        "environment": environment,
     }
     manifest_path = RESULT_DIR / "behavior_log_conversion.json"
     manifest_path.write_text(json.dumps(manifest, indent=2, default=str) + "\n")

@@ -8,7 +8,7 @@
   },
   "output": {
     "path": "data/processed/behavior_raw_v1/behavior_log.parquet",
-    "bytes": 4924494245,
+    "bytes": 5061467216,
     "compression": "zstd"
   },
   "declared_schema": {
@@ -47,8 +47,35 @@
   },
   "fingerprints_match": true,
   "verification": "The same aggregate bundle (row count, per-column null/min/max, Int128 column sums, exact btag value counts) was computed independently from the CSV and from the Parquet copy and compared for exact equality.",
-  "implementation_sha256": "d35a96cbd535f7e43f36aa1db473e0d00578dd345f184b1d4bd878bd3209de11",
-  "elapsed_seconds": 99.1,
-  "peak_rss_bytes": 24259461120,
-  "polars_version": "1.40.1"
+  "implementation_sha256": "7e54514aba8056c96f3706df1312a79656a4d65d1ddb070b1e224df8d51fac00",
+  "elapsed_seconds": 73.28,
+  "peak_rss_bytes": 24149393408,
+  "polars_version": "1.44.2",
+  "environment": {
+    "python": "3.11.16",
+    "executable": "/opt/anaconda3/envs/ctr_project/bin/python",
+    "prefix": "/opt/anaconda3/envs/ctr_project",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    },
+    "tested_pins": {
+      "numpy": "2.4.6",
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    }
+  }
 }

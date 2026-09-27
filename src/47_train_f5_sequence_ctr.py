@@ -20,6 +20,8 @@ import polars as pl
 import torch
 from torch import nn
 
+from project_environment import require_tested_environment
+
 from ctr_nn_common import ROOT, tabular
 from f5_sequences import MAX_LENGTH, TYPE_VOCABULARY_SIZE, sha256, write_json
 from f5_sequence_ctr import F5SequenceResidual, ZeroF5SequenceResidual, gather_f5_tokens
@@ -66,6 +68,7 @@ def predict(model, data, categories, types, source, device, batch_size):
 
 
 def main() -> None:
+    environment = require_tested_environment("E5 F5 residual training")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--cache-run", required=True)
     parser.add_argument("--run-name", required=True)

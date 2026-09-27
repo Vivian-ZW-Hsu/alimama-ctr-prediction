@@ -17,6 +17,8 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 import torch
 
+from project_environment import require_tested_environment
+
 from ctr_nn_common import ROOT, BASE_MODEL, BASE_SCALER, tabular, load_frozen
 from f5_sequences import MAX_LENGTH, sha256, write_json
 
@@ -24,6 +26,7 @@ ID_SPACE = 26_557_961
 
 
 def main() -> None:
+    environment = require_tested_environment("E5 F5 context cache")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--f5-run", required=True)
     parser.add_argument("--run-name", required=True)
@@ -183,6 +186,7 @@ def main() -> None:
             "device": str(device),
             "records": records,
             "directory": str(output.relative_to(ROOT)),
+            "environment": environment,
             "elapsed_seconds": round(time.perf_counter() - started, 2),
             "peak_rss_bytes_macos": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
         },

@@ -29,6 +29,8 @@ from pathlib import Path
 
 import polars as pl
 
+from project_environment import require_tested_environment
+
 ROOT = Path(__file__).resolve().parents[1]
 RAW_DIR = ROOT / "data" / "raw"
 BEHAVIOR_CSV = RAW_DIR / "behavior_log.csv"
@@ -509,6 +511,7 @@ def audit_integrity(recheck_size: int, skip_csv_recheck: bool) -> dict[str, obje
 
 
 def main() -> None:
+    environment = require_tested_environment("E1 namespace audit")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--unmatched-sample-size", type=int, default=25)
     parser.add_argument("--recheck-size", type=int, default=500)
@@ -563,6 +566,7 @@ def main() -> None:
         "integrity": integrity,
         "implementation_sha256": sha256_file(Path(__file__)),
         "polars_version": pl.__version__,
+        "environment": environment,
         "elapsed_seconds": round(time.perf_counter() - started, 2),
         "peak_rss_bytes": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
     }

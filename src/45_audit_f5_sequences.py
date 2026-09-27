@@ -14,6 +14,8 @@ from pathlib import Path
 
 import polars as pl
 
+from project_environment import require_tested_environment
+
 from f5_sequences import (
     ROOT, assert_f123_identity, audit_references, load_event_arrays, sha256,
     verify_event_store, write_json,
@@ -52,6 +54,7 @@ def audit(name: str) -> dict:
 
 
 def main() -> None:
+    environment = require_tested_environment("E4 F5 independent audit")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-name", required=True)
     parser.add_argument("--compare-smoke")

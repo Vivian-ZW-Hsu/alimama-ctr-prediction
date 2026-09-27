@@ -21,6 +21,8 @@ from pathlib import Path
 import numpy as np
 import polars as pl
 
+from project_environment import require_tested_environment
+
 from ctr_posthoc import ROOT, holm, sha256, write_json
 
 STUDY = ROOT / "results" / "frozen_model_bootstrap_v1"
@@ -128,6 +130,7 @@ def require_committed(path: Path) -> None:
 
 
 def main() -> None:
+    environment = require_tested_environment("E3 frozen bootstrap")
     if (STUDY / "bootstrap_manifest.json").exists():
         raise FileExistsError("Stage E3 bootstrap already complete")
     protocol_path = STUDY / "protocol.json"
@@ -247,6 +250,7 @@ def main() -> None:
                 )
             },
             "compiler": subprocess.check_output(["clang++", "--version"], text=True),
+            "environment": environment,
             "flags": ["-O3", "-std=c++17", "-pthread"],
         },
     )

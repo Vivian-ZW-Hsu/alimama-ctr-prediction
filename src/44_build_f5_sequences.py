@@ -16,6 +16,8 @@ from pathlib import Path
 
 import polars as pl
 
+from project_environment import require_tested_environment
+
 from f5_sequences import (
     ASSUMPTION, FORMAL_END_EXCLUSIVE, FORMAL_START, MAX_LENGTH, PAD_INDEX, ROOT,
     SEED, TYPE_TOKENS, TYPE_VOCABULARY_SIZE, UNKNOWN_INDEX, assert_f123_identity,
@@ -28,6 +30,7 @@ TOTAL_IMPRESSIONS = 26_557_961
 
 
 def main() -> None:
+    environment = require_tested_environment("E4 F5 build")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-name", required=True)
     parser.add_argument("--smoke-test", action="store_true")
@@ -218,6 +221,7 @@ def main() -> None:
         "output_directory": str(output.relative_to(ROOT)),
         "output_sha256": {str(p.relative_to(ROOT)): sha256(p) for p in outputs},
         "output_bytes": sum(p.stat().st_size for p in outputs),
+        "environment": environment,
         "elapsed_seconds": round(time.perf_counter() - started, 2),
         "peak_rss_bytes_macos": resource.getrusage(resource.RUSAGE_SELF).ru_maxrss,
     }
