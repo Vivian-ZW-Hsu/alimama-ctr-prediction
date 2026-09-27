@@ -36,6 +36,10 @@
 | E2 校准切分表述 | impression-level 80/20 **不是**校准器记住用户标签的泄漏（校准器只见概率与标签）；真实局限是同用户曝光非独立导致的样本依赖，可能低估方法选择的不确定性 |
 | E2 行为窗口与 F3 首日 | 有效行为窗口为 2017-04-22 起 22 天（占全部事件 99.9786%），更早为 653 个日期共 127,136 条零散/损坏记录；训练首日 05-06 的 3,270,348 条（16.3%）F3 退化为 prior 且 `has_past_feedback=0`，**予以保留未删除** |
 | E1–E6 运行环境守卫 | 扩展的第一轮误用了另一个本地解释器（polars 1.40.1 / torch 2.11.0 / sklearn 1.8.0），全部旧于 `requirements-tested.txt`（1.44.2 / 2.13.0 / 1.9.1）。冻结产物由 `results/sequence_selection_v1/environment.json` 记录的 `ctr_project` 解释器产生，异环境产物与其不可比。新增 `src/project_environment.py`：任何正式数据或模型入口在环境不符时**直接拒绝运行并逐项列出差异**；各 manifest 记录实际解释器。E1/E3 已在正确环境重做，所有报告数值不变（723,268,134 事件；覆盖率 99.8966% / 99.2807% / 99.5280%；bootstrap 区间逐位相同）。错误环境下的 F5 产物全部删除重建。行为存储 Parquet 的字节大小在两个解释器下不同而内容相同——这正是必须重建而非仅记录的原因 |
+| E5 F5 结论边界 | F5 在全局 AUC 上超过 null（+0.00127246，Holm p=0.003996）与 F4（+0.00094211），约 95% 增益为用户身份特有；但两项 **GAUC 差值区间均含零**，不得写成"用户内排序也更好"。attention 相对 mean 首次区间排除零（+0.00023967），但效应约为身份效应的五分之一、约两个 seed 标准差，且 mean matched 仍为预先选定主模型，test 不改变该选择 |
+| E5 donor 敏感性 | 排除 1,457 行 bucket relaxation 后，matched−mismatched 在 AUC 上最多变化 9.0e-7、GAUC 上 5.0e-6，符号全部保持；第 3 级放宽零行。结论不受影响。诊断性分析，不替代主分析 |
+| E5 双冷启动 | F5 在 new_user+new_ad 上为 **−0.001741**（28,331 行，无区间）。只报告符号，不作解释 |
+| E6 部署取舍 | F5 相对其 backbone 需 3.3 倍端到端吞吐成本、7.5 倍峰值内存，换 +0.00127 AUC。内存来自 7.23 亿事件常驻，不是残差的 57,345 参数；生产特征存储若分页缓存则数字不同 |
 | E2 公开结果对标 | 引入 DSIN (IJCAI'19) 同数据集表作为**背景参照**，明确不是直接复现：序列来源、切分、特征预算、backbone 与训练方式均不同；公开点估计不称显著 |
 
 `src/38_release_audit.py` 只对现有小型表格做汇总算术一致性核对，不从预测重新估计指标、不执行 resampling、不拟合校准器。CSV/JSON 清单包含当前 Git 追踪的结果文件（含历史记录与 smoke 元数据）；历史文件有自身作用域，不要求不同数据集或不同运行的数字相等。现有图表由冻结输入哈希、绘图公式及逐图视觉复核共同核对，不重新运行绘图实验。
@@ -57,6 +61,11 @@
 | D5 图表与证据索引 | 八图，PNG + PDF；主张与限制映射 | `results/deep_dive_final_v1/`、`figures/deep_dive_v1/` |
 | E1 跨源 namespace 审计 | 全量 723,268,134 事件；F5 准入判定通过 | `results/behavior_namespace_audit_v1/`、[文档](BEHAVIOR_NAMESPACE_AUDIT.md) |
 | E3 冻结表格模型 bootstrap | 复用已保存 test 预测；1,000 次用户 cluster 重抽样 | `results/frozen_model_bootstrap_v1/`、[文档](FROZEN_MODEL_BOOTSTRAP.md) |
+| E4 F5 行为序列数据 | 26,557,961 曝光；L=200；完整性全零；独立审计通过 | `results/f5_behavior_v1/` |
+| E5 F5 验证与冻结 | 17 run / 85.6 分钟；lr 5e-4；15 checkpoint 冻结 | `results/f5_selection_v1/`、[文档](F5_BEHAVIOR_VALIDATION.md) |
+| E5 F5 正式 test | 15 checkpoint 各一次；1,000 次 bootstrap；13 个 isotonic 校准器；7 组预注册分区；donor 敏感性 | `results/f5_sequence_test_v1/`、[文档](F5_BEHAVIOR_TEST_RESULTS.md) |
+| E6 统一 serving benchmark | 6 模型；独立子进程；纯模型与端到端双口径 | `results/serving_benchmark_v1/`、[文档](SERVING_BENCHMARK.md) |
+| E6 实验 registry | 83 个已提交目录 / 14 阶段 / 0 未分类 / 23 次正式 test 推理 | `results/experiment_registry.csv`、[索引](EXPERIMENT_INDEX.md) |
 
 没有补做 LightGBM F1/F12、独立 retrained FM/DNN 消融、三个独立 backbone、多时期泛化检验或公平独立吞吐实验。原提案中的缺项保持为缺项。
 

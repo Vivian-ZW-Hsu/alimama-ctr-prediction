@@ -17,10 +17,60 @@
   **−0.0000086**, interval includes zero).
 - Calibrated Mean matched reaches overall COPC **0.986**; double cold start is
   **0.581**, i.e. predicted clicks about **72% above** observed clicks.
-- A full-population audit shows `behavior_log` would supply **185.19** retained
-  tokens per test impression at L=200 with **0.435%** empty history, about 39.5×
-  more history than the clicked-ad source. **F5** is built to test whether that
-  changes the sequence conclusion.
+- The **F5** budget uses `behavior_log` at L=200, supplying **185.19** retained
+  tokens per test impression with **0.435%** empty history. On the frozen test it
+  adds **+0.00127246 AUC** over the pipeline null, 95% CI
+  [+0.00104340, +0.00150052], Holm p = 0.003996, and exceeds the F4 clicked-ad
+  source by **+0.00094211 AUC**. Roughly 95% of that gain is specific to the
+  user's own history. On **GAUC both intervals include zero**.
+- On F5's richer source attention separates from mean pooling for the first time
+  (**+0.00023967 AUC**, CI excluding zero), but the effect is about one fifth of
+  the identity effect and two seed standard deviations; mean matched remains the
+  preselected primary model.
+- F5 costs about **3.3× the end-to-end throughput** and **7.5× the peak memory** of
+  the DeepFM backbone it sits on, for that +0.00127 AUC.
+
+## F5: the behavior-sequence budget
+
+A second sequence source was built and tested once, under rules committed before
+the pass. Where F4 retains a mean of 4.69 clicked-ad category tokens with 30.21% of
+test impressions empty, F5 retains 185.19 `behavior_log` tokens with 0.435% empty.
+Both sit on the same frozen DeepFM backbone.
+
+| Condition | Test AUC ± std | Test LogLoss ± std | Test GAUC ± std |
+|---|---|---|---|
+| F5 attention matched | 0.647445 ± 7.7e-5 | 0.193043 ± 2.9e-5 | 0.570476 ± 5.4e-5 |
+| **F5 mean matched** | 0.647206 ± 6.0e-5 | 0.193061 ± 3.1e-5 | 0.570251 ± 2.4e-4 |
+| F4 mean matched | 0.646263 ± 4.4e-5 | 0.193120 ± 4.0e-6 | 0.570380 ± 1.1e-4 |
+| F5 mean mismatched | 0.646003 ± 1.3e-4 | 0.193153 ± 1.1e-5 | 0.569840 ± 6.3e-5 |
+| zero pipeline null | 0.645933 ± 0 | 0.193176 ± 0 | 0.569902 ± 0 |
+
+Both primary comparisons exclude zero at Holm p = 0.003996: mean matched − zero
+AUC +0.00127246 CI [+0.00104340, +0.00150052], and mean matched − mismatched AUC
++0.00120269 CI [+0.00098519, +0.00142260]. The mismatch control captures only about
+**5.5%** of the effect, so the gain is user-specific rather than an artifact of
+retained length, coarse activity, recency or category popularity. All twelve
+primary-and-secondary AUC/LogLoss pairs favour the left condition in all three
+seeds.
+
+Three findings qualify the picture. **Global and within-user ranking disagree**: F5
+beats both the null and F4 on AUC, yet its GAUC intervals against both include zero
+(p = 0.172 and p = 0.621). **The gain lands where the sparse source was empty**: on
+the 985,688 test impressions with no clicked-ad history, F5 − zero is +0.001607
+against +0.001163 where both sources have history, and it is **negative on double
+cold start** (−0.001741 on 28,331 rows, no interval). **Donor bucket relaxation is
+irrelevant**: excluding all 1,457 relaxed rows moves matched − mismatched by at most
+9.0e-7 on AUC with every sign preserved.
+
+F5 closes about **19.4%** of the global AUC gap between LR F123 (0.652489) and the
+frozen null, leaving LR ahead by roughly four times the entire F5 effect. On GAUC the
+ordering reverses, F5 reaching 0.570251 against LR's 0.569939 — consistent with the
+frozen-model bootstrap, where every GAUC difference among the tabular families also
+included zero.
+
+Full evidence and limits: [F5 validation and freeze](F5_BEHAVIOR_VALIDATION.md),
+[F5 formal test results](F5_BEHAVIOR_TEST_RESULTS.md),
+[serving benchmark](SERVING_BENCHMARK.md), [experiment index](EXPERIMENT_INDEX.md).
 
 ## Result and scope
 
@@ -353,9 +403,12 @@ ranking lead now carries user-cluster intervals that exclude zero, while its GAU
 lead does not — and coexists with substantial cold-group probability bias and
 changing traffic. Drift, sparse evidence and exposure repetition limit
 interpretation; their causal contributions are not isolated by these diagnostics.
-The sequence conclusions are bounded by the clicked-ad source, which supplies a
-test-day mean of 4.69 tokens; whether a 185.19-token `behavior_log` budget
-changes them is open and is the subject of F5.**
+The clicked-ad source supplies a test-day mean of 4.69 tokens; the 185.19-token
+`behavior_log` budget F5 adds does produce a larger, interval-supported global
+gain of +0.00127 AUC that is about 95% user-specific, still produces no measurable
+within-user gain, still leaves LR ahead on global AUC by about four times its size,
+and costs roughly 3.3 times the throughput and 7.5 times the memory of the backbone
+it extends.**
 
 Release delivery: [中文 PDF](FINAL_REPORT_ZH.pdf), [中文文本](FINAL_REPORT_ZH.md),
 [final experiment inventory, audit and reproduction commands](RELEASE_AUDIT.md).

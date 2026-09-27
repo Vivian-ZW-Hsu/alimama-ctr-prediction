@@ -1,6 +1,6 @@
 {
   "complete": true,
-  "directories": 83,
+  "directories": 100,
   "include_untracked": false,
   "stages": {
     "context_cache": 2,
@@ -11,15 +11,17 @@
     "f4_posthoc": 1,
     "f4_sequence_test": 16,
     "f4_sequence_validation": 20,
+    "f5_sequence_test": 16,
     "f5_sequence_validation": 18,
     "frozen_model_bootstrap": 1,
     "legacy": 2,
     "release": 1,
+    "serving_benchmark": 1,
     "tabular_benchmark": 3,
     "tabular_information_ablation": 3
   },
-  "total_test_inferences": 23,
-  "registry_sha256": "ee27b7463f6c710c27cb5a1d261d91a43cd5641ac989ae46a4006a1a4bc698fe",
-  "index_sha256": "75798c908f14e0d4a4169a31a68bf17f9d04d0b4987bb9687117115cc82247f8",
+  "total_test_inferences": 38,
+  "registry_sha256": "f6e19f9d891f6e5f920d5919a9489ff4eaea690bde4ec0178013a277f4bde0f5",
+  "index_sha256": "699a54dc8aeca8e6e16c34d5dc7fad1e3d0e7ff1730e24ba0b113a9c5333aaf2",
   "classification": "declared prefix rules in src/50_build_experiment_registry.py"
 }

@@ -23,26 +23,39 @@ robustness under a strict point-in-time protocol.
 - Calibrated Mean matched reaches overall COPC **0.986**, but double cold start is
   **0.581**, i.e. predicted clicks run about **72% above** observed clicks. Global
   calibration does not fix group-level overprediction.
-- A full-population audit shows the `behavior_log` source would supply **185.19**
-  retained tokens per test impression at L=200 with **0.435%** empty history,
-  about 39.5× more history than the clicked-ad source. Whether that changes the
-  sequence conclusion is the open question **F5** is built to test.
+- The **F5** budget replaces that source with `behavior_log` at L=200, supplying
+  **185.19** retained tokens per test impression with **0.435%** empty history.
+  On the frozen test it adds **+0.00127246 AUC** over the pipeline null,
+  95% CI [+0.00104340, +0.00150052], Holm p = 0.003996, and exceeds the F4
+  clicked-ad source by **+0.00094211 AUC**. About 95% of that gain is specific to
+  the user's own history. On **GAUC both of those intervals include zero**.
+- On F5's richer source, attention finally separates from mean pooling
+  (**+0.00023967 AUC**, CI [+0.00017050, +0.00031038]) — but the effect is about
+  one fifth of the identity effect and two seed standard deviations, and mean
+  matched remains the preselected primary model.
+- F5's cost is **3.3× the end-to-end throughput** and **7.5× the peak memory** of
+  the DeepFM backbone it sits on, for that +0.00127 AUC.
 
-**The current result is not "DIN wins," and it is not a general verdict on user
-behavior sequences.** The completed sequence evidence covers past clicked-ad
-categories only.
+**The current result is not "DIN wins."** Two sequence sources are now tested: past
+clicked-ad categories (F4, mean 4.69 retained tokens) and `behavior_log` events
+(F5, mean 185.19). The richer source produces a clearly larger but still small
+global-ranking gain and no measurable within-user gain.
 
-**Status:** four tabular families, controlled F4 study, frozen statistical and
-calibration evidence, and D2–D5 diagnostics are complete and frozen. A
-user-authorized extension (E1–E6) adds the cross-source namespace audit, the
-frozen-model bootstrap, documentation scope corrections, and the new F5 behavior
-sequence budget. See [AGENTS.md](AGENTS.md) for the current authorization.
+**Status:** complete. Four tabular families, the controlled F4 study, D2–D5
+diagnostics, and the user-authorized E1–E6 extension — cross-source namespace
+audit, frozen-model bootstrap, documentation scope corrections, the F5 behavior
+sequence budget with its once-only formal test, the unified serving benchmark and
+the experiment registry — are all frozen. See [AGENTS.md](AGENTS.md).
 
 - [最终中文 PDF](docs/FINAL_REPORT_ZH.pdf) · [中文文本](docs/FINAL_REPORT_ZH.md)
 - [Release audit、实验清单与复现入口](docs/RELEASE_AUDIT.md)
 - [Final report and evidence limits](docs/FINAL_REPORT.md)
 - [E1: cross-source namespace audit and F5 admissibility](docs/BEHAVIOR_NAMESPACE_AUDIT.md)
 - [E3: frozen tabular user-cluster bootstrap](docs/FROZEN_MODEL_BOOTSTRAP.md)
+- [E5: F5 behavior-sequence validation and freeze](docs/F5_BEHAVIOR_VALIDATION.md)
+- [E5: F5 behavior-sequence formal test results](docs/F5_BEHAVIOR_TEST_RESULTS.md)
+- [E6: unified serving benchmark](docs/SERVING_BENCHMARK.md)
+- [Experiment index](docs/EXPERIMENT_INDEX.md)
 - [Frozen DIN test/statistical/calibration report — badecf4](docs/DIN_F4_TEST_RESULTS.md)
 - [Frozen deep-dive plan](docs/DEEP_DIVE_RESEARCH_PLAN.md)
 - [D2: errors, sequence heterogeneity and cold evidence](docs/DEEP_DIVE_D2_RESULTS.md)
@@ -61,7 +74,9 @@ sequence budget. See [AGENTS.md](AGENTS.md) for the current authorization.
 | LightGBM F123 | 0.651318 | 0.192502 | 0.569889 |
 | Wide & Deep F123 | 0.646219 | 0.193161 | 0.569680 |
 | DeepFM F123 / deterministic zero reference | 0.645933 | 0.193176 | 0.569902 |
-| Mean matched F123+F4 | 0.646263 ± 0.000044 | 0.193120 ± 0.000004 | 0.570380 ± 0.000108 |
+| F4 mean matched F123+F4 | 0.646263 ± 0.000044 | 0.193120 ± 0.000004 | 0.570380 ± 0.000108 |
+| **F5 mean matched F123+F5** | **0.647206 ± 0.000060** | **0.193061 ± 0.000031** | 0.570251 ± 0.000239 |
+| F5 attention matched F123+F5 | 0.647445 ± 0.000077 | 0.193043 ± 0.000029 | 0.570476 ± 0.000054 |
 
 Tabular results are one frozen seed each. Sequence mean ± sample std covers three
 residual seeds on **one shared frozen backbone**; zero is not three independent

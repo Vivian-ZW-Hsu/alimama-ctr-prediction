@@ -53,6 +53,7 @@ STAGES: list[tuple[str, str, str, str]] = [
     ("f4_sequence_validation", "seq_", "F1+F2+F3+F4", "F4 validation run"),
     ("f4_sequence_test", "sequence_test_v", "F1+F2+F3+F4", "F4 once-only formal test"),
     ("f4_posthoc", "sequence_posthoc_v", "F1+F2+F3+F4", "frozen bootstrap and calibration"),
+    ("f5_sequence_test", "f5_sequence_test_v", "F1+F2+F3+F5", "F5 once-only formal test"),
     ("f5_sequence_validation", "f5_selection_v", "F1+F2+F3+F5", "F5 validation freeze"),
     ("f5_sequence_validation", "f5b_", "F1+F2+F3+F5", "F5 validation run"),
     ("f5_sequence_validation", "f5_pilot", "F1+F2+F3+F5", "F5 resource pilot, no validation scoring"),
@@ -80,6 +81,7 @@ STAGES: list[tuple[str, str, str, str]] = [
 # prefix rule would otherwise classify it as a validation run.
 SUFFIX_STAGES: list[tuple[str, str, str, str]] = [
     ("f4_sequence_test", "_test_v2", "F1+F2+F3+F4", "F4 once-only formal test run"),
+    ("f5_sequence_test", "_test_v1", "F1+F2+F3+F5", "F5 once-only formal test run"),
 ]
 
 

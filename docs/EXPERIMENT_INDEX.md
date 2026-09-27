@@ -22,14 +22,16 @@ directories are Git-ignored and appear only when the script is run with
 | `f4_posthoc` | 1 | 0 |
 | `f4_sequence_test` | 16 | 15 |
 | `f4_sequence_validation` | 20 | 0 |
+| `f5_sequence_test` | 16 | 15 |
 | `f5_sequence_validation` | 18 | 0 |
 | `frozen_model_bootstrap` | 1 | 0 |
 | `legacy` | 2 | 2 |
 | `release` | 1 | 0 |
+| `serving_benchmark` | 1 | 0 |
 | `tabular_benchmark` | 3 | 3 |
 | `tabular_information_ablation` | 3 | 3 |
 
-Total committed directories: **83**. Formal test inferences: **23**, each a single once-only pass.
+Total committed directories: **100**. Formal test inferences: **38**, each a single once-only pass.
 
 ## Committed experiments
 
@@ -90,6 +92,22 @@ Total committed directories: **83**. Formal test inferences: **23**, each a sing
 | `sequence_attention_pilot_v1` | f4_sequence_validation | F1+F2+F3+F4 | attention | matched | 42 | - | F4 attention resource pilot |
 | `sequence_selection_v1` | f4_sequence_validation | F1+F2+F3+F4 | - | - | - | - | F4 validation freeze |
 | `sequence_selection_v2` | f4_sequence_validation | F1+F2+F3+F4 | - | - | - | - | F4 validation freeze |
+| `f5_sequence_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | - | F5 once-only formal test run |
+| `f5b_attention_matched_l200_lr500_s2026_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_attention_matched_l200_lr500_s3407_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_attention_matched_l200_lr500_s42_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_attention_mismatched_l200_lr500_s42_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_mean_matched_l200_lr500_s2026_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_mean_matched_l200_lr500_s3407_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_mean_matched_l200_lr500_s42_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_mean_mismatched_l200_lr500_s42_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_zero_l200_s2026_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_zero_l200_s3407_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
+| `f5b_zero_l200_s42_v1_test_v1` | f5_sequence_test | F1+F2+F3+F5 | - | - | - | yes | F5 once-only formal test run |
 | `f5_selection_v1` | f5_sequence_validation | F1+F2+F3+F5 | - | - | - | - | F5 validation freeze |
 | `f5b_attention_matched_l200_lr200_s42_v1` | f5_sequence_validation | F1+F2+F3+F5 | attention | matched | 42 | - | F5 validation run |
 | `f5b_attention_matched_l200_lr500_s2026_v1` | f5_sequence_validation | F1+F2+F3+F5 | attention | matched | 2026 | - | F5 validation run |
@@ -112,6 +130,7 @@ Total committed directories: **83**. Formal test inferences: **23**, each a sing
 | `logistic_regression` | legacy | F1+F2 | - | - | - | yes | superseded LR run name |
 | `logistic_regression_no_weekday` | legacy | F1+F2 | - | - | - | yes | superseded LR run name |
 | `release_audit_v1` | release | - | - | - | - | - | release consistency audit |
+| `serving_benchmark_v1` | serving_benchmark | - | - | - | - | - | E6 unified inference benchmark |
 | `deepfm_f1_f2_f3` | tabular_benchmark | F1+F2+F3 | - | - | - | yes | frozen single seed |
 | `lightgbm_f1_f2_f3` | tabular_benchmark | F1+F2+F3 | - | - | - | yes | frozen single seed |
 | `wide_deep_f1_f2_f3` | tabular_benchmark | F1+F2+F3 | - | - | - | yes | frozen single seed |
