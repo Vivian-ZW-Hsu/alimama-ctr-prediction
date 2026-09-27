@@ -1,0 +1,47 @@
+{
+  "study": "F5 behavior-log sequence residual, validation-only selection",
+  "budget": "F5",
+  "test_authorized": false,
+  "test_inference_performed": false,
+  "max_length": 200,
+  "max_length_source": "Fixed from the published Alimama protocol (users' most recent 200 behaviors) before any F5 metric existed. Not selected on this project's validation or test data.",
+  "cache_run": "f5_context_v1",
+  "f5_run": "f5_behavior_v1",
+  "learning_rates": [0.0005, 0.0002],
+  "poolings": ["mean", "attention"],
+  "sources": ["matched", "mismatched"],
+  "selection_seed": 42,
+  "final_seeds": [42, 2026, 3407],
+  "max_epochs": 4,
+  "patience": 2,
+  "batch_size": 4096,
+  "budget_seconds": 21600,
+  "pilot_measured_train_seconds_per_epoch": 45.43,
+  "selection_criterion": "Mean of the two matched poolings' best validation LogLoss at the selection seed, exactly the rule the F4 study used. Exact ties favour the larger learning rate. The controls inherit the selected rate without an independent search.",
+  "zero_control": {
+    "runs": 3,
+    "seeds": [42, 2026, 3407],
+    "inherits_selected_learning_rate": true,
+    "purpose": "Pipeline null for batch, seed and residual-interface effects on one shared frozen DeepFM backbone. It is one deterministic predictor, not three independently fitted DeepFMs."
+  },
+  "primary_model": "behavior_mean_matched",
+  "primary_model_rule": "Declared before any F5 result. Mean pooling is the simpler operator and the F4 study found mean and attention indistinguishable at its scale, so mean matched is the primary model and attention remains a mechanism experiment. Test results cannot change this choice.",
+  "primary_metrics": ["auc", "logloss"],
+  "secondary_metrics": ["pr_auc", "gauc", "copc", "ece"],
+  "comparison_plan": [
+    {"id": 1, "priority": "primary", "left": "behavior_mean_matched", "right": "behavior_zero_same_pipeline", "question": "Does a fine-grained behavior sequence add anything over the frozen context?"},
+    {"id": 2, "priority": "primary", "left": "behavior_mean_matched", "right": "behavior_mean_mismatched", "question": "Is any gain specific to this user's own history rather than to history length, activity and popularity?"},
+    {"id": 3, "priority": "secondary", "left": "behavior_attention_matched", "right": "behavior_zero_same_pipeline", "question": "Same as 1 under candidate-conditioned pooling."},
+    {"id": 4, "priority": "secondary", "left": "behavior_attention_matched", "right": "behavior_attention_mismatched", "question": "Same as 2 under candidate-conditioned pooling."},
+    {"id": 5, "priority": "secondary", "left": "behavior_attention_matched", "right": "behavior_mean_matched", "question": "Does target attention beat masked mean pooling on this source?"},
+    {"id": 6, "priority": "secondary", "left": "behavior_mean_matched", "right": "f4_click_mean_matched", "question": "Does the richer behavior source beat the sparse clicked-ad category source?", "caveat": "This contrasts two different information sources on one shared backbone. It is NOT a pure architecture comparison, and the two budgets differ in retained length (200 versus 20), mean retained tokens (about 185 versus 4.69) and empty-history share (about 0.44% versus 30.21%)."}
+  ],
+  "frozen_inputs_untouched": [
+    "the four F123 tabular families and their predictions",
+    "the 15 F4 checkpoints and the F4 formal test predictions",
+    "badecf4 bootstrap and calibration evidence",
+    "all once-only test markers"
+  ],
+  "order_shuffle_ablation": "Deliberately excluded. Both pooling operators are permutation invariant, which tests/test_f5_sequence_ctr.py asserts mechanically, so permuting the same history tokens cannot change any output and the ablation would measure nothing.",
+  "gate": "Stop after validation selection and full config/checkpoint freeze. The first formal F5 test inference requires separate explicit user authorization."
+}
