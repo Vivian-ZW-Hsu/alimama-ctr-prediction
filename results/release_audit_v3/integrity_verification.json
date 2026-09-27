@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "base_commit": "cb325aae39a43c42c002744ca9c7b02510d3cb69",
+  "frozen_files_sha256_verified": 1187,
+  "unchanged": {
+    "checkpoints": true,
+    "predictions": true,
+    "calibrators": true,
+    "once_only_markers": true,
+    "original_formal_csv_json": true,
+    "original_source_and_figures": true
+  },
+  "python_files_compiled_without_execution": 88,
+  "document_links_checked": 167,
+  "broken_links": [],
+  "original_history_is_ancestor": true,
+  "git_diff_check": true,
+  "no_formal_training_inference_resampling_calibration_or_benchmark_executed": true,
+  "execution_note": "Only readonly mapping/event audits, saved-table arithmetic, synthetic-fixture tests and document rendering were executed.",
+  "quarantined_identical_files_verified": 122,
+  "quarantine_recheck_basis": "quarantined bytes versus original bytes at base commit; three current original documents intentionally revised"
+}

@@ -1,17 +1,31 @@
 # 最终 release audit 与实验清单
 
-> **状态更新（E1–E6 扩展）**：本文件原为 release closure 时的审计记录。用户已授权 E1–E6 扩展（见 [AGENTS.md](../AGENTS.md)），因此下方"禁止新增"的范围**已被新授权取代**。下列冻结证据仍然不可变：`badecf4`、[DIN_F4_TEST_RESULTS.md](DIN_F4_TEST_RESULTS.md)、四个表格模型及其预测、15 个 F4 checkpoint、F4 正式 test 预测、once-only marker，以及既有正式结果目录中的原始 CSV/JSON。新增工作只写入新的 `*_v1` 目录。
->
-> **中文 PDF 已与 markdown 源同步**：[FINAL_REPORT_ZH.pdf](FINAL_REPORT_ZH.pdf) 于 E1–E6 收尾时按最终正文重新渲染，**18 页**，字体全部嵌入、无缺字、文本无越界、逐页渲染图已视觉复核。QA 记录见 `results/release_audit_v2/pdf_review_v2.json`。排版环境 `.venv-report` 按 `requirements-report.txt` 重建（Python 3.13.5），与研究环境隔离。
+本轮为 **F5 控制实验与最终发布审计修订**。E1–E6 和首次 F5 test 已完成；项目关闭，只允许只读审计、合成测试、文档修正与 PDF 重建。冻结基线为 `cb325aae39a43c42c002744ca9c7b02510d3cb69`；原 `badecf4` 证据和全部正式产物继续保留。不训练、不推理、不生成 bootstrap 重复、不拟合校准器、不重跑 benchmark。
 
-本文件原始范围：只核对已经保存的证据与交付文件。禁止新增模型、训练、test 推理、bootstrap、校准拟合或 post-hoc 分析；发布后停止项目扩展。冻结证据仍为 `badecf4` 和 [DIN_F4_TEST_RESULTS.md](DIN_F4_TEST_RESULTS.md)。
+中文 PDF 为 **19 页**，当前 QA 见 `results/release_audit_v3/pdf_review_v3.json`。原 PDF 已归档为 `results/release_audit_v3/FINAL_REPORT_ZH_before_revision.pdf`；v1/v2 审计证据不改写。Arial Unicode TrueType 子集嵌入；逐页检查中文、表格、图例、分页、页脚与引用。独立 `.venv-report` 使用 `requirements-report.txt`。
+
+## 本轮审计范围与结论修订
+
+`37_verify_frozen_delivery.py` 核对历史 F4 冻结交付；原 `38_release_audit.py` 的数值断言主要覆盖 F4 与 D2–D4。其 `passed: true` 不能解释为 E1–E6 获得相同深度的审计。新增 `58_audit_e1_e6_release.py` 独立复算 E1 namespace、E3、F5 逐 seed 汇总与六组比较、保存的区间/p/Holm 算术、donor 汇总、serving 比值、registry 与 PDF/文档声明。范围为：
+
+> saved-result arithmetic, cross-table consistency, protocol metadata and document claims; no model inference, no resampling and no causal validation
+
+小型表格的算术一致性与哈希不可变性是不同检查；两者都不证明实验因果语义正确。保存的 bootstrap replicates 仅用于检验已有 quantile、p 与 Holm 计算，不产生新抽样。
+
+- **Donor**：控制是 deterministic different-user donor assignment with a measured approximately 0.08% user-level reuse deviation。Validation reuse excess **884/1,131,745（0.078109%）**；test **917/1,134,206（0.080850%）**。869/911 个 donor 被复用，最大 4/3 次；涉及 1,753/1,828 个 target，其中 575/562 个当日有曝光，覆盖 **15,389（0.475843%）/12,845（0.388223%）** 行。无 self-match、长度错配、未来事件、所有权或顺序违规。完整 8 日及分桶统计见 [donor 审计](F5_DONOR_UNIQUENESS_AUDIT.md)。
+- **95%**：仅是当前不同用户 donor 控制下 matched−mismatched / matched−zero 的 AUC 描述性比率（约 94.52%），mismatched 保留约 5.5%；不是身份因果贡献。Category TV **0.04982**、年龄 **3.75 vs 4.08 天**、曝光加权活跃度 **138.23 vs 87.72** 仍不平衡。长度精确一致，粗桶近似匹配；用户级平衡不等于曝光级平衡，不能把活跃度差简单归因于 0.08% donor 复用。没有重训严格一一置换版本，无法给出反事实指标，也不能以比例小断言影响可忽略。
+- **Serving**：统一称 **in-memory prepare + inference**；旧 `end_to_end_*` 字段不改。`read_batches()` 在计时前，排除 Parquet 打开、磁盘读取、解压和反序列化。DeepFM/F5 pure @8192 为 **1,530,445 / 658,608 rows/s**：F5 为 **1/2.32**；prepare+infer 为 **1/3.27**，峰值 RSS **7.48 倍**。57,345 个新增参数不代表计算可忽略；7.23 亿事件常驻主导内存，计算来自 200-token 前向及准备。未测真实磁盘/Parquet I/O 的冷缓存在线延迟。
+- **GAUC**：预选 mean 对 zero/F4 的区间含零；attention−zero、attention−attention mismatched、attention−mean 的区间排除零，但仅是未经 GAUC 指标族多重校正的名义探索性证据。删除无条件的 F5 无用户内排序增益结论。
+- **UNKNOWN**：高 UNKNOWN 组没有观察到更小的 AUC 增益，不识别移除 masking 的效果。**4.3029%** 是全事件库分母；test matched 保留 token 是 **3.941954%**（24,153,874 / 612,738,660）。
+- **Registry**：100 目录、16 阶段、0 未分类、38 个保存的正式 test 预测产物，为冻结 registry 快照；新审计目录不回写旧 registry。组成 **15+15+3+3+2**。F4/F5 的 once-only marker 提供执行约束；仅靠旧预测文件计数不能独立证明所有历史运行都从未覆盖重跑。
+- **Git**：122 个 `… 2.*` 未追踪副本全部 SHA256 相同后才移动至仓库外可恢复目录 `../final_project_duplicate_quarantine_20260927/`，清单见 `results/release_audit_v3/duplicate_quarantine.json`。修订分支 `fix/f5-audit-clarifications`，只 push 此分支，不合并 main；不重写历史、不删除已有 AI 署名、新 commit 不添加 AI trailer。
 
 ## 最终文件
 
-- [中文 PDF](FINAL_REPORT_ZH.pdf)：12 页，包含实验清单、结论、限制、八幅已有图及仓库内引用。
+- [中文 PDF](FINAL_REPORT_ZH.pdf)：19 页，包含实验清单、结论、限制、八幅已有图及仓库内引用。
 - [中文文本源](FINAL_REPORT_ZH.md) 与 [英文最终报告](FINAL_REPORT.md)。
 - [README](../README.md)：总览、数值、指标方向、随机种子和安全运行入口。
-- [数值与文件清单](../results/release_audit_v1/consistency.json)、[冻结完整性](../results/release_audit_v1/frozen_integrity.json)、[全部测试日志](../results/release_audit_v1/tests.txt)、[PDF 逐页检查](../results/release_audit_v1/pdf_review.json)。
+- 历史 v1 证据：[数值与文件清单](../results/release_audit_v1/consistency.json)、[冻结完整性](../results/release_audit_v1/frozen_integrity.json)、[全部测试日志](../results/release_audit_v1/tests.txt)、[PDF 逐页检查](../results/release_audit_v1/pdf_review.json)。
 
 ## 逐项核对与修订记录
 
@@ -36,15 +50,17 @@
 | E2 校准切分表述 | impression-level 80/20 **不是**校准器记住用户标签的泄漏（校准器只见概率与标签）；真实局限是同用户曝光非独立导致的样本依赖，可能低估方法选择的不确定性 |
 | E2 行为窗口与 F3 首日 | 有效行为窗口为 2017-04-22 起 22 天（占全部事件 99.9786%），更早为 653 个日期共 127,136 条零散/损坏记录；训练首日 05-06 的 3,270,348 条（16.3%）F3 退化为 prior 且 `has_past_feedback=0`，**予以保留未删除** |
 | E1–E6 运行环境守卫 | 扩展的第一轮误用了另一个本地解释器（polars 1.40.1 / torch 2.11.0 / sklearn 1.8.0），全部旧于 `requirements-tested.txt`（1.44.2 / 2.13.0 / 1.9.1）。冻结产物由 `results/sequence_selection_v1/environment.json` 记录的 `ctr_project` 解释器产生，异环境产物与其不可比。新增 `src/project_environment.py`：任何正式数据或模型入口在环境不符时**直接拒绝运行并逐项列出差异**；各 manifest 记录实际解释器。E1/E3 已在正确环境重做，所有报告数值不变（723,268,134 事件；覆盖率 99.8966% / 99.2807% / 99.5280%；bootstrap 区间逐位相同）。错误环境下的 F5 产物全部删除重建。行为存储 Parquet 的字节大小在两个解释器下不同而内容相同——这正是必须重建而非仅记录的原因 |
-| E5 F5 结论边界 | F5 在全局 AUC 上超过 null（+0.00127246，Holm p=0.003996）与 F4（+0.00094211），约 95% 增益为用户身份特有；但两项 **GAUC 差值区间均含零**，不得写成"用户内排序也更好"。attention 相对 mean 首次区间排除零（+0.00023967），但效应约为身份效应的五分之一、约两个 seed 标准差，且 mean matched 仍为预先选定主模型，test 不改变该选择 |
-| E5 donor 敏感性 | 排除 1,457 行 bucket relaxation 后，matched−mismatched 在 AUC 上最多变化 9.0e-7、GAUC 上 5.0e-6，符号全部保持；第 3 级放宽零行。结论不受影响。诊断性分析，不替代主分析 |
+| E5 F5 结论边界 | F5 在全局 AUC 上超过 null（+0.00127246，Holm p=0.003996）与 F4（+0.00094211），约 95% 为已实现 donor 对照下的描述性 AUC 差值比率，非身份因果贡献；mean 对 zero/F4 的 **GAUC 差值区间均含零**；attention 三项次比较的 GAUC 区间排除零，仅属未经该指标族多重校正的探索性证据。attention 相对 mean 首次区间排除零（+0.00023967），但效应约为 matched−mismatched 差值的五分之一、约两个 seed 标准差，且 mean matched 仍为预先选定主模型，test 不改变该选择 |
+| E5 donor 敏感性 | 排除 1,457 行 bucket relaxation 后，matched−mismatched 在 AUC 上最多变化 9.0e-7、GAUC 上 5.0e-6，符号全部保持；第 3 级放宽零行。该保存排除敏感性较小，但不覆盖 donor 复用影响。诊断性分析，不替代主分析 |
 | E5 双冷启动 | F5 在 new_user+new_ad 上为 **−0.001741**（28,331 行，无区间）。只报告符号，不作解释 |
-| E6 部署取舍 | F5 的端到端吞吐为其 backbone 的 **1/3.27**（单行计算成本约 3.27 倍），峰值内存 **7.48 倍**，换 +0.00127 AUC。早期文案误写为「3.3 倍吞吐」，方向相反，已统一修正。内存来自 723,113,323 条事件常驻，**不是**残差的 57,345 参数；流式读取、内存映射、分层缓存或离线特征服务均可优化该实现 |
-| E6 PDF 重建 | 按最终正文重新渲染中文 PDF：18 页（原硬编码 12 页的断言改为显式 `--expected-pages` 参数并记录）。渲染器新增三项修正：Markdown 行内 `**强调**` 与反引号此前被原样输出为字面字符（基线正文不含这些标记，是 E2 之后引入的），现已转换；表格加 `KeepTogether`，不再被拆到两页留下孤立表头；两列表格按实际内容宽度自适应列宽，避免「长标签 + 短数字」表被压成 10%/90% |
+| E6 部署取舍 | F5 的内存 prepare + inference 吞吐为其 backbone 的 **1/3.27**（单行计算成本约 3.27 倍），峰值内存 **7.48 倍**，换 +0.00127 AUC。早期文案误写为「3.3 倍吞吐」，方向相反，已统一修正。内存来自 723,113,323 条事件常驻，**不是**残差的 57,345 参数；流式读取、内存映射、分层缓存或离线特征服务均可优化该实现 |
+| E6 PDF 重建 | 按最终正文重新渲染中文 PDF：本轮 19 页（历史 E6 PDF 为 18 页，分页断言使用显式 `--expected-pages` 参数并记录）。渲染器新增三项修正：Markdown 行内 `**强调**` 与反引号此前被原样输出为字面字符（基线正文不含这些标记，是 E2 之后引入的），现已转换；表格加 `KeepTogether`，不再被拆到两页留下孤立表头；两列表格按实际内容宽度自适应列宽，避免「长标签 + 短数字」表被压成 10%/90% |
 | E6 正式 test 次数 | 早前写作「38 次（F4 15 + F5 15）」算术不成立。遍历 manifest、once-only marker 与 registry 核实：**38 = F4 15 + F5 15 + LR 信息层 3 + 表格基准 3 + 旧命名 LR 2**，每个目录各含恰好一个 test 预测文件。组成已写入 README、中英文报告 |
 | E2 公开结果对标 | 引入 DSIN (IJCAI'19) 同数据集表作为**背景参照**，明确不是直接复现：序列来源、切分、特征预算、backbone 与训练方式均不同；公开点估计不称显著 |
 
-`src/38_release_audit.py` 只对现有小型表格做汇总算术一致性核对，不从预测重新估计指标、不执行 resampling、不拟合校准器。CSV/JSON 清单包含当前 Git 追踪的结果文件（含历史记录与 smoke 元数据）；历史文件有自身作用域，不要求不同数据集或不同运行的数字相等。现有图表由冻结输入哈希、绘图公式及逐图视觉复核共同核对，不重新运行绘图实验。
+`src/38_release_audit.py` 主要对历史 F4/D2–D4 现有小型表格做汇总算术一致性核对，不从预测重新估计指标、不执行 resampling、不拟合校准器。CSV/JSON 清单包含当前 Git 追踪的结果文件（含历史记录与 smoke 元数据）；历史文件有自身作用域，不要求不同数据集或不同运行的数字相等。现有图表由冻结输入哈希、绘图公式及逐图视觉复核共同核对，不重新运行绘图实验。
+
+本轮记录：[E1–E6 算术与声明审计](../results/release_audit_v3/e1_e6_audit.json)、[冻结完整性](../results/release_audit_v3/integrity_verification.json)、[65 项测试](../results/release_audit_v3/unit_tests_final.log)、[19 页 PDF QA](../results/release_audit_v3/pdf_review_v3.json)。
 
 ## 最终实验清单
 
@@ -66,14 +82,14 @@
 | E4 F5 行为序列数据 | 26,557,961 曝光；L=200；完整性全零；独立审计通过 | `results/f5_behavior_v1/` |
 | E5 F5 验证与冻结 | 17 run / 85.6 分钟；lr 5e-4；15 checkpoint 冻结 | `results/f5_selection_v1/`、[文档](F5_BEHAVIOR_VALIDATION.md) |
 | E5 F5 正式 test | 15 checkpoint 各一次；1,000 次 bootstrap；13 个 isotonic 校准器；7 组预注册分区；donor 敏感性 | `results/f5_sequence_test_v1/`、[文档](F5_BEHAVIOR_TEST_RESULTS.md) |
-| E6 统一 serving benchmark | 6 模型；独立子进程；纯模型与端到端双口径 | `results/serving_benchmark_v1/`、[文档](SERVING_BENCHMARK.md) |
+| E6 统一 serving benchmark | 6 模型；独立子进程；纯模型与内存 prepare + inference 双口径 | `results/serving_benchmark_v1/`、[文档](SERVING_BENCHMARK.md) |
 | E6 实验 registry | 100 个已提交目录 / 16 阶段 / 0 未分类 / **38 次正式 test 推理**（F4 15 + F5 15 + LR 信息层 3 + 表格基准 3 + 旧命名 LR 2） | `results/experiment_registry.csv`、[索引](EXPERIMENT_INDEX.md) |
 
-没有补做 LightGBM F1/F12、独立 retrained FM/DNN 消融、三个独立 backbone、多时期泛化检验或公平独立吞吐实验。原提案中的缺项保持为缺项。
+没有补做 LightGBM F1/F12、独立 retrained FM/DNN 消融、三个独立 backbone、多时期泛化检验或真实冷缓存磁盘 I/O 在线延迟实验。原提案中的缺项保持为缺项。
 
 ## 主要结论与限制
 
-历史 F3 是本协议中最大的已观察信息增益。用户匹配序列相对错配及 zero 提供小幅、已有用户 cluster 区间支持的增量；attention 未显示稳健实际优势。序列未超越强全局 LR，但 GAUC 的排序可以不同。校准整体改善仍伴随双冷启动 COPC≈0.581；长度 20 的 AUC 增益与 LogLoss 恶化并存。
+历史 F3 是本协议中最大的已观察信息增益。用户匹配序列相对错配及 zero 提供小幅、已有用户 cluster 区间支持的增量；F4 attention 未显示稳健实际优势，F5 attention 有小幅探索性差值。序列未超越强全局 LR，但 GAUC 的排序可以不同。校准整体改善仍伴随双冷启动 COPC≈0.581；长度 20 的 AUC 增益与 LogLoss 恶化并存。
 
 这些结论受单一冻结 backbone、表格模型单 seed、两个 held-out 日期及部分 test 先前已曝光的限制。分组是在已知整体结果后、对应新分组结果前固定，不能追称原始预注册。已有校准是 impression-level 80/20，不是 user-grouped OOF。时间漂移、稀疏证据与重复曝光的因果贡献均未被识别。旧预测缺失，因此旧 60% 无法精确复现。
 
@@ -85,6 +101,7 @@
 # 已有 CTR 环境：仅完整性、汇总核对和合成夹具测试
 python src/37_verify_frozen_delivery.py
 python src/38_release_audit.py
+python src/58_audit_e1_e6_release.py
 python -m unittest discover -s tests -v
 python -m py_compile src/38_release_audit.py src/39_render_final_report.py
 git diff --check
@@ -99,9 +116,10 @@ python -m venv .venv-report
 .venv-report/bin/python src/39_render_final_report.py \
   --font "$CTR_REPORT_FONT" \
   --output data/release_copy/FINAL_REPORT_ZH.pdf \
-  --render-dir data/release_copy/pages
+  --render-dir data/release_copy/pages \
+  --expected-pages 19
 ```
 
-先将 `CTR_REPORT_FONT` 设置为可嵌入、覆盖全部中文字符的 TrueType 字体文件路径；本次使用系统 Arial Unicode.ttf，未将字体文件再分发。脚本检查缺字、字体嵌入与 12 页分页，拒绝覆盖已有 PDF 或渲染目录。中文源文件固定为 `docs/FINAL_REPORT_ZH.md`；命令中的新输出路径须尚不存在。PDF 页面的 PNG 为本地 QA 文件，不需要提交。
+先将 `CTR_REPORT_FONT` 设置为可嵌入、覆盖全部中文字符的 TrueType 字体文件路径；本次使用系统 Arial Unicode.ttf，未将字体文件再分发。脚本检查缺字、字体嵌入与 19 页分页，拒绝覆盖已有 PDF 或渲染目录。中文源文件固定为 `docs/FINAL_REPORT_ZH.md`；命令中的新输出路径须尚不存在。PDF 页面的 PNG 为本地 QA 文件，不需要提交。
 
-发布完整测试记录为 20 项全部通过；数值核对、冻结哈希检查、PDF 逐页复核、Python 编译及 `git diff --check` 均在本次提交前执行。历史 verification 的文档哈希描述其当时版本；本次文案修订与中文 PDF 由新的 release 清单记录，不覆盖旧 verification。
+历史 v1 发布为 20 项测试；本轮为 65 项全部通过（包含 3 项新增 donor 夹具及 3 项审计算术夹具）。数值核对、冻结哈希检查、PDF 逐页复核、Python 编译及 `git diff --check` 均在本次提交前执行。历史 verification 的文档哈希描述其当时版本；本次文案修订与中文 PDF 由新的 release 清单记录，不覆盖旧 verification。

@@ -16,21 +16,22 @@ F1+F2+F3 reaches test AUC **0.652489**; no model in this study beats it.
 - **It exceeds the sparse F4 clicked-ad source on global ranking**, by
   **+0.00094211 AUC**, 95% CI [+0.00070402, +0.00118202] — but their **GAUC
   difference is not established** (−0.00012937, interval spans zero, p = 0.621).
-- **The gain is specific to the user's own history.** Matched − mismatched is
+- **Matched exceeds the implemented different-user donor control.** Matched − mismatched is
   **+0.00120269 AUC**, 95% CI [+0.00098519, +0.00142260], Holm p = 0.003996. Since
-  mismatched − zero is only +0.00007, the length-, activity- and recency-controlled
-  control captures about **5.5%** of the effect.
+  mismatched − zero is only +0.00007, it retains about **5.5%** of the AUC gap.
+  Under this implemented control, matched-minus-mismatched accounts for about
+  **95%** of matched-minus-zero: a descriptive ratio, not causal identity attribution.
 - **Attention beats mean pooling only slightly.** Attention − mean is
   **+0.00023967 AUC**, 95% CI [+0.00017050, +0.00031038] — an interval that
   excludes zero for the first time, unlike the F4 study — but the effect is about
-  one fifth of the identity effect and roughly two seed standard deviations.
+  one fifth of the matched-minus-mismatched effect and roughly two seed standard deviations.
   **Mean matched remains the preregistered primary model**; the test did not and
   cannot change that.
 - **F5 narrows the LR gap without closing it.** The global AUC gap from LR to the
   frozen DeepFM null was 0.006556; F5 reduces it to 0.005283, closing about
   **19.4%**. LR still leads by roughly four times the entire F5 sequence effect.
   On GAUC the ordering reverses, F5 reaching 0.570251 against LR's 0.569939.
-- **The current F5 implementation has no deployment advantage.** Its end-to-end
+- **The current F5 implementation has no deployment advantage.** Its in-memory prepare + inference
   throughput is **1/3.27** of the DeepFM backbone it sits on (379,078 against
   1,239,580 rows/s at batch 8192), so its per-row compute cost is about **3.27×**,
   and its peak memory is **7.48×** (6,082 against 813 MiB). That memory is the
@@ -42,8 +43,31 @@ F1+F2+F3 reaches test AUC **0.652489**; no model in this study beats it.
 Two sequence sources were tested: past clicked-ad categories (F4, test mean 4.69
 retained tokens, 30.21% empty) and `behavior_log` category-plus-type events (F5,
 test mean 185.19 tokens, 0.4351% empty). **The result is not "DIN wins."** The
-richer source produces a clearly larger but still small global-ranking gain and no
-measurable within-user gain, at a substantially higher serving cost.
+richer source produces a larger but still small global-ranking gain at higher serving
+cost. The preregistered mean-pooling primary comparison did not establish a GAUC
+gain; attention-based secondary comparisons showed nominal exploratory GAUC
+evidence without family-wise correction for that metric.
+
+## F5 control clarification and remaining imbalance
+
+The control is a **deterministic different-user donor assignment with a measured
+approximately 0.08% user-level reuse deviation**, not a strict one-to-one
+permutation. Validation reuse excess is **884 / 1,131,745 (0.078109%)**; test is
+**917 / 1,134,206 (0.080850%)**. Reused donors number **869 / 911**, with maximum
+indegree **4 / 3**. Targets assigned reused donors number **1,753 / 1,828**;
+**575 / 562** appear in that day's exposures, covering **15,389 (0.475843%)** /
+**12,845 (0.388223%)** impressions. Self-match, length, future-event, ownership
+and order violations remain zero. Small reuse does not establish negligible
+metric impact; no retrained strict-derangement counterfactual exists.
+
+The saved validation control has category TV **0.04982**, age **3.75 vs 4.08 days**,
+and exposure-weighted past activity **138.23 vs 87.72**. Retained length is exact
+and coarse activity/recency buckets nearly match. User-level balance does not
+imply exposure-level balance. The activity gap is residual exposure-weighted,
+within-bucket imbalance; it is not simply attributable to donor reuse.
+Under this implemented control, the approximately **95%** AUC gap ratio is
+descriptive, not causal identity attribution. Full date/indegree/partition tables:
+[F5 donor audit](F5_DONOR_UNIQUENESS_AUDIT.md).
 
 ## F5: the behavior-sequence budget
 
@@ -63,18 +87,18 @@ Both sit on the same frozen DeepFM backbone.
 Both primary comparisons exclude zero at Holm p = 0.003996: mean matched − zero
 AUC +0.00127246 CI [+0.00104340, +0.00150052], and mean matched − mismatched AUC
 +0.00120269 CI [+0.00098519, +0.00142260]. The mismatch control captures only about
-**5.5%** of the effect, so the gain is user-specific rather than an artifact of
-retained length, coarse activity, recency or category popularity. All twelve
+**5.5%** of the AUC gap. Under the implemented different-user donor control,
+matched-minus-mismatched accounts for about **95%** of matched-minus-zero.
+This is descriptive, not a causal contribution rate; residual imbalance remains. All twelve
 primary-and-secondary AUC/LogLoss pairs favour the left condition in all three
 seeds.
 
-Three findings qualify the picture. **Global and within-user ranking disagree**: F5
+Three findings qualify the picture. **Global and within-user ranking disagree**: F5 mean
 beats both the null and F4 on AUC, yet its GAUC intervals against both include zero
 (p = 0.172 and p = 0.621). **The gain lands where the sparse source was empty**: on
 the 985,688 test impressions with no clicked-ad history, F5 − zero is +0.001607
 against +0.001163 where both sources have history, and it is **negative on double
-cold start** (−0.001741 on 28,331 rows, no interval). **Donor bucket relaxation is
-irrelevant**: excluding all 1,457 relaxed rows moves matched − mismatched by at most
+cold start** (−0.001741 on 28,331 rows, no interval). **The saved bucket-relaxation sensitivity is small**: excluding all 1,457 relaxed rows moves matched − mismatched by at most
 9.0e-7 on AUC with every sign preserved.
 
 F5 closes about **19.4%** of the global AUC gap between LR F123 (0.652489) and the
@@ -398,12 +422,13 @@ no multiplicity control**; small cells carry a direction, not evidence.
   behavior history partly substitutes for an unseen user ID.
 - **Double cold start is negative**, **−0.001741**, but on only **28,331** rows with
   no interval. The direction is reported and deliberately not interpreted.
-- **Donor bucket relaxation is irrelevant to the conclusions.** It touches
+- **The saved bucket-relaxation sensitivity is small.** It touches
   **1,457** rows (0.0440%); excluding them moves matched − mismatched by at most
   **9.0e-7** on AUC and 5.0e-6 on GAUC, with every sign preserved.
-- **A high UNKNOWN token share does not degrade the gain**: +0.001113 at zero
-  UNKNOWN and **+0.001526** above 0.20. The **4.30%** token mask is therefore not
-  the binding constraint on F5 today.
+- **Higher UNKNOWN groups did not exhibit smaller observed AUC gains**:
+  +0.001113 at zero UNKNOWN and **+0.001526** above 0.20. This does not identify
+  the effect of removing masking. UNKNOWN is **4.3029%** of the full in-window
+  event store, versus **3.941954%** of test matched retained tokens.
 
 ## Engineering: report both regimes
 
@@ -413,17 +438,22 @@ changes the deployment conclusion.
 | Regime | What is timed |
 |---|---|
 | **pure** | inputs already prepared in memory; only the model call |
-| **end_to_end** | Parquet batch read, encoding, scaling, sequence gather, model call |
+| **in-memory prepare + inference** | materialized source batch; encoding, scaling, sequence gather, model call |
 
 Logistic regression reaches **18,083,051 rows/s** pure at batch 8192 but only
-**1,275,056** end to end — a **14.2×** gap caused almost entirely by building its
+**1,275,056** with in-memory prepare + inference — a **14.2×** gap caused almost entirely by building its
 **2,497,016**-dimension sparse row. Any deployment conclusion drawn from the pure
 number alone would be wrong: the feature-construction step, not the model, is what
 would need optimising first.
 
-The same distinction reframes F5. Its residual is only 57,345 parameters, so its
-*model* cost is negligible; the 7.48× memory and 3.27× per-row compute come from
-the surrounding data path.
+F5 adds only **57,345** parameters, but its pure @8192 throughput is **658,608**
+rows/s against DeepFM's **1,530,445**, about **1/2.32**. With in-memory prepare +
+inference it is **1/3.27**, with **7.48×** peak RSS. The 723-million-event resident
+store drives memory; both the 200-token forward pass and sequence preparation
+contribute compute. Parameter count is not a measure of sequence computation.
+The historical CSV fields `end_to_end_*` denote this in-memory regime: Parquet
+opening, disk reads, decompression and deserialization occur before timing.
+Cold-cache online latency including real disk/Parquet I/O has not been measured.
 
 ## Limitations and future work
 
@@ -458,10 +488,12 @@ Carried forward deliberately, not resolved:
 
 ## Formal test inference count
 
-**Formal test inferences: 38 in total**, each a single once-only pass, verified
-against the manifests, the once-only markers and the registry:
+**Formal test output inventory: 38 saved predictions**, reconciled against
+manifests, once-only markers and the frozen registry. The F4/F5 markers enforce
+one pass per checkpoint; file counts alone cannot prove that every historical
+legacy run was never overwritten:
 
-| Source | Passes |
+| Source | Saved formal outputs |
 |---|---:|
 | F4 clicked-ad sequence conditions | 15 |
 | F5 behavior sequence conditions | 15 |
@@ -516,6 +548,7 @@ Eight figures are available as PNG and vector PDF under
 versions in the [figure manifest](../results/deep_dive_final_v1/figure_manifest.json).
 Their rendering has been visually inspected. Large predictions/models/intermediate
 tables are local/Git-ignored, not backed up by the small committed manifests.
+`src/58_audit_e1_e6_release.py` checks saved E1–E6 arithmetic and wording.
 `src/37_verify_frozen_delivery.py` performs read-only hash/link checks without
 repeating any statistical estimation, calibration or inference.
 
@@ -530,11 +563,12 @@ changing traffic. Drift, sparse evidence and exposure repetition limit
 interpretation; their causal contributions are not isolated by these diagnostics.
 The clicked-ad source supplies a test-day mean of 4.69 tokens; the 185.19-token
 `behavior_log` budget F5 adds does produce a larger, interval-supported global
-gain of +0.00127 AUC that is about 95% user-specific, still produces no measurable
-within-user gain, still leaves LR ahead on global AUC by about four times its size,
-and runs at roughly a third of the throughput and 7.5 times the peak memory of the
-backbone it extends, that memory being the resident event store rather than the
-residual's parameters.**
+gain of +0.00127 AUC; about 95% of that gap is matched-minus-mismatched under
+the implemented control, a descriptive ratio with residual confounding. Mean
+primary GAUC gains are not established; attention secondary GAUC is nominal
+exploratory evidence. LR remains ahead on global AUC by about four times the gain.
+F5 runs at roughly a third of the backbone throughput for in-memory prepare +
+inference and 7.5 times its peak RSS; the resident event store drives memory.**
 
 Release delivery: [中文 PDF](FINAL_REPORT_ZH.pdf), [中文文本](FINAL_REPORT_ZH.md),
 [final experiment inventory, audit and reproduction commands](RELEASE_AUDIT.md).

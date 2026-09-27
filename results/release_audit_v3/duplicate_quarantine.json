@@ -1,0 +1,738 @@
+{
+  "base_commit": "cb325aae39a43c42c002744ca9c7b02510d3cb69",
+  "all_122_verified_before_any_move": true,
+  "files": [
+    {
+      "copy": "docs/EXPERIMENT_INDEX 2.md",
+      "original": "docs/EXPERIMENT_INDEX.md",
+      "sha256": "699a54dc8aeca8e6e16c34d5dc7fad1e3d0e7ff1730e24ba0b113a9c5333aaf2",
+      "bytes": 13313
+    },
+    {
+      "copy": "docs/F5_BEHAVIOR_TEST_RESULTS 2.md",
+      "original": "docs/F5_BEHAVIOR_TEST_RESULTS.md",
+      "sha256": "4833a24487ba8ad7ada812dad7d7a2a2ac2e717011b138211aecf73c60e683a0",
+      "bytes": 13150
+    },
+    {
+      "copy": "docs/F5_BEHAVIOR_VALIDATION 2.md",
+      "original": "docs/F5_BEHAVIOR_VALIDATION.md",
+      "sha256": "e4c080ed1adf22f5773c86af4313659f5e88a3a4a8ece349d3f470f1354c3223",
+      "bytes": 10487
+    },
+    {
+      "copy": "docs/SERVING_BENCHMARK 2.md",
+      "original": "docs/SERVING_BENCHMARK.md",
+      "sha256": "b5516324d9842b0f1a7122c55f036cee793ae261d6921ce5012b29d3f9daeb1d",
+      "bytes": 6236
+    },
+    {
+      "copy": "results/experiment_registry 2.csv",
+      "original": "results/experiment_registry.csv",
+      "sha256": "f6e19f9d891f6e5f920d5919a9489ff4eaea690bde4ec0178013a277f4bde0f5",
+      "bytes": 31708
+    },
+    {
+      "copy": "results/experiment_registry_manifest 2.json",
+      "original": "results/experiment_registry_manifest.json",
+      "sha256": "87d1edd4fc59ae3759955ed164e324d8376272a469933589db89ef209e1c634c",
+      "bytes": 797
+    },
+    {
+      "copy": "results/f5_selection_v1/all_candidates 2.csv",
+      "original": "results/f5_selection_v1/all_candidates.csv",
+      "sha256": "eacd0561d6b325e077155b92da36c08bf3a9b1ad6919d783051a7eaca3d180c1",
+      "bytes": 5689
+    },
+    {
+      "copy": "results/f5_selection_v1/f5_inference_smoke_certificate 2.json",
+      "original": "results/f5_selection_v1/f5_inference_smoke_certificate.json",
+      "sha256": "78b869f3f99506972becc3118b427b30dfc3c4e35084e8f936098fe2543613b7",
+      "bytes": 303
+    },
+    {
+      "copy": "results/f5_selection_v1/freeze_audit 2.json",
+      "original": "results/f5_selection_v1/freeze_audit.json",
+      "sha256": "4fa094e9aedd4281912e5e1983eecb675e5faf5c09e57652181ddd455cf32223",
+      "bytes": 24229
+    },
+    {
+      "copy": "results/f5_selection_v1/freeze_manifest 2.json",
+      "original": "results/f5_selection_v1/freeze_manifest.json",
+      "sha256": "da579b2daae14c24aca8b7a6893d433824bd0c19cb2a5291bc2511ba1472d402",
+      "bytes": 15846
+    },
+    {
+      "copy": "results/f5_selection_v1/test_analysis_plan 2.json",
+      "original": "results/f5_selection_v1/test_analysis_plan.json",
+      "sha256": "a4d7c1518815307111f12d890ac3833343c3638520a4cb44b2085abd5eb61bb0",
+      "bytes": 7337
+    },
+    {
+      "copy": "results/f5_selection_v1/test_freeze_manifest 2.json",
+      "original": "results/f5_selection_v1/test_freeze_manifest.json",
+      "sha256": "77645e5ecf30e2e199526209e0d577e6d52530dbfd28b5f74196b187077e7a4e",
+      "bytes": 14265
+    },
+    {
+      "copy": "results/f5_selection_v1/validation_control_balance 2.json",
+      "original": "results/f5_selection_v1/validation_control_balance.json",
+      "sha256": "9dc6d4db8b3457117ec50480a0fa81ba294aeef606a3798520f91e06314743e5",
+      "bytes": 872
+    },
+    {
+      "copy": "results/f5_selection_v1/validation_history_length 2.csv",
+      "original": "results/f5_selection_v1/validation_history_length.csv",
+      "sha256": "3031c55aa310e7b371d81b95c534ecb5192320c11261fe654b1e4e98aa116c68",
+      "bytes": 44900
+    },
+    {
+      "copy": "results/f5_selection_v1/validation_metrics 2.csv",
+      "original": "results/f5_selection_v1/validation_metrics.csv",
+      "sha256": "4340b59e6513793eed9b82f4cf1443bd7758621aa6e8c9065a041312bb8db23d",
+      "bytes": 5049
+    },
+    {
+      "copy": "results/f5_selection_v1/validation_seed_summary 2.csv",
+      "original": "results/f5_selection_v1/validation_seed_summary.csv",
+      "sha256": "1249e13996065c8b1ed59bfdcb2b1abcd8620c42cb3fa777f175830508d2d94e",
+      "bytes": 1427
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/bootstrap_deltas 2.csv",
+      "original": "results/f5_sequence_test_v1/bootstrap_deltas.csv",
+      "sha256": "bf0c606cdfd3449b7d1d9bf50b6c27d7102697cc4bdf7d5f1fd502eae47b65a2",
+      "bytes": 547326
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/bootstrap_intervals 2.csv",
+      "original": "results/f5_sequence_test_v1/bootstrap_intervals.csv",
+      "sha256": "89cc7a297934ba1290bb53d14c366d9f49cfd1a64009eb997a0f12d94be582cb",
+      "bytes": 4659
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/bootstrap_manifest 2.json",
+      "original": "results/f5_sequence_test_v1/bootstrap_manifest.json",
+      "sha256": "bb53d1a86e0f0b466ffc4555db64df1fd939641ed6746ece5179ed99cfcade29",
+      "bytes": 6855
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/bucket_relaxation_excluded_rows 2.parquet",
+      "original": "results/f5_sequence_test_v1/bucket_relaxation_excluded_rows.parquet",
+      "sha256": "e7e827f428bb3f38a11b6646abf3b0a2fc571e6d0e820a1ff76055b0c947d663",
+      "bytes": 8826
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/bucket_relaxation_summary 2.json",
+      "original": "results/f5_sequence_test_v1/bucket_relaxation_summary.json",
+      "sha256": "56c3ce05eaf3c142d6e50a138a51442d59b96b2118fcf1c582f267e2c6fd3fed",
+      "bytes": 724
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/calibrated_metrics 2.csv",
+      "original": "results/f5_sequence_test_v1/calibrated_metrics.csv",
+      "sha256": "be6a830579275534c82b2ac5a051558189a00357e0e4d82ef77ba7b5506b2beb",
+      "bytes": 9837
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/calibration_fit_manifest 2.json",
+      "original": "results/f5_sequence_test_v1/calibration_fit_manifest.json",
+      "sha256": "2bf04b4d1611e67f541a3abe4b6090df5614c3a175d0fe53830783a268b69941",
+      "bytes": 5449
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/calibration_selection 2.csv",
+      "original": "results/f5_sequence_test_v1/calibration_selection.csv",
+      "sha256": "bc5030a61b5a355daa81e8a723d00a73a2af41b8cafcaebc1cc44a3b9b1b45b8",
+      "bytes": 9866
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/comparison_effects 2.csv",
+      "original": "results/f5_sequence_test_v1/comparison_effects.csv",
+      "sha256": "78a13cf4a5f3ec53b1e20980d57ed78bcdd76b08e2ef695e81a8ee18f52cafbc",
+      "bytes": 4693
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/donor_sensitivity 2.csv",
+      "original": "results/f5_sequence_test_v1/donor_sensitivity.csv",
+      "sha256": "c747404afd5f3b1e8dbcceecc66373096c9b5ed66b650fd39fe326d4f551c5b4",
+      "bytes": 767
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/group_counts 2.csv",
+      "original": "results/f5_sequence_test_v1/group_counts.csv",
+      "sha256": "80917ea46c62fc45d0406e7659238065b37138229175ec238be8967d066a8505",
+      "bytes": 1991
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/group_metrics 2.csv",
+      "original": "results/f5_sequence_test_v1/group_metrics.csv",
+      "sha256": "923042061e434d1a1d04cbd36082219d788e4b048c6f530d336795944d91b846",
+      "bytes": 169404
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/inference_started 2.json",
+      "original": "results/f5_sequence_test_v1/inference_started.json",
+      "sha256": "89cd8bb7139bcd20db60a88c84cf1a37eda7391b16b4e96877d44ebb5d35995b",
+      "bytes": 278
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/manifest 2.json",
+      "original": "results/f5_sequence_test_v1/manifest.json",
+      "sha256": "6b1ef36b013fac992ad055a8b13c9de62572c0cf2fd91d0bfea65d1f6085fd0c",
+      "bytes": 9063
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/paired_seed_differences 2.csv",
+      "original": "results/f5_sequence_test_v1/paired_seed_differences.csv",
+      "sha256": "ea0cf5ef0c9fce6a09ead2a622863b792f3d43d4902768b68a0f26a4773732f7",
+      "bytes": 3502
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/paired_seed_direction_consistency 2.csv",
+      "original": "results/f5_sequence_test_v1/paired_seed_direction_consistency.csv",
+      "sha256": "75d28b11acee7f163425f4f7276f80373805d03a755c5f6c1334f73e44dccd10",
+      "bytes": 4128
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/posthoc_manifest 2.json",
+      "original": "results/f5_sequence_test_v1/posthoc_manifest.json",
+      "sha256": "e59eacd89e8abff56b514562f6e1eece9f624399d983783db1c73cb66ee20d81",
+      "bytes": 1446
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/report_manifest 2.json",
+      "original": "results/f5_sequence_test_v1/report_manifest.json",
+      "sha256": "85664a00b85b1f9e21d3ed7228e7153b9aa1be9d8151832f6c1be54adfdf3c13",
+      "bytes": 2098
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/sensitivity_metrics 2.csv",
+      "original": "results/f5_sequence_test_v1/sensitivity_metrics.csv",
+      "sha256": "6c47017437ede4ed6b23effc4ca06b86cad36479c3412a26269c096fa6c2b06e",
+      "bytes": 4586
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/test_metrics 2.csv",
+      "original": "results/f5_sequence_test_v1/test_metrics.csv",
+      "sha256": "8e243fc9b5c74c00d6ff3c04d2ece7bc7998298db7a15b923d0039df645d2e97",
+      "bytes": 5341
+    },
+    {
+      "copy": "results/f5_sequence_test_v1/test_seed_summary 2.csv",
+      "original": "results/f5_sequence_test_v1/test_seed_summary.csv",
+      "sha256": "56ddf83c6156a313dea9afee4fe3d6d261da929954caad3915b2c5cddc6be232",
+      "bytes": 1730
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "ca625ad1fb425672f60ed3bc41db28e622558e5471505afe7844ab89aa6140c9",
+      "bytes": 790
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "5ecf1efcf1d9792d489d1f5e858d40dd8f698f00ad591d1fdb30df89a686ffd8",
+      "bytes": 718
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "df69b238743394a23948dd7a6633ba462bd1464d0c6d6eb567e67107ddae5ae5",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "2e2bf1844015f985cd6144aa7209c8f159a837068f3ff464a69b82ea87100a6e",
+      "bytes": 287
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "4438459b303e6af832fb9539f37121767dac8cb452651709894e45e801612ac6",
+      "bytes": 1534
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "8536d9df9e8bec52602d7c072a764999f7622b7a5acb05e4696a41a5aa9ce1ba",
+      "bytes": 785
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "ee03616682a713ff0de52b80f21378fdcf61fca15c5328fc386173cdcf9cde5c",
+      "bytes": 718
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "9285479dfb6ecd0b991325366b4de5f3af4a9ce1e5d35fab68039b62ad357251",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "25c7a59434c82e49f1bc1cbaa01b4098f6616c0fdc61861589a8bd36c6b9c822",
+      "bytes": 285
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "854999fad1dec08d5d61b73e9bb256c3d6d5c800dbd3325f79375e66ba2bc751",
+      "bytes": 1530
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "03231c0cfae893898e8d81b3e141e4ac12bb5087d9ab14f47e6e9a33e81c497d",
+      "bytes": 787
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "aef8b9a16f476b5735eedaea16b7310d1d44b8929d288ee0a8ab3b73a7e07b53",
+      "bytes": 714
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "4016781c9e65d965d542721bee646e5a493c726762a28f3829decaf0763b37fc",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "d6212843711373549e9fa902e8788d399508579a3209d6e31c2698125be03317",
+      "bytes": 284
+    },
+    {
+      "copy": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "571cc2732d0904e30026f0c41b5235a4abcb82401d0cf28dd8e4a3ab1750de89",
+      "bytes": 1533
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "8cbe35ae23c5e0faf89c52f38c8e986175cee49e3f957ae15addb2a9988a7421",
+      "bytes": 787
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "d9513ff428228e4b86d1c908f7f0b557c850d78bea3b92991cd07b49a2a16e30",
+      "bytes": 724
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "89b0e541c31154dac612e4c3cf15da7aec57e7f675f3e97bd3e12b14543fddbd",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "7648d1f0671b59ab2094ed4496a00349c33262f7bf8483d77c7d518011323d74",
+      "bytes": 286
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "1b9bb8977dd6acc3ad287f03b227960fb0098c4e296e962f5f34c2c29303aee5",
+      "bytes": 1529
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "ecd07fbb9e51cb0aef2e04e9ca6990948ffef5d0357846063d7990cf0fe8294a",
+      "bytes": 788
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "38889984b60f3be4392237806872ec518d7eb803b9620e4e80c87ea003e1ae67",
+      "bytes": 724
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "2aa485fe5fddab759db0c42db3f633d0ac3c664878b5eb3a51128ade05a3c378",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "bf220d189629e709328a19f040c938e965301c3853827e8a20bf327891d3e4e5",
+      "bytes": 284
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "e7c890431cff131deac9a7bb20b25764815ab99853f1720b374fd71eee409bb8",
+      "bytes": 1527
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "aa86a4459495d4a5d1dce47dcc2174f9677d98d157854d8bd3c2373723309c85",
+      "bytes": 789
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "e90a91a3a3423ba697f98876495a519aeab8c0b46dc9c450113ca24379e70084",
+      "bytes": 720
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "2d3e04cf90771e72ac54c7a0a655becafb54833316dc60b25d597ed57c0c9dbb",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "3740c3e7ed82eb71b4b1912411a8d4c6ad9325572f6f728438c51b29188003c0",
+      "bytes": 285
+    },
+    {
+      "copy": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "2bc038ec097ba49f420c8d3d96be8a9acc3c1bd99d0080ee82fa0049fa67c0a0",
+      "bytes": 1531
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "5c3869fb025f239f8f1a5377fa481dbe2b2523936681c9e0c93861364fce35c9",
+      "bytes": 785
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "dc1265a02f9298b86484debf5064e91bb8a2f2271a21402ecd2a99ef7a37570a",
+      "bytes": 708
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "d497a3a8f0db397f1ae93eaebaa76dddcbfd1d36b6298c8f1bdabd5cca168f80",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "d90d3c2e1d79cd19008f0fe7ba732b121504b7414246e65bd5352b28390bd3f4",
+      "bytes": 287
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "614a73b4de00476e4b9dd6743ebdb6f908e0085b3b1f42d15f132620bce3dd94",
+      "bytes": 1528
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "27d9e9d4b5b807b387409246e98dc37f4f05414bcf42fa4b475504a06bb224f6",
+      "bytes": 792
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "510010e093f186193e0288da130a64932ff4dd03267de4a31663885cb2ef2785",
+      "bytes": 708
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "65d1dd69ef232e4d083925791aafb4e556a21ce9f00c39e5e7b4d4c5c6fa1387",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "5a24e0c110fbdbcc92bb37e71efcf7ccd885f9c84ea8ce03f3cd999a1ed06f6f",
+      "bytes": 285
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "6cda30d715a9e8f68496c5d11fe61430145603feac87e54ed9ee668d2354f79e",
+      "bytes": 1535
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "8ec211a0b0387e8e78a8358d7deb62ad9bcb0f96e43967fdad21085d6ca560be",
+      "bytes": 791
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "9d24d72bf2fa06029dd906e5efd1681878c793d50763df1d05aa694c0557d48d",
+      "bytes": 704
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "649c0fc0cabc0959d9e25476d90eb8330b18b6f405a0eb015b639b80547e3c33",
+      "bytes": 285
+    },
+    {
+      "copy": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "45c2b247e49412cc2c4b4d413cfd3b5564f29a1bb9f0327ffd7e30b54643f19d",
+      "bytes": 1525
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "d7ba7365ddace5b1efc36109df485d64c1341d0088d8372b795f96bb06253ac0",
+      "bytes": 786
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "386fa7568b4a47489fae2ba07e09ff6d1ba75b2018b0608f880c0fb9d348ac22",
+      "bytes": 714
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "e5868182bcbb039fa4a5c98fe6a6eeede32732834ed082cde7f583ffa7384d76",
+      "bytes": 1526
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "8fd630c0a55eff51739eb0d866abe25fb4a0f586e66a320ad8a5dcb23cd234d5",
+      "bytes": 785
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "d1147fc2f375448a1a157732fe8c0eec42e4fb092975445354b5d344c2a8e5ee",
+      "bytes": 714
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "bc2db56f1752a471dc7b50edd3cc9b824576b9a4cdf53dc8017d7655fc998f26",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "36534dfe3cd2874e0a4ca501a96e1b4ee1b0a040aa908cc73319bc5725871e44",
+      "bytes": 286
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "6249fa31544725e437ab6d75e4cda66280b021cffd029d818dcab551bab4b886",
+      "bytes": 1530
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "a43ca4c07771360ff0cf92470a9c2525584c1f5a7f3e68d7f48c1464cc266aba",
+      "bytes": 788
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "12b9a43f50f08a23f6a59b84a4ef6d0e4bb8f8c19fc44d120db9c0e84fc0471b",
+      "bytes": 710
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "e4b8e9a58c5b6d90dd8dbe81625f34d37ddb3e80ccd1b03155aae7a3c05c4ecd",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "815726339edf098a057e27c28f0371ed16c6b6f235b8ad0bbb22b592b13121c6",
+      "bytes": 287
+    },
+    {
+      "copy": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "31397a2ad3dcbb9a92f5388ced51637650c968638163267c958e388be7e94d6b",
+      "bytes": 1533
+    },
+    {
+      "copy": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "bytes": 791
+    },
+    {
+      "copy": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "c5350ef6603c44ee613bce736041aec822af1e27dac8ae1ac95f693c29abb160",
+      "bytes": 680
+    },
+    {
+      "copy": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "c0c8223370d0a3c3aa60539e9a8c6cd2988af4aeecb653e169cafd8186627f35",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "bytes": 286
+    },
+    {
+      "copy": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "bytes": 1534
+    },
+    {
+      "copy": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "bytes": 791
+    },
+    {
+      "copy": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "003f401c5991745901362e835a153375761bab35c92ef1394f27bdf44034d75d",
+      "bytes": 680
+    },
+    {
+      "copy": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "c0c8223370d0a3c3aa60539e9a8c6cd2988af4aeecb653e169cafd8186627f35",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "bytes": 286
+    },
+    {
+      "copy": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "bytes": 1534
+    },
+    {
+      "copy": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/cold_start_metrics 2.csv",
+      "original": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/cold_start_metrics.csv",
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "bytes": 791
+    },
+    {
+      "copy": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/evaluation_manifest 2.json",
+      "original": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/evaluation_manifest.json",
+      "sha256": "a67381eb696e5c73dea1d4d9fb32b91162eaa0ffd65d0ce35c1746f551837b1f",
+      "bytes": 676
+    },
+    {
+      "copy": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/gauc_summary 2.csv",
+      "original": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/gauc_summary.csv",
+      "sha256": "248250aeccd7c67efcd5dcb6440bc0fe77af04b2ad56aa380694ab981d3fc271",
+      "bytes": 224
+    },
+    {
+      "copy": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/overall_metrics 2.csv",
+      "original": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/overall_metrics.csv",
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "bytes": 286
+    },
+    {
+      "copy": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/reliability_bins 2.csv",
+      "original": "results/f5b_zero_l200_s42_v1_test_v1/evaluation/reliability_bins.csv",
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "bytes": 1534
+    },
+    {
+      "copy": "results/release_audit_v2/pdf_review_v2 2.json",
+      "original": "results/release_audit_v2/pdf_review_v2.json",
+      "sha256": "99fb615c1c927ea5a370a10fe9dd3f9c57294d97d190aef390cf99f3790d99b9",
+      "bytes": 2819
+    },
+    {
+      "copy": "results/serving_benchmark_v1/deepfm_f123 2.json",
+      "original": "results/serving_benchmark_v1/deepfm_f123.json",
+      "sha256": "7dce38038bdd5f174151e7d228463b2ff497ad46cf3d861e4e500fd4355fbe2a",
+      "bytes": 1176
+    },
+    {
+      "copy": "results/serving_benchmark_v1/f4_mean_matched 2.json",
+      "original": "results/serving_benchmark_v1/f4_mean_matched.json",
+      "sha256": "c784196807ae75a101fe08957b06717d38acbd355c10b85f5cd9ad8e71dd339a",
+      "bytes": 1392
+    },
+    {
+      "copy": "results/serving_benchmark_v1/f5_mean_matched 2.json",
+      "original": "results/serving_benchmark_v1/f5_mean_matched.json",
+      "sha256": "db949956a819aa097c4e2c1b66b30f187ea11533bc9ceeead80309cfc9dcc2b7",
+      "bytes": 1393
+    },
+    {
+      "copy": "results/serving_benchmark_v1/lightgbm_f123 2.json",
+      "original": "results/serving_benchmark_v1/lightgbm_f123.json",
+      "sha256": "5e3a4109e5dc82f94fbfd8c7866738ee30dee54dd07c85c64869f49a346e81a7",
+      "bytes": 1244
+    },
+    {
+      "copy": "results/serving_benchmark_v1/lr_f123 2.json",
+      "original": "results/serving_benchmark_v1/lr_f123.json",
+      "sha256": "7bd1995e81fe11a1400d8d0bc1f8e61d5ed8530de7534db1ff7ddb4034634fcd",
+      "bytes": 1340
+    },
+    {
+      "copy": "results/serving_benchmark_v1/manifest 2.json",
+      "original": "results/serving_benchmark_v1/manifest.json",
+      "sha256": "733f54e26459fb74304e9dd263df99459526b7688fe5a761d5d2b79fa91916fd",
+      "bytes": 2599
+    },
+    {
+      "copy": "results/serving_benchmark_v1/serving_benchmark 2.csv",
+      "original": "results/serving_benchmark_v1/serving_benchmark.csv",
+      "sha256": "84fd5cf5152239fb10f1d2a695d777a89a93e1da10a79610c7696f05bfe26639",
+      "bytes": 1780
+    },
+    {
+      "copy": "results/serving_benchmark_v1/wide_deep_f123 2.json",
+      "original": "results/serving_benchmark_v1/wide_deep_f123.json",
+      "sha256": "721af4e60c9a9e4220ece2736775f99174e8b24ae2f9470e748a7c9827b8b765",
+      "bytes": 1190
+    },
+    {
+      "copy": "src/53_infer_f5_test 2.py",
+      "original": "src/53_infer_f5_test.py",
+      "sha256": "2cca1d04a2f1f27145a325b19f9ad7dbc936f47450c340b4e771bb1fda4a9d7c",
+      "bytes": 14084
+    },
+    {
+      "copy": "src/54_report_f5_test 2.py",
+      "original": "src/54_report_f5_test.py",
+      "sha256": "05b43d3df97b43468097dd08d05501c379472cca35eb2e1ab61164b0faa9dea3",
+      "bytes": 9788
+    },
+    {
+      "copy": "src/55_posthoc_f5_test 2.py",
+      "original": "src/55_posthoc_f5_test.py",
+      "sha256": "959385b534999ec3af4e3b2372b60037b830cd7a8653bb75568b8c2507ccb82c",
+      "bytes": 16351
+    },
+    {
+      "copy": "src/56_bootstrap_f5_test 2.py",
+      "original": "src/56_bootstrap_f5_test.py",
+      "sha256": "96cbfdae6dafde3cd32537ae5a7e965386b5e11816b4a6e50107a829ce208a79",
+      "bytes": 10154
+    }
+  ]
+}

@@ -12,13 +12,18 @@ the file but are never used for scoring.
 | Regime | What is timed |
 |---|---|
 | **pure** | inputs already prepared in memory; only the model call |
-| **end_to_end** | Parquet batch read, encoding, scaling, sequence gather, model call |
+| **in-memory prepare + inference** | materialized source batch; encoding, scaling, sequence gather, model call |
 
 Reporting only the pure regime would be misleading, and the size of the gap is the
 point. Logistic regression reaches **18.1 million rows/s** pure at batch 8192 but
-only **1.28 million** end to end — a **14×** drop, because building its
+only **1.28 million** with in-memory prepare + inference — a **14×** drop, because building its
 2,497,016-dimension sparse row dominates everything the model itself does. A
 serving decision made on the pure number alone would be wrong.
+
+`read_batches()` completes before the timed loop in `src/49_serving_benchmark.py`.
+The old CSV field names `end_to_end_*` are historical names, preserved unchanged.
+Timing excludes Parquet opening, disk reads, decompression and deserialization.
+Cold-cache online latency including real disk/Parquet I/O has not been measured.
 
 ## Setup
 
@@ -41,7 +46,7 @@ calls then 500 measured. Throughput: 3 warmup batches then 10 measured, at batch
 | **F5 mean matched** | 85.9 | 22,503,138 + 57,345 residual | **6,082.5** | 0.72 |
 
 Two rows need reading carefully. **LightGBM has by far the largest model file** at
-363 MiB for 251 trees. **F5 has by far the largest memory footprint** at 6.08 GiB,
+363 MiB for 251 trees. **F5 has by far the largest memory footprint** at 5.94 GiB,
 because serving it requires the 723-million-event store resident to gather each
 user's window; the residual itself adds only 57,345 parameters. Both sequence rows
 share the frozen DeepFM checkpoint, so their file size is the backbone's and the
@@ -49,7 +54,7 @@ residual size is listed separately.
 
 ## Single-row latency, milliseconds
 
-| Model | pure p50 | pure p95 | pure p99 | e2e p50 | e2e p95 | **e2e p99** |
+| Model | pure p50 | pure p95 | pure p99 | prep+infer p50 | prep+infer p95 | **prep+infer p99** |
 |---|---:|---:|---:|---:|---:|---:|
 | LightGBM F123 | 0.057 | 0.068 | 0.093 | 0.148 | 0.175 | **0.223** |
 | Wide & Deep F123 | 0.141 | 0.165 | 0.236 | 0.244 | 0.331 | **0.404** |
@@ -58,13 +63,13 @@ residual size is listed separately.
 | F5 mean matched | 0.200 | 0.240 | 0.286 | 0.296 | 0.338 | **0.359** |
 | F4 mean matched | 0.195 | 0.215 | 0.333 | 0.307 | 0.364 | **0.491** |
 
-At batch 1 every model is well under a millisecond end to end, so single-request
+At batch 1 every model is well under a millisecond with in-memory prepare + inference, so single-request
 latency does not separate them. LR has the second-best pure p99 and the
-second-worst end-to-end p50, again because of feature construction.
+second-worst in-memory prepare + inference p50, again because of feature construction.
 
 ## Throughput, rows per second
 
-| Model | pure @1024 | e2e @1024 | pure @8192 | **e2e @8192** |
+| Model | pure @1024 | prep+infer @1024 | pure @8192 | **prep+infer @8192** |
 |---|---:|---:|---:|---:|
 | LR F123 | 7,969,131 | 1,031,335 | 18,083,051 | **1,275,056** |
 | Wide & Deep F123 | 1,071,050 | 814,452 | 1,872,188 | **1,497,755** |
@@ -75,7 +80,14 @@ second-worst end-to-end p50, again because of feature construction.
 
 ## The deployment trade-off
 
-Against the frozen DeepFM backbone it sits on, **F5's end-to-end batch throughput
+Pure @8192 throughput is **1,530,445 rows/s** for DeepFM and **658,608** for F5:
+F5 runs at about **1/2.32** of DeepFM even before preparation. A residual with only
+**57,345** extra parameters still processes 200 tokens. The measured compute cost
+includes both sequence forward computation and sequence preparation; the latter
+cannot explain the pure-model slowdown. Peak RSS is **7.48×**; the resident
+723,113,323-event store is the main memory cost.
+
+Against the frozen DeepFM backbone it sits on, **F5's in-memory prepare + inference batch throughput
 is 1/3.27 of it** — 379,078 against 1,239,580 rows/s at batch 8192 — so its per-row
 compute cost is about **3.27×**. Its peak memory is about **7.48×**, 6,082 against
 813 MiB. Against F4 its throughput is 1/2.22 and its memory 5.88×. Its frozen-test
@@ -89,7 +101,7 @@ a tiered cache or an offline feature service would each change that number witho
 touching the model.
 
 Two cheaper observations follow from the same table. **Wide & Deep has the highest
-end-to-end throughput** of any model here, and **LightGBM the lowest**, which is
+in-memory prepare + inference throughput** of any model here, and **LightGBM the lowest**, which is
 the opposite of what its small tree count might suggest. And LR's enormous pure
 throughput is almost entirely erased by feature construction, so a sparse-feature
 service would need that step optimised before the model mattered at all.
@@ -103,14 +115,14 @@ service would need that step optimised before the model mattered at all.
 - The sequence rows include the shared frozen backbone's cost; they are not the
   residual's cost in isolation.
 - F5's memory reflects a design where the whole event store is resident. A
-  production feature store would page or cache windows instead, so 6.08 GiB is
+  production feature store would page or cache windows instead, so 5.94 GiB is
   the cost of *this* implementation, not a lower bound for the budget.
 - The LR checkpoint was serialized under scikit-learn 1.8.0 and is read under
   1.9.1 with a `_loss` module alias. A parity check confirms the loaded model
   reproduces its saved validation predictions with a maximum error of **0.0**
   before any timing is taken.
 
-## Reproduction
+## Historical benchmark command (do not rerun this release)
 
 ```bash
 PY=/opt/anaconda3/envs/ctr_project/bin/python

@@ -1,11 +1,16 @@
+> Status: validation selection and the authorized first F5 test are complete. The
+> pre-test freeze checks below describe their historical state; no new inference,
+> training, resampling, calibration fitting or selection is authorized.
+
 # F5 behavior-sequence study: validation, freeze, and the pre-test gate
 
-**Status: frozen before the first formal test.** `test_authorized` is false and
-`test_inference_performed` is false in
+**Historical pre-test state.** `test_authorized` and `test_inference_performed`
+remain false in the immutable pre-test
 [`freeze_manifest.json`](../results/f5_selection_v1/freeze_manifest.json). No F5
-test inference has been run and no test metric exists.
+test inference had been run at that point; the subsequent authorized pass and its
+metrics are now complete, as reported in F5_BEHAVIOR_TEST_RESULTS.md.
 
-Everything below is measured on validation, which participated in learning-rate
+The original model-selection metrics are measured on validation, which participated in learning-rate
 and epoch selection. These numbers are **descriptive**, not an unbiased estimate
 of held-out performance and not a significance claim.
 
@@ -68,35 +73,52 @@ shared frozen backbone; they are not three independent DeepFM fits.
 | attention mismatched − zero | +0.0001693 | −0.0000216 | +0.0000400 |
 | attention matched − mean matched | +0.0001238 | −0.0000079 | +0.0000945 |
 
+## F5 control clarification and remaining imbalance
+
+The control is a **deterministic different-user donor assignment with a measured
+approximately 0.08% user-level reuse deviation**, not a strict one-to-one
+permutation. Validation reuse excess is **884 / 1,131,745 (0.078109%)**; test is
+**917 / 1,134,206 (0.080850%)**. Reused donors number **869 / 911**, with maximum
+indegree **4 / 3**. Targets assigned reused donors number **1,753 / 1,828**;
+**575 / 562** appear in that day's exposures, covering **15,389 (0.475843%)** /
+**12,845 (0.388223%)** impressions. Self-match, length, future-event, ownership
+and order violations remain zero. Small reuse does not establish negligible
+metric impact; no retrained strict-derangement counterfactual exists.
+
+The saved validation control has category TV **0.04982**, age **3.75 vs 4.08 days**,
+and exposure-weighted past activity **138.23 vs 87.72**. Retained length is exact
+and coarse activity/recency buckets nearly match. User-level balance does not
+imply exposure-level balance. The activity gap is residual exposure-weighted,
+within-bucket imbalance; it is not simply attributable to donor reuse.
+Under this implemented control, the approximately **95%** AUC gap ratio is
+descriptive, not causal identity attribution. Full date/indegree/partition tables:
+[F5 donor audit](F5_DONOR_UNIQUENESS_AUDIT.md).
+
 ## What validation suggests, and what it does not
 
 **The source mattered.** `mean matched − zero` is **+0.0013876** AUC against the
 F4 study's **+0.000311** on the same frozen backbone, about **4.5×** larger, and
 **−0.0001194** LogLoss against F4's −0.000039, about **3.1×** larger. This is the
-direction F5 was built to test. It is a validation observation; the test is the
-gate.
+direction F5 was built to test. It is a validation observation; the subsequent authorized test is reported
+separately and is complete.
 
-**Identity separates cleanly.** Matched adds +0.0013876 AUC while the
-length-, activity- and recency-controlled mismatch control adds only +0.0001338 —
-**9.6%** of the effect. On GAUC the mismatch control is slightly *negative*
-(−0.0000293) while matched is +0.0004447. So the gain is not explained by history
-length, coarse activity or category popularity. F4's mismatch control behaved less
-cleanly, its AUC falling slightly below baseline, which made the same argument
-harder to state there.
+**Matched exceeds the implemented control.** Matched adds +0.0013876 AUC,
+while mismatched adds +0.0001338, or **9.6%** of that gap. These validation ratios
+are descriptive, not causal attribution to user identity. Exact length and coarse
+buckets do not eliminate exposure-weighted activity, popularity or age imbalance.
 
-**Attention still does not separate from mean pooling.** Attention leads mean by
-+0.0001238 AUC while the mean condition's own seed standard deviation is
-1.19e-4 — about one sigma. This is now a stronger statement than F4's: the tie
-persists on a source with roughly 40× more history, so it cannot be attributed to
-the sequence being too sparse to attend over. Mean matched remains the primary
-model, as declared before any result.
+**Attention leads mean by +0.0001238 validation AUC**, comparable to the mean
+condition's 1.19e-4 residual-seed standard deviation. This observation did not
+change the preregistered mean primary choice and does not identify a causal role
+for sparsity. The later frozen test is reported separately.
 
 **The gap to published work remains large.** The DSIN table's analogous
 "introduce a user behavior sequence" contrast is about +0.0074 AUC; F5's
 +0.00139 is roughly 5× smaller. Candidate reasons, none isolated here: the
 residual sits on a frozen backbone instead of being trained jointly; the cutoff is
 completed-day rather than per-event; tokens are category and type only, with no
-item identifier; and 4.30% of tokens are masked as UNKNOWN. These are limitations,
+item identifier; and 4.3029% of full in-window events map to UNKNOWN
+(validation matched retained-token share is 3.939985%, a different denominator). These are limitations,
 not explanations.
 
 **Epoch behaviour differs from F4.** Every F4 run selected epoch 1. F5's 15 runs
@@ -109,7 +131,8 @@ once, so the richer source keeps improving validation LogLoss for longer.
 checks rather than trusting the study's own report:
 
 - All 15 checkpoint and validation-prediction hashes match the freeze manifest.
-- No run has a test prediction file; `test_authorized` is false.
+- At that pre-test freeze, no run had a test prediction file and
+  `test_authorized` was false. The subsequent authorized pass is complete.
 - The build inputs are byte-identical to what the build recorded.
 - All **12,744** empty-history validation rows reproduce the frozen DeepFM
   baseline **exactly** in all 15 runs.
@@ -141,15 +164,15 @@ donor whose retained length merely *exceeds* the target's, has zero rows. At ful
 scale the exact-retained-length rule inside the activity and recency buckets was
 always satisfiable, and coarsening touched 0.077% of rows.
 
-The **past-exposure gap is a weighting artifact, not an imbalance in the
-derangement**. Target rows are impression-weighted, so an active user contributes
-many rows and pulls the matched mean up; donors are drawn uniformly over users
-within a bucket, so the mismatched mean is closer to a user-weighted average. The
-activity *bucket* is binary at 100 prior impressions, so values inside the upper
-bucket can differ widely. F4 recorded the same direction. The control therefore
-equalises retained length exactly and the coarse buckets almost exactly, but it
-does not equalise impression-weighted activity, category popularity or event age.
-It is not a complete causal adjustment.
+The **past-exposure gap is residual exposure-weighted imbalance under coarse
+bucket matching**. Frequent target users contribute more impressions, whereas
+user-level donor assignment does not preserve exposure weights. Activity buckets
+are binary at 100 prior impressions and permit large within-bucket differences.
+Near balance at user level is not exact balance in the exposure-level evaluation
+population. Retained length is exact and coarse activity/recency buckets nearly
+match; exposure-weighted activity, popularity and event age do not. The additional
+non-bijective donor reuse is separately quantified in the donor audit; **138.23 vs
+87.72 cannot simply be attributed to its approximately 0.08% reuse excess**.
 
 ## A recorded deviation
 
@@ -166,15 +189,12 @@ events, ownership mismatch, order violation, invalid type — are zero on every
 date. In the event the relaxation stayed small: 683 user-date donor assignments
 across the whole build, and 0.077% of validation rows.
 
-## The gate
+## Historical gate (completed)
 
-The preregistration stops here. The first formal F5 test inference requires
-separate explicit authorization. On authorization, the frozen checkpoints are used
-as-is: no retraining, no changed history rules, no reselection, and one inference
-pass per unique checkpoint, following the six ordered comparisons in the
-preregistration.
+The user subsequently authorized the single formal pass using the frozen
+checkpoints and six comparisons. It is complete. No rerun is authorized.
 
-## Reproduction
+## Historical execution record (completed; do not rerun)
 
 ```bash
 PY=/opt/anaconda3/envs/ctr_project/bin/python   # the tested interpreter; others are refused

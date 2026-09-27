@@ -5,7 +5,21 @@ phase. It is the long-term execution charter. Current user instructions take
 precedence; repository code, manifests, Git history, and saved results take
 precedence over factual claims in documents. Record conflicts explicitly.
 
-## Current authorization: E1-E6 extension (supersedes the release closure below)
+## Current state: closed; audit clarification only
+
+E1–E6 and the authorized first F5 test are COMPLETE. All authorization sections
+below are historical and superseded by this closure. Do not train, run formal
+test inference, bootstrap/resampling, fit calibration, select models or rerun
+serving benchmarks. Only read-only consistency audits, synthetic-fixture tests,
+document corrections and PDF rebuilds are allowed. Frozen code/data/checkpoints,
+predictions, once-only markers and original formal CSV/JSON remain immutable.
+
+New commits must not include any AI `Co-Authored-By`, `Generated-By` or similar
+trailer. Preserve all historical commit messages and attribution. Never rewrite
+history. The current revision is on `fix/f5-audit-clarifications`; push that branch
+only and stop before merging into main pending the user's confirmation.
+
+## Historical authorization: E1-E6 extension (completed)
 
 The user authorized a post-release extension on branch `feature/f5-behavior-sequence`,
 from release baseline `cce6966`. Authorized work, in order:
@@ -40,7 +54,7 @@ are authorized. No new models, retraining, test inference, bootstrap, calibratio
 fitting or new post-hoc analysis. After delivery stop project expansion.
 Read `docs/RELEASE_AUDIT.md` for final files and read-only verification commands.
 
-## Current authorization (supersedes the historical gate below)
+## Historical F4 authorization (completed; superseded by closure)
 
 The authorized formal test is now COMPLETE: 15 checkpoints, one pass each.
 Read `docs/DIN_F4_TEST_RESULTS.md` and `results/sequence_test_v2/manifest.json`.

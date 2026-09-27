@@ -1,0 +1,126 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "extracted_characters": 1593,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 2,
+      "extracted_characters": 497,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 3,
+      "extracted_characters": 1674,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 4,
+      "extracted_characters": 1348,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 5,
+      "extracted_characters": 1066,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 6,
+      "extracted_characters": 609,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 7,
+      "extracted_characters": 780,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 8,
+      "extracted_characters": 750,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 9,
+      "extracted_characters": 672,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 10,
+      "extracted_characters": 537,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 11,
+      "extracted_characters": 645,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 12,
+      "extracted_characters": 600,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 13,
+      "extracted_characters": 662,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 14,
+      "extracted_characters": 549,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 15,
+      "extracted_characters": 1305,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 16,
+      "extracted_characters": 403,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 17,
+      "extracted_characters": 1567,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 18,
+      "extracted_characters": 458,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 19,
+      "extracted_characters": 1340,
+      "embedded_truetype": true,
+      "text_within_page": true
+    }
+  ],
+  "page_count": 19,
+  "expected_pages": 19,
+  "min_cjk_per_page": 35,
+  "font_name": "Arial Unicode.ttf",
+  "font_sha256": "876af2cd4854644e7f3e7feb2f688997fdb3343c6df6693611209c9dfb47ccec",
+  "pdf_sha256": "0fe3a667b166372cb91e3eecbc07dd9b9d7457baec395493939e8e3e14278d55",
+  "source_sha256": "3d6fd76177ca9a16bab515fb1d1276b200635da3b12aac846bd44037b2b0037d",
+  "visual_review": "Required separately; automatic geometry/font checks do not replace inspection"
+}

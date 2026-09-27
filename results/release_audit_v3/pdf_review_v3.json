@@ -1,0 +1,263 @@
+{
+  "pages": [
+    {
+      "page": 1,
+      "extracted_characters": 1593,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 2,
+      "extracted_characters": 497,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 3,
+      "extracted_characters": 1674,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 4,
+      "extracted_characters": 1348,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 5,
+      "extracted_characters": 1066,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 6,
+      "extracted_characters": 609,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 7,
+      "extracted_characters": 780,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 8,
+      "extracted_characters": 750,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 9,
+      "extracted_characters": 672,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 10,
+      "extracted_characters": 537,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 11,
+      "extracted_characters": 645,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 12,
+      "extracted_characters": 600,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 13,
+      "extracted_characters": 662,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 14,
+      "extracted_characters": 549,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 15,
+      "extracted_characters": 1305,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 16,
+      "extracted_characters": 403,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 17,
+      "extracted_characters": 1567,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 18,
+      "extracted_characters": 458,
+      "embedded_truetype": true,
+      "text_within_page": true
+    },
+    {
+      "page": 19,
+      "extracted_characters": 1340,
+      "embedded_truetype": true,
+      "text_within_page": true
+    }
+  ],
+  "page_count": 19,
+  "expected_pages": 19,
+  "min_cjk_per_page": 35,
+  "font_name": "Arial Unicode.ttf",
+  "font_sha256": "876af2cd4854644e7f3e7feb2f688997fdb3343c6df6693611209c9dfb47ccec",
+  "pdf_sha256": "0fe3a667b166372cb91e3eecbc07dd9b9d7457baec395493939e8e3e14278d55",
+  "source_sha256": "3d6fd76177ca9a16bab515fb1d1276b200635da3b12aac846bd44037b2b0037d",
+  "visual_review": "All 19 rendered pages inspected. Final changed pages 6/7/15/18/19 reinspected; other 14 PNGs byte-identical to inspected preceding render.",
+  "missing_glyphs": [],
+  "visual_review_complete": true,
+  "page_reviews": [
+    {
+      "page": 1,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Summary, CJK and corrected claim boundaries legible",
+      "png_sha256": "3c413462a8dc3db1842180004c3c5d5dc2896a6f1408672c7da4a39a670eb79e"
+    },
+    {
+      "page": 2,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Split table/COPC definitions and page title intact",
+      "png_sha256": "61abcbca9339aa97c0bbbe8e1147a7708580ed44a64c38ea94d549f99bb73947"
+    },
+    {
+      "page": 3,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "F5 condition table and comparison narrative intact",
+      "png_sha256": "ee746ae8d420ed8fa6ba0d337f17dad853a20b0a2aafcf27e0a2113d537a13b0"
+    },
+    {
+      "page": 4,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Donor counts, denominators and limitations legible",
+      "png_sha256": "14afb46cf4f1b63184a7cea33dfde3f7b7ec4b171ff622c7f47f1cffedc814d9"
+    },
+    {
+      "page": 5,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "F4 protocol table and time assumptions intact",
+      "png_sha256": "813947d3ce587ebf991de73261ea147055fc45f7d941a31506b4cbca364688dd"
+    },
+    {
+      "page": 6,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Information-layer table, figure 1 and caption intact",
+      "png_sha256": "16cbbc88838a6f3b45bb57a04c3fe0da55e3c1537402c2839ce198c9d2cfcc4d"
+    },
+    {
+      "page": 7,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "E3 interval table kept together with its introductory heading",
+      "png_sha256": "ce52bf2e7fa1dd5a64248075a326efd30eed3be5c65196bdeb89f343ce3480a0"
+    },
+    {
+      "page": 8,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Frozen comparison table and figure 2 legends intact",
+      "png_sha256": "e295d1ed84b0539c202a2b512ee93c5661a5fdcc934e88f8b105dc887762657a"
+    },
+    {
+      "page": 9,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "GAUC figure 3 axes, labels and caption intact",
+      "png_sha256": "a528aaa1056fd789c6d713160574efbf636fbe9edb2953be4ddfd9c1e726cfab"
+    },
+    {
+      "page": 10,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Loss/cold evidence figure 4, bit labels and caption intact",
+      "png_sha256": "61ff3e9049d28318153635a58b9f70f583095c71f7b4564f2176f4b2ad302722"
+    },
+    {
+      "page": 11,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Calibration figure 5 legend, COPC axis and definitions intact",
+      "png_sha256": "dedb82aa98ba457b9ff7ca5534b65ec350802bbcaf3af3a1ea6097f408dacf91"
+    },
+    {
+      "page": 12,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Common-error figure 6 and top-10% qualifier intact",
+      "png_sha256": "b45526c660c448819005a21f4374b3f8174c447fe226ed1c7b1fe42f7ab9013d"
+    },
+    {
+      "page": 13,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Sensitivity figure 7 and non-retrained caveat intact",
+      "png_sha256": "6e38565534f34e927455e778ecfb3b782cdbd77944069e77e78b0333875eeaf2"
+    },
+    {
+      "page": 14,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Descriptive time/repeat figure 8 axes, legends and caveat intact",
+      "png_sha256": "9608cef179a7d9b2dd4f74a4c561c4066d8aa3d3d0c685b4555a786b52005618"
+    },
+    {
+      "page": 15,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Conclusion-boundary table and F4/GAUC scope legible",
+      "png_sha256": "11b3fe0b74595b38ea9d996edcbc4483a24d38581425d3515d3bfc48a1f1ff63"
+    },
+    {
+      "page": 16,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Uncertainty descriptions and footer intact",
+      "png_sha256": "c4d0a946b0001f85664c557b3bc032f61404f5635e98c46708eee23786b3365d"
+    },
+    {
+      "page": 17,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "UNKNOWN denominators and in-memory serving scope legible",
+      "png_sha256": "99d365d3fe310ac16be196c8743f9a17f1a09d5f6ff06c37f8396152aecaf44c"
+    },
+    {
+      "page": 18,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "38-output composition table and historical limits intact",
+      "png_sha256": "f9b5e0b863b50a0e50dd824845d5a1912b57d6b7406ebc6179264a89a2d5a329"
+    },
+    {
+      "page": 19,
+      "passed": true,
+      "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
+      "notes": "Read-only commands, reference table and archive paths legible",
+      "png_sha256": "c0d4319ac81323980d4086abd9a91e2ebb73eda3e80498e1f4169b4cb735b62f"
+    }
+  ]
+}

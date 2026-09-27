@@ -1,0 +1,3674 @@
+{
+  "passed": true,
+  "scope": "saved summary arithmetic and file integrity only; no prediction reads, model inference, fitting or resampling",
+  "checks": {
+    "numeric_equalities": 27210,
+    "summary_tables": 8,
+    "saved_bootstrap_rows_checked_without_resampling": 20,
+    "document_table_cells": 56,
+    "local_links": 79,
+    "published_claims": 18
+  },
+  "published_claims": {
+    "mean_matched auc mean": {
+      "unrounded": 0.6462633880509615,
+      "published": "0.646263",
+      "documents": [
+        "README.md",
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "mean_matched auc std": {
+      "unrounded": 4.4004302459494605e-05,
+      "published": "0.000044",
+      "documents": [
+        "README.md",
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "mean_matched logloss mean": {
+      "unrounded": 0.1931203339457461,
+      "published": "0.193120",
+      "documents": [
+        "README.md",
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "mean_matched logloss std": {
+      "unrounded": 3.8063376902791596e-06,
+      "published": "0.000004",
+      "documents": [
+        "README.md",
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "mean_matched gauc mean": {
+      "unrounded": 0.5703801149426577,
+      "published": "0.570380",
+      "documents": [
+        "README.md",
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "mean_matched gauc std": {
+      "unrounded": 0.00010782751059470086,
+      "published": "0.000108",
+      "documents": [
+        "README.md",
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "known-user share of GAUC delta (%)": {
+      "unrounded": 98.8854770160679,
+      "published": "98.89",
+      "documents": [
+        "README.md",
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "raw length >=50 share of capped loss worsening (%)": {
+      "unrounded": 58.63610758923598,
+      "published": "58.64",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "double cold calibrated COPC": {
+      "unrounded": 0.5810431301922879,
+      "published": "0.581043",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "mean matched calibrated logloss": {
+      "unrounded": 0.1928398866852609,
+      "published": "0.192839887",
+      "documents": [
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "mean matched calibrated ece": {
+      "unrounded": 0.0010434769065847248,
+      "published": "0.001043477",
+      "documents": [
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "validation sensitivity DeepFM_full": {
+      "unrounded": 0.6503151436925348,
+      "published": "0.650315",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "validation sensitivity DeepFM_no_F2": {
+      "unrounded": 0.6377863563571089,
+      "published": "0.637786",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "validation sensitivity DeepFM_no_F3": {
+      "unrounded": 0.6261896962831256,
+      "published": "0.626190",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "validation sensitivity DeepFM_no_FM": {
+      "unrounded": 0.6502920953544952,
+      "published": "0.650292",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "validation sensitivity LR_full": {
+      "unrounded": 0.6551629440814903,
+      "published": "0.655163",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "validation sensitivity LR_no_F2": {
+      "unrounded": 0.6443533250496712,
+      "published": "0.644353",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    },
+    "validation sensitivity LR_no_F3": {
+      "unrounded": 0.5849463981826508,
+      "published": "0.584946",
+      "documents": [
+        "docs/FINAL_REPORT.md",
+        "docs/FINAL_REPORT_ZH.md"
+      ]
+    }
+  },
+  "figures_hash_verified": 16,
+  "inventory": {
+    "results/behavior_daily_counts.csv": {
+      "sha256": "499f44b820690374b2ef5be97cbf3aed7f9449b191ab15b4f906bebf3f7f558a",
+      "format": "csv",
+      "rows": 1162
+    },
+    "results/behavior_namespace_audit_v1/available_history.csv": {
+      "sha256": "832f92f16937d19f5269e52c43da6915292f64dee233835fb571d085efc72dd0",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/behavior_namespace_audit_v1/behavior_log_conversion.json": {
+      "sha256": "74ebb1af4b203d7e2a1a28264e84297a4c516b4d06931b0f9c98e7ac78bdaca2",
+      "format": "json"
+    },
+    "results/behavior_namespace_audit_v1/behavior_types.csv": {
+      "sha256": "2044baf2d866f970ec0377f8580eed80c90f7d79506e888ce8aef6a9ec7f5987",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/behavior_namespace_audit_v1/daily_events.csv": {
+      "sha256": "8d61fb74d9313d556540b05695ef4fbb830f7093316815f1dbf347b6ed929dff",
+      "format": "csv",
+      "rows": 1162
+    },
+    "results/behavior_namespace_audit_v1/namespace_audit.json": {
+      "sha256": "fc3888824e1c0cb104c29a0bd57092ec817f3c8c982258854f1fa122dc68a204",
+      "format": "json"
+    },
+    "results/behavior_namespace_audit_v1/namespace_coverage.csv": {
+      "sha256": "8361f7627cff3d56d24565dce12e981ab700e7529b006afd0cf3deb45eceed12",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/behavior_namespace_audit_v1/per_user_event_quantiles.csv": {
+      "sha256": "5ba764cc6cfc642f14bfc494e411504e66c40d0751321684db674e85d7c5d7aa",
+      "format": "csv",
+      "rows": 7
+    },
+    "results/deep_dive_d2_v1/common_errors.csv": {
+      "sha256": "f3cc85e4b228983a29b1c1c417efa60c320f04aafeea12d6fbd2c3878af348d7",
+      "format": "csv",
+      "rows": 360
+    },
+    "results/deep_dive_d2_v1/common_miss_profiles.csv": {
+      "sha256": "8be409dfba680cecb204dd171f5198749bd50587383c57b04f2c0da6867dc813",
+      "format": "csv",
+      "rows": 249
+    },
+    "results/deep_dive_d2_v1/correlations.csv": {
+      "sha256": "095bb380094d019133b1632e08bdbb650ce8d84b22e0f6c524e70d192e1a7399",
+      "format": "csv",
+      "rows": 360
+    },
+    "results/deep_dive_d2_v1/double_cold_composition.csv": {
+      "sha256": "06191fc2405ef6d7b0dd2892ed4301b5c74e5375d543efab0994863b4db77428",
+      "format": "csv",
+      "rows": 264
+    },
+    "results/deep_dive_d2_v1/gauc_contributions.csv": {
+      "sha256": "f68a95d6d285ce725d54d8eb11e5a52b7d25e06cebb562f5f18bc83ddf7e1314",
+      "format": "csv",
+      "rows": 204
+    },
+    "results/deep_dive_d2_v1/group_metrics.csv": {
+      "sha256": "163efd83239abffcf3ab7e8ea4750ea5cebfbc46525cef2e82c6d26ce0647c26",
+      "format": "csv",
+      "rows": 1530
+    },
+    "results/deep_dive_d2_v1/group_summary.csv": {
+      "sha256": "d1acd88b1fd3041ea09803a76d0f17fb41a62b4095bd309a57030f14d15cdc68",
+      "format": "csv",
+      "rows": 918
+    },
+    "results/deep_dive_d2_v1/heterogeneity_differences.csv": {
+      "sha256": "dd822f5ab87d79c4a4bc5147df34b3b2ad0ba8b4c2f104f604df581a697b9cc9",
+      "format": "csv",
+      "rows": 918
+    },
+    "results/deep_dive_d2_v1/legacy_audit.json": {
+      "sha256": "db71de4357277732843be15e7b31f3047d6d364f9af55503d715759a9bb70a21",
+      "format": "json"
+    },
+    "results/deep_dive_d2_v1/long_history_loss.csv": {
+      "sha256": "791f3848b2e7718c522c94e157a3c023c274093b119b89821f498c1207f4bde2",
+      "format": "csv",
+      "rows": 456
+    },
+    "results/deep_dive_d2_v1/manifest.json": {
+      "sha256": "72c2722b26f727c21ba3fca9818ef45a3d358d1afb9ce7848e0762e8f61952c9",
+      "format": "json"
+    },
+    "results/deep_dive_d2_v1/oracle.csv": {
+      "sha256": "fb0fee3fd3a991339dfd1254097d593b4b8aa18a6b61f7cde80d88e3223c4817",
+      "format": "csv",
+      "rows": 132
+    },
+    "results/deep_dive_d2_v1/pairwise_overlap.csv": {
+      "sha256": "6f74d32ce3afd303e1284c957876bd89c98c0272448f7eb27d080f9a23efdd99",
+      "format": "csv",
+      "rows": 600
+    },
+    "results/deep_dive_d2_v1/verification.json": {
+      "sha256": "ed06390092c1ffc84058987dcb27178bc61adff6a6f3b6db5ea9694c486bdc4d",
+      "format": "json"
+    },
+    "results/deep_dive_d3_preflight_failure/failure.json": {
+      "sha256": "daf86683ce05b0371c045c6745cc114fe46b39af1b1169638bcd454265a59b6d",
+      "format": "json"
+    },
+    "results/deep_dive_d3_v1/component_correlations.csv": {
+      "sha256": "1cce950d076d2d947fa0ddaa877f2232eb078bb76c2a0f115f915454b8f67031",
+      "format": "csv",
+      "rows": 15
+    },
+    "results/deep_dive_d3_v1/existing_lr_information_validation.csv": {
+      "sha256": "8688ada262f8b97397ca6e82cfa37c0ea134952fa6f99d710d07e9a09ae8e4a6",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/deep_dive_d3_v1/existing_lr_recipes.json": {
+      "sha256": "13983c8d71becc732a757daa31996de36c81770066113fb441645b9b6533704c",
+      "format": "json"
+    },
+    "results/deep_dive_d3_v1/logit_components.csv": {
+      "sha256": "93d2c7993b08dd9f5d3340d69707c293d145f90623aca52062f15f3c2b5a8924",
+      "format": "csv",
+      "rows": 6
+    },
+    "results/deep_dive_d3_v1/manifest.json": {
+      "sha256": "b6836f1041b676446b59a97bf5746ad69e5078fdd88d15db5b0c76a23d56afdc",
+      "format": "json"
+    },
+    "results/deep_dive_d3_v1/smoke.json": {
+      "sha256": "293381f684c81dd16d56128381e769799d164a839c84ca9b1ad59eff068422e7",
+      "format": "json"
+    },
+    "results/deep_dive_d3_v1/validation_metrics.csv": {
+      "sha256": "6077304cf51a5b3d1b2b3bf8f10d31464546f5598e19f297f24dadf820ed9db5",
+      "format": "csv",
+      "rows": 13
+    },
+    "results/deep_dive_d3_v1/verification.json": {
+      "sha256": "527b94228b5e195be0f06092da9e64e979288110bb633e742d5fac23bd523e9a",
+      "format": "json"
+    },
+    "results/deep_dive_d4_v1/daily_distributions.csv": {
+      "sha256": "4e9d29185faec1c4282d7bc1a649ee7ae009c5d30802f8e865252ee618210fd2",
+      "format": "csv",
+      "rows": 186
+    },
+    "results/deep_dive_d4_v1/daily_summary.csv": {
+      "sha256": "4331c0e664bf6372f090574d6c8166e244d6093c748b7763afdcc049aaaca4a4",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/deep_dive_d4_v1/distribution_drift.csv": {
+      "sha256": "e3ae161172696cd6c0449c04c8c08c4d9e1e238782b28592f028b51e63b82c68",
+      "format": "csv",
+      "rows": 96
+    },
+    "results/deep_dive_d4_v1/heldout_daily_metrics.csv": {
+      "sha256": "9ee49037160a006d69e73a12840c32e67403bea12d11968f59238986e2d6bd02",
+      "format": "csv",
+      "rows": 14
+    },
+    "results/deep_dive_d4_v1/heldout_hour_metrics.csv": {
+      "sha256": "b5cd210759d508f4a8937836857d7bab5e782cc64862a3581ae32324665c649a",
+      "format": "csv",
+      "rows": 80
+    },
+    "results/deep_dive_d4_v1/manifest.json": {
+      "sha256": "567e7cf4260225a1accd26066fce21806166f4b081fa3616386ab23d34fa669b",
+      "format": "json"
+    },
+    "results/deep_dive_d4_v1/repeat_counts.csv": {
+      "sha256": "a936b64636c420a65abe1546d9f3153287857efd147cd1c5cc5c26eaabfb0fcd",
+      "format": "csv",
+      "rows": 31
+    },
+    "results/deep_dive_d4_v1/repeat_metrics.csv": {
+      "sha256": "6735c0f5b97f700eae8f6116521f941259472b9736fd4667e7c7703b9815beef",
+      "format": "csv",
+      "rows": 70
+    },
+    "results/deep_dive_d4_v1/rolling_three_day.csv": {
+      "sha256": "8f32787c636057f9b75586a0096e801f54f4ef0ded51b5e2a7be6a5dcf17a560",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/deep_dive_d4_v1/verification.json": {
+      "sha256": "2e97129294c692abc5101c1fdd08a5eda9e648391de013c681e32974e328d1cf",
+      "format": "json"
+    },
+    "results/deep_dive_final_v1/claim_evidence.csv": {
+      "sha256": "5dad2f75fece4ce45f00c29c1691d7c2bac5a10c4f92dddc4ae640f2a1099776",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/deep_dive_final_v1/figure_manifest.json": {
+      "sha256": "7201697c60d2de0f0efa3a49985172750a4f12552b3397c9aff9e72554eb04b3",
+      "format": "json"
+    },
+    "results/deep_dive_final_v1/legacy_notebook_corroboration.json": {
+      "sha256": "0974bb91c5ab34833e28a47560b5cf968302f596caea05c09ec52815f4a82001",
+      "format": "json"
+    },
+    "results/deep_dive_final_v1/verification.json": {
+      "sha256": "1017ab0c892aa57a36cc34c6283d5f6803efeb3cc8dc77085b15859d3430a224",
+      "format": "json"
+    },
+    "results/deepfm_f1_f2_f3/calibration/evaluation/cold_start_metrics.csv": {
+      "sha256": "f51b4e0d1fc9a989a9f5145e81c3ca39a052f1baf08609079434da05acb5bdb7",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/deepfm_f1_f2_f3/calibration/evaluation/evaluation_manifest.json": {
+      "sha256": "e5d289444e405ead1340756327157cfe5f58ab605c6fe7e23bb15f687acf64e8",
+      "format": "json"
+    },
+    "results/deepfm_f1_f2_f3/calibration/evaluation/gauc_summary.csv": {
+      "sha256": "7df212226c913303eb7ed72377eb36e13013bff6ca857241c8d3537a7ce11e49",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/deepfm_f1_f2_f3/calibration/evaluation/overall_metrics.csv": {
+      "sha256": "f88b0c102e9b73fc3d0f17de9606432db2700c5581360f7e84f9e8006ef7a250",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/deepfm_f1_f2_f3/calibration/evaluation/reliability_bins.csv": {
+      "sha256": "8d48bcfa53e44be6608d5eda157c8df1f4917bfb048a6a0bcce296f7e302bb10",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/deepfm_f1_f2_f3/calibration/manifest.json": {
+      "sha256": "2a50ccdb45d94788530e624afce47d5182f4a6dd1a3af258e543d466b3c10d04",
+      "format": "json"
+    },
+    "results/deepfm_f1_f2_f3/calibration/selection_metrics.csv": {
+      "sha256": "6a7f2e8d4e757c376872d5a172107160960810f5fa518860e13eac3c3a592e19",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/deepfm_f1_f2_f3/calibration/test_metrics.csv": {
+      "sha256": "0bf3753084680953545035c15587202b626d77abf96a65899d1b9072842ec912",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/deepfm_f1_f2_f3/calibration/test_reliability_bins.csv": {
+      "sha256": "e53b606eb2df139713455dd9ee5a711723dd1d0a64aa93ee357536ef8553e674",
+      "format": "csv",
+      "rows": 18
+    },
+    "results/deepfm_f1_f2_f3/evaluation/cold_start_metrics.csv": {
+      "sha256": "4888bfe378bbfb62776f63496df8ded1036e0e06371e6ae4a49817472b6b87a1",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/deepfm_f1_f2_f3/evaluation/evaluation_manifest.json": {
+      "sha256": "7048a82df01a4ef64dd4cd38fe259cf4011cfda4fce43789d893009e5615ac15",
+      "format": "json"
+    },
+    "results/deepfm_f1_f2_f3/evaluation/gauc_summary.csv": {
+      "sha256": "c0a56ba8a618a8a9863dca639cb93f9f619bb9a0ca38c206202879d5ef83fc16",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/deepfm_f1_f2_f3/evaluation/overall_metrics.csv": {
+      "sha256": "e9990470f3c2ab97b9f50d3fa4578eeef377693d5c747caebc3c8b4b312aaab5",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/deepfm_f1_f2_f3/evaluation/reliability_bins.csv": {
+      "sha256": "89d7af8725e2f96f810bd9065deb7c0054231f995ff19b675fbc591ec4658e4c",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/deepfm_f1_f2_f3/metrics.csv": {
+      "sha256": "4807e940b4782297b413e7942bda66cf8b5a9c647f9358c3d5be8181fd967ca9",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/deepfm_f1_f2_f3/numeric_scaler.json": {
+      "sha256": "516435973cd9d40af646252a5162d142c386f498d19c15fa28e09869585ed5d1",
+      "format": "json"
+    },
+    "results/deepfm_f1_f2_f3/run_manifest.json": {
+      "sha256": "c2710d83a96a7bf590ca543cf6cf958727672f03be6091931588154e4295f098",
+      "format": "json"
+    },
+    "results/deepfm_f1_f2_f3/training_history.csv": {
+      "sha256": "ba331e8cceea24a8301e0343e8d49e68328853cda7bedce843fe55e0b841f894",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/din_f4_audit_20260926/handoff_verification.json": {
+      "sha256": "fdb68b666127f3534722abde2dd0026a0824b57d9c21b429d25c35bc07931f3c",
+      "format": "json"
+    },
+    "results/din_f4_audit_20260926/source_audit.json": {
+      "sha256": "b4bcd587b8770b42c60cbbe2c58c6310fe82462e244fcd96bb490bade9812a4c",
+      "format": "json"
+    },
+    "results/din_f4_audit_20260926/source_audit_v2.json": {
+      "sha256": "0878a6fd98a6cd4eb5e2e298530255c8e79898a554bb5f3ed3657b39d8d851e6",
+      "format": "json"
+    },
+    "results/experiment_registry.csv": {
+      "sha256": "f6e19f9d891f6e5f920d5919a9489ff4eaea690bde4ec0178013a277f4bde0f5",
+      "format": "csv",
+      "rows": 100
+    },
+    "results/experiment_registry_manifest.json": {
+      "sha256": "87d1edd4fc59ae3759955ed164e324d8376272a469933589db89ef209e1c634c",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/audit_2017-05-06.json": {
+      "sha256": "91013aa65b094b8d3d926c04f5b1c5dc0db9e66923e9df1e3baa09b3350b3990",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/audit_2017-05-07.json": {
+      "sha256": "bc3bd30641726337e421a5f2b9bad72fa96371a2eec4b836fcf9a8e7e20befae",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/audit_2017-05-08.json": {
+      "sha256": "8cd03d16461c4c883215b5b4c51ee5501764970c8da28b45e6d52ed6d4d478a4",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/audit_2017-05-09.json": {
+      "sha256": "18446bddc487413587a6c1f24d487fa44c96b9599d94224a9227b1adc5574994",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/audit_2017-05-10.json": {
+      "sha256": "4e83c99be69f6b6c74067020b5778a0585161a1df5da7477c68540fb434ad3f3",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/audit_2017-05-11.json": {
+      "sha256": "32d412d222c4922201e1e8436b8502c6c20423f33776a5595bb7078b037cf66e",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/audit_2017-05-12.json": {
+      "sha256": "f8f361a406f2a74a22bedbc8bbd8e80af4bfa6003e331dd8e7cc921c4cfd0d3b",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/audit_2017-05-13.json": {
+      "sha256": "5ba3ad27e8a5e799561f515887b9e9c6f92316195cc830ec3a4e80f1fd1fba76",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/build_config.json": {
+      "sha256": "c679694159709656c3d73c9c5713803de8499dbb52299bba587b6929c91a76a8",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/manifest.json": {
+      "sha256": "ff0734f90afc6ed7ce18cf56bbf55c15410708fb6095296f2ef18040105cc2d8",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1/raw_identity_audit.json": {
+      "sha256": "8a9e7186543b6d872547b5c6dd9c6f8677eb967ba3e3eab8974215e66aea22a4",
+      "format": "json"
+    },
+    "results/f4_click_daily_v1_smoke_certificate.json": {
+      "sha256": "3f4c5cbcd0bb145759d7a3c4947ea8fcf3e17ab571dbc4b0e315e06c4309e9a0",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/audit_2017-05-06.json": {
+      "sha256": "939ce0e32a5d39608c7899de63381c8f1b0779b2e20f25f31000d109bac6026c",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/audit_2017-05-07.json": {
+      "sha256": "83ad044f68efe0b144a197b17ee5acf75c125f42c36a982fba3d1e608adf57e9",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/audit_2017-05-08.json": {
+      "sha256": "d5977152e78ec2a4c24046b3eef22fa4190f7392e3e3cf75effa086291d12e0a",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/audit_2017-05-09.json": {
+      "sha256": "5acd59d659f5cd0c5d730e1a339e00f1abec0125cf43d232e1f6ae33f8cb080d",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/audit_2017-05-10.json": {
+      "sha256": "bfd2d62f98ad6a201295f558269fad539b3a08ee4eb85f05069f13c3d7949fa1",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/audit_2017-05-11.json": {
+      "sha256": "6179974ce336c9b564590571a8ff8a12d582f4a91b374c4ed72c6defba2118b4",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/audit_2017-05-12.json": {
+      "sha256": "27c9d8214ec22e35f86046aaac0e782e4289d22c945b6f38615bd51708b93e6d",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/audit_2017-05-13.json": {
+      "sha256": "726812bb9a004b269a3bf665331a921bc4736558b030938cd78968594fbabddb",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/build_config.json": {
+      "sha256": "98515b171bb2aad2c2c72fba844d2d4b6a377d6a83ced5ab1d4a5aa3d3581483",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/event_store.json": {
+      "sha256": "b1b01e679fd10e88e842c2be4aa53a3252bd1cf66058ad623f2716a23f799876",
+      "format": "json"
+    },
+    "results/f5_behavior_v1/manifest.json": {
+      "sha256": "da8b303757e6f85aee8a5dd52ec344d6e950d45590a1643c95be42d8904feac3",
+      "format": "json"
+    },
+    "results/f5_behavior_v1_smoke_certificate.json": {
+      "sha256": "96ed10f18b3a9f6eb5ebeee22c1b89cd7da826e1cd4d328343ec3d0f0b0d7655",
+      "format": "json"
+    },
+    "results/f5_context_v1/manifest.json": {
+      "sha256": "c4f0330eaad110cf59ecdf1e30d63bf49895d609d0d7966e047c608a002f8f2c",
+      "format": "json"
+    },
+    "results/f5_selection_v1/all_candidates.csv": {
+      "sha256": "eacd0561d6b325e077155b92da36c08bf3a9b1ad6919d783051a7eaca3d180c1",
+      "format": "csv",
+      "rows": 17
+    },
+    "results/f5_selection_v1/f5_inference_smoke_certificate.json": {
+      "sha256": "78b869f3f99506972becc3118b427b30dfc3c4e35084e8f936098fe2543613b7",
+      "format": "json"
+    },
+    "results/f5_selection_v1/freeze_audit.json": {
+      "sha256": "4fa094e9aedd4281912e5e1983eecb675e5faf5c09e57652181ddd455cf32223",
+      "format": "json"
+    },
+    "results/f5_selection_v1/freeze_manifest.json": {
+      "sha256": "da579b2daae14c24aca8b7a6893d433824bd0c19cb2a5291bc2511ba1472d402",
+      "format": "json"
+    },
+    "results/f5_selection_v1/preregistration.json": {
+      "sha256": "71cf1d6983a645448d41166f8da9d84867d7d9a7eb67581f606e67f5c3645620",
+      "format": "json"
+    },
+    "results/f5_selection_v1/selection.json": {
+      "sha256": "c7b0e4c33efdd31d89f124b6a75a10ec4c8fe976ba1638e1c953d5b598760837",
+      "format": "json"
+    },
+    "results/f5_selection_v1/test_analysis_plan.json": {
+      "sha256": "a4d7c1518815307111f12d890ac3833343c3638520a4cb44b2085abd5eb61bb0",
+      "format": "json"
+    },
+    "results/f5_selection_v1/test_freeze_manifest.json": {
+      "sha256": "77645e5ecf30e2e199526209e0d577e6d52530dbfd28b5f74196b187077e7a4e",
+      "format": "json"
+    },
+    "results/f5_selection_v1/validation_control_balance.json": {
+      "sha256": "9dc6d4db8b3457117ec50480a0fa81ba294aeef606a3798520f91e06314743e5",
+      "format": "json"
+    },
+    "results/f5_selection_v1/validation_history_length.csv": {
+      "sha256": "3031c55aa310e7b371d81b95c534ecb5192320c11261fe654b1e4e98aa116c68",
+      "format": "csv",
+      "rows": 160
+    },
+    "results/f5_selection_v1/validation_metrics.csv": {
+      "sha256": "4340b59e6513793eed9b82f4cf1443bd7758621aa6e8c9065a041312bb8db23d",
+      "format": "csv",
+      "rows": 15
+    },
+    "results/f5_selection_v1/validation_seed_summary.csv": {
+      "sha256": "1249e13996065c8b1ed59bfdcb2b1abcd8620c42cb3fa777f175830508d2d94e",
+      "format": "csv",
+      "rows": 5
+    },
+    "results/f5_sequence_test_v1/bootstrap_deltas.csv": {
+      "sha256": "bf0c606cdfd3449b7d1d9bf50b6c27d7102697cc4bdf7d5f1fd502eae47b65a2",
+      "format": "csv",
+      "rows": 1000
+    },
+    "results/f5_sequence_test_v1/bootstrap_intervals.csv": {
+      "sha256": "89cc7a297934ba1290bb53d14c366d9f49cfd1a64009eb997a0f12d94be582cb",
+      "format": "csv",
+      "rows": 24
+    },
+    "results/f5_sequence_test_v1/bootstrap_manifest.json": {
+      "sha256": "bb53d1a86e0f0b466ffc4555db64df1fd939641ed6746ece5179ed99cfcade29",
+      "format": "json"
+    },
+    "results/f5_sequence_test_v1/bucket_relaxation_summary.json": {
+      "sha256": "56c3ce05eaf3c142d6e50a138a51442d59b96b2118fcf1c582f267e2c6fd3fed",
+      "format": "json"
+    },
+    "results/f5_sequence_test_v1/calibrated_metrics.csv": {
+      "sha256": "be6a830579275534c82b2ac5a051558189a00357e0e4d82ef77ba7b5506b2beb",
+      "format": "csv",
+      "rows": 30
+    },
+    "results/f5_sequence_test_v1/calibration_fit_manifest.json": {
+      "sha256": "2bf04b4d1611e67f541a3abe4b6090df5614c3a175d0fe53830783a268b69941",
+      "format": "json"
+    },
+    "results/f5_sequence_test_v1/calibration_selection.csv": {
+      "sha256": "bc5030a61b5a355daa81e8a723d00a73a2af41b8cafcaebc1cc44a3b9b1b45b8",
+      "format": "csv",
+      "rows": 39
+    },
+    "results/f5_sequence_test_v1/comparison_effects.csv": {
+      "sha256": "78a13cf4a5f3ec53b1e20980d57ed78bcdd76b08e2ef695e81a8ee18f52cafbc",
+      "format": "csv",
+      "rows": 36
+    },
+    "results/f5_sequence_test_v1/donor_sensitivity.csv": {
+      "sha256": "c747404afd5f3b1e8dbcceecc66373096c9b5ed66b650fd39fe326d4f551c5b4",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/f5_sequence_test_v1/group_counts.csv": {
+      "sha256": "80917ea46c62fc45d0406e7659238065b37138229175ec238be8967d066a8505",
+      "format": "csv",
+      "rows": 37
+    },
+    "results/f5_sequence_test_v1/group_metrics.csv": {
+      "sha256": "923042061e434d1a1d04cbd36082219d788e4b048c6f530d336795944d91b846",
+      "format": "csv",
+      "rows": 555
+    },
+    "results/f5_sequence_test_v1/inference_started.json": {
+      "sha256": "89cd8bb7139bcd20db60a88c84cf1a37eda7391b16b4e96877d44ebb5d35995b",
+      "format": "json"
+    },
+    "results/f5_sequence_test_v1/manifest.json": {
+      "sha256": "6b1ef36b013fac992ad055a8b13c9de62572c0cf2fd91d0bfea65d1f6085fd0c",
+      "format": "json"
+    },
+    "results/f5_sequence_test_v1/paired_seed_differences.csv": {
+      "sha256": "ea0cf5ef0c9fce6a09ead2a622863b792f3d43d4902768b68a0f26a4773732f7",
+      "format": "csv",
+      "rows": 18
+    },
+    "results/f5_sequence_test_v1/paired_seed_direction_consistency.csv": {
+      "sha256": "75d28b11acee7f163425f4f7276f80373805d03a755c5f6c1334f73e44dccd10",
+      "format": "csv",
+      "rows": 36
+    },
+    "results/f5_sequence_test_v1/posthoc_manifest.json": {
+      "sha256": "e59eacd89e8abff56b514562f6e1eece9f624399d983783db1c73cb66ee20d81",
+      "format": "json"
+    },
+    "results/f5_sequence_test_v1/report_manifest.json": {
+      "sha256": "85664a00b85b1f9e21d3ed7228e7153b9aa1be9d8151832f6c1be54adfdf3c13",
+      "format": "json"
+    },
+    "results/f5_sequence_test_v1/sensitivity_metrics.csv": {
+      "sha256": "6c47017437ede4ed6b23effc4ca06b86cad36479c3412a26269c096fa6c2b06e",
+      "format": "csv",
+      "rows": 15
+    },
+    "results/f5_sequence_test_v1/test_metrics.csv": {
+      "sha256": "8e243fc9b5c74c00d6ff3c04d2ece7bc7998298db7a15b923d0039df645d2e97",
+      "format": "csv",
+      "rows": 18
+    },
+    "results/f5_sequence_test_v1/test_seed_summary.csv": {
+      "sha256": "56ddf83c6156a313dea9afee4fe3d6d261da929954caad3915b2c5cddc6be232",
+      "format": "csv",
+      "rows": 6
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/best_validation.json": {
+      "sha256": "b30a91cc1d3bfab195c3e7543b1692ff98799c8e7a0f90287029d80028f198ee",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/config.json": {
+      "sha256": "ab6adc7d453cb8b8e9fe069100d9394a7227b3cc9609456c1deeeb39f3179620",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "034fccbee85585a02634a884fd50d259733e999a0657d0c27a042f3ab77c4a6f",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "232571899a3a72427ebc36009393c80c9534d82d25af309ba04a952f11dced16",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "5ce5153d08bf260e7193d9f757435c6108b0ba7c626678db26363b46606f488c",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "0b2714a62d57a3d3c27e3bc3a239c7fa8f42a82294bd57dc9f53e0cea47de18e",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "46cb58d5f75435a5cdb535eaacc86d62582bb888fe16806312100ab909578159",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/manifest.json": {
+      "sha256": "91c71fc3bd6334dbac684c40a1964f53f97850e06345a0c804460cb6670e88ae",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr200_s42_v1/training_history.csv": {
+      "sha256": "8d61136870ab151f4642b201c0f385f4195ad81dd8866eb456374f76b23e3263",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/best_validation.json": {
+      "sha256": "1b332c3a434459eb9151a1e580ba27585a93e0483de4ca446f6d9a43ecaf4949",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/config.json": {
+      "sha256": "fd893598eddadf9efbb9ea251090a88b1337f10f11f931fb86898e2df34398cd",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "5c279cdb735dd626a1849d38faf798a9b2a9d6d657d414e916c8a40922f5731b",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "5862b90290208a4cc3e5cbb4a548e4e8638fdfc8f9b9a28a18fc8c2783755c38",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "76aea99ad7bf716a8719d3ebf72b7c2a3cd341bcdbb84c62d827a518392a10e1",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "9b631f1a8753edb7c67010b65eb4e332c0b21fb3ed560660c3e3f53947e2e713",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "31e65d251966d82daef0e00aa17f1e02ae257dcf112868ec6b93d962754ee111",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/manifest.json": {
+      "sha256": "c22e833ccce7b4a3090b6575569cb0a5e63aae276ed0be9ace06561a908c54ee",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1/training_history.csv": {
+      "sha256": "8e68a32d14f04c23e71f7920423a67ef64e92f1c11c65bd535aa6f560c1d14df",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "ca625ad1fb425672f60ed3bc41db28e622558e5471505afe7844ab89aa6140c9",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "5ecf1efcf1d9792d489d1f5e858d40dd8f698f00ad591d1fdb30df89a686ffd8",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "df69b238743394a23948dd7a6633ba462bd1464d0c6d6eb567e67107ddae5ae5",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "2e2bf1844015f985cd6144aa7209c8f159a837068f3ff464a69b82ea87100a6e",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "4438459b303e6af832fb9539f37121767dac8cb452651709894e45e801612ac6",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/best_validation.json": {
+      "sha256": "8f393ff26838137ceba2e96efaef8bc6b4a2919b634ff26f87f93e2bd60d3e21",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/config.json": {
+      "sha256": "0ea0e54c115519209f3d011b13e0e31df728de04fcdce5df25ca009b71c427ce",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "e44b5967865a770e6f6a94ce8b04f5b700177399804e1405e77164d2c7344719",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "f2585dd12696ac1a44c50a166cf036597758fd7ffea5d45e6207c592795d6022",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "fb25a340bc37ea10b815baa6e2d7ee48fe51386c42ece6975aa12cdd42fac77c",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "cd3fa938346ba1e077c39a5b41f5ae478cc4888968038851b506d8be50aad434",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "90eb5a0ac1aebc24278f64c088ed2ad29733dfd7cd98dd589172bd566106a938",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/manifest.json": {
+      "sha256": "1c89ecf472c7854ea6e99d63078694364f25cd50a4f89c55648c11d408a36bf9",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1/training_history.csv": {
+      "sha256": "114d51f6fc23b40024f77814d9e5674d7ef5a3b47244264ff9658dbe79c7efa3",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "8536d9df9e8bec52602d7c072a764999f7622b7a5acb05e4696a41a5aa9ce1ba",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "ee03616682a713ff0de52b80f21378fdcf61fca15c5328fc386173cdcf9cde5c",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "9285479dfb6ecd0b991325366b4de5f3af4a9ce1e5d35fab68039b62ad357251",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "25c7a59434c82e49f1bc1cbaa01b4098f6616c0fdc61861589a8bd36c6b9c822",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "854999fad1dec08d5d61b73e9bb256c3d6d5c800dbd3325f79375e66ba2bc751",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/best_validation.json": {
+      "sha256": "56cb1a43b74d5ec4c3ece0f28134dee2f87639b3e1e8f61ec38cac1a9a5128ff",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/config.json": {
+      "sha256": "5ed0577bf85371553e51ca2f6aed3f1166d7b730e2e06da0503e0574c86024a4",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "bcb1fe693df7fb99eb18fb01b4279f9d6592cb34f62cae01e5644e98861a554f",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "a37425d6122ea10fd3677cd0b68b4add88fdf466b93d5de5e0b90e2ef36f8686",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "9a79fbb2b574ab59982ebf22aff464705704b3867694afb4bcd507c41159add9",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "1ae4f02e6ad755baf64ebed963bc1f641e0ac8a95391a2597217ed8a7d2b1fa4",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "9d0b20ea8415480fe0a816a0204f0d1e0273617098231caafde46bdc88ec5496",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/manifest.json": {
+      "sha256": "fcc3b7be3ee10d0834664cdd4217910da4e6a14adb0579a406c5a61706b4b048",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1/training_history.csv": {
+      "sha256": "21af2dc9c6147ddeca72e9efe9b4c3d6d578c150a8dde6aefdd5c4fcc91d63bb",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "03231c0cfae893898e8d81b3e141e4ac12bb5087d9ab14f47e6e9a33e81c497d",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "aef8b9a16f476b5735eedaea16b7310d1d44b8929d288ee0a8ab3b73a7e07b53",
+      "format": "json"
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "4016781c9e65d965d542721bee646e5a493c726762a28f3829decaf0763b37fc",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "d6212843711373549e9fa902e8788d399508579a3209d6e31c2698125be03317",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_matched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "571cc2732d0904e30026f0c41b5235a4abcb82401d0cf28dd8e4a3ab1750de89",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/best_validation.json": {
+      "sha256": "b21cac41187a8bdb8a9c4cd8da65682164dd510b0fa0cc63467eab096ead8b70",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/config.json": {
+      "sha256": "aefbf5f5f50a52c0517987ba65d8d71a89c5b5206c23d7386bde09f3b5b7f574",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "f512c160fad2a9a89f6004ff2d1b4f7ef98ad048d708c91a5d74d8b8bd4de43d",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "e819efedfbf444d0f5948a7a860cef75a97472ab271e6522c0c4b363da90c499",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "3e8620ad34ed8fd1e2e8822dc6afaff9778dc672871dbd94d4128698bee2ea2a",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "5a2365e8efffa0b3232e4980dd70f8aa20a1ab3fe2bfa28fc885de7e29e0e508",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "29d7dfe04431e4c45b7641e9901e3f438fda31cba55520259b75e193b7bae4c2",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/manifest.json": {
+      "sha256": "9c8c244dd703e6794661c865653d058a2649ad8dcbcbb5445fbc1ca7f044aab7",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1/training_history.csv": {
+      "sha256": "684b197c01b8722c42f629abe6f348d307c99f8e72870a08b64ff246aca6c91c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "8cbe35ae23c5e0faf89c52f38c8e986175cee49e3f957ae15addb2a9988a7421",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "d9513ff428228e4b86d1c908f7f0b557c850d78bea3b92991cd07b49a2a16e30",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "89b0e541c31154dac612e4c3cf15da7aec57e7f675f3e97bd3e12b14543fddbd",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "7648d1f0671b59ab2094ed4496a00349c33262f7bf8483d77c7d518011323d74",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "1b9bb8977dd6acc3ad287f03b227960fb0098c4e296e962f5f34c2c29303aee5",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/best_validation.json": {
+      "sha256": "c202d8408b8cd3a6dd980a03960c05b77c42c76eb0309edd198d7ba8cf18593b",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/config.json": {
+      "sha256": "8114e091935818eef7f8a2192633093a4c81eeba27de435d29cdf87436e790f5",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "4fa3e9d4fc22ae7b2e3d8f01ecf5a0e8e7a031a679301332e8d69203dca22636",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "444b1451f957918bf691e2b49ee361eed62768b0d6824637118a628342ec884c",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "af915d803eaa9893973ad880defaf10460ec94ff72bc959aa41fa970f856294d",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "86171b12b1e506f0acb523a313e666dc0ea0f763ce3a7f6cc27b785082ce003c",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "5faa0152ede3ad54cd7a27dfd7ffb15eaa3e53ed5719b794c60c4f99ed90df93",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/manifest.json": {
+      "sha256": "8a11ea3442d8eed215fe6435ac06db496630299d87bab4f4d11b15b5a1b58308",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1/training_history.csv": {
+      "sha256": "4285783df9906347736281db8c04d63ec5ece466eab60ea142d0576bcc5a1134",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "ecd07fbb9e51cb0aef2e04e9ca6990948ffef5d0357846063d7990cf0fe8294a",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "38889984b60f3be4392237806872ec518d7eb803b9620e4e80c87ea003e1ae67",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "2aa485fe5fddab759db0c42db3f633d0ac3c664878b5eb3a51128ade05a3c378",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "bf220d189629e709328a19f040c938e965301c3853827e8a20bf327891d3e4e5",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "e7c890431cff131deac9a7bb20b25764815ab99853f1720b374fd71eee409bb8",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/best_validation.json": {
+      "sha256": "086fd4e7c92b4bf112e2465ab824b6cb6ed6a3a7b904799f3ae04599522c8b09",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/config.json": {
+      "sha256": "51d629f888a2d7c1709034531d7c287b17aef07ec19ae38cf4046476e9316905",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "882742c62b7e5b0585a396252989eb639630b9de1d106913ee752dc47e98d47c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "8cd8f0f47252095d9dc6ba634fd4fd184b61ea5b315e0c528be8aa04961f5d44",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "9a43da35f967e111cf16e6dfd447360709322e9c3f7e97e364347ad79dfa4563",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "fa264cb41d594fbbef958231a2d189d2a24accd86ac39d3bffe85aa28bdea3e0",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "8f71b2ace18d23264b2f975fdbb0172b952c1ce069e2eed6eb2881df9cfb0fd7",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/manifest.json": {
+      "sha256": "ef165086b43d4d6cd5d292210a416b7f2d82096f015109d0df9ed49d58872fb5",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1/training_history.csv": {
+      "sha256": "6cdc6156fcaa85786a3de83226671636cb0f5b73723623a902ba79e98bc97b93",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "aa86a4459495d4a5d1dce47dcc2174f9677d98d157854d8bd3c2373723309c85",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "e90a91a3a3423ba697f98876495a519aeab8c0b46dc9c450113ca24379e70084",
+      "format": "json"
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "2d3e04cf90771e72ac54c7a0a655becafb54833316dc60b25d597ed57c0c9dbb",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "3740c3e7ed82eb71b4b1912411a8d4c6ad9325572f6f728438c51b29188003c0",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_attention_mismatched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "2bc038ec097ba49f420c8d3d96be8a9acc3c1bd99d0080ee82fa0049fa67c0a0",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/best_validation.json": {
+      "sha256": "48d73ac849c33e77d3c3cc0f159b09c262972afe13e6aaf3b53fb4509027f7db",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/config.json": {
+      "sha256": "675cc4a79a08bc35fc4245697d4f788d6a250496e9d33c500929ba96b6a726ef",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "22dd116c374b9259ac6f4e6391d73e3c7b2b8b7e319e04cf2f56c9f4d77a58c9",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "68d4fd19d82292468fee6a3604f83bcdd952f398193a501c81891a29fbfd1dd6",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "b8f2a1367c3cbf38b6d7d7a5f4b4e4af40cffc472104894a661d0dd79e660f17",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "3afcebdd6d04387bde1019b9cb35530cbb6e03d6ac0487c58ecbe58b945c66dd",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "3155b8acb0af4ea48219745506787ddf45b1f3767a4a4eaf914c32c7305657c9",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/manifest.json": {
+      "sha256": "2528a01e177e99f8873aec8b948e2ce195756124bfff6c60174cd9dcc9ea105e",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr200_s42_v1/training_history.csv": {
+      "sha256": "fde64e1800db4d9734ceed7694571964ae8498f9315ea1bb8c8f884946de27f8",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/best_validation.json": {
+      "sha256": "937b71b5653f420306c33755c5f80a2c3846880fa4ce7a77ea2dffd36d83f170",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/config.json": {
+      "sha256": "f20d07f5027cb0c10791192d1c130e7b0de0710188ee25d7f03e889165d8e41f",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "87fd5d07d3bb992fc30af5e1d519fb70a8a40a535fad8524fd81424fb1a6c368",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "123bd8ec6b71b286ab5480a143a6f5896a58e039d812eec101682afdb583887a",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "7353399671c1d3124ac1e940f6997a4b4f61f43a0618cc892bc27b7f1c312b17",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "3430bffc6d6f5fd2ef3f017b63a92f65f53397b63b895eebdf817c0bca69b0f2",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "ca777b91c03328284fc54f9b0dfdf2baf572210bdf2e4d13ef63aa85434c9087",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/manifest.json": {
+      "sha256": "2cbf3ea4daad5cb50134b108c17b1dfc18f18cd7bc2ce7dcc68fafb096fd5085",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1/training_history.csv": {
+      "sha256": "ca4c1ea562a28b8f852ab68359aab67d8fab7a512d166001b85466d0a44d3d03",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "5c3869fb025f239f8f1a5377fa481dbe2b2523936681c9e0c93861364fce35c9",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "dc1265a02f9298b86484debf5064e91bb8a2f2271a21402ecd2a99ef7a37570a",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "d497a3a8f0db397f1ae93eaebaa76dddcbfd1d36b6298c8f1bdabd5cca168f80",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "d90d3c2e1d79cd19008f0fe7ba732b121504b7414246e65bd5352b28390bd3f4",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "614a73b4de00476e4b9dd6743ebdb6f908e0085b3b1f42d15f132620bce3dd94",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/best_validation.json": {
+      "sha256": "fd71b4ec00bd0d03fa2bb3edcdcaf28eba882446042184f4d94de4d8ba8ff38d",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/config.json": {
+      "sha256": "6ce22b5608fd88989b9a9769e856cab0795b0a68c914453dd2f1da8ad98d4544",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "e19dfe656a2187176329bdf4a27ed2822c70dc5b8ddb31caf961cd2adb279bfe",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "6be0bc901f63bef7e4433d7a8e0212d15a024b017a1e63b1e10e8dcb5367d9cb",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "d0674051b62a37f6970318a4b14b8f2b69253afc3cf3a6e8e3e6a4cb31f8330f",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "2d7533f9df0b4df52e41280036a8d8e915054e7409a24a918fdc94986c71957b",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "f1392ff892cbf418c13b43a496a14486392a3dc9a616a4eb6431becbe431ef01",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/manifest.json": {
+      "sha256": "ecf49a32b99fcc8ff91879960878dc970c55075bee53f178eca9b5bac86ccd85",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1/training_history.csv": {
+      "sha256": "7670e032360bae60dd1df4e1fe93f69e31a7374327f67005d0222d1b623e91e1",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "27d9e9d4b5b807b387409246e98dc37f4f05414bcf42fa4b475504a06bb224f6",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "510010e093f186193e0288da130a64932ff4dd03267de4a31663885cb2ef2785",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "65d1dd69ef232e4d083925791aafb4e556a21ce9f00c39e5e7b4d4c5c6fa1387",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "5a24e0c110fbdbcc92bb37e71efcf7ccd885f9c84ea8ce03f3cd999a1ed06f6f",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "6cda30d715a9e8f68496c5d11fe61430145603feac87e54ed9ee668d2354f79e",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/best_validation.json": {
+      "sha256": "c1ad60b33de9a80d960474d6ac6d2b2cbb3e434ce863bccf7be30f26dd0910f7",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/config.json": {
+      "sha256": "017fd1263d657295ef72cafcb8e623eb6e333acc3e4ca2895b01c772254f85ab",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "bf9e44aee2762f2b294889765995d5fa502ce708e96563b556d1a60fb4fa7890",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "f971a5ea65afda0e5d3775d835377640c1d667a4396e4bb62751731d3dd95243",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "48fae5957b8c205259402ffb55ee4f47c2c60c7156a7f26f29c8260670e7e356",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "7a771ee17c958737a22f1fba5c92d6dda019d1355759b9249da995b8a318cd89",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "e389e107dbebf93924e68852bceb8090176024996db3d608b3bfd6b17b6d7e06",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/manifest.json": {
+      "sha256": "66bee585a2801e76a8d1fd21754cffc4752317ee6a4fa6d4faa29811688f7922",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1/training_history.csv": {
+      "sha256": "37e465c7add9b18f13006075bf64d5fc06ae06af580f0a6f3c799a7699c8958e",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "8ec211a0b0387e8e78a8358d7deb62ad9bcb0f96e43967fdad21085d6ca560be",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "9d24d72bf2fa06029dd906e5efd1681878c793d50763df1d05aa694c0557d48d",
+      "format": "json"
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "d5f0addcf8f69fcedb2b04a49c2fbee72f88350acf71648fb4ecccc762a5ab1c",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "649c0fc0cabc0959d9e25476d90eb8330b18b6f405a0eb015b639b80547e3c33",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_matched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "45c2b247e49412cc2c4b4d413cfd3b5564f29a1bb9f0327ffd7e30b54643f19d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/best_validation.json": {
+      "sha256": "578b9bf14849d58c05abc46bb49b08e4395156cc24a26b9228068d07a69dd57b",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/config.json": {
+      "sha256": "7536e881c9ebfb859217cad07d7fd7203ec6482cbf98a7088e044d8fa376ebf4",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "1ac318b0d421b2c939f06d0b909b7aefcd8e1e20265a1fb2b414ab228d60a88e",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "b7f7175c97781df462edd7204b371c7c8aec2834cc399ed2ced31086bfde5a76",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "af437c2bbc98f3cb8d37fe1f56a0ee21abe2167e84aa37d95f81ac337f71a406",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "694cc880db0a8db2660f9654d125b28c7a7667b78257d0fe0247a7f43c28d852",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "d75e8d5b45aaa3b59bfa9d733a906b7c93fd69453cab678846765486f65dbd6d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/manifest.json": {
+      "sha256": "1abba29f225d89ef69bff71326921332f8b417e99814ac53264d08264b64eba4",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1/training_history.csv": {
+      "sha256": "824e4e18ca71745e93de7ea4674af0cdd9fce9a7f79805a25f39292a07e635c1",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "d7ba7365ddace5b1efc36109df485d64c1341d0088d8372b795f96bb06253ac0",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "386fa7568b4a47489fae2ba07e09ff6d1ba75b2018b0608f880c0fb9d348ac22",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "c19bdefc321139daa0da752fc7552654620e49d7d15b50f91b9e3aa234ccbd66",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "26eab32ff4c5fb8f9e130ecea4fdb12beb32b303ae7e20bed0d087d21802095c",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s2026_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "e5868182bcbb039fa4a5c98fe6a6eeede32732834ed082cde7f583ffa7384d76",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/best_validation.json": {
+      "sha256": "2c8cea50f91d24717456fb6cc29654f33dcecf4d89b201a3b5ea7988d063894c",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/config.json": {
+      "sha256": "7fd4fa752b1aef5fc22ca1f4b1565d334d0d9a0cfcaad058b0f6de2f03a77682",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "2de2ac62473bc256c5f35fc1c593a6d08489611e1d1cf1a624fd2f1275d30ce7",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "76ec348cdeef7c72f2f0ca6cacefa0552e03eb710251ffb5ab6506dcd5868099",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "ae1099013c8bc37f3695d61ae3238b4883efe157468446401acd3b6f3d0d45e9",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "520d8523c0df4fc24d4990e33d9b686239932500b343881e80ff1ec3a5cb5662",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "e2bcc4087c3e123c35cddd13a350c366ed011d699e743c3093184779b253a532",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/manifest.json": {
+      "sha256": "35f7b1c0294582660b461d43e26fd6793fa6c599172947e0980ea58ee0697e36",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1/training_history.csv": {
+      "sha256": "115071568d59d7a876aed73f5cfca9611b6324f626d4acf070420a56912ee44c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "8fd630c0a55eff51739eb0d866abe25fb4a0f586e66a320ad8a5dcb23cd234d5",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "d1147fc2f375448a1a157732fe8c0eec42e4fb092975445354b5d344c2a8e5ee",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "bc2db56f1752a471dc7b50edd3cc9b824576b9a4cdf53dc8017d7655fc998f26",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "36534dfe3cd2874e0a4ca501a96e1b4ee1b0a040aa908cc73319bc5725871e44",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s3407_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "6249fa31544725e437ab6d75e4cda66280b021cffd029d818dcab551bab4b886",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/best_validation.json": {
+      "sha256": "f44491644abf44ba9cc347cb475ddc280f5bc777c6395f9b0009d7a89f023ebf",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/config.json": {
+      "sha256": "5a290b86b09f06ea40b38854eed7c508e9c20bd17584d1fd8a3ecff8161405f2",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "5f38c19f7edf39f5b7921db32c648f1f93ca5ecd26c8f349efc543c741736431",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "cf9cabda75e10f52ce4e0cf3a973d55016a66601f0e601a61e422df6b885feb9",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "bbecef77bfb680ecef44c226efdb2e23d7ae4cac2317155e4398de87dff53e13",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "d588ba30945b8844a144b4f6254b7fff9db22fea731829d858fc1cbe38e3e9bd",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "e479d6a5ce9238627d85e2a55515a454fe43986bfcbba3e64cccbd698c9cd0dc",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/manifest.json": {
+      "sha256": "cd38c26eda383057b2195cf297840d681919bedfdb365357bde85c69809ade5e",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1/training_history.csv": {
+      "sha256": "43fe7f0d427a4334aa0a4d79a0b745f5b80b9e5a8ea88eff361645c90007e62a",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "a43ca4c07771360ff0cf92470a9c2525584c1f5a7f3e68d7f48c1464cc266aba",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "12b9a43f50f08a23f6a59b84a4ef6d0e4bb8f8c19fc44d120db9c0e84fc0471b",
+      "format": "json"
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "e4b8e9a58c5b6d90dd8dbe81625f34d37ddb3e80ccd1b03155aae7a3c05c4ecd",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "815726339edf098a057e27c28f0371ed16c6b6f235b8ad0bbb22b592b13121c6",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_mean_mismatched_l200_lr500_s42_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "31397a2ad3dcbb9a92f5388ced51637650c968638163267c958e388be7e94d6b",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_zero_l200_s2026_v1/best_validation.json": {
+      "sha256": "37f81973dcfe91bb011f8c67f4b0ec2f5c56746da67b25243595010764519c44",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s2026_v1/config.json": {
+      "sha256": "63e9b2cf7967ec46952d59c0954ef49f060d8c5124509e300381f8851afc809d",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "62603b1cf47d10ea7429edc03fc383fe8dd749872ca51f7fd76df61b2160e615",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_zero_l200_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "aa90997d4e28f0a95ce942d26bdeefd839914a6ef14e4cec9cf925b2f3e0eb15",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "7ebff7c6f0f94b7259ecf1fe0f7afc129dfa73d42fc16ab308d518fd6623bfe2",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "d4816427788ea3a3ffafe653a5e1958f12f42bf0a25482df87e3312341b0d736",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "42f536b5201fa1a2b18680a745397ea2e3b212d1236b1fe7ecea414f8520077d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_zero_l200_s2026_v1/manifest.json": {
+      "sha256": "cd2183e83cbc433f3802b77c70344b904cfd35b9a6cea2450dd55bcaa74ee405",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s2026_v1/training_history.csv": {
+      "sha256": "c46cea29058265365a6bcdd3ffefc434fd17f6f05a9929ac10b6aafc9063f7da",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "c5350ef6603c44ee613bce736041aec822af1e27dac8ae1ac95f693c29abb160",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "c0c8223370d0a3c3aa60539e9a8c6cd2988af4aeecb653e169cafd8186627f35",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s2026_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_zero_l200_s3407_v1/best_validation.json": {
+      "sha256": "b386c806ab3a9ed67de3743de7b2bc13c6b769d81c0136806a013d25a10ae9b8",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s3407_v1/config.json": {
+      "sha256": "8924bd55f28a40197ca2c0a7bb6aa778bfcfcc716a8d0bea18c1535051dbc60c",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "62603b1cf47d10ea7429edc03fc383fe8dd749872ca51f7fd76df61b2160e615",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_zero_l200_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "bf57f0422cd63f7035175821a31c84bdfffdc6192982361b66af5324b4c22364",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "7ebff7c6f0f94b7259ecf1fe0f7afc129dfa73d42fc16ab308d518fd6623bfe2",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "d4816427788ea3a3ffafe653a5e1958f12f42bf0a25482df87e3312341b0d736",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "42f536b5201fa1a2b18680a745397ea2e3b212d1236b1fe7ecea414f8520077d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_zero_l200_s3407_v1/manifest.json": {
+      "sha256": "a70f201b01b148bc31db20bb6445aacc5c800011415b3636a1a71887554618c8",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s3407_v1/training_history.csv": {
+      "sha256": "9ffbc1ff49727b672ca88bc1683d8a18dede2755dea22f3b64998ab9de13dec7",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "003f401c5991745901362e835a153375761bab35c92ef1394f27bdf44034d75d",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "c0c8223370d0a3c3aa60539e9a8c6cd2988af4aeecb653e169cafd8186627f35",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s3407_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_zero_l200_s42_v1/best_validation.json": {
+      "sha256": "76f113e1fe32f872e27c466eb0d79a369f4625a57d0e6a9d89ebdaa7c44ae241",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s42_v1/config.json": {
+      "sha256": "9e5c794684ebdd91ffbfa61d6962d25f4625ce82124132e7f286061843d5a560",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "62603b1cf47d10ea7429edc03fc383fe8dd749872ca51f7fd76df61b2160e615",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_zero_l200_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "64daabab532f688eaac0f5b78eebcba7aabc5c335b14c5e86a9b82fb6327214f",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "7ebff7c6f0f94b7259ecf1fe0f7afc129dfa73d42fc16ab308d518fd6623bfe2",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "d4816427788ea3a3ffafe653a5e1958f12f42bf0a25482df87e3312341b0d736",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "42f536b5201fa1a2b18680a745397ea2e3b212d1236b1fe7ecea414f8520077d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/f5b_zero_l200_s42_v1/manifest.json": {
+      "sha256": "77d13539a679e6a252168478e4930165a575ece5930e83445c08cbfa9492abe3",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s42_v1/training_history.csv": {
+      "sha256": "f10ca4f35c803a11c8dc4259054e4c178688c0c5ebe57d643b85cbf2fcfb4468",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/f5b_zero_l200_s42_v1_test_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/f5b_zero_l200_s42_v1_test_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "a67381eb696e5c73dea1d4d9fb32b91162eaa0ffd65d0ce35c1746f551837b1f",
+      "format": "json"
+    },
+    "results/f5b_zero_l200_s42_v1_test_v1/evaluation/gauc_summary.csv": {
+      "sha256": "248250aeccd7c67efcd5dcb6440bc0fe77af04b2ad56aa380694ab981d3fc271",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s42_v1_test_v1/evaluation/overall_metrics.csv": {
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/f5b_zero_l200_s42_v1_test_v1/evaluation/reliability_bins.csv": {
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/feature_profile/categorical_profile.csv": {
+      "sha256": "413e6e5ecbd5e2bf2850553243279fd29c91c7dc21ecd55ceb71ac0df9ff690f",
+      "format": "csv",
+      "rows": 17
+    },
+    "results/feature_profile/feature_manifest.json": {
+      "sha256": "82053b8d7ff5918ebf6cbf9005d94d022053e29791e86d5c5dfb9c0dd46ea066",
+      "format": "json"
+    },
+    "results/feature_profile/numeric_profile.csv": {
+      "sha256": "6b10deb39a48bce9d91afdb8d3741973124ff18858af109945dbd8ee5c5489de",
+      "format": "csv",
+      "rows": 23
+    },
+    "results/feature_profile/split_summary.csv": {
+      "sha256": "9095c740320dff907068017b364be292193f485f087351a087ba7f445eb9b89f",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/frozen_model_bootstrap_v1/bootstrap_deltas.csv": {
+      "sha256": "e523b3b8ef6572aa6e5a3d06843c8235cab7e7fa212fab386d1fe15c89bd8851",
+      "format": "csv",
+      "rows": 1000
+    },
+    "results/frozen_model_bootstrap_v1/bootstrap_intervals.csv": {
+      "sha256": "21513ffd374034eb8f5492b3623e5a9437bf91a25708524f6bade479fb4965b4",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/frozen_model_bootstrap_v1/bootstrap_manifest.json": {
+      "sha256": "11b0a74991aac1fb927b83d17699810f3c392fe8abb43437343b8ffab66a3588",
+      "format": "json"
+    },
+    "results/frozen_model_bootstrap_v1/bootstrap_pilot.json": {
+      "sha256": "c6fc204efb7f0dd1df6ffb0996707692e4438fc1e95e9611b72fe65515add28e",
+      "format": "json"
+    },
+    "results/frozen_model_bootstrap_v1/input_manifest.json": {
+      "sha256": "54779734ece8d2ffd14f2ade845502cfda0e6387a5fa5be07471a76906f501fb",
+      "format": "json"
+    },
+    "results/frozen_model_bootstrap_v1/protocol.json": {
+      "sha256": "e142e02f7a247a75e2f6cf7f22a7ff43d3aec7e78c47c3db9bbbd6f7ebc70f82",
+      "format": "json"
+    },
+    "results/lightgbm_f1_f2_f3/calibration/manifest.json": {
+      "sha256": "5b24ab831708d666ea64fdb8f4ab99ba0e093249bd343dd61ab4b61c47d29b1f",
+      "format": "json"
+    },
+    "results/lightgbm_f1_f2_f3/calibration/selection_metrics.csv": {
+      "sha256": "66074fd4e55c362fcd439688d021db66ad8945cc60c9f3510635984cc75e67ef",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/lightgbm_f1_f2_f3/calibration/test_metrics.csv": {
+      "sha256": "376d4e3479c4bae392b905408c30a3a5fe8a90b4d81abf3523f8184d417e08ff",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lightgbm_f1_f2_f3/calibration/test_reliability_bins.csv": {
+      "sha256": "ab25be8b65831217e3896b9bc964d23f2bca11db56ed82f06db42a38051db647",
+      "format": "csv",
+      "rows": 18
+    },
+    "results/lightgbm_f1_f2_f3/evaluation/cold_start_metrics.csv": {
+      "sha256": "2e26bafebaf5b19c45e40941fb276a46202dcc9e02c21fc65e8e2615feee782b",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/lightgbm_f1_f2_f3/evaluation/evaluation_manifest.json": {
+      "sha256": "20b2844d6faadabf1161554369450c953eb89f2d0f1adcb55c14f0c89e0df2d8",
+      "format": "json"
+    },
+    "results/lightgbm_f1_f2_f3/evaluation/gauc_summary.csv": {
+      "sha256": "59a3b85bad5a979234d3460b8166a41bc472c534f1dc0dfdb61fc351cbdf09d9",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lightgbm_f1_f2_f3/evaluation/overall_metrics.csv": {
+      "sha256": "134c8642e922ae4f090c8f68173ee83ed00bd6e244135f46b92188613a65fe72",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lightgbm_f1_f2_f3/evaluation/reliability_bins.csv": {
+      "sha256": "bc4543e3a8cc3bb4120db35634601cf3f556d7c522c30fc95b47c7e2e6fb7a6b",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/lightgbm_f1_f2_f3/feature_importance.csv": {
+      "sha256": "905b736a663824987e19b1d72791e9653ffc7bc824124715482782212ffc8acb",
+      "format": "csv",
+      "rows": 59
+    },
+    "results/lightgbm_f1_f2_f3/metrics.csv": {
+      "sha256": "cc4707f6a84f6ea5e4e425f4ec0b4d48c7e72df45a718ef430537315a390dc89",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lightgbm_f1_f2_f3/metrics.json": {
+      "sha256": "3d957d1dc10a85ca53151d02c34e2ea61c9878a25876ea04e3b79e59c33fda89",
+      "format": "json"
+    },
+    "results/lightgbm_f1_f2_f3/run_manifest.json": {
+      "sha256": "baaa4e77bbbc8d0c9743615371edbde812258533d6ee844d334c4d4bfd6e6b55",
+      "format": "json"
+    },
+    "results/lightgbm_f1_f2_f3/training_history.csv": {
+      "sha256": "ccfda73222398dc8686599f1fe071adcba338ac59c410d44594ab68ba00e9541",
+      "format": "csv",
+      "rows": 326
+    },
+    "results/lightgbm_tuning_summary.csv": {
+      "sha256": "1786d44bde155402bce87e9fd555eb1b57aa54b04f6647485de2518a62e10e93",
+      "format": "csv",
+      "rows": 6
+    },
+    "results/logistic_regression/calibration_diagnostics/by_decile.csv": {
+      "sha256": "df4d7825ab3cc0235f801ff4119a144e9a7892407707a9e9c1428521bd8fff0d",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/logistic_regression/calibration_diagnostics/by_hour.csv": {
+      "sha256": "492e2fb596f5b932f7690eeee722896baf2298a350ff3c5e937eed9ed0c62ba3",
+      "format": "csv",
+      "rows": 48
+    },
+    "results/logistic_regression/calibration_diagnostics/by_pid.csv": {
+      "sha256": "972c5695cc1ea42723ad00d85e97d25cbdca9cac011b2cecde9659764eca98ba",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/logistic_regression/calibration_diagnostics/overall.csv": {
+      "sha256": "405b7dc860ec3829c7ac3a37df0e868dd90126262f79d7c47f018317e112e7e1",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/logistic_regression/metrics.csv": {
+      "sha256": "8ae056444e005f649f613f1f7ab271a154b4ac0ad0fb3ade4ec421f566785e6b",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/logistic_regression/metrics.json": {
+      "sha256": "a9002fe338efc17fb4b27a7fabf3b7040a895ffcfe82ffd40c92d616cfb4ede7",
+      "format": "json"
+    },
+    "results/logistic_regression/run_manifest.json": {
+      "sha256": "1f19afce3fb9c9d92615f945d4029fc6070deacedf37825d6450e648ead1f0dc",
+      "format": "json"
+    },
+    "results/logistic_regression/training_history.csv": {
+      "sha256": "cd25e7dc8fb358e9394f4e93090d81a30ef423966da6bfa28a1858c0368b2290",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/logistic_regression_no_weekday/calibration_diagnostics/by_decile.csv": {
+      "sha256": "eca74128ea0ab3bc0326d2d362faad68d337eda09dccc724500a5caea8f8beb0",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/logistic_regression_no_weekday/calibration_diagnostics/by_hour.csv": {
+      "sha256": "fd504f612abd5b5d5214987573afbdcef818ed444bb97b6c4238e57940ce4774",
+      "format": "csv",
+      "rows": 48
+    },
+    "results/logistic_regression_no_weekday/calibration_diagnostics/by_pid.csv": {
+      "sha256": "ad2ef0a5d6f700bc78e0c624305d416402cc3237c3682a46863dbd9557dcd654",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/logistic_regression_no_weekday/calibration_diagnostics/overall.csv": {
+      "sha256": "eae71cd52c66629da92125373dde6344ad138c97c9d35e14e2f7d9f9e330fb5d",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/logistic_regression_no_weekday/evaluation/cold_start_metrics.csv": {
+      "sha256": "c42ff0ac778fe67320525ed033a400c42b563ee8180536893d9281760faf1d0d",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/logistic_regression_no_weekday/evaluation/evaluation_manifest.json": {
+      "sha256": "a325b9f4515f3fe4af0a75af60e10079f4460c6ef9120e348b5d1f4a60cc2b27",
+      "format": "json"
+    },
+    "results/logistic_regression_no_weekday/evaluation/gauc_summary.csv": {
+      "sha256": "f3cdbcc440ea2a07c683735990e3f996c21974ce4f7de814545965e1ceddff38",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/logistic_regression_no_weekday/evaluation/overall_metrics.csv": {
+      "sha256": "799a0124d248fee7c066ae9a95569d2367c5f37272e2765554a2e016e4abc12f",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/logistic_regression_no_weekday/evaluation/reliability_bins.csv": {
+      "sha256": "9082ce37c30a8a92b5f960d0b8c1931224482b080bb9f8fb4fb5f3e26e94128a",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/logistic_regression_no_weekday/metrics.csv": {
+      "sha256": "c2d123e4a3090f4d0af0bfba6473c34b687fc58a55d22ae6a08dead01d92c4c6",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/logistic_regression_no_weekday/metrics.json": {
+      "sha256": "404907c8636c0e8f8befb418266e378c532e30438ab8573dbf1f3165c0c4f42c",
+      "format": "json"
+    },
+    "results/logistic_regression_no_weekday/run_manifest.json": {
+      "sha256": "31ec611663afbdff7feb03f3c6521fa8411665413ca241dee744e1ce48fb32b9",
+      "format": "json"
+    },
+    "results/logistic_regression_no_weekday/training_history.csv": {
+      "sha256": "82b1414c185d0baab72371ede423cf68f5d303edd20328733266e39c267d45c3",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1/evaluation/cold_start_metrics.csv": {
+      "sha256": "7668fe19cfb3cc0e571f56b2bea4769f5ff658c052c8d4bf5bdb4c91fa0ae8b6",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/lr_f1/evaluation/evaluation_manifest.json": {
+      "sha256": "85a7e8ebd64b4ec3b9636c4cab7fd709148356383e3e3f263ef1c941071e160b",
+      "format": "json"
+    },
+    "results/lr_f1/evaluation/gauc_summary.csv": {
+      "sha256": "008071e0b4758e4d71ee3404624b91215ca0f9464a42265af01bbfab982a5a74",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1/evaluation/overall_metrics.csv": {
+      "sha256": "75bf71a09674e20a9dcef38d4bc312017a6a104cf69e629b91bcd5d8f1a06e81",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1/evaluation/reliability_bins.csv": {
+      "sha256": "0ab6105fd52384c9432ebf15607a7b08acd814fd47f88419a3641b43faef1d36",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/lr_f1/metrics.csv": {
+      "sha256": "612a70f5a3880570354ccbe6a2ecfe1f0f8947df27434b17298f58bc53955a68",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1/metrics.json": {
+      "sha256": "07a4d848a574c604a641e4c5c2dbb6c830e95f79f67b8c24b0ee73399470007c",
+      "format": "json"
+    },
+    "results/lr_f1/run_manifest.json": {
+      "sha256": "09ae88903fe6cab9041541667a659bc52575713cd53b6290d27c62b0e8edad4f",
+      "format": "json"
+    },
+    "results/lr_f1/training_history.csv": {
+      "sha256": "5ff074936d562bfd613866ff88d8c2d895bb82b17189f1c20c3d844b604a4dcb",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/lr_f1_f2/evaluation/cold_start_metrics.csv": {
+      "sha256": "e563ed5c678aac1da82304f145d2c795bdb79631affafc551ef4700d420d7c9e",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/lr_f1_f2/evaluation/evaluation_manifest.json": {
+      "sha256": "ac805819ba7736fee0f228eda4d3b6c513be1574dbec546a5667495698da3f39",
+      "format": "json"
+    },
+    "results/lr_f1_f2/evaluation/gauc_summary.csv": {
+      "sha256": "7ff6cbdbe9d2ddf2f6792c959133626ffacf0fb26091a614362a75011fd7e81f",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1_f2/evaluation/overall_metrics.csv": {
+      "sha256": "396f8dbf86a04f003bfe9eb50d1cf823e66570383275f3f4e5ab8bf3a7a8aa90",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1_f2/evaluation/reliability_bins.csv": {
+      "sha256": "d48f5b784b27fccb2955b7f9d7256bd3e6ef7c0c249305c9582cb0021e712f04",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/lr_f1_f2/metrics.csv": {
+      "sha256": "e46a162117ccf140acc68d36387179b3b6518dbf5a9c2220aa0092783a3a1d3b",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1_f2/metrics.json": {
+      "sha256": "c1c72c79ca294cb2727a6a2583955cc78c4c8f3f2f06108f5f393454a1afebd8",
+      "format": "json"
+    },
+    "results/lr_f1_f2/run_manifest.json": {
+      "sha256": "5b2100544e790b69355ebe20905d9cd4f543db767e90f49c3b609989c4672b41",
+      "format": "json"
+    },
+    "results/lr_f1_f2/training_history.csv": {
+      "sha256": "3ea47905ec48f6a7280057e94c7d5ad1a0e037e3f09cd80a44838d521e73134b",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/lr_f1_f2_f3/calibration/manifest.json": {
+      "sha256": "671d950177a09b767a4f5148a6ec07b99493fbe6350641728655e1d3c9c3dcc6",
+      "format": "json"
+    },
+    "results/lr_f1_f2_f3/calibration/selection_metrics.csv": {
+      "sha256": "509eabcbb9e3173baa08a6fa55b031dc36d26eab604cbc68ce776263fe9f2b0a",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/lr_f1_f2_f3/calibration/test_metrics.csv": {
+      "sha256": "280782c7c80201f55a3f20c59426536d3bd85e5c5bb5172cf2d577fcf4819fa7",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1_f2_f3/calibration/test_reliability_bins.csv": {
+      "sha256": "ad9002a9a85e68cd5a9d833b40421ed8aa8041862109e7ad72949ba16e9b77f6",
+      "format": "csv",
+      "rows": 27
+    },
+    "results/lr_f1_f2_f3/evaluation/cold_start_metrics.csv": {
+      "sha256": "16c74e99039a672abacbf89dc08462b1f3172609d4d4ac55df4980b69ec4ed4f",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/lr_f1_f2_f3/evaluation/evaluation_manifest.json": {
+      "sha256": "836282c447005df10b75dc9dc0dba3a76fb49cb687e7ab6ec18d97790a182c1c",
+      "format": "json"
+    },
+    "results/lr_f1_f2_f3/evaluation/gauc_summary.csv": {
+      "sha256": "c813f15d814e999464a4327b5c714245d83c821fc2be8a8e26090c277d923e3f",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1_f2_f3/evaluation/overall_metrics.csv": {
+      "sha256": "edf1730653afdeaa38c4844d9938861d455a0a7a497833a4f70dd5f50bacae8e",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1_f2_f3/evaluation/reliability_bins.csv": {
+      "sha256": "6e29f2b3ab16e2455e515f1b1fb0d46b5400c441a626a5d821e2ee4ee604f29c",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/lr_f1_f2_f3/metrics.csv": {
+      "sha256": "45a174fdf317eeff97737cc41d5cbaa8a42c1ff9fe13bdd37b88524245278f89",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/lr_f1_f2_f3/metrics.json": {
+      "sha256": "4390332125ebec34220f5e692fb412545070cbfa96a07e9ddae04f5f32051697",
+      "format": "json"
+    },
+    "results/lr_f1_f2_f3/run_manifest.json": {
+      "sha256": "cb24e9992877510a5643bbfe05c7c32d01786a7e665e28931e0b2904c5cdb953",
+      "format": "json"
+    },
+    "results/lr_f1_f2_f3/training_history.csv": {
+      "sha256": "8d20226f3f21b349bf7b498afb99132598c50ae05ff9a649d7fec4adf861a3d9",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/lr_tuning/search_results.csv": {
+      "sha256": "d71e9a5e8e5b987f27cace735470959bb8712e59888a738d5c5b2a786063dac2",
+      "format": "csv",
+      "rows": 12
+    },
+    "results/lr_tuning/selection.json": {
+      "sha256": "a0fceded4cd8ef8aacb5a06fb4376fd44b79088480b75ab5d3d1ef55c9027725",
+      "format": "json"
+    },
+    "results/lr_weekday_ablation/comparison.csv": {
+      "sha256": "2788a20f04d8ecef2fc1b6815f582f40e3050543c8ad75005393927e46bbea9b",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/model_input/model_input_summary.csv": {
+      "sha256": "f3469849df89dd0b4b5f1668782351037e0fa14376d1411fb8bef5c087d1acdc",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/model_input_f3/feature_manifest.json": {
+      "sha256": "90c2a3814ff7ff0f579edc8dfb86626e1be9c4f594cb25983e2f419bbeaac46c",
+      "format": "json"
+    },
+    "results/model_input_f3/history_count_profile.csv": {
+      "sha256": "0cd680f4ebef46c2bb6059895a7d3a8638fa6a9cc7cacf35255b07a658b0296c",
+      "format": "csv",
+      "rows": 18
+    },
+    "results/model_input_f3/model_input_f3_summary.csv": {
+      "sha256": "e975eb4df346926991f110ff5845b3803fdf86500f872d28cd2012cb88095304",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/nn_regularization_summary.csv": {
+      "sha256": "dc9aef4f7f6caca2014c1e8ca6e759e32c00d959a4eac90a32d43e17b18264ad",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/nn_tuning_summary.csv": {
+      "sha256": "82fe216564d06fce62bca8adee73079c8074966ac263019c9bced22366cce77f",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/nn_unknown_embedding_diagnostic/deepfm/before_fix_cold_start.csv": {
+      "sha256": "b83ae06449c3a1425d6e7d2a78a5ef680e385353325519e3c3ae89d1f95cb937",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/nn_unknown_embedding_diagnostic/deepfm/before_fix_overall.csv": {
+      "sha256": "32129a0c0d201f7478eadce6104468a6753d7458092b593c940fe33975945e1e",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/nn_unknown_embedding_diagnostic/wide_deep/before_fix_cold_start.csv": {
+      "sha256": "d638671b596a9eb63b44ace1d51ac57308eb3902de6c2dcb3ddeb2574878e350",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/nn_unknown_embedding_diagnostic/wide_deep/before_fix_overall.csv": {
+      "sha256": "44d5d3e542a26fc62f50404af1dc57eb48b65e960cdf299ef079cb35413e07f1",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/past_ctr/daily_coverage.csv": {
+      "sha256": "4f30d4d6f8e35b5e9145c2c2dbd1841b130147273e31fb6784244968ca0daccc",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/past_ctr/manifest.json": {
+      "sha256": "4bcc32903df89f95070ee243ced1efef0a2913ae259e3146d702ef2e5bbbcbcb",
+      "format": "json"
+    },
+    "results/past_ctr/split_summary.csv": {
+      "sha256": "bbb0a5ebc0d4b6df424946d95705069db91cec4013b77e4a382a3feebcb9d669",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/release_audit_v2/pdf_review_v2.json": {
+      "sha256": "99fb615c1c927ea5a370a10fe9dd3f9c57294d97d190aef390cf99f3790d99b9",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/best_validation.json": {
+      "sha256": "8e7ce06f91058cba3cbcfcdb75807f51b30d5b6f0abd78eec8b51120feaf452e",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/config.json": {
+      "sha256": "32b0123ea049257c9e3b260f6e8daf6a771227c13b1c8c919e034d9baf54ba20",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "be83531337c635779983c7dd0a7ae3d90ae9b4afcbc6c1588dde7b0efc692545",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "abf9c0311e00178cfc004f51bea39a5d4d52a1a2c76453cbe04cb0e550d40438",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "c7d215242e4b810f0b0cf763568b7834f635e1f5567efbb487685513ce531c71",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "d6340fa48ada2506237dfe0921b87e1e74277b85f01f41f7a1bcff1b9d75cba5",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "fb6c1971a77a569f2bad997c902824ad479d72a5817df24180280b882828c242",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/manifest.json": {
+      "sha256": "ae33bd6e7c339ee282fe7c405c23f0fb9b310339b40c4a3f222ceb9f1594d4f0",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr200_s42_v1/training_history.csv": {
+      "sha256": "8c27ddd96a3bc269f67e652c89ac69810a4686dc12b26cad35b200304ba51e41",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/best_validation.json": {
+      "sha256": "4a1f09d80a43cd5614eecb273b8f59d2975ca75b5d05870103b0879197e2236f",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/config.json": {
+      "sha256": "09c0761129f2bba6a7ee1b6ca9c7740533fb6c50a2880e98d851f2d9724d3dad",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "5e64fe3458a74b74d0eaeb25e72ea5915003014be2b8fc3da135b4ea6fb799bc",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "881e9b475e95b6f7d0766e3883488d254d4076dd54be29d85c54828e4093403e",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "64b4a1b06c43c93e382ca7a1bf5294f4112fa3b94d52b7558d618920c8dac36d",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "b8b9bb26a2e37a9d24ebb4ed6efcf5d1e0daa7b13109bde9d555344710ca1136",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "f6c26499800638d5847ca9a194ded7adf79cf5f9af4f2abe9824fa3bf40dae42",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/manifest.json": {
+      "sha256": "fa9f6088c61daa8608696800965448a97a83cbfa3cb912d278a3fc4a277d7791",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1/training_history.csv": {
+      "sha256": "67b8eff1a99b7f5aee167e72e53ffa418b7d666f4e981ad79962781164a9f071",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "27a7a74ed8bf7682ca3705699ffa5f9576997011736df2aa0d72776ea52bf2de",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "1f95bdab556ce423de98caf57bbaa65a92dd3d8dee4ce1be363dccba613e1e67",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "fcacf33b7ca85e8f57a10cde4cbe487fc773c886c033b76d384e38ff75437a17",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "3c575b85dc5877f6a1eb1a912c4381e17c1b9d3e223d5c8b49d76ad68f0ad108",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s2026_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "e398f0eb7d443192d8d15a62541793f57314394151f1952e42ff1a29d7d8182e",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/best_validation.json": {
+      "sha256": "ee1cceecc874cac3195336ec1d9e866ae5906931a1931e2924a0558523a8087b",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/config.json": {
+      "sha256": "6329ae530b636f505f9f8d3045d7c3368ef870ce8658fd750426f957719d874c",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "0ee501575ad6fc00752cb7b4a3b778d96172b25ac78af67d90879282c966ff8d",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "398b1e35c6004d8179b89dae431de66de419b655915c65519e25b56430d056e9",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "1085a1a4423cc8522bcf7121e2a7ed8c86f4c933dc2e96c8aea324b823b6959d",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "8dd5708698a004c2270a0673065999b7b89eb034515d7d876d1f89630efdf3fb",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "b2eaebd239ea42dc8f669ca64636e7353874c4f15c0512377f055e9e58cba932",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/manifest.json": {
+      "sha256": "a038939face8fbfcf7b93df089e2e273e9aed08d646a62f78611aadd91bd11b7",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1/training_history.csv": {
+      "sha256": "2ed5f4e74a892e08fefda6edd25416158cb57e39f747e8996c6212ec214ad759",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "ebb2b6238b292e7048a0fa3c3f2d4cd5e5a23abce9d52e4b8e7366ea3165e0a1",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "f4075fc09861f1fd328a61f439d8dba0c1967f9cb93c4a75c104c9aad7e42be3",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "86d157533d485fee442c1d094eea55d1ee06c33d3db1f6fe8f0690c272f9ff92",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "14f249ec63b9b16ab8a40ec46460230363b9e056e53e862d2583693d603f7e2a",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s3407_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "af0b2d847543163356d409db6d8883e9b1a6f227a462b990e3d16c88fbbf8f8d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/best_validation.json": {
+      "sha256": "0902dcb0023caa569b9fcb3856817f92d5da776d58dcbaf12db67d363ed55fd8",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/config.json": {
+      "sha256": "36fe55775932565dd3963f3c586667b7fd5fdf751fe1aacab42acc49b50ff3b7",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "08627a1dcffafca9219e7709152920463e2c92121ec018d75129abada39707fb",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "1f6b5cbbb00decad04ac66a7923f2da00d1a211552d357dd38afeaba6bcc13f9",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "15dfb7fcf01b31c3d9e6a08181c2df72701372b281f82872feeaaca96a6c595f",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "760468f1dac6672660a4d69b2c808150781164ea015903b8fd06cf23f61b5178",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "f40343700adea95f638b3ab278c519e6ab75235f18f056439c2e2b75c41cc296",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/manifest.json": {
+      "sha256": "f55461961cce68fd2d2e5bd1009bda41912c3d1538b2f13121f755a821148294",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1/training_history.csv": {
+      "sha256": "75db69e4841ac15bd684ab0cc5c448a441fe962240a017bfa4489a96fc75eec6",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "04c63b4c7cf7796a4077d09fbda8722459f8bd78b3054841fde53cfb90726c38",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "d480b5c0912a791f41e3416fc50322379b01952e0af940e7842acf882583f7ef",
+      "format": "json"
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "ea6de1a2e03843254886443e5de32d0a0985fa910138e6a8f0802d1d927cfbad",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "479bd5ac975a511fe89bca759375cfa4853c2637c9372228945c68ddc0f05c7c",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_matched_l20_lr500_s42_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "ac6a1f18d6593724e1da5ce48728d7efa71368eaecc6a0af9d0c7283cec77285",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/best_validation.json": {
+      "sha256": "38c271ee0b33d452c34ce3f2f5e7539dff87686b68cb68781b6e323bc9c9d8b1",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/config.json": {
+      "sha256": "2dfd2f78793afb6e0446c6f4ee489e0e8c587b9ea055d739960edc566b59c43f",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "8f8e57003d5bd03ea296df60cfdd34cc97972dcff3083d37420f9e3b4914c7e3",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "2df54c57a96f76c3b070edb6594d609052472b75a591aa914f259ac247bd11b7",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "1f38703833e4c6e61736a30bf0a4da962d5b6b16fb6993292f677a352fe52387",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "e2aabffe9806d08a5987e74327d56595c955c41c96474efc739f7cdded841e1e",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "a426d364fa50005415a69689464b891dc976382ab38411e8c03d5ec2f9106f29",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/manifest.json": {
+      "sha256": "70f37a8b9a75a5bcb86d96abd7362a43a6e29937c557477c6fe18235aa547380",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1/training_history.csv": {
+      "sha256": "22c6ac8a34c8b099c803b2ce01b0b99df716c33f9ada8080b9e32c1081c0fbce",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "567301fa4441b5d3525d873d0061c9c41d8451fb1b3ab7b9d762b7c4e1b98d72",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "eaadfde3574ace438a0541b936921dca36487873fc5e7d9ff13c940d6ab01f23",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "0604f0817b553d36af2a21698b612a4256b48845da02a86e30ddeb616cf3085e",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "59d4101f9d70c5eaf3485838e4ab2fbf5c2268cb43d944974fa51baf659584a6",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "232cc753df10e90c8479da55ba497130d11f51c10dd385353544a0c6fceab0c6",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/best_validation.json": {
+      "sha256": "9ae813995e1b0984a7d842ad1d4d0c84c34edaa6adf2b1dc9805716a032e4ba7",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/config.json": {
+      "sha256": "29e9c322f854593fa9f3e2919a71d317cbdf74aedc8c4ad97fefa432731d4995",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "e671530f094681915e07c84c3e0c069b7c1da56de30ce79586c0b8e8ee6d203b",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "982095fde569c0bd9fba96cff52ad14a8c92d3dddda43607a88c5b88b4a2fb9c",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "6980797b73520e6f2be89db01ef3dda46ecd7867ddd2ffe6b06d7df85274be11",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "82ff557a05b551f26008d973b1f7aef3c6d55e31543c7d9b2cf20428ff168afc",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "28b7242900f3e5a49ab90114ccac9980e8df590646d22be43d1c8249b0771b50",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/manifest.json": {
+      "sha256": "d77aa80057e6f2b349d146bba84bf4394830d66a5169373e6c89e25f6c4641cc",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1/training_history.csv": {
+      "sha256": "502dfc5c5b9ce76db5bbfb233067c1a40a5b61297d3666e4d0543993ce075ca0",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "5970426df6f7ca733e8ced0943f124767f32af29fe3dc76cd03322bdbb5b2907",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "ab0af78854bfb8d8ed5f317bc1ce7beb9137cb24c50cf935640b4e43e7df89d7",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "2600d68dbc3fa466fceb80ce0f605ef38734d7a41db6c0ff8c09fcbcb788a7eb",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "9f2cb60c2251c835adb29c301bb208bd7a79303e754eb7e0f5a0d67cb16da95e",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "a157c9bb9e32b0563050e065a33b26509ca1772db82407228b863f847a3accd5",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/best_validation.json": {
+      "sha256": "43201d754ef817cac00fa70ee36a548d0568a769f3cebf8f7e7929ed42e658d3",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/config.json": {
+      "sha256": "3a0ce19dccbf1fa4a5ee995a122f62bc98a7585c63d607a9941cee98dfc9c3dd",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "8bff7f935ee85c1316525d7ebce59cae0317d7bb01351fcf5d2b28783ca7eb77",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "60966f96d5aa92cd523d31ef99c5d0b43cf33fecc3960d311fef4194ace4ffa6",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "11b15dda17e73e6825c14ce2b91a20fc8d3d7cd6093a1e667d38cd31dc3a4183",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "b7d0780f3361fb17695d14916cc62b9fffa22ef72362a79c44f1e06ac6e56536",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "fe61a59fdcdbdea274d31cf1b63216d1a197fbd8cb123a8179d4486681f0ba24",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/manifest.json": {
+      "sha256": "eb0ed5c883018b479c2826afdb5fa5b1b68d607ca5f2223c8ed0f22e11c7c49f",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1/training_history.csv": {
+      "sha256": "180233c1275234b02a05c7e3d3892aa5032b3bd336f3fcf4005df5a6901ea3a2",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "80775c42576b7d8fb95ddccf7d35b3f82f6c6fae5e5e2cfda88a8fbd4297ffc5",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "82896489e31473591048995263fc85d3040f8fa75e9d7458bf4ce3429ba0005a",
+      "format": "json"
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "8d57d85aafb9f6128db4b6743f2ebfd9f2b657a426f234019ea407a0a24e739d",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "3fce75ec333f201efd1bd0fdbb4d75a0e67a99b15020cb590c58e66467efdf46",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_attention_mismatched_l20_lr500_s42_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "342226bf18278bd2d03e93f5ab0578e98b0ff5f1e83a3d7ce1a4fe403aed3027",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/best_validation.json": {
+      "sha256": "594d4ed4c4e6de85dc0faf73418b36b6f8fc11696b9ecf65566cc6a5ed94805a",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/config.json": {
+      "sha256": "354c5b789e646faca85bd0864c455f91b2933ab765613073880f05c57ece7f40",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "0721ebbf7fd4f41bb5ccf2bd6789bc7a9f99c758044f4c01e4b43eb104d7dc39",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "24652d17b99cdc54681359a656253f338671ed561d544fa662bfbb45be7a9f39",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "2419ed104a5f9148afda44cc3aa8cadef3ae283551c52b60154a817934905ce6",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "e1ec2329aa8ab28dead9b06f3ed5c1e290f2f0a71d67a7e4e4d05c420408922b",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "ae6ada9e695f02387e1a46d86bd2af8e37d5a7fff3c3820019013d8f0d5947fa",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/manifest.json": {
+      "sha256": "00ef7309fde5df26e34d5130e68493dec15123e2fb6f32b6b979d94cf5b3e033",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr200_s42_v1/training_history.csv": {
+      "sha256": "4977c00b9eee12cbdc3e4783e585e88ac8a108602ef760fd84baec8370ab4b5e",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/best_validation.json": {
+      "sha256": "cfae925a1cb732a22c54c1c4c058869d47c95df84cadce6a41769dceac1cedf3",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/config.json": {
+      "sha256": "03b877a1bf4deae939753ed007d0f476fec1b9ba5d2d8b943bdfc6a83eb56da2",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "0c23722f9b4d215552ab4a08581784e961675b0b29ff274d99d7144babace39d",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "5abd04b972c034e52a89c888b27582f3abe26a9835fd05d60061cf3220b4767c",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "767d1526f8c61a9f6f768f76a17f0652fa9c4c3f50062588670e4dc11e6d9e81",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "83203930c53384b786633e886283a60c65be989fa28c09c758cd0cd8661d4961",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "eeac49721073d14c503ef00b442c61c6c2f16c23384bd8e57062e1768c088fb4",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/manifest.json": {
+      "sha256": "3eb703f45bca0d50152458fde4713d42e78e08df8ea33f9f88562fc5a091acf0",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1/training_history.csv": {
+      "sha256": "64b31b032c21a3a99b10d19f4c718b65f7fdd6d25309174d62289d3289160749",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "b09c115c96719a37c5e646c92c17d75c308b84b18a20f3c65c83c4937a058b1d",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "87722088f05d1cdf755552ca7447e272d79e4c114d30e040296989c4a114c067",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "083257599fdf37fdf585592dc8e2357bbd41529dd723b74dc45810d3b9f9e02c",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "ddcd0b7ca5b22be788478ea65725306104410c8d5065a2acd3a49287430989ea",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s2026_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "6032ec1246ae50c279e77c7ac4ba9af895bc40b368055a3dd046793aaa609d9c",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/best_validation.json": {
+      "sha256": "6bed4335f2ed1e589a62a55c8c62237056eb3a1e28af1a9741471cdc80bf6e97",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/config.json": {
+      "sha256": "f3cfbe454c30306371df8494e0d47de092fa5ec8b313ec03e8657baf45faf7a2",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "d2f3b7f280e87e6f782f50e9db6dd3231aac9b3e2b7bda7f5b968ff2deb27bbc",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "276ff40d6ce7a8c1c68d5b1489edc0597d381ce1aa16af826b09ed15aed14f94",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "437bfb6d8ce0052f634ff3095e8d7268ea007a0a943edfcf425fe49169c65993",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "675108652777c6f784b7b91c8279d0a075478f85ffaba805c045b2b9a167dd66",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "6baa5fe2cc1f5aced1b751a3080f8b6b26ca987b717e21438ed1624b7b516b2b",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/manifest.json": {
+      "sha256": "42014c7ae01583a04db22d65b25bcba7067f252f4b40a8de65f246420cb62e6d",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1/training_history.csv": {
+      "sha256": "3504026733180d67d2917687221d0e13c2851926227822ab3f9c843d5ee24486",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "b3cd38daa530d971fea8a528283474ee0e383fcd3cf14113e51c957e84a863a1",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "cb6856c7a11022656a60f7ce4deaad5079a041fac83d84db042158e87b5d25a5",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "ab9c345df3da6f25c89895a39489adcc1f40611d72c0a3479ee7682a55653c03",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "a8ca3feecf33b39f8ddc7da45fc56b7f9e42fc88f8273ae18c61aca03ffb5b56",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s3407_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "ce47c439236bfd117ae380b37dbecdabf68e92687e913fa1a4e8cc80cdb8063e",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/best_validation.json": {
+      "sha256": "ddae5652b638945524f7888210ef0bb0a6802d1723baa0e9843e42c68db4d176",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/config.json": {
+      "sha256": "9a39f420d293e3a113b58700aa593784db62bdbaec50d4a1b1f4dc5f85fa8476",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "334b96d49742fa8aa97ecfc43f6ad0238a014327bd55809cc022bb4991ca5e6d",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "1f0786e88e609606d6bf81c7ae404bf49bd150cc5f958445d68a5857acf9d094",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "c33f894c47ecbbf1f73b3ad75a622da634b02067d9985819454805bc6bb54e74",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "cba7cc6706a3898abf7e4caeb6fee31eb709187f6f3bd1d1f919a05ff0eca488",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "6aeb560fbff461f25976732c086f790a7c01bcdd58f03fb9d5ac0fecdad2a035",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/manifest.json": {
+      "sha256": "6fb0b10bb0f6554862a76c8b82b47d9e66cc9b2842cb0a1a3e8016692b19201f",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1/training_history.csv": {
+      "sha256": "e5cf908636bfca33804912e0c802d5da9d9c6cc704383e5a7180ad6243b366f8",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "f7a6283517c10f124ba46ce9bc6c8259ef665d4921e5c158f2cd57a651733ba8",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "58308bb5fc59252b8a94744542351911ff4c697d4c444b66c9c12735e067f527",
+      "format": "json"
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "9101bc47214f3cd4300e99073d8a7fb30bf465a2f99ec76e118d5386e51090e3",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "f1eae9e024acda3018240bd70a498df45e5939c7002d9375bb60f429812adc84",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_matched_l20_lr500_s42_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "1f13a70079f7722c33fcfe1174574ff2e4ffd66d0a44b423ec669308e048d4b1",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/best_validation.json": {
+      "sha256": "adcef771a5f69fec155ee2b93116b2a6a94d1acf0c57c19090dfa6615b778220",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/config.json": {
+      "sha256": "131ede43cbd48f3b144d0cddc29dcd136c69693d155f8f428662a867e09b5975",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "55acda26b520467ae27fe40f8f8037327b310919ff87d5160a578191acbb3419",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "fe41de7649bebd3ad8c5076932542b6a85485db462323783ec9f0801e83c8f8f",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/evaluation/gauc_summary.csv": {
+      "sha256": "0a54b160213b14ae43b2d48f7d07aba03f284aeacd47dab3a176ea944bebf165",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/evaluation/overall_metrics.csv": {
+      "sha256": "45b476bf169ceb0cf355bea01e3a27595dae5b8452d72536bb7d3a65e8b312a2",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/evaluation/reliability_bins.csv": {
+      "sha256": "130fe6b4422ec9740bec9f585960a1da0ea36cf0ac6fc18318188ea4d421c4e7",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/manifest.json": {
+      "sha256": "458cf3a7ac351d7a1dfe63963bc0dc8e06ad0dd7c9f8179819bccfabbbf550fb",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1/training_history.csv": {
+      "sha256": "85597bda7c0741533f6c6ba90b32c903cefe0d28b81be29034af706f2b90f548",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "3c40577dd54f376983ced510a13d672d0b5a968f8cf8fd251c5168ea5b5086c5",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "ef134f2889fc3f5c738876636d8970e0a7593217a771160699409d90f21a941a",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "a31f9db782fe185685d48ac1b4da39ab8795788025704321d718082075581747",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "979612969dc20c4454ebfd89242e419223e221c2c1a6767def4ba21bd5847678",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s2026_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "6a25b6b2d82172cdd3d61db33afebdeb63f5bd7d942455271382241062412aef",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/best_validation.json": {
+      "sha256": "75f297bdc3300b9a6b71f183c64938175a6ac95e17edfe578be1292639ee09e1",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/config.json": {
+      "sha256": "58726767b1947f1f7aed2b2d7c3f3d443cd7958af3634472827838a3b5391c22",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "8f44c7ac52bedc8bf9d7572f4dadf31d0913c76a5abe5a851c0208806e884575",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "504a88c47416cf8582bacefe0edd898b557df73d5774215bceb16156cbc4105a",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/evaluation/gauc_summary.csv": {
+      "sha256": "77aa90c858aea783408be95e4c9fe34b6c8826e95c364bce8fa1fb8c09113231",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/evaluation/overall_metrics.csv": {
+      "sha256": "c38f838c8caa8a37e1d3b86e3f61e9417968c85df3d7560ae8ecacd8e49bc6ce",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/evaluation/reliability_bins.csv": {
+      "sha256": "a9fd3ddffe3337e89aff3726a7de5fcdb394ce4cde44bd2f6fb4f67e0557564e",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/manifest.json": {
+      "sha256": "0d1b80824d02d55e049d1cea2a936d408474d420a19eadefcc0126708160bc00",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1/training_history.csv": {
+      "sha256": "e34b907a2eae0facd1caca070499702930c07e23ab4f463a6806c7b806c31292",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "b27b6110416f678fa02f103f9a3636a2b8714af035e2b8ba87b47df85362fb05",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "7bbaeedd31852b8feed10157ce70670cb71a248adb5c74776c265cad2cdcff81",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "7a0e4f1f22bce45ad5efbeae66dc5a90e972ca7df39e6aeb377cd0464f3bd5bf",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "87dd82ef0a138e24b2157471f72a429ce1da3da7d5b74cbcb73c1afe3525e4a5",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s3407_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "45d66f2f0cb5aa3893a219de2f63101be75caaa0c08d239f1520952e37776155",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/best_validation.json": {
+      "sha256": "8a9068d6056609a407e7b053095e34937f3da4abd67190b3f14048e3dd735f37",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/config.json": {
+      "sha256": "e1f2e1a3cc8fde87e30a8355a9e15faef7a08c3dd3e5717a6560ccf621227328",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/evaluation/cold_start_metrics.csv": {
+      "sha256": "9228eb3e5c3d0f70d212f0679fbb73e3f5ed3ae57de75972dd8bd22eea2d4eb3",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/evaluation/evaluation_manifest.json": {
+      "sha256": "9c6b0ec61e1898b0f0d88fc23d57f5fa82d130464e9449367f37b048d0a65c68",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/evaluation/gauc_summary.csv": {
+      "sha256": "95740baf126311983de18d43ca236ba538aa66cffb540f2c10a3a8e15123adec",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/evaluation/overall_metrics.csv": {
+      "sha256": "c72030ea375bd7d40a4623e4fc0cf7dcae6c0ee18fa4f1518cb968768d3817a8",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/evaluation/reliability_bins.csv": {
+      "sha256": "18c292986601cb0796a44d647d38ff0f2b1a22f2896d6784e01c78cc87e69315",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/manifest.json": {
+      "sha256": "ef2229c122eb388ebc5eefd3d7b8915944ddcf57fe8e585c42f4dceba62fe379",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1/training_history.csv": {
+      "sha256": "13fede2c8b0046c279e9b682f1881819744c8e39304165ed08d6d5fc0c87c5a1",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "ca21703ed9a8c1c3093de0795538f16130fd963811bfb1aed76fd8b55775b06a",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "7c86ae232c807c0da8fd13662e730cabed3a2da3deb6c91cf85c5d50acfabd11",
+      "format": "json"
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "28a6e72097b5b0b515bdf765ab0f39fac047822bb66981b1aac3c4485a28241f",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "3de3e293371ac272ccf3f11515d0b2c60edd8b92d1057dbd18d5f34071aed369",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_mean_mismatched_l20_lr500_s42_v1_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "40acb58998cbefb53b00da1321146e0572aff7d3a16e94c621371b2114437eae",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/best_validation.json": {
+      "sha256": "b6b53a745d66acabbf033509dae08d438b93273f35b45f71a53385f5e63ecd86",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/config.json": {
+      "sha256": "6662b69c6f2b740483450f3b8f9dee93ca6878cb325b9658599ada8d82628b98",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "62603b1cf47d10ea7429edc03fc383fe8dd749872ca51f7fd76df61b2160e615",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "197c23c1bab8719d03a4b8f35d2c72785833af9920696269cd904b5591bc22b1",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/evaluation/gauc_summary.csv": {
+      "sha256": "7ebff7c6f0f94b7259ecf1fe0f7afc129dfa73d42fc16ab308d518fd6623bfe2",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/evaluation/overall_metrics.csv": {
+      "sha256": "d4816427788ea3a3ffafe653a5e1958f12f42bf0a25482df87e3312341b0d736",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/evaluation/reliability_bins.csv": {
+      "sha256": "42f536b5201fa1a2b18680a745397ea2e3b212d1236b1fe7ecea414f8520077d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/manifest.json": {
+      "sha256": "05bbc7954e6c748ffdce18135707a658b3248a0e12a009a5135ca3d010e8b630",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2/training_history.csv": {
+      "sha256": "e216f8dfbeca0b96703ff4601574ba1aa74185f9e8767a123f2e69d274de3e0d",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "4adde0d3f3f5c6b0747002f59a9532aef109e3bae51ef59b9d7e9bc41826223d",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "248250aeccd7c67efcd5dcb6440bc0fe77af04b2ad56aa380694ab981d3fc271",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s2026_v2_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/best_validation.json": {
+      "sha256": "a51dd4bd1d8d5e6a5542efc06bfeb950a4f9fffccc09dfd5e1eced8b3d07836a",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/config.json": {
+      "sha256": "f85cef4adaf668b3405bfdcf2c2475570ed7fa47976d65835d94a85b13294d3e",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "62603b1cf47d10ea7429edc03fc383fe8dd749872ca51f7fd76df61b2160e615",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "49ace26173871539f51d78543f820cf7764e65f6861835ebb95ed99cc90a20e7",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/evaluation/gauc_summary.csv": {
+      "sha256": "7ebff7c6f0f94b7259ecf1fe0f7afc129dfa73d42fc16ab308d518fd6623bfe2",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/evaluation/overall_metrics.csv": {
+      "sha256": "d4816427788ea3a3ffafe653a5e1958f12f42bf0a25482df87e3312341b0d736",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/evaluation/reliability_bins.csv": {
+      "sha256": "42f536b5201fa1a2b18680a745397ea2e3b212d1236b1fe7ecea414f8520077d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/manifest.json": {
+      "sha256": "bb48d234423789d92c44e588e15f1136f52049abf0c3a88b85ab15a48c74f557",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2/training_history.csv": {
+      "sha256": "37417567c2f831fb010ec4ecc1f4068f6d854e588baefc244ee4a576270960af",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "52e17766df3a292d88381ed5bdda371c8011902b2bc73d692a5fdbccb2a46863",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "c0c8223370d0a3c3aa60539e9a8c6cd2988af4aeecb653e169cafd8186627f35",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s3407_v2_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/best_validation.json": {
+      "sha256": "db7155e5ed27405b81ed60672e195ea1c31af34c8e91ef08d7d9db8d46c7c9f5",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/config.json": {
+      "sha256": "27f5f0985765095b63a68e5a0601ccba0c46e9dbd908c47c49bac0b9a4c9773e",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "62603b1cf47d10ea7429edc03fc383fe8dd749872ca51f7fd76df61b2160e615",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "78b45382996609fdc179f05638bdf83f354f691f594c8bc80090a8a25a3fca86",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/evaluation/gauc_summary.csv": {
+      "sha256": "7ebff7c6f0f94b7259ecf1fe0f7afc129dfa73d42fc16ab308d518fd6623bfe2",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/evaluation/overall_metrics.csv": {
+      "sha256": "d4816427788ea3a3ffafe653a5e1958f12f42bf0a25482df87e3312341b0d736",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/evaluation/reliability_bins.csv": {
+      "sha256": "42f536b5201fa1a2b18680a745397ea2e3b212d1236b1fe7ecea414f8520077d",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/manifest.json": {
+      "sha256": "2c36b8045def80f3b1cf1d4b285fa12a07990c9323fb8ddee0afa97aad03b033",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2/training_history.csv": {
+      "sha256": "38a818473872eecb025082186772658ce31448cf02b8cf46e0ca1f144125224a",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2_test_v2/evaluation/cold_start_metrics.csv": {
+      "sha256": "1b1bc483a53c5310a8319372b8533795400102ee17740a4d68b6a6481df4820c",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2_test_v2/evaluation/evaluation_manifest.json": {
+      "sha256": "c99d1f2422b60a19a543c513f11c730d36de556f47114e41625631160ffd61d8",
+      "format": "json"
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2_test_v2/evaluation/gauc_summary.csv": {
+      "sha256": "248250aeccd7c67efcd5dcb6440bc0fe77af04b2ad56aa380694ab981d3fc271",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2_test_v2/evaluation/overall_metrics.csv": {
+      "sha256": "2541a7e5181d26c3ed8aa791dadbb7d0c485fdca571465fcbaae87f184fc5c12",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/seq_zero_same_pipeline_l20_s42_v2_test_v2/evaluation/reliability_bins.csv": {
+      "sha256": "9ac896647ece27af32396df62f686f9ceac77fd0db7bb64c19d44e5934b5b99f",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/sequence_attention_pilot_v1/config.json": {
+      "sha256": "e67650df8e6f21c347e9c8b257bd8760ea0f0cb8178a8280f0ab43c00c37887a",
+      "format": "json"
+    },
+    "results/sequence_attention_pilot_v1/manifest.json": {
+      "sha256": "e0fb0680ec8f2eb8c8ff12e4d0a4dccac3d5372060731c92d465d16609a67d8f",
+      "format": "json"
+    },
+    "results/sequence_attention_pilot_v1/training_history.csv": {
+      "sha256": "cfc47613e70c7e4844ffa8dcc4b8a625c18f1476073b687b2331f8cc35315426",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/sequence_context_v1/manifest.json": {
+      "sha256": "883cb216a0c3126b64b962244e96769fed6d8d0633b9631496516eb0482a16bf",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/bootstrap_deltas.csv": {
+      "sha256": "6d653a5224555e5c1f9a115784051129913769b40d5ccbce66203d929d122f50",
+      "format": "csv",
+      "rows": 1000
+    },
+    "results/sequence_posthoc_v1/bootstrap_intervals.csv": {
+      "sha256": "115f104a7a0381b1b4af3d34815b105f69b65cd49c1408a13bb133a20819db78",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/sequence_posthoc_v1/bootstrap_manifest.json": {
+      "sha256": "e3c52a2c115befcd8fdba32f1a64c9d684349ac5c86217f162cb430d02455aba",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/bootstrap_pilot.json": {
+      "sha256": "af760a6e8f8a870db86ae6ec5ca0634bc7106f8379ef2e0511ddbf223bfe335d",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/calibration_fit_manifest.json": {
+      "sha256": "b7a27042cfeaf1f950773d649283766f160d487e41adfbae6ef7d3f9bbde4066",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/calibration_group_difference_summary.csv": {
+      "sha256": "38a8f98e9779bcc8f2f823b9a0336964d7db225ce25aaf11ef67b193f382f83c",
+      "format": "csv",
+      "rows": 100
+    },
+    "results/sequence_posthoc_v1/calibration_group_differences.csv": {
+      "sha256": "f307bac8f45b3810dcbc5a6a2b4eb38403c477087d9281e82934286f187c1a1c",
+      "format": "csv",
+      "rows": 260
+    },
+    "results/sequence_posthoc_v1/calibration_overall_difference_summary.csv": {
+      "sha256": "6d7d132458d1022a209c6f6316763d72708d827f6b8b68d7f9d2f4186a30fa34",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/sequence_posthoc_v1/calibration_overall_differences.csv": {
+      "sha256": "a0569ad9d3d47ecafef2beedcb5888bc56bde9e36add1daa9ee4095e8597685e",
+      "format": "csv",
+      "rows": 26
+    },
+    "results/sequence_posthoc_v1/calibration_selection.csv": {
+      "sha256": "6c5acf0de68d4c4ae4320f89870ddcfa51e92f55a5a0959685d940676596baf8",
+      "format": "csv",
+      "rows": 39
+    },
+    "results/sequence_posthoc_v1/diagnostics_manifest.json": {
+      "sha256": "8ca868928c5808c0a5fd0f16159805a120eec52dbaadd8dcae337a91d7995043",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/final_integrity.json": {
+      "sha256": "7aa6ae604cee30646f48fdf77ae73532611e2cb1a219a140f5ca72b40b505d23",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/group_counts.csv": {
+      "sha256": "9428908dcb61a647572fefa0ce92b1f4dfef96328d243f2ba3b964664c5e6397",
+      "format": "csv",
+      "rows": 24
+    },
+    "results/sequence_posthoc_v1/group_difference_summary.csv": {
+      "sha256": "3f0932369fa744da4ef8fbb1109c1dee7a723b379ed6c69d129c99ed47e2036f",
+      "format": "csv",
+      "rows": 84
+    },
+    "results/sequence_posthoc_v1/group_metrics.csv": {
+      "sha256": "51b2de2f1d5270b15293149c273a4ca44bf7d90d6470a8983ecfeef15fb416f3",
+      "format": "csv",
+      "rows": 548
+    },
+    "results/sequence_posthoc_v1/group_paired_differences.csv": {
+      "sha256": "21e898cba55e086f91af9367f13eb6a88601cdefa9b19680a9c27739350cc682",
+      "format": "csv",
+      "rows": 252
+    },
+    "results/sequence_posthoc_v1/group_summary.csv": {
+      "sha256": "bf14277928bab986343595ba40aa0e8d770a5de26207192a03bd2300d81d74a0",
+      "format": "csv",
+      "rows": 212
+    },
+    "results/sequence_posthoc_v1/input_manifest.json": {
+      "sha256": "181b25b3dd4a7e174fd991758d40f9e7dbc410a64443276c9c1c6fd8d40cf2eb",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/overall_before_after.csv": {
+      "sha256": "35d98ab2ca6c595de89a723c0aaffdeca1e812236672b8f995fbaaec5fd75e59",
+      "format": "csv",
+      "rows": 52
+    },
+    "results/sequence_posthoc_v1/overall_summary.csv": {
+      "sha256": "7543348fb1a33714a6c71e69c6c485beb296b904999d17441f0ad458bce9ba2f",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/sequence_posthoc_v1/protocol.json": {
+      "sha256": "ff18b76c5f97773579554eaf47951f50e1c11f15313f48a18d1986d245832897",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/summary_manifest.json": {
+      "sha256": "e3df199c2eece0b70b093cb660d37202a638c1cf301f8eb4ea055e075c7d9be2",
+      "format": "json"
+    },
+    "results/sequence_posthoc_v1/training_seed_direction_consistency.csv": {
+      "sha256": "d3eb6fba33fb52304b6ff77298332522e91d1330e0e1b7ff73679beb2c4d04d3",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/sequence_posthoc_v1/training_seed_identity_differences.csv": {
+      "sha256": "7c81c19ceb813b0a890fa743a1d93689f560844df1dc3a655c417518809c398f",
+      "format": "csv",
+      "rows": 6
+    },
+    "results/sequence_posthoc_v1/verification.json": {
+      "sha256": "8dccf6eb2e99445de4ca466d91c2a32e9580c7418bd3576e8f0639fdca29f209",
+      "format": "json"
+    },
+    "results/sequence_selection_v1/all_candidates.csv": {
+      "sha256": "577e652fed4721c6ef7267146b6ccf0bab55f2a364dece3bd3614ca651612809",
+      "format": "csv",
+      "rows": 14
+    },
+    "results/sequence_selection_v1/environment.json": {
+      "sha256": "67dd10720bcaf1463c5004bdf80e7c9546939a0885f8a752437aa3d89142366d",
+      "format": "json"
+    },
+    "results/sequence_selection_v1/freeze_audit.json": {
+      "sha256": "41099c0afb38d8d1074026bcfd6d2f984ed9693458fa87b9714e7154c91d797c",
+      "format": "json"
+    },
+    "results/sequence_selection_v1/freeze_manifest.json": {
+      "sha256": "c5010515973ee0e042dcc9c30763b0bd531d392d4584ad2dac52acac9ce24980",
+      "format": "json"
+    },
+    "results/sequence_selection_v1/preregistration.json": {
+      "sha256": "4174237091e973379a5b90ca07e46e01cbe6d51bce1cad9e168d4a32f223cd8d",
+      "format": "json"
+    },
+    "results/sequence_selection_v1/selection.json": {
+      "sha256": "31fcdb77bceb4f9dc265a1535861e58fd59c758b08093a3a6e25103c33ae69df",
+      "format": "json"
+    },
+    "results/sequence_selection_v1/smoke_checks.json": {
+      "sha256": "9be693458fd25cc32dcac0814fe78b8f2afd4d7f506adf8b39a3fe7a5e6e23c0",
+      "format": "json"
+    },
+    "results/sequence_selection_v1/validation_control_balance.json": {
+      "sha256": "ae5895fd723398c6908f67d2c164d92346ef9656a6251f065e270ef71a3ea05a",
+      "format": "json"
+    },
+    "results/sequence_selection_v1/validation_history_length.csv": {
+      "sha256": "425f4999b3c88b316f747e78a0eda94d81e5d1816b05df00662e05e5af5da897",
+      "format": "csv",
+      "rows": 78
+    },
+    "results/sequence_selection_v1/validation_metrics.csv": {
+      "sha256": "c4ca1d4afa5ad653812e47aa2be2dd66122774f745fc8a2b519aa1bd9ae875d7",
+      "format": "csv",
+      "rows": 12
+    },
+    "results/sequence_selection_v1/validation_seed_summary.csv": {
+      "sha256": "0839613d8507147d7b52ca0784d456b1dbfaa031c6b0e16555b13653e6145b3b",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/sequence_selection_v2/comparison_plan.json": {
+      "sha256": "a0788be50ee2d9a8ad468c4a7a13452198e33ffe87e82de4fbf8efdfa379eb9d",
+      "format": "json"
+    },
+    "results/sequence_selection_v2/freeze_manifest.json": {
+      "sha256": "32d63b6cbc1498bd840ffac270c94781db78ac91f75845a960264e8dd78c6da7",
+      "format": "json"
+    },
+    "results/sequence_selection_v2/inference_smoke_certificate.json": {
+      "sha256": "a8dbf0dd6ae3eb1dffdcabf87d642d71557ac382aa8e255d48501827b8586564",
+      "format": "json"
+    },
+    "results/sequence_selection_v2/pretest_checks.json": {
+      "sha256": "42326da340fa21b4309b4b188e3e2562dd7585e4f7031ad65a94d7b15cd980ca",
+      "format": "json"
+    },
+    "results/sequence_selection_v2/validation_comparisons.csv": {
+      "sha256": "3cf286aac2beb0b3e255865168f18cfaceaf1c707498b229610c4431af2ac955",
+      "format": "csv",
+      "rows": 5
+    },
+    "results/sequence_selection_v2/validation_metrics.csv": {
+      "sha256": "ed4ef5ad58a39da9091ee3866de974207cef5f6bc337560401c569682ccd1076",
+      "format": "csv",
+      "rows": 15
+    },
+    "results/sequence_selection_v2/validation_paired_differences.csv": {
+      "sha256": "36289920f607ac3e55cf8d3dcc8b42ac7740591b8a4c495604e87a58ff3aced3",
+      "format": "csv",
+      "rows": 15
+    },
+    "results/sequence_selection_v2/validation_seed_summary.csv": {
+      "sha256": "1bad82cb1940e2c389b505c26132e861b9335bc9a459ceab6c1f1e215c33ae8c",
+      "format": "csv",
+      "rows": 5
+    },
+    "results/sequence_selection_v2/zero_validation_audit.json": {
+      "sha256": "aeabe1cc96fe7b579b21a26a7efa69a84b00fca7e201d3a0430e31e7562894f2",
+      "format": "json"
+    },
+    "results/sequence_test_v2/comparisons.csv": {
+      "sha256": "39b540a97d62688d0b625d09227d9020dcdc498931eb529d56ac83a4c12873f7",
+      "format": "csv",
+      "rows": 5
+    },
+    "results/sequence_test_v2/historical_reference.csv": {
+      "sha256": "f417aa948728ef4f209307f471e6eb586e0f92ca57701828a96f00473dfb7a5e",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/sequence_test_v2/inference_started.json": {
+      "sha256": "798f8de6c9c0d10d21e9ba3e72a0555ff49b505315f826624e33631aa9ebace8",
+      "format": "json"
+    },
+    "results/sequence_test_v2/manifest.json": {
+      "sha256": "c9d821baa3e6aeb0c5a48e1346ee538476a615069335fadc5799e5144ec22f11",
+      "format": "json"
+    },
+    "results/sequence_test_v2/paired_seed_differences.csv": {
+      "sha256": "99f4c50b9ed3d77078b57792e3c0519e9c113eacca947c63917ae83a53f5fe20",
+      "format": "csv",
+      "rows": 15
+    },
+    "results/sequence_test_v2/post_inference_integrity.json": {
+      "sha256": "274397f5e457346767fad1649be40c0097dda8c8453c8b2a01a5f862dfc7eb26",
+      "format": "json"
+    },
+    "results/sequence_test_v2/report_audit.json": {
+      "sha256": "bf2f110cc8317a62ec0e268969ab8b535ca1c8b83a8b13a8af9b9b24569eaff9",
+      "format": "json"
+    },
+    "results/sequence_test_v2/report_manifest.json": {
+      "sha256": "1804072ad0f490912398f8adbae2cdbff94f0f3c60bd9f0f78f3cd100b23b0aa",
+      "format": "json"
+    },
+    "results/sequence_test_v2/seed_summary.csv": {
+      "sha256": "463b81c7e7ed7aed3e630a1af383d3ea0f289aeb75d719d25262a150e60986c7",
+      "format": "csv",
+      "rows": 5
+    },
+    "results/sequence_test_v2/test_metrics.csv": {
+      "sha256": "fd0b0494e5ddc3eb055ef5fc12f11933eaa80eeeba356f5379f27bb2335152ca",
+      "format": "csv",
+      "rows": 15
+    },
+    "results/serving_benchmark_v1/deepfm_f123.json": {
+      "sha256": "7dce38038bdd5f174151e7d228463b2ff497ad46cf3d861e4e500fd4355fbe2a",
+      "format": "json"
+    },
+    "results/serving_benchmark_v1/f4_mean_matched.json": {
+      "sha256": "c784196807ae75a101fe08957b06717d38acbd355c10b85f5cd9ad8e71dd339a",
+      "format": "json"
+    },
+    "results/serving_benchmark_v1/f5_mean_matched.json": {
+      "sha256": "db949956a819aa097c4e2c1b66b30f187ea11533bc9ceeead80309cfc9dcc2b7",
+      "format": "json"
+    },
+    "results/serving_benchmark_v1/lightgbm_f123.json": {
+      "sha256": "5e3a4109e5dc82f94fbfd8c7866738ee30dee54dd07c85c64869f49a346e81a7",
+      "format": "json"
+    },
+    "results/serving_benchmark_v1/lr_f123.json": {
+      "sha256": "7bd1995e81fe11a1400d8d0bc1f8e61d5ed8530de7534db1ff7ddb4034634fcd",
+      "format": "json"
+    },
+    "results/serving_benchmark_v1/manifest.json": {
+      "sha256": "733f54e26459fb74304e9dd263df99459526b7688fe5a761d5d2b79fa91916fd",
+      "format": "json"
+    },
+    "results/serving_benchmark_v1/serving_benchmark.csv": {
+      "sha256": "84fd5cf5152239fb10f1d2a695d777a89a93e1da10a79610c7696f05bfe26639",
+      "format": "csv",
+      "rows": 6
+    },
+    "results/serving_benchmark_v1/wide_deep_f123.json": {
+      "sha256": "721af4e60c9a9e4220ece2736775f99174e8b24ae2f9470e748a7c9827b8b765",
+      "format": "json"
+    },
+    "results/wide_deep_f1_f2_f3/calibration/evaluation/cold_start_metrics.csv": {
+      "sha256": "3a2aea26daed6898b4a56f70a1293f74a774f2966ef9eb04c72743a2eaee3406",
+      "format": "csv",
+      "rows": 4
+    },
+    "results/wide_deep_f1_f2_f3/calibration/evaluation/evaluation_manifest.json": {
+      "sha256": "ec5cd87dfd11d8470c01a9fad35d3a874d5f1c1ad52b9257f07af09cefd838e0",
+      "format": "json"
+    },
+    "results/wide_deep_f1_f2_f3/calibration/evaluation/gauc_summary.csv": {
+      "sha256": "a87ad2a3acbae7e3f086dd2021a6c5359b8b4d031245575524a3a3cd02eba275",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/wide_deep_f1_f2_f3/calibration/evaluation/overall_metrics.csv": {
+      "sha256": "68391b191c110cd5097252a1fb7689c9bbbdb8a56cdaa9071fa41519b0affcd3",
+      "format": "csv",
+      "rows": 1
+    },
+    "results/wide_deep_f1_f2_f3/calibration/evaluation/reliability_bins.csv": {
+      "sha256": "adb1ff30d93a74c3adf9eb64d3e036428cde644a080fee37864803b2352527e3",
+      "format": "csv",
+      "rows": 10
+    },
+    "results/wide_deep_f1_f2_f3/calibration/manifest.json": {
+      "sha256": "09f257e5d64ee6fd7202385f580484819e2de2f761613a2b6af9c19434337aff",
+      "format": "json"
+    },
+    "results/wide_deep_f1_f2_f3/calibration/selection_metrics.csv": {
+      "sha256": "9a71d113868a156fd62c4c1ac8bf23713ef113f031e31cc63ac8901559afa72c",
+      "format": "csv",
+      "rows": 3
+    },
+    "results/wide_deep_f1_f2_f3/calibration/test_metrics.csv": {
+      "sha256": "093e948ff818ff073a8682cb5fc934f42f77a38393f6cdfb1025fb90f6118c8e",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/wide_deep_f1_f2_f3/calibration/test_reliability_bins.csv": {
+      "sha256": "3757584836c51fe8217a68931304ff47f39de592dba79f1bb22151e3118ef6b3",
+      "format": "csv",
+      "rows": 17
+    },
+    "results/wide_deep_f1_f2_f3/evaluation/cold_start_metrics.csv": {
+      "sha256": "8bd05b4000438c8458450bf2850868664dc8e4ed07739197b84240558d54ffe4",
+      "format": "csv",
+      "rows": 8
+    },
+    "results/wide_deep_f1_f2_f3/evaluation/evaluation_manifest.json": {
+      "sha256": "df1723227fdbfb49b488ff783b7cd351795f9af071fee57bd61dc93b1cd21ac6",
+      "format": "json"
+    },
+    "results/wide_deep_f1_f2_f3/evaluation/gauc_summary.csv": {
+      "sha256": "cb2ce696dfa3e71287aaae9ca240b465434dd2204f93712bf45fc056a435d6d5",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/wide_deep_f1_f2_f3/evaluation/overall_metrics.csv": {
+      "sha256": "3e8620b4d922299028d0411f7626266bacdc294f759b4a06ecad1245c601904b",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/wide_deep_f1_f2_f3/evaluation/reliability_bins.csv": {
+      "sha256": "fa9cd4c6b69eed43e31fb5919476f3432ce55f78b02e072372ddd0ea0279f09f",
+      "format": "csv",
+      "rows": 20
+    },
+    "results/wide_deep_f1_f2_f3/metrics.csv": {
+      "sha256": "2244a5e54067a1b35d0676313b53d12bb60dbd67720ab08e844ff14b4e20fbcb",
+      "format": "csv",
+      "rows": 2
+    },
+    "results/wide_deep_f1_f2_f3/numeric_scaler.json": {
+      "sha256": "516435973cd9d40af646252a5162d142c386f498d19c15fa28e09869585ed5d1",
+      "format": "json"
+    },
+    "results/wide_deep_f1_f2_f3/run_manifest.json": {
+      "sha256": "af1260a4fec897e6b0ac1d59a5de4c7759388cd9ebb1c8abfed3355a3faa6ea3",
+      "format": "json"
+    },
+    "results/wide_deep_f1_f2_f3/training_history.csv": {
+      "sha256": "5cbc4b664b905b65cdac30cb008f6087e549001fbbe4681b8bc958a32d52558f",
+      "format": "csv",
+      "rows": 3
+    }
+  },
+  "document_sha256": {
+    "README.md": "a901a9f86900149de3738522524becf94cfc35e99b47e1957b438388be66827b",
+    "docs/FINAL_REPORT.md": "733fc1f85727713136d2822752383648d6413f5a87508b98ddecbd6aaed471dc",
+    "docs/FINAL_REPORT_ZH.md": "3d6fd76177ca9a16bab515fb1d1276b200635da3b12aac846bd44037b2b0037d",
+    "docs/RELEASE_AUDIT.md": "0e1d0e171d571a435d353aeeca47c2d709f6e07102742c5d014bdad4bddb82f0"
+  },
+  "auditor_sha256": "4cc7eca3517dfbbbaff8dcb6d7379d0a2ddd6ba13f74716fef95376b135554a9"
+}

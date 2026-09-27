@@ -73,15 +73,17 @@ p = 0.003996, and all three seeds agree. On **GAUC the interval includes zero**
 **2. Is F5 matched stably better than mismatched?** Yes. AUC +0.00120 excludes zero
 at Holm p = 0.003996 with all seeds agreeing. Since matched − zero is +0.00127 and
 mismatched − zero is only +0.00007, the mismatch control captures about **5.5%** of
-the effect: roughly 95% of the gain is specific to the user's own history rather
-than to retained length, coarse activity, recency or category popularity.
+the AUC gap. Under the implemented different-user donor control,
+matched-minus-mismatched accounts for about **95%** of matched-minus-zero. This
+is a descriptive ratio, not causal identity attribution or elimination of activity,
+recency and popularity confounding.
 
 **3. Does F5 clearly exceed the sparse F4 clicked-ad source?** On global ranking,
 yes: +0.00094211 AUC, CI excluding zero, all three seeds agreeing, which is about
 2.9× F4's own gain over the same null (+0.000330). On **within-user ranking, no**:
 their GAUC difference is −0.00013 with an interval spanning zero (p = 0.621). So a
-40-fold richer history buys a clear global-ranking improvement and no measurable
-within-user one.
+40-fold richer history shows a global-ranking improvement; this mean-pooling
+comparison does not establish a GAUC improvement.
 
 **4. Is attention stably better than mean pooling?** On this source, the interval
 now **excludes zero**: +0.00023967 AUC, CI [+0.00017050, +0.00031038], with all
@@ -94,7 +96,7 @@ training-seed uncertainty. **Mean matched remains the primary model**, fixed bef
 any result; nothing here reselects it.
 
 **5. Does donor bucket relaxation affect the matched-minus-mismatched conclusion?**
-No, decisively. Excluding all 1,457 relaxed rows (0.0440%) changes the effect by at
+The saved sensitivity is small for this exclusion only. Excluding all 1,457 relaxed rows (0.0440%) changes the effect by at
 most **9.0e-7** on AUC and **5.0e-6** on GAUC, with every sign preserved:
 
 | Pooling | Metric | Main | Relaxation excluded | Change |
@@ -117,7 +119,7 @@ where every GAUC difference among the tabular families also included zero — gl
 AUC and within-user ranking are not measuring the same thing here.
 
 **7. Is the F5 gain worth its serving cost?** On this implementation, no. Against
-the DeepFM backbone it sits on, F5's **end-to-end throughput is 1/3.27 of** it
+the DeepFM backbone it sits on, F5's **in-memory prepare + inference throughput is 1/3.27 of** it
 (379,078 against 1,239,580 rows/s at batch 8192), so its per-row compute cost is
 about **3.27×**, and its peak memory is about **7.48×** (6,082 against 813 MiB), for
 +0.00127 AUC. The memory is structural: it comes from
@@ -125,6 +127,12 @@ holding the 723-million-event store resident, not from the residual's 57,345
 parameters. A production feature store that paged windows instead would change that
 number; this benchmark measures the implementation that exists. See
 [SERVING_BENCHMARK.md](SERVING_BENCHMARK.md).
+
+The preregistered mean-pooling primary comparison did not establish a GAUC gain;
+attention-based secondary comparisons showed nominal exploratory GAUC evidence
+without family-wise correction for that metric. Comparisons 3/4/5 exclude zero on
+GAUC; mean-versus-zero and mean-versus-F4 do not. These are conditional sampling
+intervals, not evidence from three independent backbone fits.
 
 ## Calibration
 
@@ -183,9 +191,11 @@ sign is reported rather than interpreted.
 user acted the previous day (2,759,194 rows), +0.001083 at one day (295,419),
 +0.000330 at two or more (239,655).
 
-**UNKNOWN token share.** Higher shares do **not** degrade the gain: +0.001113 at
+**UNKNOWN token share.** Higher-UNKNOWN groups did not exhibit smaller observed AUC gains: +0.001113 at
 zero UNKNOWN, +0.001470 in (0, 0.05], +0.001101 in (0.05, 0.20] and +0.001526 above
-0.20. The 4.30% UNKNOWN masking is therefore not the binding constraint.
+0.20. This does not identify whether removing masking would help. The denominator
+matters: **4.3029%** is the full in-window event store; **3.941954%** is test matched
+retained tokens (24,153,874 / 612,738,660).
 
 **History length.** Positive across the large bins, including +0.001280 on the
 2,790,540 truncated rows, and negative on very short histories (−0.009177 at length
@@ -196,6 +206,27 @@ every cell, from +0.001088 to +0.002173.
 
 Full tables: [`group_metrics.csv`](../results/f5_sequence_test_v1/group_metrics.csv)
 and [`group_counts.csv`](../results/f5_sequence_test_v1/group_counts.csv).
+
+## F5 control clarification and remaining imbalance
+
+The control is a **deterministic different-user donor assignment with a measured
+approximately 0.08% user-level reuse deviation**, not a strict one-to-one
+permutation. Validation reuse excess is **884 / 1,131,745 (0.078109%)**; test is
+**917 / 1,134,206 (0.080850%)**. Reused donors number **869 / 911**, with maximum
+indegree **4 / 3**. Targets assigned reused donors number **1,753 / 1,828**;
+**575 / 562** appear in that day's exposures, covering **15,389 (0.475843%)** /
+**12,845 (0.388223%)** impressions. Self-match, length, future-event, ownership
+and order violations remain zero. Small reuse does not establish negligible
+metric impact; no retrained strict-derangement counterfactual exists.
+
+The saved validation control has category TV **0.04982**, age **3.75 vs 4.08 days**,
+and exposure-weighted past activity **138.23 vs 87.72**. Retained length is exact
+and coarse activity/recency buckets nearly match. User-level balance does not
+imply exposure-level balance. The activity gap is residual exposure-weighted,
+within-bucket imbalance; it is not simply attributable to donor reuse.
+Under this implemented control, the approximately **95%** AUC gap ratio is
+descriptive, not causal identity attribution. Full date/indegree/partition tables:
+[F5 donor audit](F5_DONOR_UNIQUENESS_AUDIT.md).
 
 ## Limits
 
@@ -220,7 +251,7 @@ and [`group_counts.csv`](../results/f5_sequence_test_v1/group_counts.csv).
   than per-event cutoff, category and type tokens with no item identifier, and
   UNKNOWN masking.
 
-## Reproduction
+## Historical execution record (completed; do not rerun)
 
 ```bash
 PY=/opt/anaconda3/envs/ctr_project/bin/python
