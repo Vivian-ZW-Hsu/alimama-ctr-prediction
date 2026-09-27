@@ -13,9 +13,9 @@
     "window_end_exclusive": "2017-05-14",
     "inputs": {
       "data/processed/behavior_raw_v1/behavior_log.parquet": {
-        "bytes": 4924494245,
-        "mtime_ns": 1790471558696274451,
-        "sha256": "9749cc649bba011dc6487908c24600558f2385c3162be102a2a8734dae671a5b"
+        "bytes": 5061467216,
+        "mtime_ns": 1790475176648853629,
+        "sha256": "bfb808ad6bad23349def003d17b67a8e135d2ce6c746fce59ad9c4bc7ecb0943"
       },
       "artifacts/encoders/mappings/cate_id_raw_mapping.parquet": {
         "bytes": 26749,
@@ -53,7 +53,7 @@
         "sha256": "94d374f5ad5801887000d8b3fefff186182a709d53619901bc37dcc82ee9f874"
       }
     },
-    "implementation_sha256": "2fa7829eaaabf14df6466ef56ce7b19128cfde78d4afdb22ff165035c39682e9",
+    "implementation_sha256": "9eb73c614fb505de22faf5b69a702910b11423fa05ede10b27c202e36de568ad",
     "library_sha256": "a147e7d3fa382da616819e6c0343412c9b9e5437bad9d03f35c2d5741c9cdfd4"
   },
   "source": "behavior_log events; category + behavior-type tokens",
@@ -95,8 +95,8 @@
     "users_contiguous": true,
     "time_ordered_within_user": true,
     "tie_break": "original behavior_log row position, so events sharing a second keep their source order and the store is byte-reproducible",
-    "bytes": 3622774508,
-    "sha256": "3f720b47ba20b0bed86f5f070ec0f997588008d5d981b9eb8c0d3ee2a98b4f90"
+    "bytes": 3668499773,
+    "sha256": "28e909a7cc14e557c659d8e639aa8551dc228462e1db024f28d21fb773e1aa3a"
   },
   "total_rows": 26557961,
   "days": [
@@ -2199,7 +2199,7 @@
   ],
   "output_directory": "data/processed/f5_behavior_v1",
   "output_sha256": {
-    "data/processed/f5_behavior_v1/events.parquet": "3f720b47ba20b0bed86f5f070ec0f997588008d5d981b9eb8c0d3ee2a98b4f90",
+    "data/processed/f5_behavior_v1/events.parquet": "28e909a7cc14e557c659d8e639aa8551dc228462e1db024f28d21fb773e1aa3a",
     "data/processed/f5_behavior_v1/train_2017-05-06.parquet": "79298131226467fed76671ef13dbaa3d9e57e8c74b5ff5c1cb23370947b27417",
     "data/processed/f5_behavior_v1/history_2017-05-06.parquet": "33bd630280e3ad035ba09f0f11aadf365920aa285bae8da6a7951c95097e9f8d",
     "data/processed/f5_behavior_v1/train_2017-05-07.parquet": "160bbc591972dfa4003f8798c96ed861c9f020e883927cae314a88d63b825d4f",
@@ -2217,7 +2217,34 @@
     "data/processed/f5_behavior_v1/test_2017-05-13.parquet": "e68138a7701af3134a12f71d5269ddd4fb7e5d4652548dad4cd6522e6c91fe05",
     "data/processed/f5_behavior_v1/history_2017-05-13.parquet": "0db4ff9e1a7d9c2ed27c055bb931794a87def629d58d8f80427d3e79979a9401"
   },
-  "output_bytes": 4413792659,
-  "elapsed_seconds": 250.8,
-  "peak_rss_bytes_macos": 25172197376
+  "output_bytes": 4459517924,
+  "environment": {
+    "python": "3.11.16",
+    "executable": "/opt/anaconda3/envs/ctr_project/bin/python",
+    "prefix": "/opt/anaconda3/envs/ctr_project",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "machine": "arm64",
+    "packages": {
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "numpy": "2.4.6",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    },
+    "tested_pins": {
+      "numpy": "2.4.6",
+      "polars": "1.44.2",
+      "pyarrow": "25.0.0",
+      "scipy": "1.17.1",
+      "scikit-learn": "1.9.1",
+      "joblib": "1.6.0",
+      "torch": "2.13.0",
+      "lightgbm": "4.7.0"
+    }
+  },
+  "elapsed_seconds": 225.86,
+  "peak_rss_bytes_macos": 25393004544
 }

@@ -222,6 +222,10 @@ the right design for judging calibration transfer to entirely new users.
 | `src/37_verify_frozen_delivery.py` | read-only delivery/hash verification |
 | `src/40`–`src/41` | E1 lossless behavior-log conversion and namespace audit |
 | `src/42`–`src/43` | E3 frozen tabular bootstrap preparation and execution |
+| `src/44`–`src/45` | E4 F5 behavior-sequence build and independent audit |
+| `src/46`–`src/48` | E5 F5 context cache, residual training and validation freeze |
+| `src/49`–`src/50` | E6 serving benchmark and experiment registry |
+| `src/project_environment.py` | refuses any formal stage outside the tested interpreter |
 | `results/` | versioned metrics, manifests and audits |
 | `figures/deep_dive_v1/` | standalone PNG and vector PDF figures |
 | `data/`, large model/prediction artifacts | local, Git-ignored; not backed up by Git |

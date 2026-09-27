@@ -18,6 +18,6 @@
   "users_contiguous": true,
   "time_ordered_within_user": true,
   "tie_break": "original behavior_log row position, so events sharing a second keep their source order and the store is byte-reproducible",
-  "bytes": 3622774508,
-  "sha256": "3f720b47ba20b0bed86f5f070ec0f997588008d5d981b9eb8c0d3ee2a98b4f90"
+  "bytes": 3668499773,
+  "sha256": "28e909a7cc14e557c659d8e639aa8551dc228462e1db024f28d21fb773e1aa3a"
 }
