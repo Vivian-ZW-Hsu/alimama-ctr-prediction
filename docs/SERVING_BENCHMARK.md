@@ -75,12 +75,18 @@ second-worst end-to-end p50, again because of feature construction.
 
 ## The deployment trade-off
 
-Against the frozen DeepFM backbone it sits on, **F5 costs about 3.3× the
-end-to-end batch throughput and about 7.5× the peak memory**, and about 2.2× the
-throughput of F4. Its validation AUC increment over the pipeline null is
-**+0.0014**. Whether that is worth paying is a decision about the serving budget,
-not about the metric: the accuracy gain is real and small, and the memory cost is
-large and structural, since it comes from the event store rather than the model.
+Against the frozen DeepFM backbone it sits on, **F5's end-to-end batch throughput
+is 1/3.27 of it** — 379,078 against 1,239,580 rows/s at batch 8192 — so its per-row
+compute cost is about **3.27×**. Its peak memory is about **7.48×**, 6,082 against
+813 MiB. Against F4 its throughput is 1/2.22 and its memory 5.88×. Its frozen-test
+AUC increment over the pipeline null is **+0.00127**.
+
+Whether that is worth paying is a decision about the serving budget, not about the
+metric: the accuracy gain is real and small, and the memory cost is large and
+**structural**, because it comes from holding the 723,113,323-event store resident
+rather than from the residual's 57,345 parameters. Streaming reads, memory mapping,
+a tiered cache or an offline feature service would each change that number without
+touching the model.
 
 Two cheaper observations follow from the same table. **Wide & Deep has the highest
 end-to-end throughput** of any model here, and **LightGBM the lowest**, which is

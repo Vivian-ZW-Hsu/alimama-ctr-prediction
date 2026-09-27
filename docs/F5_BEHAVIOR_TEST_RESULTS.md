@@ -117,9 +117,10 @@ where every GAUC difference among the tabular families also included zero — gl
 AUC and within-user ranking are not measuring the same thing here.
 
 **7. Is the F5 gain worth its serving cost?** On this implementation, no. Against
-the DeepFM backbone it sits on, F5 costs about **3.3× the end-to-end throughput**
-(379,078 against 1,239,580 rows/s at batch 8192) and about **7.5× the peak memory**
-(6,082 against 813 MiB), for +0.00127 AUC. The memory is structural: it comes from
+the DeepFM backbone it sits on, F5's **end-to-end throughput is 1/3.27 of** it
+(379,078 against 1,239,580 rows/s at batch 8192), so its per-row compute cost is
+about **3.27×**, and its peak memory is about **7.48×** (6,082 against 813 MiB), for
++0.00127 AUC. The memory is structural: it comes from
 holding the 723-million-event store resident, not from the residual's 57,345
 parameters. A production feature store that paged windows instead would change that
 number; this benchmark measures the implementation that exists. See

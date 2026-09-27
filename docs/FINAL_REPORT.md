@@ -2,33 +2,48 @@
 
 ## Summary
 
-- F3 completed-day click feedback raises LR test AUC by **+0.05070**
-  (F1+F2 0.601790 → F1+F2+F3 0.652489), against **+0.00630** for F2.
-- At the common F1+F2+F3 budget, frozen LR reaches **0.652489** and DeepFM
-  **0.645933**. A paired user-cluster bootstrap over the saved predictions puts
-  LR − DeepFM AUC at **+0.00655565**, 95% CI [+0.00596489, +0.00721123],
-  Holm p = 0.001998. Every **GAUC** difference among the four families includes
-  zero.
-- A sequence of the user's **past clicked-ad categories** (L=20, test mean 4.69
-  retained tokens, 30.21% empty) raises AUC over the zero reference by
-  **+0.000330**, 95% CI [+0.000216, +0.000440].
-- On that short, sparse clicked-ad category sequence, target attention shows no
-  stable ranking advantage over mean pooling (attention − mean AUC
-  **−0.0000086**, interval includes zero).
-- Calibrated Mean matched reaches overall COPC **0.986**; double cold start is
-  **0.581**, i.e. predicted clicks about **72% above** observed clicks.
-- The **F5** budget uses `behavior_log` at L=200, supplying **185.19** retained
-  tokens per test impression with **0.435%** empty history. On the frozen test it
-  adds **+0.00127246 AUC** over the pipeline null, 95% CI
-  [+0.00104340, +0.00150052], Holm p = 0.003996, and exceeds the F4 clicked-ad
-  source by **+0.00094211 AUC**. Roughly 95% of that gain is specific to the
-  user's own history. On **GAUC both intervals include zero**.
-- On F5's richer source attention separates from mean pooling for the first time
-  (**+0.00023967 AUC**, CI excluding zero), but the effect is about one fifth of
-  the identity effect and two seed standard deviations; mean matched remains the
-  preselected primary model.
-- F5 costs about **3.3× the end-to-end throughput** and **7.5× the peak memory** of
-  the DeepFM backbone it sits on, for that +0.00127 AUC.
+**The strongest formal model on global ranking is still logistic regression.** LR
+F1+F2+F3 reaches test AUC **0.652489**; no model in this study beats it.
+
+- **Historical feedback, not model complexity, is the main source of performance.**
+  F3 completed-day click feedback raises LR test AUC from **0.601790** (F1+F2) to
+  **0.652489** (F1+F2+F3), **+0.05070**, against **+0.00630** for the F2 behavior
+  aggregates. At the common F1+F2+F3 budget LR − DeepFM AUC is **+0.00655565**,
+  95% CI [+0.00596489, +0.00721123], Holm p = 0.001998.
+- **F5, the `behavior_log` sequence budget, improves on the frozen null.**
+  Mean matched − zero is **+0.00127246 AUC**, 95% CI
+  [+0.00104340, +0.00150052], Holm p = 0.003996.
+- **It exceeds the sparse F4 clicked-ad source on global ranking**, by
+  **+0.00094211 AUC**, 95% CI [+0.00070402, +0.00118202] — but their **GAUC
+  difference is not established** (−0.00012937, interval spans zero, p = 0.621).
+- **The gain is specific to the user's own history.** Matched − mismatched is
+  **+0.00120269 AUC**, 95% CI [+0.00098519, +0.00142260], Holm p = 0.003996. Since
+  mismatched − zero is only +0.00007, the length-, activity- and recency-controlled
+  control captures about **5.5%** of the effect.
+- **Attention beats mean pooling only slightly.** Attention − mean is
+  **+0.00023967 AUC**, 95% CI [+0.00017050, +0.00031038] — an interval that
+  excludes zero for the first time, unlike the F4 study — but the effect is about
+  one fifth of the identity effect and roughly two seed standard deviations.
+  **Mean matched remains the preregistered primary model**; the test did not and
+  cannot change that.
+- **F5 narrows the LR gap without closing it.** The global AUC gap from LR to the
+  frozen DeepFM null was 0.006556; F5 reduces it to 0.005283, closing about
+  **19.4%**. LR still leads by roughly four times the entire F5 sequence effect.
+  On GAUC the ordering reverses, F5 reaching 0.570251 against LR's 0.569939.
+- **The current F5 implementation has no deployment advantage.** Its end-to-end
+  throughput is **1/3.27** of the DeepFM backbone it sits on (379,078 against
+  1,239,580 rows/s at batch 8192), so its per-row compute cost is about **3.27×**,
+  and its peak memory is **7.48×** (6,082 against 813 MiB). That memory is the
+  resident 723,113,323-event store, **not** the residual's 57,345 parameters.
+- **Calibration fixes the overall probability level, not group-level bias.**
+  Calibrated F4 mean matched reaches overall COPC **0.986**, while double cold
+  start sits at **0.581**, i.e. predicted clicks run about **72% above** observed.
+
+Two sequence sources were tested: past clicked-ad categories (F4, test mean 4.69
+retained tokens, 30.21% empty) and `behavior_log` category-plus-type events (F5,
+test mean 185.19 tokens, 0.4351% empty). **The result is not "DIN wins."** The
+richer source produces a clearly larger but still small global-ranking gain and no
+measurable within-user gain, at a substantially higher serving cost.
 
 ## F5: the behavior-sequence budget
 
@@ -349,6 +364,116 @@ so the data do not establish a stable temporal generalization law.
 
 ![Temporal and repeat descriptions](../figures/deep_dive_v1/07_temporal_repeats.png)
 
+### How to read the uncertainty in this report
+
+Three distinct quantities appear and are never merged.
+
+1. **Bootstrap intervals are conditional on the frozen models and their saved
+   predictions.** They resample test users, so they answer "would this difference
+   survive a different sample of users on this day?" They are **not** training
+   randomness and do not answer "would it survive retraining?".
+2. **Seed standard deviations describe training randomness of the residual only.**
+   F4 and F5 sequence conditions use three residual seeds (42, 2026, 3407) on **one
+   shared frozen DeepFM backbone**. The four tabular families have **one seed each**,
+   so their ordering carries no training-randomness estimate at all.
+3. **The zero control's standard deviation of zero is structural.** It is one
+   deterministic predictor on the shared backbone, evaluated three times — not three
+   independently fitted models — so its three references are identical by
+   construction.
+
+Because every sequence condition shares one backbone, no contrast among them is a
+full-model comparison.
+
+## Where the F5 gain lands
+
+Effects are F5 mean matched minus the zero null, on raw probabilities,
+seed-averaged. These are **descriptive subgroup differences with no intervals and
+no multiplicity control**; small cells carry a direction, not evidence.
+
+- **The gain is largest exactly where the sparse source was empty.** On the
+  **985,688** test impressions with no clicked-ad history — about **29.8%** of the
+  test day — F5 − zero is **+0.001607**, against +0.001163 where both sources have
+  history. Both empty-history cells are exactly zero, as the architecture requires.
+- **New users with known ads gain most**, **+0.002785** on 358,678 rows, where
+  behavior history partly substitutes for an unseen user ID.
+- **Double cold start is negative**, **−0.001741**, but on only **28,331** rows with
+  no interval. The direction is reported and deliberately not interpreted.
+- **Donor bucket relaxation is irrelevant to the conclusions.** It touches
+  **1,457** rows (0.0440%); excluding them moves matched − mismatched by at most
+  **9.0e-7** on AUC and 5.0e-6 on GAUC, with every sign preserved.
+- **A high UNKNOWN token share does not degrade the gain**: +0.001113 at zero
+  UNKNOWN and **+0.001526** above 0.20. The **4.30%** token mask is therefore not
+  the binding constraint on F5 today.
+
+## Engineering: report both regimes
+
+Two measurement regimes are reported for every model, because the gap between them
+changes the deployment conclusion.
+
+| Regime | What is timed |
+|---|---|
+| **pure** | inputs already prepared in memory; only the model call |
+| **end_to_end** | Parquet batch read, encoding, scaling, sequence gather, model call |
+
+Logistic regression reaches **18,083,051 rows/s** pure at batch 8192 but only
+**1,275,056** end to end — a **14.2×** gap caused almost entirely by building its
+**2,497,016**-dimension sparse row. Any deployment conclusion drawn from the pure
+number alone would be wrong: the feature-construction step, not the model, is what
+would need optimising first.
+
+The same distinction reframes F5. Its residual is only 57,345 parameters, so its
+*model* cost is negligible; the 7.48× memory and 3.27× per-row compute come from
+the surrounding data path.
+
+## Limitations and future work
+
+Carried forward deliberately, not resolved:
+
+- **Comparison 6 has no subgroup decomposition.** Group metrics were computed for
+  the five F5 conditions; the F4 reference has overall metrics only, so the
+  F5-versus-F4 contrast is not broken down by cold-start quadrant, history length or
+  any other partition.
+- **LightGBM node count is not reported.** `num_trees` is 251 and the model file is
+  363 MiB, but a full `dump_model` of that booster costs more memory than the number
+  is worth.
+- **The tabular families have one seed each.** Their intervals hold the fitted
+  parameters fixed, so nothing here separates their ordering from training
+  randomness. F4 and F5 sequence conditions use three seeds.
+- **F5 is a sequence residual on a frozen DeepFM backbone, not a jointly trained
+  DIN or DSIN reproduction.** No contrast in this study separates the residual's
+  contribution from the backbone's, and the published Alimama analogue for
+  introducing a behavior sequence is about +0.0074 AUC against F5's +0.00127.
+- **The completed-day cutoff is deliberately conservative.** Behavior events carry
+  usable timestamps, so a per-event cutoff is possible; it is not used, to keep F5
+  comparable with F2/F3/F4 and to avoid a new feedback-availability assumption.
+- **F5's serving memory is an artifact of this implementation.** Holding the
+  723,113,323-event store resident costs 6,082 MiB. Streaming reads, memory mapping,
+  a tiered cache or an offline feature service would each reduce it without touching
+  the model, so 6,082 MiB is not a lower bound for the budget.
+- **Source, length and training regime are not separately identified.** F5 changes
+  the sequence source, the retained length and the token schema at once. Its results
+  support the sequence source and its information density being an important
+  explanation for F4's smaller effect; they do **not** isolate the causal
+  contribution of source, length, token fields or joint training individually.
+
+## Formal test inference count
+
+**Formal test inferences: 38 in total**, each a single once-only pass, verified
+against the manifests, the once-only markers and the registry:
+
+| Source | Passes |
+|---|---:|
+| F4 clicked-ad sequence conditions | 15 |
+| F5 behavior sequence conditions | 15 |
+| LR information layers (F1, F1+F2, F1+F2+F3) | 3 |
+| Tabular benchmark families (LightGBM, Wide & Deep, DeepFM at F123) | 3 |
+| Superseded-name early LR runs (`logistic_regression`, `logistic_regression_no_weekday`) | 2 |
+| **Total** | **38** |
+
+Earlier text quoted "38 (F4 15 + F5 15)", which does not add up. The remaining 8 are
+the tabular families and the two superseded-name LR runs, each holding exactly one
+test prediction file.
+
 ## Evidence limits and reproducibility
 
 - Formal test was exposed during earlier baseline development, then frozen;
@@ -407,8 +532,9 @@ The clicked-ad source supplies a test-day mean of 4.69 tokens; the 185.19-token
 `behavior_log` budget F5 adds does produce a larger, interval-supported global
 gain of +0.00127 AUC that is about 95% user-specific, still produces no measurable
 within-user gain, still leaves LR ahead on global AUC by about four times its size,
-and costs roughly 3.3 times the throughput and 7.5 times the memory of the backbone
-it extends.**
+and runs at roughly a third of the throughput and 7.5 times the peak memory of the
+backbone it extends, that memory being the resident event store rather than the
+residual's parameters.**
 
 Release delivery: [中文 PDF](FINAL_REPORT_ZH.pdf), [中文文本](FINAL_REPORT_ZH.md),
 [final experiment inventory, audit and reproduction commands](RELEASE_AUDIT.md).

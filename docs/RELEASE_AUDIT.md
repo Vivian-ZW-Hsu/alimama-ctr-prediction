@@ -2,7 +2,7 @@
 
 > **状态更新（E1–E6 扩展）**：本文件原为 release closure 时的审计记录。用户已授权 E1–E6 扩展（见 [AGENTS.md](../AGENTS.md)），因此下方"禁止新增"的范围**已被新授权取代**。下列冻结证据仍然不可变：`badecf4`、[DIN_F4_TEST_RESULTS.md](DIN_F4_TEST_RESULTS.md)、四个表格模型及其预测、15 个 F4 checkpoint、F4 正式 test 预测、once-only marker，以及既有正式结果目录中的原始 CSV/JSON。新增工作只写入新的 `*_v1` 目录。
 >
-> **中文 PDF 落后于 markdown 源**：[FINAL_REPORT_ZH.pdf](FINAL_REPORT_ZH.pdf) 对应 E2 修订**之前**的中文正文。E2 已更新 [FINAL_REPORT_ZH.md](FINAL_REPORT_ZH.md)（摘要、序列结论适用范围、COPC 换算、校准表述、bootstrap 区间、行为窗口）。PDF 将在 F5 完成后与最终正文一并重新渲染；在此之前请以 markdown 为准。
+> **中文 PDF 已与 markdown 源同步**：[FINAL_REPORT_ZH.pdf](FINAL_REPORT_ZH.pdf) 于 E1–E6 收尾时按最终正文重新渲染，**18 页**，字体全部嵌入、无缺字、文本无越界、逐页渲染图已视觉复核。QA 记录见 `results/release_audit_v2/pdf_review_v2.json`。排版环境 `.venv-report` 按 `requirements-report.txt` 重建（Python 3.13.5），与研究环境隔离。
 
 本文件原始范围：只核对已经保存的证据与交付文件。禁止新增模型、训练、test 推理、bootstrap、校准拟合或 post-hoc 分析；发布后停止项目扩展。冻结证据仍为 `badecf4` 和 [DIN_F4_TEST_RESULTS.md](DIN_F4_TEST_RESULTS.md)。
 
@@ -39,7 +39,9 @@
 | E5 F5 结论边界 | F5 在全局 AUC 上超过 null（+0.00127246，Holm p=0.003996）与 F4（+0.00094211），约 95% 增益为用户身份特有；但两项 **GAUC 差值区间均含零**，不得写成"用户内排序也更好"。attention 相对 mean 首次区间排除零（+0.00023967），但效应约为身份效应的五分之一、约两个 seed 标准差，且 mean matched 仍为预先选定主模型，test 不改变该选择 |
 | E5 donor 敏感性 | 排除 1,457 行 bucket relaxation 后，matched−mismatched 在 AUC 上最多变化 9.0e-7、GAUC 上 5.0e-6，符号全部保持；第 3 级放宽零行。结论不受影响。诊断性分析，不替代主分析 |
 | E5 双冷启动 | F5 在 new_user+new_ad 上为 **−0.001741**（28,331 行，无区间）。只报告符号，不作解释 |
-| E6 部署取舍 | F5 相对其 backbone 需 3.3 倍端到端吞吐成本、7.5 倍峰值内存，换 +0.00127 AUC。内存来自 7.23 亿事件常驻，不是残差的 57,345 参数；生产特征存储若分页缓存则数字不同 |
+| E6 部署取舍 | F5 的端到端吞吐为其 backbone 的 **1/3.27**（单行计算成本约 3.27 倍），峰值内存 **7.48 倍**，换 +0.00127 AUC。早期文案误写为「3.3 倍吞吐」，方向相反，已统一修正。内存来自 723,113,323 条事件常驻，**不是**残差的 57,345 参数；流式读取、内存映射、分层缓存或离线特征服务均可优化该实现 |
+| E6 PDF 重建 | 按最终正文重新渲染中文 PDF：18 页（原硬编码 12 页的断言改为显式 `--expected-pages` 参数并记录）。渲染器新增三项修正：Markdown 行内 `**强调**` 与反引号此前被原样输出为字面字符（基线正文不含这些标记，是 E2 之后引入的），现已转换；表格加 `KeepTogether`，不再被拆到两页留下孤立表头；两列表格按实际内容宽度自适应列宽，避免「长标签 + 短数字」表被压成 10%/90% |
+| E6 正式 test 次数 | 早前写作「38 次（F4 15 + F5 15）」算术不成立。遍历 manifest、once-only marker 与 registry 核实：**38 = F4 15 + F5 15 + LR 信息层 3 + 表格基准 3 + 旧命名 LR 2**，每个目录各含恰好一个 test 预测文件。组成已写入 README、中英文报告 |
 | E2 公开结果对标 | 引入 DSIN (IJCAI'19) 同数据集表作为**背景参照**，明确不是直接复现：序列来源、切分、特征预算、backbone 与训练方式均不同；公开点估计不称显著 |
 
 `src/38_release_audit.py` 只对现有小型表格做汇总算术一致性核对，不从预测重新估计指标、不执行 resampling、不拟合校准器。CSV/JSON 清单包含当前 Git 追踪的结果文件（含历史记录与 smoke 元数据）；历史文件有自身作用域，不要求不同数据集或不同运行的数字相等。现有图表由冻结输入哈希、绘图公式及逐图视觉复核共同核对，不重新运行绘图实验。
@@ -65,7 +67,7 @@
 | E5 F5 验证与冻结 | 17 run / 85.6 分钟；lr 5e-4；15 checkpoint 冻结 | `results/f5_selection_v1/`、[文档](F5_BEHAVIOR_VALIDATION.md) |
 | E5 F5 正式 test | 15 checkpoint 各一次；1,000 次 bootstrap；13 个 isotonic 校准器；7 组预注册分区；donor 敏感性 | `results/f5_sequence_test_v1/`、[文档](F5_BEHAVIOR_TEST_RESULTS.md) |
 | E6 统一 serving benchmark | 6 模型；独立子进程；纯模型与端到端双口径 | `results/serving_benchmark_v1/`、[文档](SERVING_BENCHMARK.md) |
-| E6 实验 registry | 83 个已提交目录 / 14 阶段 / 0 未分类 / 23 次正式 test 推理 | `results/experiment_registry.csv`、[索引](EXPERIMENT_INDEX.md) |
+| E6 实验 registry | 100 个已提交目录 / 16 阶段 / 0 未分类 / **38 次正式 test 推理**（F4 15 + F5 15 + LR 信息层 3 + 表格基准 3 + 旧命名 LR 2） | `results/experiment_registry.csv`、[索引](EXPERIMENT_INDEX.md) |
 
 没有补做 LightGBM F1/F12、独立 retrained FM/DNN 消融、三个独立 backbone、多时期泛化检验或公平独立吞吐实验。原提案中的缺项保持为缺项。
 
