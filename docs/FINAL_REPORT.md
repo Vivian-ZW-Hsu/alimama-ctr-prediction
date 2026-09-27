@@ -1,12 +1,38 @@
 # Historical information, complexity and robustness in point-in-time CTR prediction
 
+## Summary
+
+- F3 completed-day click feedback raises LR test AUC by **+0.05070**
+  (F1+F2 0.601790 → F1+F2+F3 0.652489), against **+0.00630** for F2.
+- At the common F1+F2+F3 budget, frozen LR reaches **0.652489** and DeepFM
+  **0.645933**. A paired user-cluster bootstrap over the saved predictions puts
+  LR − DeepFM AUC at **+0.00655565**, 95% CI [+0.00596489, +0.00721123],
+  Holm p = 0.001998. Every **GAUC** difference among the four families includes
+  zero.
+- A sequence of the user's **past clicked-ad categories** (L=20, test mean 4.69
+  retained tokens, 30.21% empty) raises AUC over the zero reference by
+  **+0.000330**, 95% CI [+0.000216, +0.000440].
+- On that short, sparse clicked-ad category sequence, target attention shows no
+  stable ranking advantage over mean pooling (attention − mean AUC
+  **−0.0000086**, interval includes zero).
+- Calibrated Mean matched reaches overall COPC **0.986**; double cold start is
+  **0.581**, i.e. predicted clicks about **72% above** observed clicks.
+- A full-population audit shows `behavior_log` would supply **185.19** retained
+  tokens per test impression at L=200 with **0.435%** empty history, about 39.5×
+  more history than the clicked-ad source. **F5** is built to test whether that
+  changes the sequence conclusion.
+
 ## Result and scope
 
 Under the audited temporal protocol and observed tuning budget, past click-feedback
 information provides a much larger gain than the tested increases in model
-complexity. User-matched positive-category histories add a small, statistically
-detectable increment to a frozen DeepFM. Target attention has no robust practical
-advantage over mean pooling. Sequence benefits are uneven across history and user
+complexity. User-matched **past clicked-ad category** histories add a small,
+statistically detectable increment to a frozen DeepFM. On that representation —
+retained length 20, test mean 4.69 tokens, 30.21% of test impressions empty —
+target attention has no robust practical advantage over mean pooling. These
+sequence statements are scoped to the clicked-ad category source and are **not**
+transferred to full `behavior_log` `pv/cart/fav/buy` sequences, nor to sequence
+modeling or DIN in general. Sequence benefits are uneven across history and user
 groups, while probability bias persists under cold start and changing traffic.
 
 This is a conditional empirical conclusion, not a universal claim that linear
@@ -27,7 +53,14 @@ may not. Positive exposure timestamps proxy feedback record time, with next-day
 availability assumed; independent click timestamps are not observed.
 
 F1 is static/context, excluding weekday in formal models. F2 summarizes past
-behavior. F3 supplies smoothed entity feedback and evidence counts. F4 retains
+behavior. F3 supplies smoothed entity feedback and evidence counts; on the first
+training date, 2017-05-06, no completed prior date exists inside the impression
+window, so all entity histories fall back to the fixed prior with
+`has_past_feedback = 0`, and those 3,270,348 impressions (16.3% of training) were
+retained rather than dropped. The behavior log's usable window is 2017-04-22
+through 2017-05-13, 22 dates carrying 99.9786% of events; earlier timestamps are
+sporadic or corrupt (127,136 events over 653 dates), so the effective
+pre-impression history is 14 completed days before 2017-05-06. F4 retains
 the ordered last 20 positive-exposure categories, with train-only vocabulary,
 neutral PAD/UNKNOWN and zero empty-history representations. The mismatch control
 preserves cutoff, retained length and coarse activity while exchanging user
@@ -38,7 +71,9 @@ history; it does not exactly balance all popularity/age/activity effects.
 AUC, PR-AUC and GAUC: higher is better. LogLoss, Brier score and ECE: lower is
 better. COPC = observed clicks / predicted clicks = CTR / mean prediction;
 1 is ideal, <1 indicates overprediction and >1 underprediction. A difference
-in COPC is not inherently a gain. Shared reporting uses 10 equal-count ECE bins;
+in COPC is not inherently a gain. A COPC of 0.581 means predicted clicks exceed
+observed clicks by about 72% (`1/0.581 − 1`), which is a different quantity from
+the 42% shortfall of observed against predicted (`1 − 0.581`). Shared reporting uses 10 equal-count ECE bins;
 legacy calibration selection records a separate 20 equal-width diagnostic.
 Seed std uses ddof=1; bootstrap CIs describe user sampling conditional on fixed
 models. Undefined single-class AUC remains missing, never replaced with zero.
@@ -65,11 +100,54 @@ is distinct from D3's fixed-parameter F2 deletion.
 
 Tabular rows represent one seed each; the sequence row represents three residual
 seeds on one shared backbone. Its richer F4 input prevents a pure architecture
-interpretation. No significance claim for LR versus LightGBM or sequence versus
-LR is added. GAUC evaluates only 104,884 users with both labels, covering 50.84%
+interpretation.
+
+A paired user-cluster bootstrap over these saved predictions (1,000 replicates,
+seed 20260926, preregistered in `29659c3`) now attaches intervals to the tabular
+ordering:
+
+| Comparison | Metric | Effect | 95% CI | Excludes 0 |
+|---|---|---:|---|:--:|
+| LR − DeepFM (primary) | AUC | +0.00655565 | [+0.00596489, +0.00721123] | yes |
+| LR − DeepFM (primary) | LogLoss | −0.00074793 | [−0.00083617, −0.00067152] | yes |
+| LR − LightGBM | AUC | +0.00117059 | [+0.00059116, +0.00173101] | yes |
+| LR − LightGBM | LogLoss | −0.00007366 | [−0.00014903, +0.00000767] | **no** |
+| LR − LightGBM | GAUC | +0.00004970 | [−0.00124507, +0.00127498] | **no** |
+| LR − Wide & Deep | GAUC | +0.00025893 | [−0.00079951, +0.00140635] | **no** |
+
+Holm correction covers only the two primary metrics (p = 0.001998 for both).
+Intervals are conditional on the frozen fitted models and this single test day;
+they estimate user-sampling uncertainty and **not** training-seed uncertainty,
+because each family has one seed. Two results matter for the narrative: LR's
+global ranking advantage over both neural families survives user resampling,
+while **every GAUC difference includes zero**, so that advantage does not
+transfer to within-user ranking. LR over LightGBM is a ranking difference, not a
+probability-quality difference. Details and limits in
+[FROZEN_MODEL_BOOTSTRAP.md](FROZEN_MODEL_BOOTSTRAP.md). GAUC evaluates only 104,884 users with both labels, covering 50.84%
 of test exposures; global AUC evaluates all exposures and cross-user pairs.
 
 ![Information and model comparison](../figures/deep_dive_v1/01_information_and_models.png)
+
+## Published Alimama results as background, not as a reproduction
+
+The DSIN paper ([arXiv:1905.06482](https://arxiv.org/abs/1905.06482), IJCAI 2019)
+reports on the same public advertising dataset with the same calendar split and
+the users' most recent 200 `behavior_log` events: YoutubeNet without user
+behavior 0.6239, YoutubeNet with average pooling 0.6313, Wide & Deep 0.6326,
+DIN 0.6330, DIEN 0.6343, DSIN 0.6375.
+
+Within that table, introducing a user behavior sequence corresponds to about
+**+0.0074** AUC (0.6313 − 0.6239) and DIN over the average-pooling model to about
+**+0.0017** (0.6330 − 0.6313). This project observes **+0.00033** and
+**−0.0000086** for the analogous contrasts on a mean-4.69-token clicked-ad
+category sequence.
+
+The sequence source, split, feature budget, backbone and training procedure all
+differ, so this is background context and **not** a direct reproduction. Those
+published values are single reported point estimates and are not described here
+as significant. The roughly 22-fold gap on the sequence-presence contrast is
+consistent with the source and its information density limiting the observed F4
+effect; that is the hypothesis F5 tests, not a conclusion already established.
 
 ## Controlled sequence evidence
 
@@ -148,9 +226,17 @@ therefore describe different mechanisms.
 
 These are expected-click accounting shares, not averaged subgroup ratios or
 identified causes. Profile/history/evidence-strength partitions all reconcile to
-the same total. The saved global isotonic calibration improves LogLoss/ECE but
-reduces AUC, PR-AUC and GAUC. It neither solves group bias nor establishes that
-group-specific calibration would improve unseen future traffic.
+the same total. The saved global isotonic calibration improves LogLoss/ECE and in
+these saved results reduces AUC, PR-AUC and GAUC. The mechanism is tie creation:
+isotonic regression is a monotone non-decreasing step function, so it introduces
+no new inversions, but collapsing distinct scores onto one step turns strict
+orderings into ties. Because a tie can replace either a correctly or an
+incorrectly ordered pair, ranking metrics **can move in either direction**; the
+observed decrease is an empirical outcome, not an arithmetic necessity. Its step
+boundaries come from PAVA, so there is no bin-count hyperparameter to tune;
+`ece_bins=20` belongs to the ECE reliability diagnostic. Calibration neither
+solves group bias nor establishes that group-specific calibration would improve
+unseen future traffic.
 
 ![Loss and cold evidence](../figures/deep_dive_v1/04_loss_and_cold_evidence.png)
 
@@ -220,6 +306,13 @@ so the data do not establish a stable temporal generalization law.
   known. They are not retrospectively preregistered untouched-holdout evidence.
 - Existing calibration uses deterministic impression-level validation 80/20,
   not the historical proposal's user-grouped OOF design. It was reused unchanged.
+  The calibrator receives only predicted probability and label, never `user_raw`,
+  so this is **not** a calibrator memorising a user's labels. The real limitation
+  is sample dependence: a user's impressions are not independent, so an
+  impression-level split correlates the fit and selection sets and can make the
+  uncertainty of *method selection* look optimistic. A user-grouped split would
+  be the appropriate design for judging calibration transfer to entirely new
+  users.
 - Four tabular families have one seed each. Three residual seeds share one
   frozen backbone; no independent full-backbone uncertainty is estimated.
 - There are no new subgroup p-values, calibrated-model bootstrap, learned
@@ -234,7 +327,10 @@ so the data do not establish a stable temporal generalization law.
   development effort. No extra model-compute search was performed.
 
 Stage reports: [D2](DEEP_DIVE_D2_RESULTS.md), [D3](DEEP_DIVE_D3_RESULTS.md),
-[D4](DEEP_DIVE_D4_RESULTS.md). Each includes manifests and independent arithmetic
+[D4](DEEP_DIVE_D4_RESULTS.md), [E1 namespace audit](BEHAVIOR_NAMESPACE_AUDIT.md),
+[E3 frozen bootstrap](FROZEN_MODEL_BOOTSTRAP.md). Frozen evidence documents keep
+their original wording; the scope corrections above are made here and in the
+README rather than by editing frozen records. Each includes manifests and independent arithmetic
 verification. Four new targeted tests cover quotas, oracle accounting, exact
 component sums and completed-day repetition. The D3 float32 smoke discrepancy
 is archived transparently; original checkpoints remain unchanged and full saved
@@ -249,12 +345,17 @@ tables are local/Git-ignored, not backed up by the small committed manifests.
 repeating any statistical estimation, calibration or inference.
 
 The defensible final statement is: **historical feedback dominates the observed
-information gain under this protocol; matched sequences add a small conditional
-increment, and attention adds no robust practical advantage. That increment is
-uneven across history and user groups, does not overturn the strong global LR
-baseline, and coexists with substantial cold-group probability bias and changing
-traffic. Drift, sparse evidence and exposure repetition limit interpretation;
-their causal contributions are not isolated by these diagnostics.**
+information gain under this protocol; matched past clicked-ad category sequences
+add a small conditional increment, and on that sparse representation attention
+adds no robust practical advantage. That increment is uneven across history and
+user groups, does not overturn the strong global LR baseline — whose global
+ranking lead now carries user-cluster intervals that exclude zero, while its GAUC
+lead does not — and coexists with substantial cold-group probability bias and
+changing traffic. Drift, sparse evidence and exposure repetition limit
+interpretation; their causal contributions are not isolated by these diagnostics.
+The sequence conclusions are bounded by the clicked-ad source, which supplies a
+test-day mean of 4.69 tokens; whether a 185.19-token `behavior_log` budget
+changes them is open and is the subject of F5.**
 
 Release delivery: [中文 PDF](FINAL_REPORT_ZH.pdf), [中文文本](FINAL_REPORT_ZH.md),
 [final experiment inventory, audit and reproduction commands](RELEASE_AUDIT.md).

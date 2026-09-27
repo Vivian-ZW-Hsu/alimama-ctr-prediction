@@ -2,18 +2,47 @@
 
 An audited CTR study on 26.56 million Taobao advertising impressions, separating
 historical information, model complexity, sequence identity, calibration and
-robustness. **The current result is not “DIN wins.”** Under the recorded protocol
-and tuning budget, past click-feedback information provides the largest observed
-gain. Matched history adds a small increment to a frozen DeepFM, while target
-attention has no robust practical advantage over mean pooling.
+robustness under a strict point-in-time protocol.
 
-**Completed:** four tabular families, controlled F4 study, frozen statistical/
-calibration evidence, and D2–D5 diagnostics. No further training, bootstrap,
-calibration fitting, test inference or new post-hoc analysis is authorized.
+## Summary
+
+- Under the recorded protocol, F3 completed-day click feedback raises LR test AUC
+  by **+0.05070** (F1+F2 0.601790 → F1+F2+F3 0.652489), against **+0.00630** for
+  F2 behavior aggregates.
+- At the common F1+F2+F3 budget, frozen LR reaches test AUC **0.652489** and
+  DeepFM **0.645933**. A paired user-cluster bootstrap over the saved predictions
+  puts LR − DeepFM AUC at **+0.00655565**, 95% CI [+0.00596489, +0.00721123],
+  Holm p = 0.001998. Every **GAUC** difference among the four families includes
+  zero, so the global ranking advantage does not transfer to within-user ranking.
+- A sequence of the user's **past clicked-ad categories** (L=20, test mean 4.69
+  retained tokens, 30.21% of test impressions empty) raises AUC over the zero
+  reference by **+0.000330**, 95% CI [+0.000216, +0.000440].
+- On that short, sparse clicked-ad category sequence, target attention shows no
+  stable ranking advantage over mean pooling (attention − mean AUC
+  **−0.0000086**, interval includes zero).
+- Calibrated Mean matched reaches overall COPC **0.986**, but double cold start is
+  **0.581**, i.e. predicted clicks run about **72% above** observed clicks. Global
+  calibration does not fix group-level overprediction.
+- A full-population audit shows the `behavior_log` source would supply **185.19**
+  retained tokens per test impression at L=200 with **0.435%** empty history,
+  about 39.5× more history than the clicked-ad source. Whether that changes the
+  sequence conclusion is the open question **F5** is built to test.
+
+**The current result is not "DIN wins," and it is not a general verdict on user
+behavior sequences.** The completed sequence evidence covers past clicked-ad
+categories only.
+
+**Status:** four tabular families, controlled F4 study, frozen statistical and
+calibration evidence, and D2–D5 diagnostics are complete and frozen. A
+user-authorized extension (E1–E6) adds the cross-source namespace audit, the
+frozen-model bootstrap, documentation scope corrections, and the new F5 behavior
+sequence budget. See [AGENTS.md](AGENTS.md) for the current authorization.
 
 - [最终中文 PDF](docs/FINAL_REPORT_ZH.pdf) · [中文文本](docs/FINAL_REPORT_ZH.md)
 - [Release audit、实验清单与复现入口](docs/RELEASE_AUDIT.md)
 - [Final report and evidence limits](docs/FINAL_REPORT.md)
+- [E1: cross-source namespace audit and F5 admissibility](docs/BEHAVIOR_NAMESPACE_AUDIT.md)
+- [E3: frozen tabular user-cluster bootstrap](docs/FROZEN_MODEL_BOOTSTRAP.md)
 - [Frozen DIN test/statistical/calibration report — badecf4](docs/DIN_F4_TEST_RESULTS.md)
 - [Frozen deep-dive plan](docs/DEEP_DIVE_RESEARCH_PLAN.md)
 - [D2: errors, sequence heterogeneity and cold evidence](docs/DEEP_DIVE_D2_RESULTS.md)
@@ -36,36 +65,101 @@ calibration fitting, test inference or new post-hoc analysis is authorized.
 
 Tabular results are one frozen seed each. Sequence mean ± sample std covers three
 residual seeds on **one shared frozen backbone**; zero is not three independent
-DeepFM fits. GAUC includes 104,884 eligible users / 50.84% of test impressions.
+DeepFM fits. GAUC includes 104,884 eligible users / 50.8437% of test impressions.
 F123 versus F123+F4 is an information change, not a pure architecture comparison.
 
 Metric directions: AUC, PR-AUC and GAUC higher is better; LogLoss, Brier and ECE
 lower is better. **COPC = observed clicks / predicted clicks = CTR / mean prediction**;
-1 is ideal, below 1 means overprediction, above 1 underprediction. ECE uses the
-shared evaluator's 10 equal-count bins; historical calibration selection also
-records a separate 20 equal-width-bin diagnostic.
+1 is ideal, below 1 means overprediction, above 1 underprediction. A COPC of
+0.581 means predicted clicks are about 72% above observed clicks
+(`1/0.581 − 1`), which is a different quantity from the 42% shortfall of observed
+against predicted (`1 − 0.581`). ECE uses the shared evaluator's 10 equal-count
+bins; historical calibration selection also records a separate 20
+equal-width-bin diagnostic.
 
 Seeds: tabular/backbone 42; sequence residuals 42, 2026, 3407; F4 deterministic
-mismatch 20260926; completed user bootstrap 20260927 (1,000 saved draws).
+mismatch 20260926; completed F4 user bootstrap 20260927 and frozen tabular
+bootstrap 20260926 (1,000 saved draws each).
 The hard-zero predictor is a repeated reference to the seed-42 backbone.
 
-The frozen user-cluster bootstrap supports small Mean matched gains over zero
-and mismatched history. Mean matched − zero AUC is +0.000330, 95% CI
+### Uncertainty on the frozen tabular ordering
+
+| Comparison | Metric | Effect | 95% CI | Excludes 0 |
+|---|---|---:|---|:--:|
+| LR − DeepFM (primary) | AUC | +0.00655565 | [+0.00596489, +0.00721123] | yes |
+| LR − DeepFM (primary) | LogLoss | −0.00074793 | [−0.00083617, −0.00067152] | yes |
+| LR − LightGBM | LogLoss | −0.00007366 | [−0.00014903, +0.00000767] | **no** |
+| LR − LightGBM | GAUC | +0.00004970 | [−0.00124507, +0.00127498] | **no** |
+| LR − Wide & Deep | GAUC | +0.00025893 | [−0.00079951, +0.00140635] | **no** |
+
+Intervals are conditional on the frozen fitted models and the single frozen test
+day. They estimate user-sampling uncertainty, **not** training-seed uncertainty:
+each tabular family has exactly one seed. Full table and limits in
+[FROZEN_MODEL_BOOTSTRAP.md](docs/FROZEN_MODEL_BOOTSTRAP.md).
+
+### Completed F4 sequence evidence, with its scope stated
+
+The frozen user-cluster bootstrap supports small Mean matched gains over zero and
+mismatched history. Mean matched − zero AUC is +0.000330, 95% CI
 [+0.000216, +0.000440]. Five ordered comparisons and Holm corrections remain
 unchanged. No significance claim is added for sequence versus LR/LightGBM.
 
-Deep-dive findings:
+These results describe **one specific history representation**: the ordered last
+20 categories of the user's past clicked ads, on completed Beijing dates strictly
+before the impression date. On the test day that source retains a mean of 4.69
+tokens and leaves 30.21% of impressions with no history at all. The conclusions
+are not transferred to full `behavior_log` `pv/cart/fav/buy` sequences, and they
+do not establish a general result about sequence modeling or about DIN.
 
-- The old “60% of clicks missed” source used **top-10% exposure-budget thresholds**, not p>=0.5.
+### Published Alimama results as background, not as a reproduction
+
+The DSIN paper ([arXiv:1905.06482](https://arxiv.org/abs/1905.06482), IJCAI 2019)
+reports on the same public advertising dataset with the same calendar split
+(train 2017-05-06…05-12, test 2017-05-13) and the users' most recent 200
+`behavior_log` events:
+
+| Model | Reported AUC |
+|---|---:|
+| YoutubeNet without user behavior | 0.6239 |
+| YoutubeNet (average pooling) | 0.6313 |
+| Wide & Deep | 0.6326 |
+| DIN | 0.6330 |
+| DIEN | 0.6343 |
+| DSIN | 0.6375 |
+
+In that table, introducing a user behavior sequence corresponds to about
+**+0.0074** AUC (0.6313 − 0.6239) and DIN over the average-pooling model to about
+**+0.0017** (0.6330 − 0.6313). This project observes **+0.00033** and
+**−0.0000086** for the analogous contrasts on a mean-4.69-token clicked-ad
+category sequence.
+
+Because the sequence source, split, feature budget, backbone and training
+procedure all differ, **this is background context and not a direct
+reproduction**. The published values are single reported point estimates and are
+not described here as significant. The order-of-magnitude gap — roughly 22× on
+the sequence-presence contrast — is consistent with the sequence source and its
+information density limiting the observed F4 effect, which is the hypothesis F5
+tests rather than a conclusion already established.
+
+## Deep-dive findings
+
+- The old "60% of clicks missed" source used **top-10% exposure-budget thresholds**, not p>=0.5.
   Its exact number cannot be reproduced without old arrays. In the rebuilt
   cohort, five-model common misses are 71.38% at a **top-10% exposure budget per model**; p>=0.5 yields 99.97%.
-- Length-20 matched history improves AUC over mismatched but worsens LogLoss:
-  added loss on nonclicks slightly exceeds improvement on clicks.
+- Length-20 matched clicked-ad history improves AUC over mismatched but worsens
+  LogLoss: added loss on nonclicks slightly exceeds improvement on clicks.
 - About 98.89% of the Mean matched versus zero GAUC increment comes from known
   users. Sparse-history benefits are not uniform; length 1 contributes negatively.
 - Saved isotonic calibration improves overall LogLoss/ECE but leaves double-cold
-  COPC around 0.581. Most excess comes from partially observed histories, not
-  wholly absent evidence. Calibration also lowers ranking metrics.
+  COPC around 0.581, about 72% predicted-over-observed. Most excess comes from
+  partially observed histories, not wholly absent evidence.
+- Isotonic calibration is a monotone non-decreasing step function. It introduces
+  **ties** rather than new inversions, so ranking metrics **can move in either
+  direction**: collapsing correctly ordered pairs into ties lowers AUC while
+  collapsing incorrectly ordered pairs raises it. In the saved results AUC,
+  PR-AUC and GAUC decreased. `ece_bins=20` is a reliability-binning parameter for
+  ECE, not a hyperparameter of `IsotonicRegression`, whose steps are determined
+  by PAVA.
 - Frozen validation diagnostics show greater reliance on F3 than F2. Removing
   DeepFM's FM term barely changes AUC but changes probability level; this is a
   **sensitivity diagnostic** (frozen component deletion), not a retrained ablation.
@@ -90,9 +184,30 @@ available next day. There is no independent click timestamp. Validation excludes
 May 12 feedback; test may use completed May 12 feedback. PAD/UNKNOWN and empty
 sequence representations are neutral zeros.
 
+The first training date, 2017-05-06, has no completed prior date inside the
+impression window, so all F3 entity histories on that date fall back to the fixed
+prior with `has_past_feedback = 0`. Those **3,270,348 impressions (16.3% of
+training) were retained, not dropped**.
+
+The behavior log's usable window is **2017-04-22 through 2017-05-13**: 22 dates
+carrying 99.9786% of all events. Earlier timestamps are sporadic or corrupt
+(127,136 events spread over 653 dates, from 1902 onward), so the effective
+pre-impression history is 14 completed days before 2017-05-06, not a longer
+window. Full-population evidence is in
+[BEHAVIOR_NAMESPACE_AUDIT.md](docs/BEHAVIOR_NAMESPACE_AUDIT.md).
+
 Test had been inspected in earlier baseline development; it is a frozen final
 reporting set, not a never-seen holdout. New deep-dive buckets were fixed before
 their new grouped results, after aggregate test findings were known.
+
+Probability calibration was selected on a deterministic **impression-level** 80/20
+split of validation, not the historically proposed user-grouped OOF design. The
+calibrator receives only predicted probability and label — never `user_raw` — so
+this is **not** a case of the calibrator memorising a user's labels. The actual
+risk is sample dependence: a user's impressions are not independent, so splitting
+by impression makes the fit and selection sets correlated and can make the
+uncertainty of *method selection* look optimistic. A user-grouped split would be
+the right design for judging calibration transfer to entirely new users.
 
 ## Repository and reproducibility
 
@@ -105,6 +220,8 @@ their new grouped results, after aggregate test findings were known.
 | `src/33`–`src/35` | D2 saved-score, D3 validation reliance, D4 descriptive diagnostics |
 | `src/36_plot_deep_dive.py` | eight PNG/PDF figures from small saved summaries |
 | `src/37_verify_frozen_delivery.py` | read-only delivery/hash verification |
+| `src/40`–`src/41` | E1 lossless behavior-log conversion and namespace audit |
+| `src/42`–`src/43` | E3 frozen tabular bootstrap preparation and execution |
 | `results/` | versioned metrics, manifests and audits |
 | `figures/deep_dive_v1/` | standalone PNG and vector PDF figures |
 | `data/`, large model/prediction artifacts | local, Git-ignored; not backed up by Git |
@@ -136,6 +253,8 @@ Dependency pins alone do not guarantee cross-version checkpoint portability.
 The [charter](docs/CTR_CODEX_PROJECT_HANDOFF.md) and historical
 [proposal](docs/EXPERIMENTAL_PROTOCOL.md) preserve original intent and deviations.
 Current instructions in [AGENTS.md](AGENTS.md) take precedence over stale gates.
+Frozen evidence documents keep their original wording; scope corrections are made
+in this README and the final reports, not by editing frozen records.
 Old-project source is preserved on `archive/v1-original`; its numerical claims
 are audited separately and are not mixed into rebuilt-pipeline results.
 

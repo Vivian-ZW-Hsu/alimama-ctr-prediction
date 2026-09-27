@@ -1,6 +1,10 @@
 # 最终 release audit 与实验清单
 
-本次只核对已经保存的证据与交付文件。禁止新增模型、训练、test 推理、bootstrap、校准拟合或 post-hoc 分析；发布后停止项目扩展。冻结证据仍为 `badecf4` 和 [DIN_F4_TEST_RESULTS.md](DIN_F4_TEST_RESULTS.md)。
+> **状态更新（E1–E6 扩展）**：本文件原为 release closure 时的审计记录。用户已授权 E1–E6 扩展（见 [AGENTS.md](../AGENTS.md)），因此下方"禁止新增"的范围**已被新授权取代**。下列冻结证据仍然不可变：`badecf4`、[DIN_F4_TEST_RESULTS.md](DIN_F4_TEST_RESULTS.md)、四个表格模型及其预测、15 个 F4 checkpoint、F4 正式 test 预测、once-only marker，以及既有正式结果目录中的原始 CSV/JSON。新增工作只写入新的 `*_v1` 目录。
+>
+> **中文 PDF 落后于 markdown 源**：[FINAL_REPORT_ZH.pdf](FINAL_REPORT_ZH.pdf) 对应 E2 修订**之前**的中文正文。E2 已更新 [FINAL_REPORT_ZH.md](FINAL_REPORT_ZH.md)（摘要、序列结论适用范围、COPC 换算、校准表述、bootstrap 区间、行为窗口）。PDF 将在 F5 完成后与最终正文一并重新渲染；在此之前请以 markdown 为准。
+
+本文件原始范围：只核对已经保存的证据与交付文件。禁止新增模型、训练、test 推理、bootstrap、校准拟合或 post-hoc 分析；发布后停止项目扩展。冻结证据仍为 `badecf4` 和 [DIN_F4_TEST_RESULTS.md](DIN_F4_TEST_RESULTS.md)。
 
 ## 最终文件
 
@@ -26,6 +30,12 @@
 | 链接与路径 | README 使用仓库相对链接，检查本地链接目标；无本机绝对路径。历史文件中保留的绝对路径不伪装为通用命令 |
 | 依赖 | 核心宽范围与已测锁定版本一致；历史 sklearn 1.8 checkpoint 在当前 1.9.1 的兼容限制保留；排版依赖独立 |
 | PDF | Arial Unicode TrueType 子集嵌入；逐页检查中文、表格、图例、分页、页脚与引用；没有模型或数据加载 |
+| E2 序列结论适用范围 | README 与中英文报告统一收窄为"过去点击广告 category、L=20、test 平均 4.69 token、30.21% 空历史"；明确不推广到 `behavior_log` 行为序列，也不构成对 DIN 的一般否定。冻结证据文档保留原措辞，不回改 |
+| E2 COPC 换算 | 0.581 对应预测比实际**高约 72%**（`1/0.581 − 1`）；与"实际比预测少 42%"（`1 − 0.581`）分母不同，两处不再混用 |
+| E2 isotonic 与排序指标 | 英文文档原写 "reduces AUC" 过于绝对。isotonic 为单调非降阶梯函数，只产生并列、不产生新反转；并列可替换正确或错误排序对，故排序指标**两个方向都可能变化**，已保存结果中为下降。`ece_bins=20` 属 ECE 分箱，非 isotonic 超参（PAVA 自动定台阶）|
+| E2 校准切分表述 | impression-level 80/20 **不是**校准器记住用户标签的泄漏（校准器只见概率与标签）；真实局限是同用户曝光非独立导致的样本依赖，可能低估方法选择的不确定性 |
+| E2 行为窗口与 F3 首日 | 有效行为窗口为 2017-04-22 起 22 天（占全部事件 99.9786%），更早为 653 个日期共 127,136 条零散/损坏记录；训练首日 05-06 的 3,270,348 条（16.3%）F3 退化为 prior 且 `has_past_feedback=0`，**予以保留未删除** |
+| E2 公开结果对标 | 引入 DSIN (IJCAI'19) 同数据集表作为**背景参照**，明确不是直接复现：序列来源、切分、特征预算、backbone 与训练方式均不同；公开点估计不称显著 |
 
 `src/38_release_audit.py` 只对现有小型表格做汇总算术一致性核对，不从预测重新估计指标、不执行 resampling、不拟合校准器。CSV/JSON 清单包含当前 Git 追踪的结果文件（含历史记录与 smoke 元数据）；历史文件有自身作用域，不要求不同数据集或不同运行的数字相等。现有图表由冻结输入哈希、绘图公式及逐图视觉复核共同核对，不重新运行绘图实验。
 
@@ -44,6 +54,8 @@
 | D3 组件与信息层 | validation-only sensitivity diagnostic | `results/deep_dive_d3_v1/` |
 | D4 时间与重复曝光 | 描述性关联，无 rolling-origin 重训 | `results/deep_dive_d4_v1/` |
 | D5 图表与证据索引 | 八图，PNG + PDF；主张与限制映射 | `results/deep_dive_final_v1/`、`figures/deep_dive_v1/` |
+| E1 跨源 namespace 审计 | 全量 723,268,134 事件；F5 准入判定通过 | `results/behavior_namespace_audit_v1/`、[文档](BEHAVIOR_NAMESPACE_AUDIT.md) |
+| E3 冻结表格模型 bootstrap | 复用已保存 test 预测；1,000 次用户 cluster 重抽样 | `results/frozen_model_bootstrap_v1/`、[文档](FROZEN_MODEL_BOOTSTRAP.md) |
 
 没有补做 LightGBM F1/F12、独立 retrained FM/DNN 消融、三个独立 backbone、多时期泛化检验或公平独立吞吐实验。原提案中的缺项保持为缺项。
 
