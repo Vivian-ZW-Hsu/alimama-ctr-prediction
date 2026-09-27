@@ -1,0 +1,35 @@
+{
+  "complete": true,
+  "valid_replicates": 1000,
+  "invalid_replicates": 0,
+  "seed": 20260926,
+  "threads": 8,
+  "rows": 3308665,
+  "users": 391741,
+  "user_draws_per_replicate": 391741,
+  "distinct_predictors": 4,
+  "training_seeds_per_family": 1,
+  "elapsed_seconds": 3.57,
+  "pilot_reproduces_full_prefix": true,
+  "unweighted_replicate_reproduces_documented_point_metrics": true,
+  "intervals": "marginal percentile 95%, not simultaneous",
+  "p_resolution": 0.000999000999000999,
+  "holm_scope": "the two primary metrics of comparison 1 only",
+  "uncertainty": "Conditional on the four frozen fitted models and the single frozen test day. This estimates user-sampling uncertainty only. It is not an estimate of training-seed uncertainty: each tabular family has exactly one seed, so re-training variability is not represented at all.",
+  "protocol_sha256": "e142e02f7a247a75e2f6cf7f22a7ff43d3aec7e78c47c3db9bbbd6f7ebc70f82",
+  "input_manifest_sha256": "7a894a0a21112b014b15305b7b52439733f679e6eac06685d0d3bed8dd35b06b",
+  "binary_sha256": "22cad1490af9b8c6b38e1707f08210ce171531d7f5b275ce881004664e6d40ca",
+  "raw_results_sha256": "ac12d07a8298c3a309df45ae15b2a93058c8aab00819df0be7f52ace90ab8363",
+  "code_sha256": {
+    "cluster_bootstrap_metrics.cpp": "d4a27946efcfb18a1fb96aff7195891f90a27f144686a2061a180ab5bb7ad6dd",
+    "42_prepare_frozen_model_bootstrap.py": "bbddeafcdf3c113f4879cf6a4f6d18b0ce61f2381e22edcc80718079e59f1cd4",
+    "43_bootstrap_frozen_models.py": "22b689a38ca95ccd0195ddbc82191ed0fb40f36665bdc77e91a1720fca088338",
+    "ctr_posthoc.py": "bfac8e7332fd4ff55fab1ba1132db1608eabce8a0911cbd75d326e6e4e2ebefd"
+  },
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.2.0\nThread model: posix\nInstalledDir: /Applications/Xcode-26.6.0.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin\n",
+  "flags": [
+    "-O3",
+    "-std=c++17",
+    "-pthread"
+  ]
+}
