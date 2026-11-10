@@ -33,10 +33,6 @@ before further work. The first formal sequence test remains explicitly gated.
 
 ## 1. Charter, scope, and evidence
 
-The long-term charter is [CTR_CODEX_PROJECT_HANDOFF.md](process/CTR_CODEX_PROJECT_HANDOFF.md).
-Current user instructions and repository facts take precedence. `AGENTS.md`
-points future work to the charter and this gate.
-
 At entry, `main` was clean except for the user-provided, untracked handoff file.
 The remote `origin/main` was checked with `git ls-remote` and matched the audited
 HEAD. The five latest commits were `f0ba2a1`, `802158e`, `a14cefe`, `0285426`, and

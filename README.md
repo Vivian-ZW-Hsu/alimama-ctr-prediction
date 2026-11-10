@@ -289,7 +289,6 @@ results/                 versioned metrics, manifests, bootstrap intervals and a
 figures/readme/          figures on this page
 figures/deep_dive_v1/    report figures (PNG + PDF)
 docs/                    final reports and per-stage evidence documents
-docs/process/            archived working notes (agent instructions, planning)
 artifacts/encoders/      encoding manifest; models, predictions and data are local and Git-ignored
 ```
 
@@ -297,7 +296,7 @@ Stage documents: [experiment index](docs/EXPERIMENT_INDEX.md) (registry snapshot
 [behavior-log audit](docs/BEHAVIOR_NAMESPACE_AUDIT.md), [F4 test](docs/DIN_F4_TEST_RESULTS.md),
 [F5 validation](docs/F5_BEHAVIOR_VALIDATION.md), [F5 test](docs/F5_BEHAVIOR_TEST_RESULTS.md),
 [frozen-model bootstrap](docs/FROZEN_MODEL_BOOTSTRAP.md), [serving](docs/SERVING_BENCHMARK.md),
-[release audit (中文)](docs/RELEASE_AUDIT.md). Working notes are in [docs/process](docs/process).
+[release audit (中文)](docs/RELEASE_AUDIT.md).
 
 ## Reproducing
 
