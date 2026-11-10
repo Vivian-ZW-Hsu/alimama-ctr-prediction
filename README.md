@@ -1,446 +1,322 @@
-# Point-in-Time CTR Prediction on E-Commerce Advertising Data
+# Point-in-Time CTR Prediction on Taobao Display Ads
 
-An audited CTR study on 26.56 million Taobao advertising impressions, separating
-historical information, model complexity, sequence identity, calibration and
-robustness under a strict point-in-time protocol.
+**Does richer historical information or a more complex model matter more for click-through-rate prediction?**
+This project answers that on the public Alimama/Taobao display-advertising dataset (26,557,961 ad
+impressions over eight days, plus 723 million user-behavior events) under a strict point-in-time
+protocol: chronological train / validation / test days, features built only from days that were
+complete before each impression, and every vocabulary, scaler and calibrator fit without test data.
+Adding completed-day click feedback (F3) raised logistic-regression test AUC by **+0.0507**, about
+eight times the gain from behavior aggregates (+0.0063) and far more than the **0.0066** AUC spread
+across four model families trained on the same features. Logistic regression ranked first at equal
+features (LR − DeepFM +0.00656 AUC, 95% user-cluster bootstrap CI [+0.00596, +0.00721], Holm
+p = 0.002). A 200-event behavior-sequence model on a frozen DeepFM added a small, interval-supported
+**+0.00127** AUC that mostly disappears when each user's history is swapped for another user's, at
+about 3.3× the per-row compute and 7.5× the memory. All results are offline, on one held-out day.
 
-## Summary
+![Feature ablation and model comparison](figures/readme/fig1_information_vs_model.png)
 
-**The strongest formal model on global ranking is still logistic regression.** LR
-F1+F2+F3 reaches test AUC **0.652489**; no model in this study beats it.
+| Question | Answer on the test day (2017-05-13) | Source |
+|---|---|---|
+| What drives accuracy? | Completed-day click feedback: LR AUC +0.0507 from F3 vs +0.0063 from F2 | [`results/lr_f1*/evaluation/`](results/lr_f1_f2_f3/evaluation/overall_metrics.csv) |
+| Does a deeper model help at equal features? | No. LR > LightGBM > Wide & Deep > DeepFM on AUC; LR − DeepFM survives user resampling | [`frozen_model_bootstrap_v1`](results/frozen_model_bootstrap_v1/bootstrap_intervals.csv) |
+| Do user behavior sequences help? | A little: +0.00127 AUC over no history; primary GAUC intervals include zero | [`f5_sequence_test_v1`](results/f5_sequence_test_v1/bootstrap_intervals.csv) |
+| Are probabilities calibrated? | Isotonic cuts DeepFM ECE by 78%, but new-user × new-ad traffic is still over-predicted by 71% | [`deepfm_f1_f2_f3/calibration/`](results/deepfm_f1_f2_f3/calibration/evaluation/overall_metrics.csv) |
+| What does the sequence gain cost? | 1/3.27 of DeepFM's throughput and 7.48× its peak memory in this implementation | [`serving_benchmark_v1`](results/serving_benchmark_v1/serving_benchmark.csv) |
 
-- **Historical feedback, not model complexity, is the main source of performance.**
-  F3 completed-day click feedback raises LR test AUC from **0.601790** (F1+F2) to
-  **0.652489** (F1+F2+F3), **+0.05070**, against **+0.00630** for the F2 behavior
-  aggregates. At the common F1+F2+F3 budget LR − DeepFM AUC is **+0.00655565**,
-  95% CI [+0.00596489, +0.00721123], Holm p = 0.001998.
-- **F5, the `behavior_log` sequence budget, improves on the frozen null.**
-  Mean matched − zero is **+0.00127246 AUC**, 95% CI
-  [+0.00104340, +0.00150052], Holm p = 0.003996.
-- **It exceeds the sparse F4 clicked-ad source on global ranking**, by
-  **+0.00094211 AUC**, 95% CI [+0.00070402, +0.00118202] — but their **GAUC
-  difference is not established** (−0.00012937, interval spans zero, p = 0.621).
-- **Matched exceeds the implemented different-user donor control.** Matched − mismatched is
-  **+0.00120269 AUC**, 95% CI [+0.00098519, +0.00142260], Holm p = 0.003996. Since
-  mismatched − zero is only +0.00007, it retains about **5.5%** of the AUC gap.
-  Under this implemented control, matched-minus-mismatched accounts for about
-  **95%** of matched-minus-zero: a descriptive ratio, not causal identity attribution.
-- **Attention beats mean pooling only slightly.** Attention − mean is
-  **+0.00023967 AUC**, 95% CI [+0.00017050, +0.00031038] — an interval that
-  excludes zero for the first time, unlike the F4 study — but the effect is about
-  one fifth of the matched-minus-mismatched effect and roughly two seed standard deviations.
-  **Mean matched remains the preregistered primary model**; the test did not and
-  cannot change that.
-- **F5 narrows the LR gap without closing it.** The global AUC gap from LR to the
-  frozen DeepFM null was 0.006556; F5 reduces it to 0.005283, closing about
-  **19.4%**. LR still leads by roughly four times the entire F5 sequence effect.
-  On GAUC the ordering reverses, F5 reaching 0.570251 against LR's 0.569939.
-- **The current F5 implementation has no deployment advantage.** Its in-memory prepare + inference
-  throughput is **1/3.27** of the DeepFM backbone it sits on (379,078 against
-  1,239,580 rows/s at batch 8192), so its per-row compute cost is about **3.27×**,
-  and its peak memory is **7.48×** (6,082 against 813 MiB). That memory is the
-  resident 723,113,323-event store, **not** the residual's 57,345 parameters.
-- **Calibration fixes the overall probability level, not group-level bias.**
-  Calibrated F4 mean matched reaches overall COPC **0.986**, while double cold
-  start sits at **0.581**, i.e. predicted clicks run about **72% above** observed.
+Full write-up: [English final report](docs/FINAL_REPORT.md) ·
+[中文报告 (PDF)](docs/FINAL_REPORT_ZH.pdf) / [中文文本](docs/FINAL_REPORT_ZH.md)
 
-Two sequence sources were tested: past clicked-ad categories (F4, test mean 4.69
-retained tokens, 30.21% empty) and `behavior_log` category-plus-type events (F5,
-test mean 185.19 tokens, 0.4351% empty). **The result is not "DIN wins."** The
-richer source produces a larger but still small global-ranking gain at higher serving
-cost. The preregistered mean-pooling primary comparison did not establish a GAUC
-gain; attention-based secondary comparisons showed nominal exploratory GAUC
-evidence without family-wise correction for that metric.
+## Results
 
-**Status:** complete. Four tabular families, the controlled F4 study, D2–D5
-diagnostics, and the user-authorized E1–E6 extension — cross-source namespace
-audit, frozen-model bootstrap, documentation scope corrections, the F5 behavior
-sequence budget with its once-only formal test, the unified serving benchmark and
-the experiment registry — are all frozen. See [AGENTS.md](AGENTS.md).
+### 1. Information versus model complexity
 
-- [最终中文 PDF](docs/FINAL_REPORT_ZH.pdf) · [中文文本](docs/FINAL_REPORT_ZH.md)
-- [Release audit、实验清单与复现入口](docs/RELEASE_AUDIT.md)
-- [Final report and evidence limits](docs/FINAL_REPORT.md)
-- [E1: cross-source namespace audit and F5 admissibility](docs/BEHAVIOR_NAMESPACE_AUDIT.md)
-- [E3: frozen tabular user-cluster bootstrap](docs/FROZEN_MODEL_BOOTSTRAP.md)
-- [E5: F5 behavior-sequence validation and freeze](docs/F5_BEHAVIOR_VALIDATION.md)
-- [E5: F5 behavior-sequence formal test results](docs/F5_BEHAVIOR_TEST_RESULTS.md)
-- [E6: unified serving benchmark](docs/SERVING_BENCHMARK.md)
-- [Experiment index](docs/EXPERIMENT_INDEX.md)
-- [Frozen DIN test/statistical/calibration report — badecf4](docs/DIN_F4_TEST_RESULTS.md)
-- [Frozen deep-dive plan](docs/DEEP_DIVE_RESEARCH_PLAN.md)
-- [D2: errors, sequence heterogeneity and cold evidence](docs/DEEP_DIVE_D2_RESULTS.md)
-- [D3: validation-only information/component reliance](docs/DEEP_DIVE_D3_RESULTS.md)
-- [D4: descriptive temporal drift and repeats](docs/DEEP_DIVE_D4_RESULTS.md)
+| Model | Features | Test AUC | Test LogLoss | Test GAUC |
+|---|---|---:|---:|---:|
+| Logistic regression | F1 | 0.595495 | 0.196781 | 0.561913 |
+| Logistic regression | F1+F2 | 0.601790 | 0.196376 | 0.561534 |
+| **Logistic regression** | **F1+F2+F3** | **0.652489** | **0.192429** | 0.569939 |
+| LightGBM | F1+F2+F3 | 0.651318 | 0.192502 | 0.569889 |
+| Wide & Deep | F1+F2+F3 | 0.646219 | 0.193161 | 0.569680 |
+| DeepFM | F1+F2+F3 | 0.645933 | 0.193176 | 0.569902 |
 
-![Information layers and frozen model comparison](figures/deep_dive_v1/01_information_and_models.png)
+*Source:* test rows of `results/<run>/evaluation/overall_metrics.csv` and `gauc_summary.csv` for runs
+`lr_f1`, `lr_f1_f2`, `lr_f1_f2_f3`, `lightgbm_f1_f2_f3`, `wide_deep_f1_f2_f3`, `deepfm_f1_f2_f3`;
+[final report, "Information gain versus architecture gain"](docs/FINAL_REPORT.md#information-gain-versus-architecture-gain).
 
-## F5 control clarification and remaining imbalance
+- The feature-group ablation was **retrained on logistic regression only**. LightGBM, Wide & Deep and
+  DeepFM were trained once, at F1+F2+F3, so the model comparison is at equal features, not a full grid.
+- Each tabular model is a single frozen seed (42). The three LR runs share optimizer settings and
+  validation early stopping but stopped at different epochs (3, 3, 2).
+- GAUC is the impression-weighted per-user AUC over the 104,884 test users with both a click and a
+  non-click (50.84% of test impressions). F2 raised global AUC but not GAUC.
 
-The control is a **deterministic different-user donor assignment with a measured
-approximately 0.08% user-level reuse deviation**, not a strict one-to-one
-permutation. Validation reuse excess is **884 / 1,131,745 (0.078109%)**; test is
-**917 / 1,134,206 (0.080850%)**. Reused donors number **869 / 911**, with maximum
-indegree **4 / 3**. Targets assigned reused donors number **1,753 / 1,828**;
-**575 / 562** appear in that day's exposures, covering **15,389 (0.475843%)** /
-**12,845 (0.388223%)** impressions. Self-match, length, future-event, ownership
-and order violations remain zero. Small reuse does not establish negligible
-metric impact; no retrained strict-derangement counterfactual exists.
+### 2. Is the logistic-regression lead real?
 
-The saved validation control has category TV **0.04982**, age **3.75 vs 4.08 days**,
-and exposure-weighted past activity **138.23 vs 87.72**. Retained length is exact
-and coarse activity/recency buckets nearly match. User-level balance does not
-imply exposure-level balance. The activity gap is residual exposure-weighted,
-within-bucket imbalance; it is not simply attributable to donor reuse.
-Under this implemented control, the approximately **95%** AUC gap ratio is
-descriptive, not causal identity attribution. Full date/indegree/partition tables:
-[F5 donor audit](docs/F5_DONOR_UNIQUENESS_AUDIT.md).
+Paired user-cluster bootstrap of the saved test predictions (1,000 replicates; whole users resampled).
+LR − DeepFM was the single preregistered primary comparison; the others are exploratory.
 
-## Main evidence
+| Comparison | Metric | Effect | 95% CI | Note |
+|---|---|---:|---|---|
+| LR − DeepFM | AUC | +0.00655565 | [+0.00596489, +0.00721123] | primary, Holm p = 0.001998 |
+| LR − DeepFM | LogLoss | −0.00074793 | [−0.00083617, −0.00067152] | primary, Holm p = 0.001998 |
+| LR − Wide & Deep | AUC | +0.00626926 | [+0.00568570, +0.00689256] | excludes 0 |
+| LR − LightGBM | AUC | +0.00117059 | [+0.00059116, +0.00173101] | excludes 0 |
+| LR − LightGBM | LogLoss | −0.00007366 | [−0.00014903, +0.00000767] | includes 0 |
+| LR − Wide & Deep | GAUC | +0.00025893 | [−0.00079951, +0.00140635] | includes 0 |
+| LR − LightGBM | GAUC | +0.00004970 | [−0.00124507, +0.00127498] | includes 0 |
 
-| Model / input | Test AUC | Test LogLoss | Test GAUC |
+*Source:* [`results/frozen_model_bootstrap_v1/bootstrap_intervals.csv`](results/frozen_model_bootstrap_v1/bootstrap_intervals.csv)
+(protocol committed before any interval was computed); [FROZEN_MODEL_BOOTSTRAP.md](docs/FROZEN_MODEL_BOOTSTRAP.md).
+
+![LR minus each model with 95% CIs](figures/readme/fig2_model_differences_ci.png)
+
+LR's global-ranking lead over the two neural models holds under user resampling. Against LightGBM it is
+a ranking difference only (the LogLoss interval includes zero). The two GAUC differences that were
+bootstrapped include zero; LR − DeepFM GAUC was not in the preregistered set. These intervals describe
+user-sampling uncertainty for fixed, single-seed models, not retraining uncertainty.
+
+### 3. User behavior sequences (F4, F5)
+
+Two sequence sources were added as small residual models on top of the **frozen** seed-42 DeepFM
+(F1+F2+F3). Mean ± standard deviation over three residual seeds (42, 2026, 3407) on that one backbone:
+
+| Condition | Test AUC | Test LogLoss | Test GAUC |
 |---|---:|---:|---:|
-| LR F1 | 0.595495 | 0.196781 | 0.561913 |
-| LR F1+F2 | 0.601790 | 0.196376 | 0.561534 |
-| LR F1+F2+F3 | 0.652489 | 0.192429 | 0.569939 |
-| LightGBM F123 | 0.651318 | 0.192502 | 0.569889 |
-| Wide & Deep F123 | 0.646219 | 0.193161 | 0.569680 |
-| DeepFM F123 / deterministic zero reference | 0.645933 | 0.193176 | 0.569902 |
-| F4 mean matched F123+F4 | 0.646263 ± 0.000044 | 0.193120 ± 0.000004 | 0.570380 ± 0.000108 |
-| **F5 mean matched F123+F5** | **0.647206 ± 0.000060** | **0.193061 ± 0.000031** | 0.570251 ± 0.000239 |
-| F5 attention matched F123+F5 | 0.647445 ± 0.000077 | 0.193043 ± 0.000029 | 0.570476 ± 0.000054 |
+| Zero history (= the frozen DeepFM) | 0.645933 ± 0 | 0.193176 ± 0 | 0.569902 ± 0 |
+| F5, mean pooling, mismatched history | 0.646003 ± 0.000128 | 0.193153 ± 0.000011 | 0.569840 ± 0.000063 |
+| F4 clicked-ad, mean matched | 0.646263 ± 0.000044 | 0.193120 ± 0.000004 | 0.570380 ± 0.000108 |
+| **F5 behavior, mean matched (primary)** | **0.647206 ± 0.000060** | **0.193061 ± 0.000031** | 0.570251 ± 0.000239 |
+| F5 behavior, attention matched | 0.647445 ± 0.000077 | 0.193043 ± 0.000029 | 0.570476 ± 0.000054 |
 
-Tabular results are one frozen seed each. Sequence mean ± sample std covers three
-residual seeds on **one shared frozen backbone**; zero is not three independent
-DeepFM fits. GAUC includes 104,884 eligible users / 50.8437% of test impressions.
-F123 versus F123+F4 is an information change, not a pure architecture comparison.
+| # | Contrast (paired user-cluster bootstrap) | Δ AUC [95% CI] | Δ GAUC [95% CI] |
+|---|---|---|---|
+| 1 | F5 mean matched − zero (primary) | **+0.00127246** [+0.00104340, +0.00150052] | +0.00034899 [−0.00016254, +0.00085982] |
+| 2 | F5 mean matched − mismatched (primary) | **+0.00120269** [+0.00098519, +0.00142260] | +0.00041059 [−0.00008260, +0.00086338] |
+| 5 | Attention − mean pooling, both matched | +0.00023967 [+0.00017050, +0.00031038] | +0.00022483 [+0.00001678, +0.00043734] |
+| 6 | F5 mean matched − F4 mean matched | +0.00094211 [+0.00070402, +0.00118202] | −0.00012937 [−0.00066206, +0.00037694] |
 
-Metric directions: AUC, PR-AUC and GAUC higher is better; LogLoss, Brier and ECE
-lower is better. **COPC = observed clicks / predicted clicks = CTR / mean prediction**;
-1 is ideal, below 1 means overprediction, above 1 underprediction. A COPC of
-0.581 means predicted clicks are about 72% above observed clicks
-(`1/0.581 − 1`), which is a different quantity from the 42% shortfall of observed
-against predicted (`1 − 0.581`). ECE uses the shared evaluator's 10 equal-count
-bins; historical calibration selection also records a separate 20
-equal-width-bin diagnostic.
+*Source:* [`results/f5_sequence_test_v1/test_seed_summary.csv`](results/f5_sequence_test_v1/test_seed_summary.csv),
+[`bootstrap_intervals.csv`](results/f5_sequence_test_v1/bootstrap_intervals.csv);
+[F5_BEHAVIOR_TEST_RESULTS.md](docs/F5_BEHAVIOR_TEST_RESULTS.md). Holm correction covers the two primary
+contrasts on AUC and LogLoss (four hypotheses, adjusted p = 0.003996 each); contrasts 3–6 are secondary.
 
-Seeds: tabular/backbone 42; sequence residuals 42, 2026, 3407; F4 deterministic
-mismatch 20260926; completed F4 user bootstrap 20260927 and frozen tabular
-bootstrap 20260926 (1,000 saved draws each).
-The hard-zero predictor is a repeated reference to the seed-42 backbone.
+![F5 sequence contrasts with 95% CIs](figures/readme/fig3_f5_sequence_controls.png)
 
-### Uncertainty on the frozen tabular ordering
+- **Small and AUC-only.** Matched behavior history beats both no history and another user's history on
+  AUC and LogLoss, and all three seeds agree. The primary GAUC intervals include zero, so a within-user
+  ranking gain is not established.
+- **Most of the gain is user-specific under this control.** The mismatched control recovers only
+  +0.00007 of the +0.00127 (about 5.5%). The control is a deterministic different-user donor, not a
+  strict permutation (details under [Limitations](#limitations)).
+- **Attention barely helps.** Attention − mean is +0.00024 AUC; its GAUC interval excludes zero, but
+  that is exploratory GAUC evidence without family-wise correction. Mean pooling stays the
+  preregistered primary model.
+- **The richer source matters.** F4 (last 20 clicked-ad categories; test mean 4.69 tokens, 30.21% of
+  impressions empty) gave mean matched − zero +0.000330 AUC [+0.000216, +0.000440]
+  ([`sequence_posthoc_v1`](results/sequence_posthoc_v1/bootstrap_intervals.csv)). F5 (last 200
+  `behavior_log` events; mean 185.19 tokens, 0.4351% empty) roughly quadruples that gain.
+- **LR still leads on global AUC.** F5 closes about 19.4% of the LR − DeepFM AUC gap (0.006556 →
+  0.005283). On GAUC the order reverses (F5 0.570251 vs LR 0.569939), with no interval for that contrast.
 
-| Comparison | Metric | Effect | 95% CI | Excludes 0 |
-|---|---|---:|---|:--:|
-| LR − DeepFM (primary) | AUC | +0.00655565 | [+0.00596489, +0.00721123] | yes |
-| LR − DeepFM (primary) | LogLoss | −0.00074793 | [−0.00083617, −0.00067152] | yes |
-| LR − LightGBM | LogLoss | −0.00007366 | [−0.00014903, +0.00000767] | **no** |
-| LR − LightGBM | GAUC | +0.00004970 | [−0.00124507, +0.00127498] | **no** |
-| LR − Wide & Deep | GAUC | +0.00025893 | [−0.00079951, +0.00140635] | **no** |
+### 4. Probability calibration (DeepFM)
 
-Intervals are conditional on the frozen fitted models and the single frozen test
-day. They estimate user-sampling uncertainty, **not** training-seed uncertainty:
-each tabular family has exactly one seed. Full table and limits in
-[FROZEN_MODEL_BOOTSTRAP.md](docs/FROZEN_MODEL_BOOTSTRAP.md).
+| DeepFM F1+F2+F3, test day | Raw | Isotonic |
+|---|---:|---:|
+| ECE (10 equal-count bins) | 0.004795 | 0.001049 (−78%) |
+| COPC = observed / predicted clicks (1 is ideal) | 0.940 | 0.986 |
+| LogLoss | 0.193176 | 0.192876 |
+| New user × new ad (28,331 rows): predicted / observed clicks − 1 | +84.2% | +71.0% |
 
-### Completed F4 sequence evidence, with its scope stated
+*Source:* `results/deepfm_f1_f2_f3/evaluation/` (raw) and
+[`results/deepfm_f1_f2_f3/calibration/evaluation/`](results/deepfm_f1_f2_f3/calibration/evaluation/cold_start_metrics.csv)
+(isotonic), files `overall_metrics.csv`, `cold_start_metrics.csv`, `reliability_bins.csv`. The
+calibration-selection diagnostic in `calibration/test_metrics.csv` uses 20 equal-width bins and gives
+ECE 0.004495 → 0.000985, the same 78% reduction.
 
-The frozen user-cluster bootstrap supports small Mean matched gains over zero and
-mismatched history. Mean matched − zero AUC is +0.000330, 95% CI
-[+0.000216, +0.000440]. Five ordered comparisons and Holm corrections remain
-unchanged. No significance claim is added for sequence versus LR/LightGBM.
+![DeepFM reliability diagram and COPC by cold-start segment](figures/readme/fig4_deepfm_calibration.png)
 
-These results describe **one specific history representation**: the ordered last
-20 categories of the user's past clicked ads, on completed Beijing dates strictly
-before the impression date. On the test day that source retains a mean of 4.69
-tokens and leaves 30.21% of impressions with no history at all. The conclusions
-are not transferred to full `behavior_log` `pv/cart/fav/buy` sequences, and they
-do not establish a general result about sequence modeling or about DIN.
+The calibrator (isotonic, chosen over Platt scaling by validation LogLoss) was fit on validation only
+and applied once to test. It fixes the overall probability level but not group-level bias: new-user and
+new-ad segments remain over-predicted, while known-user × known-ad moves to slight under-prediction
+(COPC 0.998 → 1.042). Isotonic regression creates ties, so ranking metrics can move either way; here
+AUC fell slightly (0.645933 → 0.645879).
 
-### Published Alimama results as background, not as a reproduction
+### 5. Serving cost
 
-The DSIN paper ([arXiv:1905.06482](https://arxiv.org/abs/1905.06482), IJCAI 2019)
-reports on the same public advertising dataset with the same calendar split
-(train 2017-05-06…05-12, test 2017-05-13) and the users' most recent 200
-`behavior_log` events:
+| Model | Pure model call, rows/s @8192 | In-memory prepare + inference, rows/s @8192 | Peak RSS (MiB) |
+|---|---:|---:|---:|
+| Logistic regression F1+F2+F3 | 18,083,051 | 1,275,056 | 705.7 |
+| DeepFM F1+F2+F3 | 1,530,445 | 1,239,580 | 813.5 |
+| F5 mean matched (DeepFM + residual) | 658,608 | 379,078 | 6,082.5 |
+| **F5 relative to DeepFM** | **1/2.32** | **1/3.27** | **7.48×** |
 
-| Model | Reported AUC |
-|---|---:|
-| YoutubeNet without user behavior | 0.6239 |
-| YoutubeNet (average pooling) | 0.6313 |
-| Wide & Deep | 0.6326 |
-| DIN | 0.6330 |
-| DIEN | 0.6343 |
-| DSIN | 0.6375 |
+*Source:* [`results/serving_benchmark_v1/serving_benchmark.csv`](results/serving_benchmark_v1/serving_benchmark.csv);
+[SERVING_BENCHMARK.md](docs/SERVING_BENCHMARK.md). CPU only, 8 threads, one subprocess per model, a fixed
+validation slice as input (labels unused).
 
-In that table, introducing a user behavior sequence corresponds to about
-**+0.0074** AUC (0.6313 − 0.6239) and DIN over the average-pooling model to about
-**+0.0017** (0.6330 − 0.6313). This project observes **+0.00033** and
-**−0.0000086** for the analogous contrasts on a mean-4.69-token clicked-ad
-category sequence.
+![Throughput and memory, DeepFM vs F5](figures/readme/fig5_serving_cost.png)
 
-Because the sequence source, split, feature budget, backbone and training
-procedure all differ, **this is background context and not a direct
-reproduction**. The published values are single reported point estimates and are
-not described here as significant. The order-of-magnitude gap — roughly 22× on
-the sequence-presence contrast — is consistent with the sequence source and its
-information density limiting the observed F4 effect, which is the hypothesis F5
-tests rather than a conclusion already established.
+"In-memory prepare + inference" times encoding, scaling, sequence gathering and the model call on a
+batch already in memory; Parquet reading, decompression and deserialization happen before the timer
+(the CSV columns `end_to_end_*` hold this regime). Cold-cache online latency with real disk I/O was not
+measured. F5's memory comes from keeping the 723,113,323-event behavior store resident, not from its
+57,345 residual parameters; streaming reads, memory mapping or a feature service would change it
+without touching the model. LR's pure throughput is 14× its prepare + inference throughput because
+building its 2,497,016-dimension sparse row dominates.
 
-## Deep-dive findings
+## Method
 
-- The old "60% of clicks missed" source used **top-10% exposure-budget thresholds**, not p>=0.5.
-  Its exact number cannot be reproduced without old arrays. In the rebuilt
-  cohort, five-model common misses are 71.38% at a **top-10% exposure budget per model**; p>=0.5 yields 99.97%.
-- Length-20 matched clicked-ad history improves AUC over mismatched but worsens
-  LogLoss: added loss on nonclicks slightly exceeds improvement on clicks.
-- About 98.89% of the Mean matched versus zero GAUC increment comes from known
-  users. Sparse-history benefits are not uniform; length 1 contributes negatively.
-- Saved isotonic calibration improves overall LogLoss/ECE but leaves double-cold
-  COPC around 0.581, about 72% predicted-over-observed. Most excess comes from
-  partially observed histories, not wholly absent evidence.
-- Isotonic calibration is a monotone non-decreasing step function. It introduces
-  **ties** rather than new inversions, so ranking metrics **can move in either
-  direction**: collapsing correctly ordered pairs into ties lowers AUC while
-  collapsing incorrectly ordered pairs raises it. In the saved results AUC,
-  PR-AUC and GAUC decreased. `ece_bins=20` is a reliability-binning parameter for
-  ECE, not a hyperparameter of `IsotonicRegression`, whose steps are determined
-  by PAVA.
-- Frozen validation diagnostics show greater reliance on F3 than F2. Removing
-  DeepFM's FM term barely changes AUC but changes probability level; this is a
-  **sensitivity diagnostic** (frozen component deletion), not a retrained ablation.
-- New-ID shares, history availability and repeats change across dates. Repeat
-  count is associated with lower CTR. Both are **descriptive associations**, without identifying a fatigue effect.
+### Data and splits
 
-## Fixed data and information protocol
+Public "Ad Display/Click Data on Taobao.com" dataset from Alimama
+([Tianchi dataset 56](https://tianchi.aliyun.com/dataset/56)): `raw_sample` (impressions with click
+labels), `ad_feature`, `user_profile` and `behavior_log` (723,268,134 rows of pv / cart / fav / buy
+events). All impressions are used, with no negative downsampling. Dates are Beijing time.
 
-| Split | Beijing dates | Impressions |
-|---|---|---:|
-| Train | 2017-05-06–11 | 20,015,245 |
-| Validation | 2017-05-12 | 3,234,051 |
-| Test | 2017-05-13 | 3,308,665 |
+| Split | Dates | Impressions | CTR |
+|---|---|---:|---:|
+| Train | 2017-05-06 – 05-11 | 20,015,245 | 5.20% |
+| Validation | 2017-05-12 | 3,234,051 | 4.93% |
+| Test | 2017-05-13 | 3,308,665 | 5.03% |
 
-Raw IDs are joined before train-only encoding/scaling; no negative downsampling.
-F1 contains static/context fields, excluding weekday in formal models. F2 contains
-completed-day 1/3/7/14-day behavior summaries. F3 contains completed-day smoothed
-user/ad/category/campaign/customer/brand feedback. F4 is the ordered last 20
-categories from positive exposures on Beijing dates **strictly before D**.
-Exposure timestamps proxy positive-feedback record time; feedback is assumed
-available next day. There is no independent click timestamp. Validation excludes
-May 12 feedback; test may use completed May 12 feedback. PAD/UNKNOWN and empty
-sequence representations are neutral zeros.
+*Source:* [`results/feature_profile/split_summary.csv`](results/feature_profile/split_summary.csv).
 
-The first training date, 2017-05-06, has no completed prior date inside the
-impression window, so all F3 entity histories on that date fall back to the fixed
-prior with `has_past_feedback = 0`. Those **3,270,348 impressions (16.3% of
-training) were retained, not dropped**.
+### Leakage controls
 
-The behavior log's usable window is **2017-04-22 through 2017-05-13**: 22 dates
-carrying 99.9786% of all events. Earlier timestamps are sporadic or corrupt
-(127,136 events spread over 653 dates, from 1902 onward), so the effective
-pre-impression history is 14 completed days before 2017-05-06, not a longer
-window. Full-population evidence is in
-[BEHAVIOR_NAMESPACE_AUDIT.md](docs/BEHAVIOR_NAMESPACE_AUDIT.md).
+- **Train-only fitting.** Raw IDs are joined across tables before encoding; category vocabularies and
+  numeric scalers are fit on the training split; unseen IDs map to a reserved UNKNOWN index.
+- **Completed days only.** Every historical feature (F2–F5) uses Beijing dates strictly before the
+  impression date. Validation never sees May 12 feedback; test may use the completed May 12.
+- **Click time.** The data has no separate click timestamp, so the exposure time stands in for the
+  click record time, and feedback is assumed available the next day.
+- **First training day kept.** On 2017-05-06 no completed prior day exists, so F3 falls back to a fixed
+  prior with `has_past_feedback = 0`; those 3,270,348 impressions (16.3% of training) were kept.
+- **Usable behavior window.** `behavior_log` is used from 2017-04-22 to 2017-05-13 (99.9786% of
+  events); 127,136 earlier events have sporadic or corrupt timestamps and are excluded.
+- **Validation-only selection.** Hyperparameters, epochs, sequence settings and calibrators were chosen
+  on validation. Each frozen sequence checkpoint was run on test exactly once, behind a once-only marker,
+  under comparison plans committed before inference.
 
-Test had been inspected in earlier baseline development; it is a frozen final
-reporting set, not a never-seen holdout. New deep-dive buckets were fixed before
-their new grouped results, after aggregate test findings were known.
+### Feature groups
 
-Probability calibration was selected on a deterministic **impression-level** 80/20
-split of validation, not the historically proposed user-grouped OOF design. The
-calibrator receives only predicted probability and label — never `user_raw` — so
-this is **not** a case of the calibrator memorising a user's labels. The actual
-risk is sample dependence: a user's impressions are not independent, so splitting
-by impression makes the fit and selection sets correlated and can make the
-uncertainty of *method selection* look optimistic. A user-grouped split would be
-the right design for judging calibration transfer to entirely new users.
-
-### How to read the uncertainty in this report
-
-Three distinct quantities appear and are never merged.
-
-1. **Bootstrap intervals are conditional on the frozen models and their saved
-   predictions.** They resample test users, so they answer "would this difference
-   survive a different sample of users on this day?" They are **not** training
-   randomness and do not answer "would it survive retraining?".
-2. **Seed standard deviations describe training randomness of the residual only.**
-   F4 and F5 sequence conditions use three residual seeds (42, 2026, 3407) on **one
-   shared frozen DeepFM backbone**. The four tabular families have **one seed each**,
-   so their ordering carries no training-randomness estimate at all.
-3. **The zero control's standard deviation of zero is structural.** It is one
-   deterministic predictor on the shared backbone, evaluated three times — not three
-   independently fitted models — so its three references are identical by
-   construction.
-
-Because every sequence condition shares one backbone, no contrast among them is a
-full-model comparison.
-
-## Where the F5 gain lands
-
-Effects are F5 mean matched minus the zero null, on raw probabilities,
-seed-averaged. These are **descriptive subgroup differences with no intervals and
-no multiplicity control**; small cells carry a direction, not evidence.
-
-- **The gain is largest exactly where the sparse source was empty.** On the
-  **985,688** test impressions with no clicked-ad history — about **29.8%** of the
-  test day — F5 − zero is **+0.001607**, against +0.001163 where both sources have
-  history. Both empty-history cells are exactly zero, as the architecture requires.
-- **New users with known ads gain most**, **+0.002785** on 358,678 rows, where
-  behavior history partly substitutes for an unseen user ID.
-- **Double cold start is negative**, **−0.001741**, but on only **28,331** rows with
-  no interval. The direction is reported and deliberately not interpreted.
-- **The saved bucket-relaxation sensitivity is small.** It touches
-  **1,457** rows (0.0440%); excluding them moves matched − mismatched by at most
-  **9.0e-7** on AUC and 5.0e-6 on GAUC, with every sign preserved.
-- **Higher UNKNOWN groups did not exhibit smaller observed AUC gains**:
-  +0.001113 at zero UNKNOWN and **+0.001526** above 0.20. This does not identify
-  the effect of removing masking. UNKNOWN is **4.3029%** of the full in-window
-  event store, versus **3.941954%** of test matched retained tokens.
-
-## Engineering: report both regimes
-
-Two measurement regimes are reported for every model, because the gap between them
-changes the deployment conclusion.
-
-| Regime | What is timed |
+| Group | Contents |
 |---|---|
-| **pure** | inputs already prepared in memory; only the model call |
-| **in-memory prepare + inference** | materialized source batch; encoding, scaling, sequence gather, model call |
+| F1 | Static and context fields: user, ad group, campaign, advertiser, brand and category IDs; placement; hour; user profile; price (weekday excluded) |
+| F2 | User behavior aggregates: pv / cart / fav / buy counts over the last 1, 3, 7 and 14 completed days, plus recency |
+| F3 | Completed-day click feedback: smoothed past CTR and past exposure counts for user, ad, category, campaign, advertiser and brand |
+| F4 | Sequence: categories of the user's last 20 clicked ads |
+| F5 | Sequence: the user's last 200 `behavior_log` events (category + behavior type) |
 
-Logistic regression reaches **18,083,051 rows/s** pure at batch 8192 but only
-**1,275,056** with in-memory prepare + inference — a **14.2×** gap caused almost entirely by building its
-**2,497,016**-dimension sparse row. Any deployment conclusion drawn from the pure
-number alone would be wrong: the feature-construction step, not the model, is what
-would need optimising first.
+F5 categories outside the training ad-category vocabulary map to UNKNOWN (4.3029% of in-window events;
+3.941954% of retained test tokens).
 
-F5 adds only **57,345** parameters, but its pure @8192 throughput is **658,608**
-rows/s against DeepFM's **1,530,445**, about **1/2.32**. With in-memory prepare +
-inference it is **1/3.27**, with **7.48×** peak RSS. The 723-million-event resident
-store drives memory; both the 200-token forward pass and sequence preparation
-contribute compute. Parameter count is not a measure of sequence computation.
-The historical CSV fields `end_to_end_*` denote this in-memory regime: Parquet
-opening, disk reads, decompression and deserialization occur before timing.
-Cold-cache online latency including real disk/Parquet I/O has not been measured.
+### Models
 
-## Limitations and future work
+- **Logistic regression:** out-of-core SGD (`scikit-learn` `SGDClassifier.partial_fit`) on a
+  2,497,016-dimension sparse one-hot plus dense design; epoch selected by validation LogLoss.
+- **LightGBM:** native categorical splits, early stopping on validation (251 trees).
+- **Wide & Deep, DeepFM:** PyTorch, embedding size 8, 22.5M parameters, trained on Apple MPS.
+- **Sequence residuals (F4, F5):** a small additive residual (mean pooling or target attention over
+  the history embeddings) on the frozen DeepFM; the F5 residual has 57,345 parameters. Controls: zero
+  history (bit-identical to the backbone) and mismatched history from a different user with the same
+  retained length and similar coarse activity and recency.
 
-Carried forward deliberately, not resolved:
+### Evaluation
 
-- **Comparison 6 has no subgroup decomposition.** Group metrics were computed for
-  the five F5 conditions; the F4 reference has overall metrics only, so the
-  F5-versus-F4 contrast is not broken down by cold-start quadrant, history length or
-  any other partition.
-- **LightGBM node count is not reported.** `num_trees` is 251 and the model file is
-  363 MiB, but a full `dump_model` of that booster costs more memory than the number
-  is worth.
-- **The tabular families have one seed each.** Their intervals hold the fitted
-  parameters fixed, so nothing here separates their ordering from training
-  randomness. F4 and F5 sequence conditions use three seeds.
-- **F5 is a sequence residual on a frozen DeepFM backbone, not a jointly trained
-  DIN or DSIN reproduction.** No contrast in this study separates the residual's
-  contribution from the backbone's, and the published Alimama analogue for
-  introducing a behavior sequence is about +0.0074 AUC against F5's +0.00127.
-- **The completed-day cutoff is deliberately conservative.** Behavior events carry
-  usable timestamps, so a per-event cutoff is possible; it is not used, to keep F5
-  comparable with F2/F3/F4 and to avoid a new feedback-availability assumption.
-- **F5's serving memory is an artifact of this implementation.** Holding the
-  723,113,323-event store resident costs 6,082 MiB. Streaming reads, memory mapping,
-  a tiered cache or an offline feature service would each reduce it without touching
-  the model, so 6,082 MiB is not a lower bound for the budget.
-- **Source, length and training regime are not separately identified.** F5 changes
-  the sequence source, the retained length and the token schema at once. Its results
-  support the sequence source and its information density being an important
-  explanation for F4's smaller effect; they do **not** isolate the causal
-  contribution of source, length, token fields or joint training individually.
+- One shared evaluator for every model: AUC, LogLoss, PR-AUC, GAUC, COPC and ECE.
+- **Uncertainty:** paired user-cluster bootstrap over saved test predictions (1,000 replicates; all
+  391,741 test users as clusters; percentile 95% intervals; centered two-sided p-values with
+  resolution 1/1001).
+- **Multiplicity:** hypotheses and Holm scopes were committed before intervals were computed. Holm
+  covers LR − DeepFM on AUC and LogLoss, and the two F5 primary contrasts on AUC and LogLoss. Every
+  other contrast is reported uncorrected and labelled exploratory.
+- **Seeds:** tabular models have one seed each. Sequence residuals use three seeds on one shared
+  backbone, so seed spread and bootstrap intervals are separate quantities and are never merged.
 
-## Formal test inference count
+### Deeper diagnostics
 
-**Formal test output inventory: 38 saved predictions**, reconciled against
-manifests, once-only markers and the frozen registry. The F4/F5 markers enforce
-one pass per checkpoint; file counts alone cannot prove that every historical
-legacy run was never overwritten:
+These come from saved predictions and validation-only checks (no retraining). See
+[D2](docs/DEEP_DIVE_D2_RESULTS.md), [D3](docs/DEEP_DIVE_D3_RESULTS.md) and [D4](docs/DEEP_DIVE_D4_RESULTS.md).
 
-| Source | Saved formal outputs |
-|---|---:|
-| F4 clicked-ad sequence conditions | 15 |
-| F5 behavior sequence conditions | 15 |
-| LR information layers (F1, F1+F2, F1+F2+F3) | 3 |
-| Tabular benchmark families (LightGBM, Wide & Deep, DeepFM at F123) | 3 |
-| Superseded-name early LR runs (`logistic_regression`, `logistic_regression_no_weekday`) | 2 |
-| **Total** | **38** |
+- About 98.89% of the F4 mean-matched GAUC gain over zero history comes from known users.
+- Neutralizing F3 in the frozen models hurts validation AUC more than neutralizing F2 (LR 0.655 →
+  0.585 without F3, 0.644 without F2). This is a sensitivity check, not a retrained ablation.
+- New-ID shares and history coverage shift between validation and test, and CTR falls with prior-day
+  repeat exposure. Both are descriptive associations, not causal estimates.
 
-Earlier text quoted "38 (F4 15 + F5 15)", which does not add up. The remaining 8 are
-the tabular families and the two superseded-name LR runs, each holding exactly one
-test prediction file.
+## Limitations
 
-The local disk has **59** files named `test_predictions.parquet`: **38** formal
-run-root outputs, **17** derived/calibrated/post-processed outputs, and **4**
-smoke outputs. The latter 21 do not represent additional formal test inferences.
-The [experiment index](docs/EXPERIMENT_INDEX.md) and
-[release audit](docs/RELEASE_AUDIT.md) document the manifest/registry/filesystem
-reconciliation. Historical JSON and logs retain some machine-local home paths
-to preserve their hashes; use the repository-relative commands below for
-reproduction. The [sanitized path baseline](results/public_artifact_privacy_audit_v1/baseline.json)
-and [public-artifact auditor](src/59_audit_public_artifacts.py) reject new
-personal home paths and likely credentials in tracked files.
+- **Offline only.** There is no online A/B test. Results come from one held-out test day (2017-05-13),
+  and the test day was inspected during early baseline development before the protocol was frozen. It
+  is a frozen reporting set, not a never-seen holdout.
+- **Single seeds for tabular models.** LR vs LightGBM / Wide & Deep / DeepFM carries user-sampling
+  uncertainty but no retraining uncertainty.
+- **Ablation on LR only.** Feature groups were not ablated for the other model families.
+- **Sequence models are residuals on a frozen backbone,** not jointly trained DIN/DSIN models. F5
+  changes the source, the length and the token schema at once, so their separate effects are not
+  identified. The completed-day cutoff is deliberately conservative.
+- **Calibration** was selected on an impression-level 80/20 validation split, not a user-grouped split,
+  so its transfer to entirely new users is not measured.
+- **Serving numbers** describe this implementation on one machine, without disk I/O in the timed path.
 
-## Repository and reproducibility
+<details>
+<summary>F5 mismatched control: donor reuse and residual imbalance</summary>
 
-| Location | Contents |
-|---|---|
-| `src/01`–`src/12` | audited base, feature, encoding and shared evaluation pipeline |
-| `src/13`–`src/18` | completed tabular selection/training/calibration code |
-| `src/19`–`src/27` | F4 audit, frozen residual study and once-only test |
-| `src/28`–`src/32` | completed frozen bootstrap/calibration/reporting |
-| `src/33`–`src/35` | D2 saved-score, D3 validation reliance, D4 descriptive diagnostics |
-| `src/36_plot_deep_dive.py` | eight PNG/PDF figures from small saved summaries |
-| `src/37_verify_frozen_delivery.py` | read-only delivery/hash verification |
-| `src/40`–`src/41` | E1 lossless behavior-log conversion and namespace audit |
-| `src/42`–`src/43` | E3 frozen tabular bootstrap preparation and execution |
-| `src/44`–`src/45` | E4 F5 behavior-sequence build and independent audit |
-| `src/46`–`src/48` | E5 F5 context cache, residual training and validation freeze |
-| `src/49`–`src/50` | E6 serving benchmark and experiment registry |
-| `src/project_environment.py` | refuses any formal stage outside the tested interpreter |
-| `results/` | versioned metrics, manifests and audits |
-| `figures/deep_dive_v1/` | standalone PNG and vector PDF figures |
-| `data/`, large model/prediction artifacts | local, Git-ignored; not backed up by Git |
+The mismatched control is a deterministic different-user donor assignment with a measured, roughly
+0.08% user-level reuse deviation, not a strict one-to-one permutation. Donor reuse excess is
+0.078109% of users on validation and 0.080850% on test. Impressions whose user received a reused donor
+are 0.475843% (validation) and 0.388223% (test). Self-match, length, future-event and ordering
+violations are zero. On validation, category total variation between matched and donor histories is
+0.04982, and exposure-weighted past activity is 138.23 (matched) vs 87.72 (donor), so balance is
+approximate. The "about 95% of the gain is user-specific" ratio is therefore descriptive, not a causal
+attribution. Full tables: [F5_DONOR_UNIQUENESS_AUDIT.md](docs/F5_DONOR_UNIQUENESS_AUDIT.md).
 
-Run commands from the repository root. **Completed analysis entry points refuse
-overwriting. Do not rerun old training, bootstrap, calibration or test scripts as
-setup instructions.** The once-only formal inference marker remains intact.
+</details>
 
-Read-only checks, with local ignored artifacts available:
+## Repository structure
 
-```bash
-python src/37_verify_frozen_delivery.py
-python src/38_release_audit.py
-python src/58_audit_e1_e6_release.py
-python src/59_audit_public_artifacts.py
-python -m unittest discover -s tests -v
-git diff --check
+```text
+src/                     pipeline scripts, numbered in execution order, plus shared modules
+  01-12                  raw-data validation, base tables, F2/F3 features, encoding, shared evaluator
+  13-18                  LR / LightGBM / Wide & Deep / DeepFM tuning, training, calibration
+  19-32                  F4 sequences: build, audit, residual training, one-time test, bootstrap
+  33-39                  saved-prediction diagnostics, report figures, delivery and release audits
+  40-48                  behavior-log audit, frozen-model bootstrap, F5 sequences and training
+  49-59                  serving benchmark, experiment registry, F5 test and analysis, audits
+  make_readme_figures.py figures on this page (reads committed result CSVs only)
+tests/                   unit tests on small synthetic fixtures
+results/                 versioned metrics, manifests, bootstrap intervals and audits (CSV / JSON)
+figures/readme/          figures on this page
+figures/deep_dive_v1/    report figures (PNG + PDF)
+docs/                    final reports and per-stage evidence documents
+docs/process/            archived working notes (agent instructions, planning)
+artifacts/encoders/      encoding manifest; models, predictions and data are local and Git-ignored
 ```
 
-All tests use small synthetic fixtures, not the formal train/validation/test data.
-The release audit reads saved summaries and hashes only. Local data layout and
-publication-only PDF commands are documented in [RELEASE_AUDIT.md](docs/RELEASE_AUDIT.md).
+Stage documents: [experiment index](docs/EXPERIMENT_INDEX.md) (registry snapshot at the E6 release),
+[behavior-log audit](docs/BEHAVIOR_NAMESPACE_AUDIT.md), [F4 test](docs/DIN_F4_TEST_RESULTS.md),
+[F5 validation](docs/F5_BEHAVIOR_VALIDATION.md), [F5 test](docs/F5_BEHAVIOR_TEST_RESULTS.md),
+[frozen-model bootstrap](docs/FROZEN_MODEL_BOOTSTRAP.md), [serving](docs/SERVING_BENCHMARK.md),
+[release audit (中文)](docs/RELEASE_AUDIT.md). Working notes are in [docs/process](docs/process).
 
-Core dependencies are in `requirements.txt`; exact analyzed versions are in
-`requirements-tested.txt` and manifests. Figures used a separate existing
-environment with `requirements-plot.txt`, without changing the model environment.
-Historical LR checkpoints were serialized with sklearn 1.8.0; the diagnostic
-loader records its compatibility alias and validates saved-score parity.
-Dependency pins alone do not guarantee cross-version checkpoint portability.
+## Reproducing
 
-The [charter](docs/CTR_CODEX_PROJECT_HANDOFF.md) and historical
-[proposal](docs/EXPERIMENTAL_PROTOCOL.md) preserve original intent and deviations.
-Current instructions in [AGENTS.md](AGENTS.md) take precedence over stale gates.
-Frozen evidence documents keep their original wording; scope corrections are made
-in this README and the final reports, not by editing frozen records.
-Old-project source is preserved on `archive/v1-original`; its numerical claims
-are audited separately and are not mixed into rebuilt-pipeline results.
+**From a clone (no data needed).** These read only the committed result files:
 
-Uncompleted historical proposals remain explicit: LightGBM F1/F12 retraining,
-independently retrained DNN/FM components, three independently fitted tabular
-backbones, an external-protocol retraining anchor and comparable standalone
-throughput benchmarks. The current deep dive does not claim to fill those gaps.
+```bash
+pip install -r requirements.txt             # tests and audits (exact versions: requirements-tested.txt)
+pip install -r requirements-plot.txt        # figures
+python src/make_readme_figures.py           # regenerates figures/readme/*.png
+python -m unittest discover -s tests        # synthetic-fixture unit tests
+python src/38_release_audit.py              # arithmetic and document checks on saved summaries
+python src/58_audit_e1_e6_release.py
+python src/59_audit_public_artifacts.py     # no personal paths or credentials in tracked files
+```
+
+**Full pipeline.** Download the four CSVs from the dataset page into `data/raw/`, install the exact
+versions in `requirements-tested.txt` (Python 3.11), and run `src/01_…` onward in numeric order from the
+repository root. The pipeline was built for one audited run rather than push-button reruns: completed
+stages refuse to overwrite their results, the one-time test stages refuse to run a second time, and the
+later formal stages (`src/40`–`src/56`) refuse to run if installed versions differ from
+`requirements-tested.txt`. Large data, models and predictions are Git-ignored; `src/37_verify_frozen_delivery.py`
+checks their hashes when they are present locally. Details: [RELEASE_AUDIT.md](docs/RELEASE_AUDIT.md).

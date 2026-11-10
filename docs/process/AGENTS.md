@@ -1,6 +1,11 @@
+> **Archived working note.** Internal agent instructions / planning from the
+> September 2026 rebuild, kept for transparency. It may describe states that are
+> no longer current; see the [README](../../README.md) and
+> [final report](../FINAL_REPORT.md) for the results.
+
 # CTR project execution
 
-Read `docs/CTR_CODEX_PROJECT_HANDOFF.md` completely before starting a new project
+Read `docs/process/CTR_CODEX_PROJECT_HANDOFF.md` completely before starting a new project
 phase. It is the long-term execution charter. Current user instructions take
 precedence; repository code, manifests, Git history, and saved results take
 precedence over factual claims in documents. Record conflicts explicitly.

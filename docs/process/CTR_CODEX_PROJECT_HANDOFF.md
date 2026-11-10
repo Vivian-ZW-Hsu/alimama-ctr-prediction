@@ -1,3 +1,8 @@
+> **Archived working note.** Internal agent instructions / planning from the
+> September 2026 rebuild, kept for transparency. It may describe states that are
+> no longer current; see the [README](../../README.md) and
+> [final report](../FINAL_REPORT.md) for the results.
+
 # CTR 项目 Codex 总交接与执行章程
 
 更新时间：2026-09-26

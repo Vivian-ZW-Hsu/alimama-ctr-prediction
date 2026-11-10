@@ -33,7 +33,7 @@ before further work. The first formal sequence test remains explicitly gated.
 
 ## 1. Charter, scope, and evidence
 
-The long-term charter is [CTR_CODEX_PROJECT_HANDOFF.md](CTR_CODEX_PROJECT_HANDOFF.md).
+The long-term charter is [CTR_CODEX_PROJECT_HANDOFF.md](process/CTR_CODEX_PROJECT_HANDOFF.md).
 Current user instructions and repository facts take precedence. `AGENTS.md`
 points future work to the charter and this gate.
 
@@ -58,7 +58,7 @@ Evidence:
 Reproduce the final source audit from the repository root with the existing environment:
 
 ```bash
-/opt/anaconda3/envs/ctr_project/bin/python -B docs/audits/audit_din_f4_sources.py
+python -B docs/audits/audit_din_f4_sources.py   # tested environment: requirements-tested.txt
 ```
 
 The absolute interpreter path is specific to this machine; it is not a project

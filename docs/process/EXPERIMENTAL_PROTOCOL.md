@@ -1,3 +1,8 @@
+> **Archived working note.** Internal agent instructions / planning from the
+> September 2026 rebuild, kept for transparency. It may describe states that are
+> no longer current; see the [README](../../README.md) and
+> [final report](../FINAL_REPORT.md) for the results.
+
 # Point-in-Time CTR Prediction: Project and Experimental Proposal
 
 **Project status:** data preprocessing completed; behavior identity audit passed; the first Logistic Regression baseline exists but its validation-day calibration anomaly must still be resolved.
