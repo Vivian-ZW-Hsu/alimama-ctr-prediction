@@ -1,0 +1,29 @@
+{
+  "script": "src/make_readme_figures.py",
+  "scope": "reads committed result CSVs only; no data, predictions, models, fitting or resampling",
+  "matplotlib": "3.10.0",
+  "dpi": 200,
+  "inputs_sha256": {
+    "results/deepfm_f1_f2_f3/calibration/evaluation/cold_start_metrics.csv": "f51b4e0d1fc9a989a9f5145e81c3ca39a052f1baf08609079434da05acb5bdb7",
+    "results/deepfm_f1_f2_f3/calibration/evaluation/overall_metrics.csv": "f88b0c102e9b73fc3d0f17de9606432db2700c5581360f7e84f9e8006ef7a250",
+    "results/deepfm_f1_f2_f3/calibration/evaluation/reliability_bins.csv": "8d48bcfa53e44be6608d5eda157c8df1f4917bfb048a6a0bcce296f7e302bb10",
+    "results/deepfm_f1_f2_f3/evaluation/cold_start_metrics.csv": "4888bfe378bbfb62776f63496df8ded1036e0e06371e6ae4a49817472b6b87a1",
+    "results/deepfm_f1_f2_f3/evaluation/overall_metrics.csv": "e9990470f3c2ab97b9f50d3fa4578eeef377693d5c747caebc3c8b4b312aaab5",
+    "results/deepfm_f1_f2_f3/evaluation/reliability_bins.csv": "89d7af8725e2f96f810bd9065deb7c0054231f995ff19b675fbc591ec4658e4c",
+    "results/f5_sequence_test_v1/bootstrap_intervals.csv": "89cc7a297934ba1290bb53d14c366d9f49cfd1a64009eb997a0f12d94be582cb",
+    "results/frozen_model_bootstrap_v1/bootstrap_intervals.csv": "21513ffd374034eb8f5492b3623e5a9437bf91a25708524f6bade479fb4965b4",
+    "results/lightgbm_f1_f2_f3/evaluation/overall_metrics.csv": "134c8642e922ae4f090c8f68173ee83ed00bd6e244135f46b92188613a65fe72",
+    "results/lr_f1/evaluation/overall_metrics.csv": "75bf71a09674e20a9dcef38d4bc312017a6a104cf69e629b91bcd5d8f1a06e81",
+    "results/lr_f1_f2/evaluation/overall_metrics.csv": "396f8dbf86a04f003bfe9eb50d1cf823e66570383275f3f4e5ab8bf3a7a8aa90",
+    "results/lr_f1_f2_f3/evaluation/overall_metrics.csv": "edf1730653afdeaa38c4844d9938861d455a0a7a497833a4f70dd5f50bacae8e",
+    "results/serving_benchmark_v1/serving_benchmark.csv": "84fd5cf5152239fb10f1d2a695d777a89a93e1da10a79610c7696f05bfe26639",
+    "results/wide_deep_f1_f2_f3/evaluation/overall_metrics.csv": "3e8620b4d922299028d0411f7626266bacdc294f759b4a06ecad1245c601904b"
+  },
+  "figures_sha256": {
+    "figures/readme/fig1_information_vs_model.png": "99bd2fc8d9f4c79462c2d1f57e8189e595804ba80767c2af9b73574f73a26a74",
+    "figures/readme/fig2_model_differences_ci.png": "b43801a9bf6ec267f099238b6c3f795f520e719eb08f8ee329e4aefa4e813b3b",
+    "figures/readme/fig3_f5_sequence_controls.png": "0602f7d8a5587d14e35c68750d5fc00e7bed73b087d3b93eea1c1cc78edb1af0",
+    "figures/readme/fig4_deepfm_calibration.png": "f3f7f12184602f12f6d4a2f56c2fe07305ac42eed94e55de0466a5b55a1e2584",
+    "figures/readme/fig5_serving_cost.png": "5510f2eff415556bb803bcb129a473e3f526dd5b7784f51b4c923dcc4c1cd2b6"
+  }
+}
