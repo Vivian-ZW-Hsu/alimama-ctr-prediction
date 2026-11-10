@@ -15,7 +15,7 @@ committed in `c06db65` and `b223020` **before** this pass.
 |---|---|---|---|
 | attention matched | 0.647445 ± 7.7e-5 | 0.193043 ± 2.9e-5 | 0.570476 ± 5.4e-5 |
 | **mean matched** (primary) | 0.647206 ± 6.0e-5 | 0.193061 ± 3.1e-5 | 0.570251 ± 2.4e-4 |
-| F4 clicked-ad mean matched | 0.646263 ± 4.4e-5 | 0.193120 ± 4.0e-6 | 0.570380 ± 1.1e-4 |
+| F4 clicked-ad mean matched | 0.646263 ± 4.4e-5 | 0.193120 ± 3.8e-6 | 0.570380 ± 1.1e-4 |
 | attention mismatched | 0.646080 ± 1.1e-5 | 0.193151 ± 1.3e-5 | 0.569825 ± 5.8e-5 |
 | mean mismatched | 0.646003 ± 1.3e-4 | 0.193153 ± 1.1e-5 | 0.569840 ± 6.3e-5 |
 | zero pipeline null | 0.645933 ± 0 | 0.193176 ± 0 | 0.569902 ± 0 |
@@ -97,15 +97,15 @@ any result; nothing here reselects it.
 
 **5. Does donor bucket relaxation affect the matched-minus-mismatched conclusion?**
 The saved sensitivity is small for this exclusion only. Excluding all 1,457 relaxed rows (0.0440%) changes the effect by at
-most **9.0e-7** on AUC and **5.0e-6** on GAUC, with every sign preserved:
+most **9.0e-7** on AUC and **5.3e-6** on GAUC, with every sign preserved:
 
 | Pooling | Metric | Main | Relaxation excluded | Change |
 |---|---|---:|---:|---:|
 | mean | AUC | +0.001203 | +0.001203 | +3.8e-7 |
 | mean | LogLoss | −0.000092 | −0.000092 | +5.0e-8 |
-| mean | GAUC | +0.000411 | +0.000415 | +4.0e-6 |
+| mean | GAUC | +0.000411 | +0.000415 | +4.5e-6 |
 | attention | AUC | +0.001365 | +0.001366 | +9.0e-7 |
-| attention | GAUC | +0.000650 | +0.000656 | +5.0e-6 |
+| attention | GAUC | +0.000650 | +0.000656 | +5.3e-6 |
 
 Level 3 relaxation, a donor merely at least as long as the target, has **zero rows**
 on every date, so exact retained length held everywhere.
@@ -115,7 +115,8 @@ LR F123 reaches 0.652489. The gap to the frozen DeepFM null was 0.006556; F5
 reduces it to **0.005283**, closing about **19.4%**. LR still leads by roughly four
 times the entire F5 sequence effect. On **GAUC the ordering reverses**: F5 mean
 matched reaches 0.570251 against LR's 0.569939. That is consistent with stage E3,
-where every GAUC difference among the tabular families also included zero — global
+where both bootstrapped tabular GAUC differences (LR − LightGBM, LR − Wide & Deep)
+also included zero — global
 AUC and within-user ranking are not measuring the same thing here.
 
 **7. Is the F5 gain worth its serving cost?** On this implementation, no. Against
@@ -169,8 +170,8 @@ where F4 had nothing:
 | F4 empty + F5 empty | 13,971 | +0.000000 |
 | F4 nonempty + F5 empty | 426 | +0.000000 |
 
-The 985,688 impressions where the clicked-ad source is empty are 29.8% of the test
-day, and F5 helps more there than where both sources have history. Both
+The 985,688 impressions where the clicked-ad source is empty but the behavior source
+is not are 29.8% of the test day (all clicked-ad-empty rows: 999,659, 30.21%), and F5 helps more there than where both sources have history. Both
 empty-history cells are exactly zero, as the architecture requires.
 
 **Cold start.** The gain is largest for new users with known ads, where behavior
@@ -254,7 +255,7 @@ descriptive, not causal identity attribution. Full date/indegree/partition table
 ## Historical execution record (completed; do not rerun)
 
 ```bash
-PY=/opt/anaconda3/envs/ctr_project/bin/python
+PY=python   # tested environment: requirements-tested.txt
 $PY -B src/52_prepare_f5_test.py
 $PY -B src/53_infer_f5_test.py --smoke-test     # validation only; issues the certificate
 $PY -B src/53_infer_f5_test.py                  # refuses without a clean pushed worktree

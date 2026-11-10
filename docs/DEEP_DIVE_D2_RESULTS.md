@@ -121,7 +121,8 @@ Both zero and mismatched references are in `gauc_contributions.csv`.
 ## Correlation, oracle complementarity and population heterogeneity
 
 Mean matched / DeepFM score Pearson correlation is 0.99734; Wide & Deep / DeepFM
-is 0.99590. Other pairs range about 0.8955–0.9066. `correlations.csv` additionally
+is 0.99590; Wide & Deep / Mean matched is 0.99327. Pairs involving LR or LightGBM
+range about 0.8955–0.9066. `correlations.csv` additionally
 contains Spearman midrank and (p−y) residual correlation, separately by seed/split.
 `pairwise_overlap.csv` reports FN/FP Jaccard, recall and selected/false-positive
 counts at all fixed policies. Agreement is not correctness.

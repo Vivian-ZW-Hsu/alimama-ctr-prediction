@@ -64,8 +64,8 @@ residual size is listed separately.
 | F4 mean matched | 0.195 | 0.215 | 0.333 | 0.307 | 0.364 | **0.491** |
 
 At batch 1 every model is well under a millisecond with in-memory prepare + inference, so single-request
-latency does not separate them. LR has the second-best pure p99 and the
-second-worst in-memory prepare + inference p50, again because of feature construction.
+latency does not separate them. LR has the best pure p99 (second-best pure p50) and the
+worst in-memory prepare + inference p50 and p95, again because of feature construction.
 
 ## Throughput, rows per second
 
@@ -100,7 +100,7 @@ rather than from the residual's 57,345 parameters. Streaming reads, memory mappi
 a tiered cache or an offline feature service would each change that number without
 touching the model.
 
-Two cheaper observations follow from the same table. **Wide & Deep has the highest
+Two cheaper observations follow from the same table. At batch 8192, **Wide & Deep has the highest
 in-memory prepare + inference throughput** of any model here, and **LightGBM the lowest**, which is
 the opposite of what its small tree count might suggest. And LR's enormous pure
 throughput is almost entirely erased by feature construction, so a sparse-feature
@@ -125,7 +125,7 @@ service would need that step optimised before the model mattered at all.
 ## Historical benchmark command (do not rerun this release)
 
 ```bash
-PY=/opt/anaconda3/envs/ctr_project/bin/python
+PY=python   # tested environment: requirements-tested.txt
 $PY -B src/49_serving_benchmark.py --f5-residual-run f5b_mean_matched_l200_lr500_s42_v1
 $PY -B -m unittest tests.test_serving_benchmark -v
 ```

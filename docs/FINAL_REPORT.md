@@ -80,7 +80,7 @@ Both sit on the same frozen DeepFM backbone.
 |---|---|---|---|
 | F5 attention matched | 0.647445 ± 7.7e-5 | 0.193043 ± 2.9e-5 | 0.570476 ± 5.4e-5 |
 | **F5 mean matched** | 0.647206 ± 6.0e-5 | 0.193061 ± 3.1e-5 | 0.570251 ± 2.4e-4 |
-| F4 mean matched | 0.646263 ± 4.4e-5 | 0.193120 ± 4.0e-6 | 0.570380 ± 1.1e-4 |
+| F4 mean matched | 0.646263 ± 4.4e-5 | 0.193120 ± 3.8e-6 | 0.570380 ± 1.1e-4 |
 | F5 mean mismatched | 0.646003 ± 1.3e-4 | 0.193153 ± 1.1e-5 | 0.569840 ± 6.3e-5 |
 | zero pipeline null | 0.645933 ± 0 | 0.193176 ± 0 | 0.569902 ± 0 |
 
@@ -96,7 +96,7 @@ seeds.
 Three findings qualify the picture. **Global and within-user ranking disagree**: F5 mean
 beats both the null and F4 on AUC, yet its GAUC intervals against both include zero
 (p = 0.172 and p = 0.621). **The gain lands where the sparse source was empty**: on
-the 985,688 test impressions with no clicked-ad history, F5 − zero is +0.001607
+the 985,688 test impressions with no clicked-ad history but a nonempty behavior history, F5 − zero is +0.001607
 against +0.001163 where both sources have history, and it is **negative on double
 cold start** (−0.001741 on 28,331 rows, no interval). **The saved bucket-relaxation sensitivity is small**: excluding all 1,457 relaxed rows moves matched − mismatched by at most
 9.0e-7 on AUC with every sign preserved.
@@ -104,8 +104,8 @@ cold start** (−0.001741 on 28,331 rows, no interval). **The saved bucket-relax
 F5 closes about **19.4%** of the global AUC gap between LR F123 (0.652489) and the
 frozen null, leaving LR ahead by roughly four times the entire F5 effect. On GAUC the
 ordering reverses, F5 reaching 0.570251 against LR's 0.569939 — consistent with the
-frozen-model bootstrap, where every GAUC difference among the tabular families also
-included zero.
+frozen-model bootstrap, where both bootstrapped tabular GAUC differences
+(LR − LightGBM, LR − Wide & Deep) also included zero.
 
 Full evidence and limits: [F5 validation and freeze](F5_BEHAVIOR_VALIDATION.md),
 [F5 formal test results](F5_BEHAVIOR_TEST_RESULTS.md),
@@ -209,8 +209,9 @@ Intervals are conditional on the frozen fitted models and this single test day;
 they estimate user-sampling uncertainty and **not** training-seed uncertainty,
 because each family has one seed. Two results matter for the narrative: LR's
 global ranking advantage over both neural families survives user resampling,
-while **every GAUC difference includes zero**, so that advantage does not
-transfer to within-user ranking. LR over LightGBM is a ranking difference, not a
+while **both bootstrapped GAUC differences (LR − LightGBM, LR − Wide & Deep)
+include zero** (LR − DeepFM GAUC was not in the preregistered set), so that
+advantage is not shown to transfer to within-user ranking. LR over LightGBM is a ranking difference, not a
 probability-quality difference. Details and limits in
 [FROZEN_MODEL_BOOTSTRAP.md](FROZEN_MODEL_BOOTSTRAP.md). GAUC evaluates only 104,884 users with both labels, covering 50.84%
 of test exposures; global AUC evaluates all exposures and cross-user pairs.
@@ -220,7 +221,8 @@ of test exposures; global AUC evaluates all exposures and cross-user pairs.
 ## Published Alimama results as background, not as a reproduction
 
 The DSIN paper ([arXiv:1905.06482](https://arxiv.org/abs/1905.06482), IJCAI 2019)
-reports on the same public advertising dataset with the same calendar split and
+reports on the same public advertising dataset with the same test day (2017-05-13;
+DSIN trains on May 6–12, while this project holds out May 12 for validation) and
 the users' most recent 200 `behavior_log` events: YoutubeNet without user
 behavior 0.6239, YoutubeNet with average pooling 0.6313, Wide & Deep 0.6326,
 DIN 0.6330, DIEN 0.6343, DSIN 0.6375.
@@ -415,8 +417,8 @@ seed-averaged. These are **descriptive subgroup differences with no intervals an
 no multiplicity control**; small cells carry a direction, not evidence.
 
 - **The gain is largest exactly where the sparse source was empty.** On the
-  **985,688** test impressions with no clicked-ad history — about **29.8%** of the
-  test day — F5 − zero is **+0.001607**, against +0.001163 where both sources have
+  **985,688** test impressions with no clicked-ad history but a nonempty behavior
+  history — about **29.8%** of the test day — F5 − zero is **+0.001607**, against +0.001163 where both sources have
   history. Both empty-history cells are exactly zero, as the architecture requires.
 - **New users with known ads gain most**, **+0.002785** on 358,678 rows, where
   behavior history partly substitutes for an unseen user ID.
@@ -424,7 +426,7 @@ no multiplicity control**; small cells carry a direction, not evidence.
   no interval. The direction is reported and deliberately not interpreted.
 - **The saved bucket-relaxation sensitivity is small.** It touches
   **1,457** rows (0.0440%); excluding them moves matched − mismatched by at most
-  **9.0e-7** on AUC and 5.0e-6 on GAUC, with every sign preserved.
+  **9.0e-7** on AUC and 5.3e-6 on GAUC, with every sign preserved.
 - **Higher UNKNOWN groups did not exhibit smaller observed AUC gains**:
   +0.001113 at zero UNKNOWN and **+0.001526** above 0.20. This does not identify
   the effect of removing masking. UNKNOWN is **4.3029%** of the full in-window

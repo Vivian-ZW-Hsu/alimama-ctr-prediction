@@ -83,12 +83,14 @@ stable under user resampling at the smallest resolvable p-value.
 ## What the intervals change in the narrative
 
 **1. The global ranking order is no longer only a point difference.** LR over
-DeepFM and LR over Wide & Deep exclude zero on AUC, LogLoss and PR-AUC. Under
+DeepFM excludes zero on both preregistered metrics (AUC, LogLoss); LR over
+Wide & Deep excludes zero on AUC, LogLoss and PR-AUC. Under
 user resampling of this frozen test day, the neural families do not reach the
 linear baseline on global ranking or probability quality.
 
-**2. LR's global AUC advantage does not transfer to within-user ranking.** GAUC
-differences include zero in every comparison, with p = 0.941 against LightGBM and
+**2. LR's global AUC advantage does not transfer to within-user ranking.** Both GAUC
+differences that were tested include zero (LR − DeepFM GAUC was not part of
+the preregistered set), with p = 0.941 against LightGBM and
 p = 0.652 against Wide & Deep. The existing qualitative statement that the four
 families have "very close" GAUC is now quantified: the GAUC intervals are
 consistent with no difference at all, while the AUC intervals are not. Global AUC
