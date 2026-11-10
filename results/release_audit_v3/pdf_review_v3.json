@@ -2,7 +2,7 @@
   "pages": [
     {
       "page": 1,
-      "extracted_characters": 1593,
+      "extracted_characters": 1666,
       "embedded_truetype": true,
       "text_within_page": true
     },
@@ -14,7 +14,7 @@
     },
     {
       "page": 3,
-      "extracted_characters": 1674,
+      "extracted_characters": 1731,
       "embedded_truetype": true,
       "text_within_page": true
     },
@@ -38,7 +38,7 @@
     },
     {
       "page": 7,
-      "extracted_characters": 780,
+      "extracted_characters": 860,
       "embedded_truetype": true,
       "text_within_page": true
     },
@@ -62,13 +62,13 @@
     },
     {
       "page": 11,
-      "extracted_characters": 645,
+      "extracted_characters": 648,
       "embedded_truetype": true,
       "text_within_page": true
     },
     {
       "page": 12,
-      "extracted_characters": 600,
+      "extracted_characters": 475,
       "embedded_truetype": true,
       "text_within_page": true
     },
@@ -98,7 +98,7 @@
     },
     {
       "page": 17,
-      "extracted_characters": 1567,
+      "extracted_characters": 1606,
       "embedded_truetype": true,
       "text_within_page": true
     },
@@ -110,7 +110,7 @@
     },
     {
       "page": 19,
-      "extracted_characters": 1340,
+      "extracted_characters": 1247,
       "embedded_truetype": true,
       "text_within_page": true
     }
@@ -120,9 +120,9 @@
   "min_cjk_per_page": 35,
   "font_name": "Arial Unicode.ttf",
   "font_sha256": "876af2cd4854644e7f3e7feb2f688997fdb3343c6df6693611209c9dfb47ccec",
-  "pdf_sha256": "0fe3a667b166372cb91e3eecbc07dd9b9d7457baec395493939e8e3e14278d55",
-  "source_sha256": "3d6fd76177ca9a16bab515fb1d1276b200635da3b12aac846bd44037b2b0037d",
-  "visual_review": "All 19 rendered pages inspected. Final changed pages 6/7/15/18/19 reinspected; other 14 PNGs byte-identical to inspected preceding render.",
+  "pdf_sha256": "ad68e23e705de18d7494238d604e76b9836ca061f72c53776568a40988d7b10e",
+  "source_sha256": "b71a0260db54bfb8099473f69f63c886af3cd6f8bda76f06ba2062b5fb3b9ff5",
+  "visual_review": "All 19 rendered pages inspected. After the 2026-11-09 source revision, changed pages 1/3/7/11/12/17/19 were reinspected; the other 12 PNGs are byte-identical to the previously inspected render.",
   "missing_glyphs": [],
   "visual_review_complete": true,
   "page_reviews": [
@@ -131,7 +131,7 @@
       "passed": true,
       "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
       "notes": "Summary, CJK and corrected claim boundaries legible",
-      "png_sha256": "3c413462a8dc3db1842180004c3c5d5dc2896a6f1408672c7da4a39a670eb79e"
+      "png_sha256": "ffc3014c43964af3f2a72783ff73af1a7b95d12203524a6f6871bdf106dfefb9"
     },
     {
       "page": 2,
@@ -145,7 +145,7 @@
       "passed": true,
       "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
       "notes": "F5 condition table and comparison narrative intact",
-      "png_sha256": "ee746ae8d420ed8fa6ba0d337f17dad853a20b0a2aafcf27e0a2113d537a13b0"
+      "png_sha256": "4dc4e6202545311c4231025b9362fb6d8b835c817318652cc5e28671875843bf"
     },
     {
       "page": 4,
@@ -172,8 +172,8 @@
       "page": 7,
       "passed": true,
       "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
-      "notes": "E3 interval table kept together with its introductory heading",
-      "png_sha256": "ce52bf2e7fa1dd5a64248075a326efd30eed3be5c65196bdeb89f343ce3480a0"
+      "notes": "E3 interval table kept together with its heading; GAUC scope sentence legible",
+      "png_sha256": "40f6650ff19f48af5e555e87320b25d015016b926a37ede040e96c1cc3b01a3c"
     },
     {
       "page": 8,
@@ -201,14 +201,14 @@
       "passed": true,
       "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
       "notes": "Calibration figure 5 legend, COPC axis and definitions intact",
-      "png_sha256": "dedb82aa98ba457b9ff7ca5534b65ec350802bbcaf3af3a1ea6097f408dacf91"
+      "png_sha256": "c997656439eda1e4dea1d153278cc5ca2b1d977fa63f4f1ba218376616c9f7f4"
     },
     {
       "page": 12,
       "passed": true,
       "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
-      "notes": "Common-error figure 6 and top-10% qualifier intact",
-      "png_sha256": "b45526c660c448819005a21f4374b3f8174c447fe226ed1c7b1fe42f7ab9013d"
+      "notes": "Common-error figure 6, its shortened footnote and top-10% qualifier intact",
+      "png_sha256": "30645046216e9b356b5374175d2c557c399faae8e50212eb221d2b9eed04debf"
     },
     {
       "page": 13,
@@ -243,7 +243,7 @@
       "passed": true,
       "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
       "notes": "UNKNOWN denominators and in-memory serving scope legible",
-      "png_sha256": "99d365d3fe310ac16be196c8743f9a17f1a09d5f6ff06c37f8396152aecaf44c"
+      "png_sha256": "4edf2e3fabcbfb026f311b796d9ab580067ab2638dadd27aa02f231bc12b4e19"
     },
     {
       "page": 18,
@@ -256,8 +256,24 @@
       "page": 19,
       "passed": true,
       "checked": "Chinese glyphs, tables/legends, clipping, pagination, references and footer",
-      "notes": "Read-only commands, reference table and archive paths legible",
-      "png_sha256": "c0d4319ac81323980d4086abd9a91e2ebb73eda3e80498e1f4169b4cb735b62f"
+      "notes": "Read-only commands and R1-R7 reference table legible",
+      "png_sha256": "2601e50e36bffc156262893070e1ef8f68375a9ae482bc3dd44cff0b50d13ade"
     }
-  ]
+  ],
+  "revision": {
+    "date": "2026-11-09",
+    "previous_pdf_sha256": "0fe3a667b166372cb91e3eecbc07dd9b9d7457baec395493939e8e3e14278d55",
+    "previous_source_sha256": "3d6fd76177ca9a16bab515fb1d1276b200635da3b12aac846bd44037b2b0037d",
+    "changed_pages": [
+      1,
+      3,
+      7,
+      11,
+      12,
+      17,
+      19
+    ],
+    "renderer": "src/39_render_final_report.py, Python 3.13.5 with requirements-report.txt versions, same font file",
+    "source_changes": "numeric statements aligned with saved result files; one paragraph and one reference row removed; figure 6 footnote shortened"
+  }
 }
