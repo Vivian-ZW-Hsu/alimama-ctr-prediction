@@ -184,8 +184,6 @@ def main():
     figures=json.loads((ROOT/'results/deep_dive_final_v1/figure_manifest.json').read_text())
     for field in ['inputs_sha256','figures_sha256']:
         for name,digest in figures[field].items(): assert sha(ROOT/name)==digest,name
-    legacy=json.loads((ROOT/d2/'legacy_audit.json').read_text())
-    assert legacy['legacy_arrays_available'] is False and legacy['sixty_percent_exact_reproducible'] is False
     freeze=json.loads((ROOT/'results/sequence_selection_v2/freeze_manifest.json').read_text())
     assert len(freeze['checkpoints'])==15
     plan=freeze['comparison_plan']

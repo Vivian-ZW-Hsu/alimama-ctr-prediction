@@ -5,19 +5,9 @@ DIN evidence is **badecf4**; its report, bootstrap and calibration remain unchan
 This analysis took 419.53 seconds. No fitting, bootstrap or CTR inference occurred.
 New slices are descriptive; residual-seed std is not a sampling confidence interval.
 
-## Common errors and the archived “60%” claim
+## Common errors
 
-The archive README claims 60% of clicks were missed by all five models on roughly
-2.85M test exposures. `archive/v1-original:scripts/analysis.py:109–124` explicitly
-uses **per-model test 90th-percentile thresholds**, including ties, not p>=0.5.
-The denominator is all clicks in `test_labels.npy`. Missing model arrays are
-silently skipped. Arrays are aligned by position without an impression-ID check;
-the later failure-analysis model is chosen by test AUC. Required old arrays and
-notebook numeric outputs are unavailable, so the exact 60% cannot be reproduced.
-
-Thus “the old 60% came from a 0.5 threshold” is **contradicted by available source**.
-A budget-dependent miss rate also cannot establish intrinsic model impossibility.
-The following new diagnostic uses the rebuilt cohort with ID-validated predictions.
+A budget-dependent miss rate cannot establish intrinsic model impossibility.
 Five models are LR, LightGBM, Wide & Deep, DeepFM and the preselected Mean matched;
 Attention matched substitutes as fifth only for sensitivity.
 
@@ -27,7 +17,7 @@ Attention matched substitutes as fifth only for sensitivity.
 | Exact top 1% per model | 94.6095% |
 | Exact top 5% per model | 82.4252% |
 | Exact top-10% exposure budget per model | 71.3787% |
-| Legacy tie-inclusive top-10% exposure quantile | 71.3787% |
+| Tie-inclusive per-model 90th-percentile threshold | 71.3787% |
 
 The Attention alternative gives 71.3783% at top 10%. The Mean five-model union
 captures 28.62% of clicks while selecting **14.61% of exposures**, not 10%; this

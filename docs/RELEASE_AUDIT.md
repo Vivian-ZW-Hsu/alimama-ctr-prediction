@@ -2,7 +2,7 @@
 
 本轮为 **F5 控制实验与最终发布审计修订**。E1–E6 和首次 F5 test 已完成；项目关闭，只允许只读审计、合成测试、文档修正与 PDF 重建。冻结基线为 `cb325aae39a43c42c002744ca9c7b02510d3cb69`；原 `badecf4` 证据和全部正式产物继续保留。不训练、不推理、不生成 bootstrap 重复、不拟合校准器、不重跑 benchmark。
 
-中文 PDF 为 **19 页**，当前 QA 见 `results/release_audit_v3/pdf_review_v3.json`。原 PDF 已归档为 `results/release_audit_v3/FINAL_REPORT_ZH_before_revision.pdf`；v1/v2 审计证据不改写。Arial Unicode TrueType 子集嵌入；逐页检查中文、表格、图例、分页、页脚与引用。独立 `.venv-report` 使用 `requirements-report.txt`。
+中文 PDF 为 **19 页**，当前 QA 见 `results/release_audit_v3/pdf_review_v3.json`。Arial Unicode TrueType 子集嵌入；逐页检查中文、表格、图例、分页、页脚与引用。独立 `.venv-report` 使用 `requirements-report.txt`。
 
 ## 公开仓库隐私与路径闭环（2026-09-27）
 
@@ -45,7 +45,6 @@
 | README / 中英文报告 / CSV / JSON | 核对整体、逐 seed、汇总、差值、bootstrap 点估计、冷启动、历史长度、GAUC 贡献和每日计数；原始数值文件不变 |
 | 数字冲突 | D2 文档已知用户 GAUC 贡献原写约 98.88%；保存值约 98.885477%，统一按四舍五入写 98.89%；仅修正文案 |
 | 共同漏报 | 71.38% 始终附每模型 top-10% 曝光预算，分母为所有 test 点击；并集曝光覆盖为 14.61%，不是 10% |
-| 旧 60% | 源码为 top-10% 分位阈值；旧预测数组缺失，无法精确复现旧 60%，不能归因于 probability≥0.5 |
 | 组件删除 | 全部明确为 frozen component deletion 的 sensitivity diagnostic，不是 retrained ablation |
 | 时间与重复曝光 | 明确为描述性关联；不能归因为漂移或广告疲劳的因果作用 |
 | 图题与表题 | 八图逐项核对来源、分母、指标方向、缩放与横轴截断；中文图序为原图 01、02、05、04、08、03、06、07 |
@@ -102,7 +101,7 @@
 
 历史 F3 是本协议中最大的已观察信息增益。用户匹配序列相对错配及 zero 提供小幅、已有用户 cluster 区间支持的增量；F4 attention 未显示稳健实际优势，F5 attention 有小幅探索性差值。序列未超越强全局 LR，但 GAUC 的排序可以不同。校准整体改善仍伴随双冷启动 COPC≈0.581；长度 20 的 AUC 增益与 LogLoss 恶化并存。
 
-这些结论受单一冻结 backbone、表格模型单 seed、两个 held-out 日期及部分 test 先前已曝光的限制。分组是在已知整体结果后、对应新分组结果前固定，不能追称原始预注册。已有校准是 impression-level 80/20，不是 user-grouped OOF。时间漂移、稀疏证据与重复曝光的因果贡献均未被识别。旧预测缺失，因此旧 60% 无法精确复现。
+这些结论受单一冻结 backbone、表格模型单 seed、两个 held-out 日期及部分 test 先前已曝光的限制。分组是在已知整体结果后、对应新分组结果前固定，不能追称原始预注册。已有校准是 impression-level 80/20，不是 user-grouped OOF。时间漂移、稀疏证据与重复曝光的因果贡献均未被识别。
 
 ## 数据目录与运行命令
 

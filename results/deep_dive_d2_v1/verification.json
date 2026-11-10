@@ -18,8 +18,7 @@
     "group_metrics.csv": "163efd83239abffcf3ab7e8ea4750ea5cebfbc46525cef2e82c6d26ce0647c26",
     "oracle.csv": "fb0fee3fd3a991339dfd1254097d593b4b8aa18a6b61f7cde80d88e3223c4817",
     "gauc_contributions.csv": "f68a95d6d285ce725d54d8eb11e5a52b7d25e06cebb562f5f18bc83ddf7e1314",
-    "legacy_audit.json": "db71de4357277732843be15e7b31f3047d6d364f9af55503d715759a9bb70a21",
-    "manifest.json": "72c2722b26f727c21ba3fca9818ef45a3d358d1afb9ce7848e0762e8f61952c9",
+    "manifest.json": "d1a1edb411e99a8224b630652a79b531cf5a0935f9d981e02013b8741ebd5327",
     "common_errors.csv": "f3cc85e4b228983a29b1c1c417efa60c320f04aafeea12d6fbd2c3878af348d7",
     "double_cold_composition.csv": "06191fc2405ef6d7b0dd2892ed4301b5c74e5375d543efab0994863b4db77428",
     "group_summary.csv": "d1acd88b1fd3041ea09803a76d0f17fb41a62b4095bd309a57030f14d15cdc68"

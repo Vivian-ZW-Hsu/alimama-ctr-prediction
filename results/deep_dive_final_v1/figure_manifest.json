@@ -23,9 +23,9 @@
   },
   "figures_sha256": {
     "figures/deep_dive_v1/01_information_and_models.png": "9ca8a3333afb04168298e3c8ea791cda8b000f8ec8d90eeee0852071a495b4c8",
-    "figures/deep_dive_v1/03_common_errors.pdf": "a03ac1ed2a0ce8e22bcc8ca985fd66278a97b3e5443881fa1a604bb5ad8a4327",
+    "figures/deep_dive_v1/03_common_errors.pdf": "919e30553db0077bc830a8bf93366fd08169e1737e6a3137110ca50698bf3d3b",
     "figures/deep_dive_v1/01_information_and_models.pdf": "e9bbee775f6ced536b76104a9a0025522b83fca1c0280ff482e34c253cb87aaa",
-    "figures/deep_dive_v1/03_common_errors.png": "0ff5d591514ca3592328d0870288578d38d6bac1c635367f2edabbe0342af2f8",
+    "figures/deep_dive_v1/03_common_errors.png": "4a2b0cc4c6bc9311551d6ab4c7179c4fe6e699ae6c266f0457840063b163aed3",
     "figures/deep_dive_v1/08_calibration_group_bias.png": "8ab69c6c3f1c7e98e18f994c45411e9d9bacac7ab5085f16b8d27b35bb71346d",
     "figures/deep_dive_v1/08_calibration_group_bias.pdf": "91e799bead7421c250990f0a82a5300e4e9d4914a4394ccc73bdea079150be9e",
     "figures/deep_dive_v1/05_gauc_contributions.png": "a48fdb2e01212c314eb60e9b0e0c10791da91e267fd8cdfdaf6af388618c9ccd",
@@ -46,5 +46,5 @@
   },
   "bootstrap_or_calibration_repeated": false,
   "model_inference": false,
-  "script_sha256": "8168778649832b897e2280d71d4d8400f7725a6cefd5c5e5bc4e780482be8cf5"
+  "script_sha256": "2819e6e6346eb93085a03cb4e4a4f5e871fa09ac9f618548c2aaf58708f71b41"
 }

@@ -4,9 +4,9 @@
   "cap_seconds": 3600,
   "frozen_evidence_commit": "badecf4",
   "inputs_sha256": {
-    "docs/DEEP_DIVE_RESEARCH_PLAN.md": "a2cabba241e434eaf2358c60c9d6ab9975c3767ab18271c3754a36ecee8a5c2d",
+    "docs/DEEP_DIVE_RESEARCH_PLAN.md": "07fe538cb1168fc3d0c0e0ec46f975e6d0ba8a03c139a8b403fa97e82c7c332a",
     "docs/DIN_F4_TEST_RESULTS.md": "d508e9be7747ef1c0dc87ac4787aa7cae97e7c1f7311bdbebf3ea4b9ac29c6b3",
-    "src/33_deep_dive_saved_predictions.py": "ed0537a1260a8ac1ddfce0006ff833257f92695a1840d6e9a9df32e44b2a1889",
+    "src/33_deep_dive_saved_predictions.py": "eceea2d6b78c6925d8364f008b2ec38c5e96a6ce7ba31d8928d2311174793c5e",
     "src/deep_dive_common.py": "4f49e25e3b9612e2cc2ae72f4b57d83eb3cd02cdb800af5cb836d80c3a7aee26",
     "results/sequence_posthoc_v1/training_seed_identity_differences.csv": "7c81c19ceb813b0a890fa743a1d93689f560844df1dc3a655c417518809c398f",
     "results/sequence_posthoc_v1/group_paired_differences.csv": "21e898cba55e086f91af9367f13eb6a88601cdefa9b19680a9c27739350cc682",
@@ -98,7 +98,6 @@
     "group_metrics.csv": "163efd83239abffcf3ab7e8ea4750ea5cebfbc46525cef2e82c6d26ce0647c26",
     "oracle.csv": "fb0fee3fd3a991339dfd1254097d593b4b8aa18a6b61f7cde80d88e3223c4817",
     "gauc_contributions.csv": "f68a95d6d285ce725d54d8eb11e5a52b7d25e06cebb562f5f18bc83ddf7e1314",
-    "legacy_audit.json": "db71de4357277732843be15e7b31f3047d6d364f9af55503d715759a9bb70a21",
     "common_errors.csv": "f3cc85e4b228983a29b1c1c417efa60c320f04aafeea12d6fbd2c3878af348d7",
     "double_cold_composition.csv": "06191fc2405ef6d7b0dd2892ed4301b5c74e5375d543efab0994863b4db77428"
   },

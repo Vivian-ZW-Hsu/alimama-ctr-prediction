@@ -63,33 +63,27 @@ probabilities, one zero reference, and all three Mean matched seeds.
 
 ## D2 — Saved-prediction error and heterogeneity analysis
 
-1. Audit `archive/v1-original` code/notebook/README for the old “60% missed” claim:
-   exact denominator, threshold, missing-model fallback, label/prediction alignment
-   and sample size. Source inspection already shows archived `scripts/analysis.py`
-   uses **top-10% quantiles**, not probability >=0.5. Reproduce old numbers only if
-   original arrays exist; otherwise distinguish executable rule from unverifiable
-   numeric claim. Do not execute archived training/inference code.
-2. On current saved predictions report both semantic probability >=0.5 and exact
+1. On current saved predictions report both semantic probability >=0.5 and exact
    top 1%, 5%, 10% exposure budgets (descending probability, impression-ID tie
-   break, ceil(q*N)). Also reproduce archived >=90th-percentile tie-inclusive
-   logic to quantify excess quota from ties. These are fixed diagnostic operating
+   break, ceil(q*N)). Also report the >=90th-percentile tie-inclusive rule to
+   quantify excess quota from ties. These are fixed diagnostic operating
    policies, not selected production thresholds. Denominator for common misses
    is all observed clicks; report recall, false positives, selected exposure share,
    pairwise FN/FP Jaccard and common-error profile composition at exact top 10%.
-3. Report Pearson score correlation, Spearman midrank correlation, and residual
+2. Report Pearson score correlation, Spearman midrank correlation, and residual
    (p-y) correlation; model agreement is not ground-truth correctness. Compare
    label-informed minimum per-row LogLoss oracle to each fixed model, and union
    recall with its expanded coverage. These are unattainable oracle bounds, not a
    deployable ensemble, and not equal-budget gains.
-4. Quantify sequence heterogeneity and the fixed long-history anomaly with signed
+3. Quantify sequence heterogeneity and the fixed long-history anomaly with signed
    probability/log-loss changes by label and semantic groups. Keep seed variation
    separate; add no bootstrap or new significance claims.
-5. Decompose **existing per-user GAUC** numerator differences by user-constant
+4. Decompose **existing per-user GAUC** numerator differences by user-constant
    history length, known/new user, F2 activity and F3 user evidence. Use original
    eligible-user exposure weights and show each group's contribution to overall
    ΔGAUC plus coverage. Ad coldness varies within user and cannot define an
    additive whole-user GAUC decomposition; report user type, not ad-based fragments.
-6. Report population/activity metrics for all five model families, plus matched
+5. Report population/activity metrics for all five model families, plus matched
    versus mismatched sequence differences. Explain association and support sizes;
    demographic codes are dataset attributes, not causal mechanisms.
 

@@ -335,17 +335,11 @@ unseen future traffic.
 
 ## Audit of common misses and model complementarity
 
-The archived “60% missed by every model” source uses **top-10% quantiles**, not
-p>=0.5. Its original arrays are absent, so the exact number is unverifiable.
-The script also skips missing models and lacks ID-based array alignment. It must
-not be merged numerically with this rebuilt 3.31M-exposure test cohort.
-
-Here five-model common misses are 71.38% at an exact **top-10% exposure budget per model** and 99.97% at
+Five-model common misses are 71.38% at an exact **top-10% exposure budget per model** and 99.97% at
 p>=0.5. The top-10% union reaches 28.62% recall at **14.61% exposure coverage**,
 so it is not an equal-budget ensemble gain. Known/known traffic supplies most
 absolute common misses; new-user/known-ad traffic actually has a lower within-
-group common-miss rate than known/known. The original broad cold-user claim is
-not transferred into the new narrative.
+group common-miss rate than known/known.
 
 Neural scores are strongly correlated: Mean matched/DeepFM Pearson≈0.99734 and
 Wide & Deep/DeepFM≈0.99590. Pairwise error overlap and Spearman/residual correlation

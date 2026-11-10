@@ -2,7 +2,6 @@ claim,status,evidence,limitation
 Historical feedback is largest observed information gain,"supported, conditional",results/lr_f1_f2_f3/evaluation/overall_metrics.csv; results/deep_dive_d3_v1/validation_metrics.csv,LR trained ablation plus frozen reliance; not universal learner claim
 Matched sequence adds a small increment,frozen inferential evidence,results/sequence_posthoc_v1/bootstrap_intervals.csv,"Fixed backbone/day; three residual seeds, not independent backbones"
 Attention superiority,not robustly established,results/sequence_posthoc_v1/bootstrap_intervals.csv,Exploratory tiny LogLoss effect; no post-test switch
-Old 60 percent caused by probability >=0.5,contradicted by archived code,archive/v1-original:scripts/analysis.py:109; notebooks/analysis.ipynb cell 7,Original arrays absent; numeric 60 percent cannot be reproduced
 GAUC gain concentrated among known/active users,descriptive decomposition,results/deep_dive_d2_v1/gauc_contributions.csv,"Eligible-user weighting, not causal effect of activity"
 Double cold equals no evidence,contradicted by fine-history composition,results/deep_dive_d2_v1/double_cold_composition.csv,Vocabulary novelty and available history differ
 F3 reliance exceeds F2 for frozen LR/DeepFM,validation diagnostic,results/deep_dive_d3_v1/validation_metrics.csv,Post-fit neutralization may be off-distribution; not retrained ablation

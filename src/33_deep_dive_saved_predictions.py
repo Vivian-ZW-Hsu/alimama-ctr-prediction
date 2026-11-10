@@ -1,11 +1,10 @@
 """D2: fixed-group diagnostics using saved predictions only."""
 import json
-import subprocess
 import numpy as np
 import polars as pl
 from scipy.stats import rankdata
 from deep_dive_common import (ROOT, DATA, POSTHOC_DATA, Stage, TABULAR, SEEDS,
-    read_p, predict_path, loss, count_band, evidence_band, top_budget, grouped_metrics, write_json)
+    read_p, predict_path, loss, count_band, evidence_band, top_budget, grouped_metrics)
 
 GROUPS = ['raw_history', 'f2_activity', 'user_evidence', 'ad_evidence', 'recency', 'diversity',
           'final_gender_code', 'age_level', 'pvalue_level', 'shopping_level', 'has_profile', 'pid_raw', 'hour_block']
@@ -172,15 +171,6 @@ def main():
         stage.bind(ROOT/file)
     for file in (ROOT/'results/sequence_posthoc_v1').glob('*'):
         if file.is_file():stage.bind(file)
-    old=subprocess.check_output(['git','show','archive/v1-original:scripts/analysis.py'],text=True)
-    assert 'TOPK = 0.10' in old and 'np.quantile(allPreds[m], 1 - TOPK)' in old
-    write_json(stage.out/'legacy_audit.json',{'archive_commit':subprocess.check_output(['git','rev-parse','archive/v1-original'],text=True).strip(),
-        'source':'scripts/analysis.py lines 109-124, 201-241','threshold':'p >= per-model test 90th percentile; tie inclusive',
-        'denominator':'all clicks from test_labels.npy','missing_models':'silently skipped; actual set depends on available arrays',
-        'alignment':'positional arrays; no impression-ID assertion in analysis script',
-        'test_dependent_best_model':'max available test AUC used for failure analysis',
-        'legacy_arrays_available':False,'sixty_percent_exact_reproducible':False,
-        'probability_half_explanation_supported':False,'note':'Current numbers use a rebuilt, different cohort and ID-validated predictions; not a numerical reproduction of old 60%'})
     errors=[];overlaps=[];correlations=[];oracle=[];profiles=[];metrics=[];long=[];gauc=[];cold=[]
     for split in ['val','test']:
         ctx=make_context(split,stage)

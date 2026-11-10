@@ -76,7 +76,7 @@ def main():
     for i in range(5):
         for j in range(5):ax[1].text(j,i,f'{matrix[i,j]:.3f}',ha='center',va='center',color='white' if matrix[i,j]>.96 else 'black',fontsize=8)
     fig.colorbar(im,ax=ax[1],shrink=.8)
-    save(fig,'03_common_errors','Five models: four tabular + Mean matched. Top budgets fixed in advance. Old archived “60%” used top 10%, not p ≥ 0.5.')
+    save(fig,'03_common_errors','Five models: four tabular + Mean matched. Top budgets fixed in advance.')
     # 4: exact accounting for two pre-existing anomalies.
     l=read('results/deep_dive_d2_v1/long_history_loss.csv').query('split=="test" and reference=="mean_mismatched" and group=="category_hit"')
     label=l.groupby(['seed','label']).contribution_to_long_history_delta.sum().groupby('label').mean()

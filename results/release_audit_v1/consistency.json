@@ -207,10 +207,6 @@
       "format": "csv",
       "rows": 918
     },
-    "results/deep_dive_d2_v1/legacy_audit.json": {
-      "sha256": "db71de4357277732843be15e7b31f3047d6d364f9af55503d715759a9bb70a21",
-      "format": "json"
-    },
     "results/deep_dive_d2_v1/long_history_loss.csv": {
       "sha256": "791f3848b2e7718c522c94e157a3c023c274093b119b89821f498c1207f4bde2",
       "format": "csv",
@@ -329,10 +325,6 @@
     },
     "results/deep_dive_final_v1/figure_manifest.json": {
       "sha256": "7201697c60d2de0f0efa3a49985172750a4f12552b3397c9aff9e72554eb04b3",
-      "format": "json"
-    },
-    "results/deep_dive_final_v1/legacy_notebook_corroboration.json": {
-      "sha256": "0974bb91c5ab34833e28a47560b5cf968302f596caea05c09ec52815f4a82001",
       "format": "json"
     },
     "results/deep_dive_final_v1/verification.json": {

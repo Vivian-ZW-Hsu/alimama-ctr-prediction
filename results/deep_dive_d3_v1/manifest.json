@@ -4,7 +4,7 @@
   "cap_seconds": 1800,
   "frozen_evidence_commit": "badecf4",
   "inputs_sha256": {
-    "docs/DEEP_DIVE_RESEARCH_PLAN.md": "a2cabba241e434eaf2358c60c9d6ab9975c3767ab18271c3754a36ecee8a5c2d",
+    "docs/DEEP_DIVE_RESEARCH_PLAN.md": "07fe538cb1168fc3d0c0e0ec46f975e6d0ba8a03c139a8b403fa97e82c7c332a",
     "docs/DIN_F4_TEST_RESULTS.md": "d508e9be7747ef1c0dc87ac4787aa7cae97e7c1f7311bdbebf3ea4b9ac29c6b3",
     "data/processed/model_input_f3/val.parquet": "231055cbd8edad4ba72b7f15cd354abafe5e532015be0c3b1a0aa2c87d787e5b",
     "artifacts/models/deepfm_f1_f2_f3/best_model.pt": "eae08d630ea8c9823b271e85554472ecb42ca7183ea9f5b3f4a1f2b47b220f39",
