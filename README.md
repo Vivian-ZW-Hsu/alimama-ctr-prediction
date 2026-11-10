@@ -21,7 +21,7 @@ about 3.3× the per-row compute and 7.5× the memory. All results are offline, o
 | Does a deeper model help at equal features? | No. LR > LightGBM > Wide & Deep > DeepFM on AUC; LR − DeepFM survives user resampling | [`frozen_model_bootstrap_v1`](results/frozen_model_bootstrap_v1/bootstrap_intervals.csv) |
 | Do user behavior sequences help? | A little: +0.00127 AUC over no history; primary GAUC intervals include zero | [`f5_sequence_test_v1`](results/f5_sequence_test_v1/bootstrap_intervals.csv) |
 | Are probabilities calibrated? | Isotonic cuts DeepFM ECE by 78%, but new-user × new-ad traffic is still over-predicted by 71% | [`deepfm_f1_f2_f3/calibration/`](results/deepfm_f1_f2_f3/calibration/evaluation/overall_metrics.csv) |
-| What does the sequence gain cost? | 1/3.27 of DeepFM's throughput and 7.48× its peak memory in this implementation | [`serving_benchmark_v1`](results/serving_benchmark_v1/serving_benchmark.csv) |
+| What does the sequence gain cost? | 0.306× (1/3.27) of DeepFM's throughput and 7.48× its peak memory in this implementation | [`serving_benchmark_v1`](results/serving_benchmark_v1/serving_benchmark.csv) |
 
 Full write-up: [English final report](docs/FINAL_REPORT.md) ·
 [中文报告 (PDF)](docs/FINAL_REPORT_ZH.pdf) / [中文文本](docs/FINAL_REPORT_ZH.md)
